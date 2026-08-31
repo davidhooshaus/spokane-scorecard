@@ -18,6 +18,18 @@
   .mark { display: inline-block; width: 26px; height: 26px; vertical-align: -6px; margin-right: 9px; }
   .mark svg { width: 100%; height: 100%; display: block; }
   .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .sitehead { padding: 16px 0 14px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+  .headrow { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
+  .bname { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.05rem; }
+  .brand .mark { width: 22px; height: 22px; display: inline-block; }
+  .brand .mark svg { width: 100%; height: 100%; display: block; }
+  .sitenav { display: flex; gap: 18px; font-size: 0.85rem; flex-wrap: wrap; align-items: center; }
+  .sitenav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--teal); text-decoration: underline; }
+  .navcta { background: var(--teal); color: #fff !important; border-radius: 3px; padding: 6px 12px; text-decoration: none !important; white-space: nowrap; }
+  .navcta:hover { background: var(--basalt); }
+  @media (max-width: 560px) { .bname { font-size: 0.95rem; } .sitenav { gap: 12px; font-size: 0.8rem; } }
   header { padding: 40px 0 22px; border-bottom: 3px solid var(--ink); }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   .kicker a { text-decoration: none; }
@@ -37,8 +49,20 @@
 <body>
 <div class="wrap">
 
+<header class="sitehead">
+  <div class="headrow">
+    <a class="brand" href="index.html"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="#2b3134"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="#2a6b73"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="#2b3134"/></svg></span><span class="bname">The Spokane Prosperity Scorecard</span></a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="index.html">The Score</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="archive/">Past Editions</a>
+      <a href="who.html">Who Made This</a>
+      <a class="navcta" href="https://tally.so/r/2E6e8g">Get the Update</a>
+    </nav>
+  </div>
+</header>
+
 <header>
-  <p class="kicker"><a href="index.html">&larr; The Spokane Prosperity Scorecard</a></p>
   <h1>Who made this</h1>
   <p class="standfirst">A page that grades a region owes you an account of who is doing the grading, what they want, and what might be skewing their judgment. Here is all of it except the name.</p>
 </header>

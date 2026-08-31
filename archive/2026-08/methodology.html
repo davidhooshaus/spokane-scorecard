@@ -38,6 +38,18 @@
   .mark { display: inline-block; width: 26px; height: 26px; vertical-align: -6px; margin-right: 9px; }
   .mark svg { width: 100%; height: 100%; display: block; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  .sitehead { padding: 16px 0 14px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+  .headrow { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
+  .bname { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.05rem; }
+  .brand .mark { width: 22px; height: 22px; display: inline-block; }
+  .brand .mark svg { width: 100%; height: 100%; display: block; }
+  .sitenav { display: flex; gap: 18px; font-size: 0.85rem; flex-wrap: wrap; align-items: center; }
+  .sitenav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--teal); text-decoration: underline; }
+  .navcta { background: var(--teal); color: #fff !important; border-radius: 3px; padding: 6px 12px; text-decoration: none !important; white-space: nowrap; }
+  .navcta:hover { background: var(--basalt); }
+  @media (max-width: 560px) { .bname { font-size: 0.95rem; } .sitenav { gap: 12px; font-size: 0.8rem; } }
   header { padding: 44px 0 24px; border-bottom: 3px solid var(--ink); }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   .kicker a { text-decoration: none; }
@@ -78,8 +90,20 @@
 </div>
 <div class="wrap">
 
+<header class="sitehead">
+  <div class="headrow">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="#2b3134"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="#2a6b73"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="#2b3134"/></svg></span><span class="bname">The Spokane Prosperity Scorecard</span></a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="/">The Score</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="/archive/">Past Editions</a>
+      <a href="who.html">Who Made This</a>
+      <a class="navcta" href="https://tally.so/r/2E6e8g">Get the Update</a>
+    </nav>
+  </div>
+</header>
+
 <header>
-  <p class="kicker"><a href="index.html">&larr; The Spokane Prosperity Scorecard</a></p>
   <h1>Methodology</h1>
   <p class="standfirst">How the grades work, where every number comes from, and, just as important, what this data can&rsquo;t tell you. If you find an error, the corrections policy is at the bottom. Errors get fixed and disclosed, not buried.</p>
 </header>
@@ -144,6 +168,7 @@
 
 <section>
   <h2>Change log</h2>
+  <p>v3.1, August 2026. Bug fix pass, no change to any figure or grade. Four real faults, found by auditing rather than by looking. <b>One:</b> the scorecard page had no top-level heading at all. Rebuilding the header a few versions ago turned the site name from a heading into ordinary text, which left the main page of the site with nothing for a screen reader or a search engine to identify it by. Restored. <b>Two:</b> the description of the flywheel diagram still used the retired colour words, so a reader using a screen reader heard green, red and yellow while the page itself says strong, weak and mixed. It now uses the same words as the rest of the page. <b>Three:</b> clicking a section link on a phone scrolled the heading underneath the navigation bar, because the offset was set for a single-row bar and the bar wraps to two rows on a narrow screen. <b>Four:</b> the methodology, calculator, who-made-this and archive pages had different navigation from the scorecard, so a reader who followed a link out of the main page lost the menu and the way to subscribe. All four now carry the same header. Also removed fourteen blocks of styling left behind by earlier revisions that no longer applied to anything.</p>
   <p>v3.0, August 2026. Wrote the seams. The ten sections were already in a defensible order, but each one began cold and none of them pointed at the next, so the page read as ten good sections rather than one argument. Every section now ends with a single line that poses the question the following section answers, and that line is also the link to it, so the narrative and the navigation are the same object. The scorecard also gained a forward reference to the published regional targets, because a score means more when the reader knows early that a standard exists and that this page checks against it. No section moved, no figure changed, no grade changed. The order was tested against a four part structure: the claim and its evidence, the mechanism and the objection to it, the actors who could move it and the proof that moving it works, and finally the ask. Every section held its position under that test.</p>
   <p>v2.9, August 2026. Presentation only. The background surfaces now rotate strictly rather than alternating unevenly. Three surfaces cycle in order across the sections, with the darkest one held back for the asks, where it marks the one place the page asks a reader to do something. Previously two sections at the top shared a surface and the pattern broke into streaks further down, which read as accidental. The rules between sections came out at the same time; when every neighbour differs in colour, a line between them is redundant. The section navigation collapsed from a nine-item list into four menus, each opening to the sections beneath it, built from the browser&rsquo;s own disclosure element so it needs no script and works on a phone. No figure, source or grade changed.</p>
   <p>v2.8, August 2026. Four structural changes, no change to any figure or grade. The verdict is now its own numbered section rather than the tail of the opening block, so it reads as the first chapter of the page instead of a continuation of the masthead. The edition date moved below the opening paragraphs, where it belongs as a detail rather than the first thing on the page. Navigation labels are in title case. And there is now a way to be told when the numbers change: a link in the header and two blocks in the page, pointing at a form that collects an email and nothing else. The commitment attached to it is one message a quarter, on the day the new grades post. Sections renumbered to run one through ten with the verdict first. Also relabelled the section comments in the source, which had drifted out of order during an earlier rearrangement and caused a block to be inserted in the wrong place.</p>

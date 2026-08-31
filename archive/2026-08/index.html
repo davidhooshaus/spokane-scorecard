@@ -96,7 +96,6 @@
     .sitenav { gap: 14px; font-size: 0.8rem; flex-wrap: wrap; }
   }
   .edition { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 22px; max-width: 46em; }
-  .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   h1 {
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
@@ -106,15 +105,6 @@
     letter-spacing: -0.005em;
   }
   header { padding: 34px 0 18px; }
-  .standfirst {
-    margin-top: 16px;
-    font-size: 1.08rem;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 40em;
-  }
-  .standfirst b { color: var(--ink); }
-  .dateline { margin-top: 14px; font-size: 0.9rem; color: var(--ink-soft); }
 
   /* Hero verdict */
   .hero {
@@ -137,15 +127,6 @@
     line-height: 1.55;
     color: var(--ink-soft);
     max-width: 36em;
-  }
-  .hero .q {
-    margin-top: 40px;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--teal);
-    max-width: none;
   }
   .notewho {
     margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--rule);
@@ -293,7 +274,8 @@
   .band-dark b, .band-dark strong { color: #ffffff; }
   .band-dark a:hover { color: #ffffff; }
   .band-dark .collegeask { border-left-color: #9ed4d8; }
-  section[id] { scroll-margin-top: 56px; }
+  section[id] { scroll-margin-top: 62px; }
+  @media (max-width: 620px) { section[id] { scroll-margin-top: 104px; } }
   .secnum {
     font-family: "Fraunces", Georgia, serif;
     font-weight: 900;
@@ -429,25 +411,6 @@
   .geokey .gk { font-size: 0.8rem; color: var(--ink-soft); }
   .geokey .gk b { color: var(--ink); }
 
-  /* Chain */
-  .chain {
-    background: #ffffff;
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 16px 18px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px 10px;
-    font-size: 0.95rem;
-  }
-  .chain .step { font-weight: 700; white-space: nowrap; }
-  .chain .step .dir { font-weight: 700; }
-  .chain .up { color: var(--green); }
-  .chain .down { color: var(--red); }
-  .chain .mid { color: var(--amber); }
-  .chain .arrow { color: var(--ink-soft); }
-  .chain .cap { flex-basis: 100%; font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
 
   /* Ledger rows: a 4-across tile grid that opens to full width in place */
   .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; max-width: 46em; }
@@ -641,7 +604,6 @@
   .tag.gap { color: var(--ink-soft); background: #dfe7e6; }
   .tag.pub { color: var(--teal); background: #ddebec; }
   .tag.open { color: var(--lilac); background: #efecf5; }
-  .tag.mixed { color: var(--amber); background: var(--amber-bg); }
 
   /* City cards */
   .cities { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
@@ -702,7 +664,7 @@
 
 <header class="sitehead tintband">
   <div class="headrow">
-    <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/></svg></span><span class="bname">The Spokane Prosperity Scorecard</span></a>
+    <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/></svg></span><h1 class="bname">The Spokane Prosperity Scorecard</h1></a>
     <nav class="sitenav" aria-label="Site">
       <a href="#scorecard">The Score</a>
       <a href="methodology.html">Methodology</a>
@@ -1026,7 +988,7 @@
     <summary>See the whole machine, and why each turn makes the next one easier</summary>
     <div class="inner prose">
       <p>Everything on this page is one machine. Schools and new arrivals supply workers. Employers turn workers into paychecks. Paychecks become customers. Customers fill storefronts and pay taxes. Those taxes fund the services that make people and companies want to stay. Each turn makes the next one easier. Unless a gear is missing.</p>
-      <img src="flywheel.svg" alt="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop with city focus at the hub. A red dashed leak arrow shows graduates leaving for Boise or Seattle when higher-wage employers are missing. Grade dots mark Spokane green on talent, red on employers and spending, yellow on storefronts." style="width:100%;height:auto;display:block;margin:14px 0 10px;border:1px solid var(--rule);border-radius:4px;">
+      <img src="flywheel.svg" alt="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop with city focus at the hub. A red dashed leak arrow shows graduates leaving for Boise or Seattle when higher-wage employers are missing. Grade dots mark Spokane strong on talent, weak on employers and spending, and mixed on storefronts." style="width:100%;height:auto;display:block;margin:14px 0 10px;border:1px solid var(--rule);border-radius:4px;">
       <p style="font-size:0.85rem;color:var(--ink-soft);">The dots are Spokane&rsquo;s current grades from the measures above. Green where people enter the wheel, red exactly where the employers should be, and the red bleeding downstream. The region&rsquo;s challenge isn&rsquo;t to spin every gear. It&rsquo;s to fix the one that&rsquo;s missing, and city hall&rsquo;s part is to pull its own levers toward it.</p>
     </div>
   </details>
