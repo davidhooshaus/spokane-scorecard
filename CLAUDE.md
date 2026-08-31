@@ -50,6 +50,14 @@ Files:
 
 ## Voice
 
+**Reading level: 6th grade.** Run `python3 tools/readability.py` before publishing. The
+exception is terminology where simplifying would change the meaning: taxable retail sales,
+labor force participation, local multiplier, per-person income, and the proper names of
+agencies and schools. Keep those exact. Everything around them gets short sentences and
+plain words. The lever is almost always sentence length, not vocabulary. Never trade away a
+number, a geography label, or a caveat to hit a score. Clarity, not simplification.
+
+
 Plain words, short sentences, resident-to-resident. No corporate register, no
 academic hedging beyond what honesty requires. Never use em dashes (periods,
 commas, or parentheses instead). No exclamation points. Bench lines argue the
