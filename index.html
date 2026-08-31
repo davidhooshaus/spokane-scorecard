@@ -341,14 +341,14 @@
   @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
 
   /* Street illustration */
-  .street { margin: 18px 0 4px; }
+  .street { margin-top: 18px; margin-bottom: 4px; }
   .street img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
   .street figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 42em; }
   .street figcaption b { color: var(--ink); }
 
   /* Flow diagram */
   .flow {
-    display: flex; align-items: stretch; gap: 8px; margin: 4px 0 14px;
+    display: flex; align-items: stretch; gap: 8px; margin-top: 4px; margin-bottom: 14px;
   }
   .node {
     flex: 1 1 0; background: #fff; border: 1px solid var(--rule);
@@ -535,7 +535,7 @@
   .glab { display: block; margin-top: 7px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
 
   /* Money in vs money already here */
-  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 4px; }
+  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; margin-bottom: 4px; }
   @media (max-width: 620px) { .moneyflow { grid-template-columns: 1fr; } }
   .mcol { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 15px; }
   .mcol.in { border-top: 4px solid var(--teal); }
@@ -549,7 +549,7 @@
   .mnote { margin-top: 14px; font-size: 0.9rem; font-weight: 600; max-width: 42em; }
 
   /* Ecosystem diagram */
-  .ecosys { margin: 4px 0 22px; }
+  .ecosys { margin-top: 4px; margin-bottom: 22px; }
   .ecosys svg { width: 100%; height: auto; display: block; }
   .ecap { margin-top: 10px; font-size: 0.9rem; color: var(--ink-soft); max-width: 42em; }
   @media (max-width: 620px) { .ecosys svg { display: none; } .ecap { margin-top: 0; } }
