@@ -55,7 +55,7 @@ Paste this as the routine's prompt. It is deliberately verbose about the
 guardrails, because an unattended run has nobody to stop it.
 
 ```
-You are running the quarterly update for The Spokane Employer Scorecard. This
+You are running the quarterly update for The Spokane Prosperity Scorecard. This
 is an unattended cloud run against the spokane-scorecard repo. All paths are
 repo-relative.
 

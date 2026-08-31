@@ -1,5 +1,5 @@
 ---
-description: Run the full quarterly data refresh for the Spokane Employer Scorecard
+description: Run the full quarterly data refresh for the Spokane Prosperity Scorecard
 ---
 
 Run the quarterly update. Follow CLAUDE.md rules throughout, especially:

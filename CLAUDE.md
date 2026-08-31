@@ -1,4 +1,4 @@
-# CLAUDE.md — The Spokane Employer Scorecard
+# CLAUDE.md — The Spokane Prosperity Scorecard
 
 Resident-run civic accountability site. One question, graded quarterly from
 public data: is Spokane attracting employers that raise wages? The site's
