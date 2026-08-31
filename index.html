@@ -145,24 +145,31 @@
 
   /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
   section { padding: 40px 0; border-bottom: 1px solid var(--rule); }
-  .band { position: relative; }
-  .band::before {
-    content: "";
-    position: absolute;
-    left: 50%; transform: translateX(-50%);
-    width: 100vw; top: 0; bottom: 0;
+  .band {
     background: var(--panel);
-    z-index: -1;
+    box-shadow: 0 0 0 100vmax var(--panel);
+    clip-path: inset(0 -100vmax);
   }
-  .band-deep::before { background: var(--panel-deep); }
-  .band-dark { border-bottom: none; color: #eaf0ef; }
-  .band-dark::before { background: var(--basalt); }
+  .band-deep {
+    background: var(--panel-deep);
+    box-shadow: 0 0 0 100vmax var(--panel-deep);
+  }
+  .band-dark {
+    background: var(--basalt);
+    box-shadow: 0 0 0 100vmax var(--basalt);
+    clip-path: inset(0 -100vmax);
+    border-bottom: none;
+    color: #eaf0ef;
+  }
   .band-dark h2.sect, .band-dark .ask h4 { color: #ffffff; }
   .band-dark .lede, .band-dark .ask p { color: #c3d0ce; }
   .band-dark .eyebrow { color: #7fbfc4; }
   .band-dark .ask { border-left-color: #7fbfc4; }
   .band-dark a { color: #9ed4d8; }
   .band-dark .asklabel { color: #9ed4d8; }
+  .band-dark p, .band-dark .ask p, .band-dark li { color: #c7d4d2; }
+  .band-dark b, .band-dark strong { color: #ffffff; }
+  .band-dark a:hover { color: #ffffff; }
   .band-dark .collegeask { border-left-color: #9ed4d8; }
   section[id] { scroll-margin-top: 56px; }
   .eyebrow {
