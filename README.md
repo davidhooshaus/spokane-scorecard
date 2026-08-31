@@ -1,4 +1,4 @@
-# The Spokane Employer Scorecard
+# The Spokane Prosperity Scorecard
 
 A resident-run, quarterly-updated public report card on one question: is
 Spokane attracting employers that raise wages? Built entirely from cited

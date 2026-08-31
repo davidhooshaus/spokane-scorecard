@@ -6,9 +6,9 @@
 <link rel="icon" href="/mark.svg" type="image/svg+xml">
 <link rel="mask-icon" href="/mark.svg" color="#2a6b73">
 <meta name="robots" content="noindex">
-<title>The Spokane Employer Scorecard</title>
+<title>The Spokane Prosperity Scorecard</title>
 <meta name="description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Eight measures, graded quarterly from public data. Every number links to its source.">
-<meta property="og:title" content="The Spokane Employer Scorecard">
+<meta property="og:title" content="The Spokane Prosperity Scorecard">
 <meta property="og:description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Built entirely from public data.">
 <meta property="og:image" content="https://spokanescorecard.com/press/social-card.png">
 <meta property="og:image:width" content="1200">
@@ -17,13 +17,14 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #fbfbf8;
-    --ink: #1c2321;
-    --ink-soft: #4c544f;
-    --rule: #d9d9d0;
+    --paper: #fcfcfb;
+    --ink: #171d1c;
+    --ink-soft: #4a5654;
+    --rule: #dbe2e1;
+    --rule-strong: #b9c6c4;
     --lilac: #2a6b73;
     --teal: #2a6b73;
     --basalt: #2b3134;
@@ -33,7 +34,8 @@
     --green-bg: #eaf3ee;
     --amber-bg: #f7f0de;
     --red-bg: #f8e9e5;
-    --panel: #f4f3ec;
+    --panel: #eef3f2;
+    --panel-deep: #e3ebea;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -55,12 +57,21 @@
   header { padding: 40px 0 22px; }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   h1 {
-    font-family: "Source Serif 4", Georgia, serif;
-    font-weight: 700;
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+    font-weight: 900;
     font-size: clamp(1.9rem, 6.4vw, 2.9rem);
     line-height: 1.08;
     letter-spacing: -0.01em;
   }
+  .standfirst {
+    margin-top: 16px;
+    font-size: 1.08rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 40em;
+  }
+  .standfirst b { color: var(--ink); }
   .dateline { margin-top: 14px; font-size: 0.9rem; color: var(--ink-soft); }
 
   /* Hero verdict */
@@ -70,7 +81,7 @@
     padding: 30px 0 28px;
   }
   .hero .q {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-weight: 600;
     font-size: clamp(1.15rem, 3.6vw, 1.4rem);
     line-height: 1.3;
@@ -78,6 +89,8 @@
   }
   .status {
     display: inline-block;
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
     margin-top: 16px;
     font-size: clamp(2.4rem, 10vw, 4rem);
     font-weight: 700;
@@ -138,26 +151,63 @@
     nav.jump a { white-space: nowrap; }
   }
 
-  /* Section scaffolding */
-  section { padding: 34px 0; border-bottom: 1px solid var(--rule); }
+  /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
+  section { padding: 40px 0; border-bottom: 1px solid var(--rule); }
+  .band {
+    background: var(--panel);
+    box-shadow: 0 0 0 100vmax var(--panel);
+    clip-path: inset(0 -100vmax);
+  }
+  .band-deep {
+    background: var(--panel-deep);
+    box-shadow: 0 0 0 100vmax var(--panel-deep);
+  }
+  .band-dark {
+    background: var(--basalt);
+    box-shadow: 0 0 0 100vmax var(--basalt);
+    clip-path: inset(0 -100vmax);
+    border-bottom: none;
+    color: #eaf0ef;
+  }
+  .band-dark h2.sect, .band-dark .ask h4 { color: #ffffff; }
+  .band-dark .lede, .band-dark .ask p { color: #c3d0ce; }
+  .band-dark .eyebrow { color: #7fbfc4; }
+  .band-dark .ask { border-left-color: #7fbfc4; }
+  .band-dark a { color: #9ed4d8; }
+  .band-dark .asklabel { color: #9ed4d8; }
+  .band-dark p, .band-dark .ask p, .band-dark li { color: #c7d4d2; }
+  .band-dark b, .band-dark strong { color: #ffffff; }
+  .band-dark a:hover { color: #ffffff; }
+  .band-dark .collegeask { border-left-color: #9ed4d8; }
   section[id] { scroll-margin-top: 56px; }
   .eyebrow {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--lilac);
-    margin-bottom: 8px;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--rule-strong);
   }
   h2.sect {
-    font-family: "Source Serif 4", Georgia, serif;
-    font-weight: 600;
-    font-size: clamp(1.35rem, 4vw, 1.7rem);
-    line-height: 1.2;
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4.4vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
     margin-bottom: 14px;
   }
   h3 {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-weight: 600;
     font-size: 1.25rem;
     margin-bottom: 10px;
@@ -173,7 +223,15 @@
     gap: 16px;
     margin: 4px 0 20px;
   }
-  .num { border-top: 4px solid var(--red); padding-top: 12px; }
+  .num {
+    border-top: 4px solid var(--red);
+    background: #ffffff;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+    border-radius: 0 0 4px 4px;
+    padding: 14px 15px 16px;
+  }
   .num.flat { border-top-color: var(--amber); }
   .num .n {
     font-size: clamp(1.5rem, 5vw, 2.1rem);
@@ -186,7 +244,8 @@
 
   /* Chain */
   .chain {
-    background: var(--panel);
+    background: #ffffff;
+    border: 1px solid var(--rule);
     border-radius: 4px;
     padding: 16px 18px;
     display: flex;
@@ -244,7 +303,9 @@
     line-height: 1;
   }
   .row[open] > summary::after { content: "\2212"; }
-  .row > summary:hover .measure { color: var(--lilac); }
+  .row > summary:hover .measure { color: var(--teal); }
+  .row > summary:hover { background: linear-gradient(90deg, rgba(42,107,115,.05), transparent 60%); }
+  .row[open] { background: linear-gradient(90deg, rgba(42,107,115,.035), transparent 70%); }
   .row > summary .figure, .row > summary .result,
   .city > summary .name, .city > summary .move, .city > summary .headline { display: block; }
   .grade {
@@ -261,7 +322,7 @@
   .row.y .grade { color: var(--amber); background: var(--amber-bg); }
   .row.r .grade { color: var(--red); background: var(--red-bg); }
   .measure {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-weight: 600;
     font-size: 1.2rem;
     margin-left: 8px;
@@ -284,15 +345,15 @@
   .chart { margin-top: 14px; max-width: 32em; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
   .lab { flex: 0 0 96px; color: var(--ink-soft); line-height: 1.25; }
-  .track { flex: 1 1 auto; height: 11px; background: #eceadf; border-radius: 2px; overflow: hidden; }
-  .fill { display: block; height: 100%; background: #b9b4a6; border-radius: 2px; }
+  .track { flex: 1 1 auto; height: 11px; background: #dde5e4; border-radius: 2px; overflow: hidden; }
+  .fill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .bar.spk .lab { color: var(--ink); font-weight: 600; }
   .bar.spk .fill { background: var(--lilac); }
   .bar.neg .fill { background: var(--red); }
   .chart .note { margin-top: 6px; font-size: 0.8rem; color: var(--ink-soft); }
 
   /* Calculator teaser */
-  .teaser { background: var(--panel); border-radius: 4px; padding: 22px; }
+  .teaser { background: var(--panel-deep); border: 1px solid var(--rule); border-radius: 4px; padding: 22px; }
   .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 16px 0 4px; }
   .versus .side .in { font-weight: 700; font-size: 1.02rem; }
   .versus .side .out {
@@ -327,7 +388,7 @@
   @media (max-width: 620px) { .levers { grid-template-columns: 1fr; } }
   .lever { border: 1px solid var(--rule); border-radius: 4px; padding: 16px; background: #fff; }
   .lever h4 {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-size: 1.05rem;
     font-weight: 600;
     line-height: 1.25;
@@ -352,7 +413,7 @@
     vertical-align: 1px;
   }
   .tag.red { color: var(--red); background: var(--red-bg); }
-  .tag.gap { color: var(--ink-soft); background: #e8e7de; }
+  .tag.gap { color: var(--ink-soft); background: #dfe7e6; }
   .tag.open { color: var(--lilac); background: #efecf5; }
   .tag.mixed { color: var(--amber); background: var(--amber-bg); }
 
@@ -368,7 +429,7 @@
   }
   .city[open] > summary::after { content: "\2212"; }
   .city .name {
-    font-family: "Source Serif 4", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-size: 1.15rem; font-weight: 600;
   }
   .city .move { margin-top: 4px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--lilac); }
@@ -406,7 +467,7 @@
 </head>
 <body>
 <div style="background:#f7f0de;border-bottom:2px solid #a06e0a;padding:12px 0;">
-  <div style="max-width:760px;margin:0 auto;padding:0 20px;font-family:'Public Sans',-apple-system,sans-serif;font-size:0.92rem;color:#1c2321;line-height:1.45;">
+  <div style="max-width:760px;margin:0 auto;padding:0 20px;font-family:'Public Sans',-apple-system,sans-serif;font-size:0.92rem;color:#171d1c;line-height:1.45;">
     <b>Archived edition, August 2026.</b> Frozen as published. The figures and grades here are not updated. <a href="/" style="color:#2a6b73;">See the current scorecard</a> or <a href="/archive/" style="color:#2a6b73;">all past editions</a>.
   </div>
 </div>
@@ -414,7 +475,8 @@
 
 <header>
   <p class="kicker"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/></svg></span>A neighbor-run public ledger</p>
-  <h1>The Spokane Employer Scorecard</h1>
+  <h1>The Spokane Prosperity Scorecard</h1>
+  <p class="standfirst"><b>This is a report card on Spokane, not on any employer.</b> Four times a year it asks one question: is our region attracting the kind of companies that pay well? Nobody here is grading a business. We are grading how the region is doing at drawing those businesses in. Every answer comes from public data you can look up yourself.</p>
   <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="/archive/">Past editions</a> &middot; <a href="who.html">Who made this</a></p>
 </header>
 
@@ -449,9 +511,9 @@
 <section id="scorecard">
   <p class="eyebrow">Regional results</p>
   <h2 class="sect">Eight measures, graded from public data</h2>
-  <p class="scope"><b>These eight grades measure Spokane County and metro outcomes, not the performance of any one institution.</b> No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is a separate section, on purpose.</p>
+  <p class="scope"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is a separate section, on purpose.</p>
   <p class="changed"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="/archive/">past editions</a>.</p>
-  <p class="legend">Tap any measure for the benchmark comparison, why it matters, and the sources. Figures cover Spokane County or the Spokane metro (which includes Stevens County) unless the measure says City of Spokane.</p>
+  <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
 
   <details class="row r">
     <summary>
@@ -485,7 +547,7 @@
         <p class="bar neg"><span class="lab">Finance &amp; insurance</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">&minus;12%</span></p>
         <p class="note">Five-year job change by sector, Spokane County</p>
       </div>
-      <p class="why">Why it matters: much of health care serves demand that is already here, though Spokane&rsquo;s role as a regional referral hub treating Idaho and Montana patients does bring outside dollars in. The employers that raise a region&rsquo;s wages most reliably are the ones selling to the outside world (manufacturing, software, professional services). Those are the ones not showing up, and leaning on any single sector is a risk in itself. The test behind this grade is simple: does the work bring money into the region, or move money that is already here?</p>
+      <p class="why">Why it matters: most health care serves people who already live here. Spokane is also a regional hospital hub, treating patients from Idaho and Montana, and that does bring outside money in. But the employers that lift a region&rsquo;s pay are usually the ones selling to the outside world. Think manufacturing, software, professional services. Those are the ones not showing up. Leaning on one sector is a risk by itself. The test behind this grade is simple. Does the work bring money into the region, or just move money that is already here?</p>
       <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
     </div>
   </details>
@@ -541,7 +603,7 @@
         <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$55.2k</span></p>
         <p class="note">Per-person income, 2024</p>
       </div>
-      <p class="why">Why it matters: per-person income is the harder test because transfers and household size can&rsquo;t juice it. In November this card adds the cleanest read on employer quality: median earnings of full-time, year-round workers (Census table S2001).</p>
+      <p class="why">Why it matters: income per person is the harder test. Household size and government payments cannot inflate it. In November this card adds the cleanest read on employer quality: the middle wage for people working full time, all year (Census table S2001).</p>
       <p class="src">Source: <a href="http://censusreporter.org/profiles/05000US53063-spokane-county-wa/">Census ACS 2024 via Census Reporter</a>; <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a>; <a href="https://www.spokanepublicradio.org/regional-news/2025-12-11/spokanes-median-household-income-higher-than-nations-first-time">Spokane Public Radio</a></p>
     </div>
   </details>
@@ -573,7 +635,7 @@
       <span class="result">Flat year over year, with little new construction</span>
     </summary>
     <div class="body">
-      <p class="bench">Flat year over year. Only about 49,000 sq ft of retail is under construction, far below the decade average. Downtown storefronts lag because daytime office workers never fully returned; Spokane Valley sits at a healthy 4&ndash;5%.</p>
+      <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
       <p class="why">Why it matters: developers aren&rsquo;t refusing to build ground-floor retail out of stubbornness. They&rsquo;re reading the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
       <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
     </div>
@@ -594,7 +656,7 @@
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
-<section id="story">
+<section id="story" class="band">
   <p class="eyebrow">The story in 30 seconds</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
@@ -629,7 +691,7 @@
   <details class="more">
     <summary>See the whole machine, and why each turn makes the next one easier</summary>
     <div class="inner prose">
-      <p>Everything on this page is one machine. Schools and in-migration supply talent, employers turn talent into paychecks, paychecks become customers, customers become storefronts and tax base, and the tax base funds the services that make people and companies want to stay. Each turn makes the next one easier. Unless a gear is missing.</p>
+      <p>Everything on this page is one machine. Schools and new arrivals supply workers. Employers turn workers into paychecks. Paychecks become customers. Customers fill storefronts and pay taxes. Those taxes fund the services that make people and companies want to stay. Each turn makes the next one easier. Unless a gear is missing.</p>
       <img src="flywheel.svg" alt="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop with city focus at the hub. A red dashed leak arrow shows graduates leaving for Boise or Seattle when higher-wage employers are missing. Grade dots mark Spokane green on talent, red on employers and spending, yellow on storefronts." style="width:100%;height:auto;display:block;margin:14px 0 10px;border:1px solid var(--rule);border-radius:4px;">
       <p style="font-size:0.85rem;color:var(--ink-soft);">The dots are Spokane&rsquo;s current grades from the measures above. Green where people enter the wheel, red exactly where the employers should be, and the red bleeding downstream. The region&rsquo;s challenge isn&rsquo;t to spin every gear. It&rsquo;s to fix the one that&rsquo;s missing, and city hall&rsquo;s part is to pull its own levers toward it.</p>
     </div>
@@ -665,7 +727,7 @@
       </div>
     </div>
     <p class="punch">The same 500 hires either build a second wave or don&rsquo;t.</p>
-    <p class="rulenote">Ranges, never point estimates. They come from published local-multiplier research (Moretti, capped downward per Bartik and the Upjohn Institute) and are deliberately widened. This illustrates a mechanism. It is not a forecast.</p>
+    <p class="rulenote">Ranges, never single numbers. They come from published research on local multipliers (Moretti, capped downward per Bartik and the Upjohn Institute), and we widened them on purpose. This shows how the effect works. It is not a forecast.</p>
     <div class="ctas">
       <a class="btn solid" href="calculator.html">Change the employer</a>
     </div>
@@ -675,36 +737,36 @@
 </section>
 
 <!-- ============ LEVERS ============ -->
-<section id="levers">
+<section id="levers" class="band">
   <p class="eyebrow">Who controls what</p>
   <h2 class="sect">Nobody moves those numbers alone</h2>
-  <p class="scope"><b>The grades above are regional outcomes. The levers below belong to specific institutions.</b> Keeping the two apart is what separates a scorecard from an accusation.</p>
+  <p class="scope"><b>The grades above are regional results. The levers below belong to named institutions.</b> Keeping those two apart is what makes this a scorecard and not an accusation.</p>
   <p class="lede">The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the same machine with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades. Tied to a measure above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
 
   <div class="levers">
     <div class="lever">
       <h4>City of Spokane</h4>
-      <p class="holds">Permitting speed and predictability. Zoning that keeps employment land ready to build. Downtown safety. Business fees. The council&rsquo;s attention.</p>
-      <p class="stat"><span class="tag gap">Unanswered</span>The three asks below have had no public response. Future editions aim to measure this lever with city-controlled outputs: permit turnaround time, whether zoned employment land is actually ready to build on, business fees, and major employer expansions retained or won.</p>
+      <p class="holds">How fast permits move, and how predictable they are. Zoning that keeps land ready for employers to build on. Downtown safety. What businesses pay in fees. Where the council spends its time.</p>
+      <p class="stat"><span class="tag gap">Unanswered</span>The three asks below have had no public answer yet. Later editions aim to measure this lever with things the city controls. How long a permit takes. Whether zoned land is ready to build on. What businesses pay in fees. Big employer expansions kept or won.</p>
     </div>
     <div class="lever">
       <h4>The regional recruiters</h4>
-      <p class="holds">Spokane County and Greater Spokane Inc. hold the actual sales operation: target sectors, site readiness, incentive coordination, and the pitch employers hear.</p>
-      <p class="stat"><span class="tag gap">Data gap</span>If a target-sector list and public pipeline report exist, send them and this page will link them prominently.</p>
+      <p class="holds">Spokane County and Greater Spokane Inc. run the actual sales effort. They pick the target industries, get sites ready, line up incentives, and make the pitch employers hear.</p>
+      <p class="stat"><span class="tag gap">Data gap</span>If a target-industry list or a public report on deals in progress exists, send it. This page will link it up top.</p>
     </div>
     <div class="lever">
       <h4>Higher education</h4>
-      <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW&ndash;GU medical partnership and the community colleges hold degree production, internship pipelines, and turning research into companies.</p>
-      <p class="stat"><span class="tag gap">Data gap</span>Nursing retention is reported and strong. For engineering, computing and business, no local institution publishes a stay-in-region rate we could find.</p>
+      <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW and GU medical partnership, and the community colleges. They decide how many graduates come out, and in which fields. They also decide whether students intern at local firms, and whether research here turns into companies.</p>
+      <p class="stat"><span class="tag gap">Data gap</span>Nursing numbers are published, and they are strong. For engineering, computing and business, we could not find one local school that publishes how many graduates stay.</p>
     </div>
     <div class="lever">
       <h4>Anchor employers</h4>
-      <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and peers hold the decision Boise teaches: expand here or somewhere else. Also internship seats and supplier development.</p>
+      <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and others. They hold the choice Boise teaches: grow here, or grow somewhere else. They also decide how many interns they take and which local suppliers they build up.</p>
       <p class="stat"><span class="tag red">Weak</span>The only lever here tied to a graded measure. See &ldquo;Who&rsquo;s actually hiring&rdquo; above.</p>
     </div>
     <div class="lever">
       <h4>The state of Washington</h4>
-      <p class="holds">Tax structure, incentives, infrastructure, higher-ed funding east of the Cascades, and the wage floor that already lifted Spokane&rsquo;s hourly pay to near the national average.</p>
+      <p class="holds">Taxes, incentives, roads and other infrastructure, and college funding east of the Cascades. Also the minimum wage, which already pushed Spokane&rsquo;s hourly pay close to the national average.</p>
       <p class="stat"><span class="tag gap">Not graded</span>This page tracks regional outcomes rather than Olympia. The lever is real, and this region&rsquo;s legislators pull it.</p>
     </div>
     <div class="lever">
@@ -717,10 +779,10 @@
   <details class="more">
     <summary>The longer version, including what city hall does and doesn&rsquo;t control</summary>
     <div class="inner prose">
-      <p>No mayor recruits a manufacturer alone, and this scorecard doesn&rsquo;t pretend otherwise. Employer attraction runs through Greater Spokane Inc., the county, the state, and forces nobody local controls. But the city holds real levers: how fast and predictably it permits, whether zoned land is actually ready to build on, whether downtown feels safe enough for employers to bring people back, what it charges businesses to operate, and where the council spends its attention.</p>
+      <p>No mayor lands a factory alone, and this page does not pretend otherwise. Landing employers runs through Greater Spokane Inc., the county, the state, and forces nobody here controls. But the city does hold real levers. How fast and how predictably it issues permits. Whether land zoned for employers can actually be built on. Whether downtown feels safe enough to bring workers back. What it charges a business to operate. And where the council spends its time.</p>
       <p>The grades above measure the region&rsquo;s results. The question for city hall is simpler: are your levers pulled toward these numbers, or toward something else? When the agenda majors on the minors, this page is the reminder of what the majors are.</p>
-      <p><b>On higher education, the detail behind the status.</b> The number gets published exactly where it shines. SCC reports 99% of its nursing graduates staying in the Spokane area, and Gonzaga and EWU report similar strength in nursing. For engineering, computing, and business, the fields the missing employers hire, no local institution publishes a stay-in-region rate we could find. The regional indicator called &ldquo;retention&rdquo; measures whether students stay enrolled, not whether graduates stay home. The first institution to publish program-level retention gets celebrated at the top of this page.</p>
-      <p><b>On anchor employers.</b> Cheap power drawing data-center inquiries shows the raw pull exists. The question is whether it converts into employers that hire broadly.</p>
+      <p><b>On higher education, here is the detail.</b> The number gets published exactly where it looks good. SCC reports that 99% of its nursing graduates stay in the Spokane area. Gonzaga and EWU report similar strength in nursing. For engineering, computing and business, the fields the missing employers hire from, we could not find one local school that publishes how many graduates stay. There is a regional number called &ldquo;retention,&rdquo; but it tracks whether students stay enrolled, not whether graduates stay in town. The first school to publish this by program gets celebrated at the top of this page.</p>
+      <p><b>On big local employers.</b> Cheap power is already drawing interest from data centers, which shows the pull is real. The question is whether it turns into employers who hire a lot of people.</p>
     </div>
   </details>
 </section>
@@ -729,7 +791,7 @@
 <section id="done">
   <p class="eyebrow">It&rsquo;s been done</p>
   <h2 class="sect">Four cities Spokane can learn from</h2>
-  <p class="lede">Different sizes, different advantages, no claim that any of them is Spokane&rsquo;s twin. The pattern is what transfers: each picked an asset it already had, organized around it, and stuck with it for a decade.</p>
+  <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
   <div class="cities">
     <details class="city">
@@ -739,8 +801,8 @@
         <span class="headline">Micron&rsquo;s hometown expansion grew from $15B to roughly $50B</span>
       </summary>
       <div class="detail">
-        <p>Instead of only chasing strangers, Idaho helped its homegrown employer expand at home. Micron is building leading-edge memory fabs at its Boise headquarters, an investment that started at $15 billion (the largest private investment in state history) and has grown to roughly $50 billion, with about 17,000 Idaho jobs tied to it and suppliers like Lam Research opening offices behind it. Retention is recruitment.</p>
-        <p class="ours">Spokane&rsquo;s version of the asset: the anchors already here, like Itron and Kaiser Aluminum, whose next expansion has to want to happen here.</p>
+        <p>Idaho did not only chase strangers. It helped a company already there grow at home. Micron is building advanced memory plants at its Boise headquarters. The investment started at $15 billion, the largest private investment in state history. It has since grown to roughly $50 billion. About 17,000 Idaho jobs are tied to it, and suppliers like Lam Research opened offices behind it. Keeping a company is its own kind of recruiting.</p>
+        <p class="ours">Spokane&rsquo;s version: the big employers already here, like Itron and Kaiser Aluminum. Their next expansion has to want to happen here.</p>
         <p><a href="https://commerce.idaho.gov/blog/micron-announces-15-billion-investment-in-boise/">Idaho Commerce</a>, <a href="https://www.cnbc.com/2026/08/20/micron-boise-chip-fab-expansion.html">CNBC</a></p>
       </div>
     </details>
@@ -752,8 +814,8 @@
         <span class="headline">Volkswagen&rsquo;s plant beat its own projections: 12,400+ jobs by 2012</span>
       </summary>
       <div class="detail">
-        <p>A mid-size inland city once labeled America&rsquo;s dirtiest recruited Volkswagen&rsquo;s $1 billion plant in 2008. A University of Tennessee study later found it beat its own job projections, with more than 12,400 direct and indirect jobs by 2012, and VW-related activity now supports roughly 17,000 Tennessee jobs. The city also built the country&rsquo;s first citywide gigabit network to give employers a concrete reason to look.</p>
-        <p class="ours">Spokane&rsquo;s version of the asset: cheap, reliable power that&rsquo;s already drawing data-center inquiries. The job is converting that pull into employers that hire broadly, not just server halls.</p>
+        <p>Chattanooga was once called the dirtiest city in America. In 2008 it landed a $1 billion Volkswagen plant. A University of Tennessee study later found the plant beat its own job forecasts. It counted more than 12,400 jobs by 2012, direct and indirect. Volkswagen-related work now supports about 17,000 jobs in Tennessee. The city also built the first citywide gigabit internet network in the country, to give employers a concrete reason to look.</p>
+        <p class="ours">Spokane&rsquo;s version: cheap, reliable power. It is already drawing interest from data centers. The job is turning that interest into employers who hire a lot of people, not just server halls.</p>
         <p><a href="https://www.timesfreepress.com/news/local/story/2013/jun/05/vw-plants-impact-better-than-projected/109956/">Times Free Press</a></p>
       </div>
     </details>
@@ -765,8 +827,8 @@
         <span class="headline">Redstone Arsenal now employs 42,000+ and drives half the metro economy</span>
       </summary>
       <div class="detail">
-        <p>Redstone Arsenal now employs over 42,000 people and drives half the metro&rsquo;s economy. The region kept selling it until the FBI made Redstone its unofficial second headquarters, on a path toward thousands of employees, with Space Command following.</p>
-        <p class="ours">Spokane&rsquo;s version of the asset: Fairchild AFB and a health-sciences campus with two medical schools, both underused as recruitment platforms today.</p>
+        <p>Redstone Arsenal now employs more than 42,000 people. It drives half the metro economy. The region kept selling that asset until the FBI made Redstone its unofficial second headquarters, heading toward thousands of staff. Space Command followed.</p>
+        <p class="ours">Spokane&rsquo;s version: Fairchild Air Force Base, and a health sciences campus with two medical schools. Today we use neither as a way to draw employers.</p>
         <p><a href="https://huntsvillebusinessjournal.com/news/2023/12/04/redstone-arsenal-2023-fbis-explosive-growth-nasas-artemis-thrust-and-the-rise-of-a-technological-hub-unveiled-at-huntsvilles-annual-update/">Huntsville Business Journal</a>, <a href="https://www.huntsvilleal.gov/with-growing-missions-from-multiple-tenants-redstone-arsenal-continues-to-flourish/">City of Huntsville</a></p>
       </div>
     </details>
@@ -778,9 +840,9 @@
         <span class="headline">80+ robotics companies along a two-mile corridor, out of university research</span>
       </summary>
       <div class="detail">
-        <p>The purest answer to &ldquo;aren&rsquo;t we too dependent on health care?&rdquo; After steel collapsed and the city lost half its population, leaders deliberately rebuilt around universities and hospitals, then converted that base into something bigger: Carnegie Mellon&rsquo;s research became the country&rsquo;s largest concentration of robotics work, with more than 80 robotics companies along a two-mile corridor.</p>
-        <p>The honest caveat: Pittsburgh is several times Spokane&rsquo;s size and the turnaround took decades, with job quality recovering long before headcount did. The lesson survives the caveat: a health-and-universities economy is a launchpad if the region builds a research-to-company pipeline on top of it.</p>
-        <p class="ours">Spokane&rsquo;s version of the asset: two medical schools and a health-sciences campus that could seed med-tech the way Carnegie Mellon seeded robotics.</p>
+        <p>This is the answer to &ldquo;aren&rsquo;t we too dependent on health care?&rdquo; Steel collapsed. The city lost half its people. Leaders rebuilt on purpose around universities and hospitals. Then they turned that base into something bigger. Research at Carnegie Mellon grew into the largest cluster of robotics work in the country. More than 80 robotics companies now sit along a two-mile stretch.</p>
+        <p>Two honest caveats. Pittsburgh is several times our size. And the turnaround took decades, with pay recovering long before job counts did. The lesson holds anyway. An economy built on hospitals and universities can be a launchpad, if someone builds a way to turn research into companies.</p>
+        <p class="ours">Spokane&rsquo;s version: two medical schools and a health sciences campus. They could seed medical technology the way Carnegie Mellon seeded robotics.</p>
         <p><a href="https://community.triblive.com/news/4029971">TribLive</a>, <a href="https://mercury.com/blog/pittsburgh-robotics-industry-growth-ai">Robotics Row</a></p>
       </div>
     </details>
@@ -790,7 +852,7 @@
 </section>
 
 <!-- ============ ASKS ============ -->
-<section id="asks">
+<section id="asks" class="band-dark">
   <p class="eyebrow">What we&rsquo;re asking</p>
   <h2 class="sect">Three things we&rsquo;re asking leaders to do</h2>
   <p class="lede">Not a policy platform. Three commitments any mayor or council member could make tomorrow.</p>
@@ -810,7 +872,7 @@
   <div class="ask collegeask">
     <p class="asklabel">And one ask for Spokane&rsquo;s colleges</p>
     <h4>Publish where your graduates go, by program.</h4>
-    <p>To the region&rsquo;s colleges and universities: You already report it for nursing, where the story is great. The share of engineering, computing, and business graduates who stay is the single number this whole system turns on, and today nobody reports it. First institution to publish gets the green ink.</p>
+    <p>To the region&rsquo;s colleges and universities. You already report this for nursing, where the story is good. Nobody reports it for engineering, computing or business. The share of those graduates who stay is the single number this whole system turns on. The first school to publish it gets the green ink.</p>
   </div>
 
   <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
@@ -820,21 +882,30 @@
 <section id="nerd">
   <p class="eyebrow">The receipts</p>
   <h2 class="sect">Argue with us</h2>
-  <p class="lede">Every number above links to its source, and the <a href="methodology.html">full methodology</a> covers the rubric, the limitations, and what this data can and can&rsquo;t tell you. Corrections are welcome and get posted.</p>
+  <p class="lede">Every number above links to its source. The <a href="methodology.html">full methodology</a> covers the grading rules, the limits of the data, and what it can and cannot tell you. Corrections are welcome, and they get posted.</p>
 
   <details class="more">
     <summary>How the grades work</summary>
     <div class="inner prose">
       <p>Strong means Spokane beats its benchmark (the U.S. or Washington) or is clearly improving. Mixed means near benchmark or mixed signals. Weak means below benchmark and not improving. Grades are judgment calls made in public: every number links to its source, and corrections are welcome and will be posted.</p>
-      <p>The overall call at the top follows a rule set before the reading: off track when weak measures outnumber strong ones, mixed when they tie, on track when strong outnumber weak. There is deliberately no letter grade, because the eight measures are neither equally important nor independent of each other, and averaging them would imply a precision this data doesn&rsquo;t have.</p>
-      <p>All data covers Spokane County or the Spokane metro unless noted, because that&rsquo;s the level where reliable public employment data exists. Updated quarterly, by hand.</p>
+      <p>The call at the top follows a rule we set before looking at the data. Off track when weak measures outnumber strong ones. Mixed when they tie. On track when strong ones win. There is no letter grade, on purpose. The eight measures are not equally important, and they are not independent of each other. Averaging them would suggest a precision this data does not have.</p>
+      <p>Unless a card says otherwise, the data covers Spokane County or the Spokane metro. That is the level where reliable public job data exists. Updated by hand, every quarter.</p>
     </div>
   </details>
 
   <details class="more">
     <summary>Coming in future updates</summary>
     <div class="inner prose">
-      <p>Four measures worth adding: new business applications per resident (Census Business Formation Statistics), the city&rsquo;s median permit turnaround time (a lever the city fully controls), storefront vacancy by corridor so Monroe, Garland, and Division get their own lines instead of hiding inside a metro average, and city-controlled outputs where the data can be obtained: permit turnaround time, whether zoned employment land is ready to build on, business fees, and major employer expansions retained or won. A fifth arrives when institutions publish or provide it: graduate retention in the region, by school and program.</p>
+      <p>Measures worth adding, once the data can be had:</p>
+      <ul style="margin:10px 0 0 20px;max-width:42em;">
+        <li>New business applications per resident (Census Business Formation Statistics).</li>
+        <li>How long the city takes to turn around a permit. The city controls this one outright.</li>
+        <li>Empty storefronts street by street. Monroe, Garland and Division would each get their own line, instead of being averaged away.</li>
+        <li>Whether land zoned for employers is actually ready to build on.</li>
+        <li>What the city charges a business to operate.</li>
+        <li>Big employer expansions kept or won.</li>
+      </ul>
+      <p style="margin-top:12px;">One more arrives only when schools publish it: where graduates go, by school and program.</p>
     </div>
   </details>
 </section>
