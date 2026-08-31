@@ -51,7 +51,7 @@
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--lilac); outline-offset: 2px; }
   .mark { display: inline-block; width: 26px; height: 26px; vertical-align: -6px; margin-right: 9px; }
   .mark svg { width: 100%; height: 100%; display: block; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
   /* Full-bleed tint, used for the whole above-the-fold block */
   .tintband {
@@ -74,7 +74,7 @@
     .bname { font-size: 0.95rem; }
     .sitenav { gap: 14px; font-size: 0.8rem; flex-wrap: wrap; }
   }
-  .edition { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 22px; }
+  .edition { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 22px; max-width: 46em; }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   h1 {
     font-family: "Fraunces", Georgia, serif;
@@ -232,11 +232,9 @@
   }
 
   /* Exhibits break out of the 760px reading measure; prose stays narrow. */
-  .wide {
-    width: min(1080px, calc(100vw - 40px));
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
+  /* Exhibits already fill the grid now. Kept as a no-op so the markup does not
+     have to change, and so a future narrower wrap would still work. */
+  .wide { width: 100%; }
 
   /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
   section { padding: 72px 0; border-bottom: none; }
@@ -279,6 +277,7 @@
   }
   .band-dark .secnum { color: #7fbfc4; opacity: .8; }
   .eyebrow {
+    max-width: 46em;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -296,6 +295,7 @@
     background: var(--rule-strong);
   }
   h2.sect {
+    max-width: 19em;
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
     font-weight: 700;
@@ -343,7 +343,7 @@
   /* Street illustration */
   .street { margin-top: 18px; margin-bottom: 4px; }
   .street img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
-  .street figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 42em; }
+  .street figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 44em; }
   .street figcaption b { color: var(--ink); }
 
   /* Flow diagram */
@@ -403,8 +403,8 @@
   .chain .cap { flex-basis: 100%; font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
 
   /* Ledger rows: a 4-across tile grid that opens to full width in place */
-  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; }
-  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; max-width: 46em; }
+  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   @media (max-width: 900px) { .grid8 { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .grid8 { grid-template-columns: 1fr; } }
 
@@ -647,7 +647,7 @@
 </head>
 <body>
 <div style="background:#f7f0de;border-bottom:2px solid #a06e0a;padding:12px 0;">
-  <div style="max-width:760px;margin:0 auto;padding:0 20px;font-family:'Public Sans',-apple-system,sans-serif;font-size:0.92rem;color:#171d1c;line-height:1.45;">
+  <div style="max-width:860px;margin:0 auto;padding:0 24px;font-family:'Public Sans',-apple-system,sans-serif;font-size:0.92rem;color:#171d1c;line-height:1.45;">
     <b>Archived edition, August 2026.</b> Frozen as published. The figures and grades here are not updated. <a href="/" style="color:#2a6b73;">See the current scorecard</a> or <a href="/archive/" style="color:#2a6b73;">all past editions</a>.
   </div>
 </div>
