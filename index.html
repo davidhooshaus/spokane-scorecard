@@ -59,11 +59,12 @@
   h1 {
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
-    font-weight: 900;
-    font-size: clamp(1.9rem, 6.4vw, 2.9rem);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3.4vw, 1.85rem);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
   }
+  header { padding: 34px 0 18px; }
   .standfirst {
     margin-top: 16px;
     font-size: 1.08rem;
@@ -78,20 +79,43 @@
   .hero {
     border-top: 3px solid var(--ink);
     border-bottom: 3px solid var(--ink);
-    padding: 30px 0 28px;
+    padding: 48px 0 44px;
+  }
+  .hook {
+    font-family: "Fraunces", Georgia, serif;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+    font-weight: 900;
+    font-size: clamp(1.75rem, 4.6vw, 2.75rem);
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    max-width: 20em;
+  }
+  .hooksub {
+    margin-top: 16px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 36em;
   }
   .hero .q {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 600;
-    font-size: clamp(1.15rem, 3.6vw, 1.4rem);
-    line-height: 1.3;
-    max-width: 24em;
+    margin-top: 40px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--teal);
+    max-width: none;
   }
+  .notewho {
+    margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--rule);
+    font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); max-width: 40em;
+  }
+  .notewho b { color: var(--ink); }
   .status {
     display: inline-block;
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
-    margin-top: 16px;
+    margin-top: 10px;
     font-size: clamp(2.4rem, 10vw, 4rem);
     font-weight: 700;
     line-height: 1;
@@ -187,8 +211,15 @@
     .bar { gap: 8px; }
   }
 
+  /* Exhibits break out of the 760px reading measure; prose stays narrow. */
+  .wide {
+    width: min(1080px, calc(100vw - 40px));
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
   /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
-  section { padding: 40px 0; border-bottom: 1px solid var(--rule); }
+  section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
   .band {
     background: var(--panel);
     box-shadow: 0 0 0 100vmax var(--panel);
@@ -567,12 +598,14 @@
 <header>
   <p class="kicker"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/></svg></span>A neighbor-run public ledger</p>
   <h1>The Spokane Prosperity Scorecard</h1>
-  <p class="standfirst"><b>This is a report card on Spokane, not on any employer.</b> Four times a year it asks one question: is our region attracting the kind of companies that pay well? Nobody here is grading a business. We are grading how the region is doing at drawing those businesses in. Every answer comes from public data you can look up yourself.</p>
   <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="archive/">Past editions</a> &middot; <a href="who.html">Who made this</a></p>
 </header>
 
 <!-- ============ HERO VERDICT ============ -->
 <div class="hero">
+  <p class="hook">New apartments keep going up on Monroe.<br>The storefronts underneath them keep sitting empty.</p>
+  <p class="hooksub">That is not bad luck, and it is not a mystery. It traces back to one question, and this page grades that question four times a year using data anyone can check.</p>
+
   <p class="q">Is Spokane attracting the kind of employers that raise wages?</p>
   <p class="status">Off track</p>
   <p class="because">Payrolls shrank by 2,900 jobs over the past year, and nearly all the growth that remains is in one sector.</p>
@@ -601,6 +634,7 @@
     <a class="btn solid" href="#scorecard">See the eight measures</a>
     <a class="btn" href="calculator.html">Try the employer calculator</a>
   </div>
+  <p class="notewho"><b>A report card on Spokane, not on any employer.</b> Nobody here is grading a business. We are grading how the region is doing at drawing good ones in. Every answer links to public data you can look up yourself.</p>
 </div>
 
 <nav class="jump" aria-label="Section navigation">
@@ -640,7 +674,7 @@
     </div>
   </details>
 
-  <div class="grid8">
+  <div class="grid8 wide">
   <details class="row r">
     <summary>
       <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
@@ -815,7 +849,7 @@
     </div>
   </div>
 
-  <div class="flow">
+  <div class="flow wide">
     <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
     <div class="node r"><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
@@ -828,7 +862,7 @@
   </div>
   <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
 
-  <figure class="street">
+  <figure class="street wide">
     <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
     <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
   </figure>
@@ -857,7 +891,7 @@
   <h2 class="sect">Same headcount. Different city.</h2>
   <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
 
-  <div class="moneyflow">
+  <div class="moneyflow wide">
     <div class="mcol in">
       <p class="mhead">Money that comes in from outside</p>
       <p class="msub">Someone elsewhere pays Spokane for something</p>
@@ -911,7 +945,7 @@
   <h2 class="sect">Somebody already said what winning looks like</h2>
   <p class="lede">This page did not invent a standard. Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
-  <div class="goals">
+  <div class="goals wide">
     <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span></div>
     <div class="goal"><span class="gnum">$1B</span><span class="glab">new capital investment</span></div>
     <div class="goal"><span class="gnum">300</span><span class="glab">internships with local employers</span></div>
@@ -929,7 +963,7 @@
   <p class="scope"><b>The grades above are regional results. The levers below belong to named institutions.</b> Keeping those two apart is what makes this a scorecard and not an accusation.</p>
   <p class="lede">The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the same machine with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades. Tied to a measure above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
 
-  <div class="ecosys">
+  <div class="ecosys wide">
     <svg viewBox="0 0 640 330" role="img" aria-label="Diagram: six actors surround the regional economy. The city holds permits, land and fees. Regional recruiters sell Spokane and ready sites. Colleges supply talent and research. Employers hire, expand and buy locally. The state sets tax, infrastructure and funding. Residents work, vote, build and spend.">
       <defs><style>
         .en { fill:#fff; stroke:#b9c6c4; }
@@ -956,7 +990,7 @@
     <p class="ecap">Six actors, one economy. None of them moves those eight numbers alone. Open any one below for the levers it actually holds and where things stand.</p>
   </div>
 
-  <div class="levers">
+  <div class="levers wide">
     <details class="lever">
       <summary><h4>City of Spokane</h4></summary>
       <p class="holds">How fast permits move, and how predictable they are. Zoning that keeps land ready for employers to build on. Downtown safety. What businesses pay in fees. Where the council spends its time.</p>
@@ -1006,7 +1040,7 @@
   <h2 class="sect">Four cities Spokane can learn from</h2>
   <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
-  <div class="cities">
+  <div class="cities wide">
     <details class="city">
       <summary>
         <span class="cname">Boise</span>
