@@ -17,6 +17,13 @@ says David reviews every grade change before it publishes. The routine writes
 a branch and opens a pull request. `main` is what deploys. Merging is the act
 of publishing, and only David does it.
 
+## A note on identity
+
+This repository is public, and the maintainer publishes the scorecard without a byline.
+Do not add the maintainer's name, personal email, employer, or any other identifying
+detail to any file here, in a commit message, or in a routine prompt stored in the repo.
+Addresses and credentials belong in the routine configuration, which is private.
+
 ## One-time setup
 
 1. Repo is on GitHub at `davidhooshaus/spokane-scorecard`, private, default
@@ -59,8 +66,11 @@ Read first, and follow them exactly:
 
 Connectors required: Gmail, and web fetch or Firecrawl.
 
-Do the runbook, steps 1 through 7, in order. Save any files you pull under
-data/<dataset>/<YYYY-QN>/.
+Do the runbook, steps 0 through 7, in order. Step 0 is not optional: freeze the outgoing
+edition into archive/<YYYY-MM>/ BEFORE touching any figure, and add it to archive/index.html.
+A run that updates figures without archiving the previous edition has broken the one promise
+this project makes. If step 0 fails for any reason, stop and report it rather than proceeding
+to edit the live figures. Save any files you pull under data/<dataset>/<YYYY-QN>/.
 
 Then, instead of runbook step 8's interactive hand-off, do this:
 
@@ -73,8 +83,9 @@ Then, instead of runbook step 8's interactive hand-off, do this:
    - every grade that changed, with a one-line reason tied to the rubric
    - every source link that was added or replaced
    - anything you could NOT verify, stated plainly
-3. Create a Gmail DRAFT to david@hausadvisors.com and nobody else. The subject
-   must be exactly:
+3. Create a Gmail DRAFT to the maintainer address and nobody else. That address is
+   set in the routine's own configuration in claude.ai and is deliberately NOT stored
+   in this repository, which is public. The subject must be exactly:
    "[AUTO] Spokane Scorecard quarterly update <YYYY-QN> ready for review"
    Lead the body with a BLUF: in two to four sentences, say what changed, which
    grades moved and in which direction, and what David has to decide. Put the
@@ -98,6 +109,9 @@ Hard rules for this run:
 - If you cannot re-export press/flywheel.png (cairosvg may be unavailable in
   this environment), edit flywheel.svg anyway and flag the stale PNG as an
   open item in both the PR body and the email. Do not skip the SVG edit.
+- Never edit anything inside archive/. Archived editions are frozen. A correction to a past
+  edition goes in a new change log entry on the live methodology page, never by rewriting the
+  archived file.
 - If a source is unreachable, do not guess and do not carry forward last
   quarter's number as if it were fresh. Leave the old figure, mark it in the PR
   as not refreshed this quarter, and name the source that failed.
@@ -114,6 +128,6 @@ Hard rules for this run:
   Census key. The cloud runner has no access to a local environment variable.
   Solve this before November, either with a secret in the cloud environment or
   by pulling from data.census.gov by hand that quarter.
-- **The attention audit is not a routine.** `/attention-audit` requires
-  pre-registering a counting rule with David before any counting, and a
-  20-row human spot-check. That is interactive work. Run it locally.
+- **City-lever measures are not yet automated.** Permit turnaround time,
+  employment-land readiness and business fees have no public feed to pull. They
+  arrive by request or by hand, so a cloud run should not try to invent them.

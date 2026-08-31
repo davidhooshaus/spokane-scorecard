@@ -6,6 +6,26 @@ Run the quarterly update. Follow CLAUDE.md rules throughout, especially:
 grades change only on data, David signs off on every grade change before
 push, and the change log is append-only.
 
+## 0. Freeze the outgoing edition FIRST
+Before touching a single figure, copy the current edition into the archive. This is the
+step that makes the whole project credible, so it happens before any edit, not after.
+
+- `mkdir -p archive/<YYYY-MM>` using the OUTGOING edition's month (the one on the masthead
+  right now, not the one you are about to publish).
+- Copy `index.html`, `methodology.html`, `calculator.html` and `flywheel.svg` into it.
+- In each copied HTML file: add `<meta name="robots" content="noindex">` before `<title>`,
+  drop the `og:url` tag, insert the amber archived-edition banner directly after `<body>`
+  (copy the exact markup from `archive/2026-08/index.html`), and rewrite `href="archive/"`
+  to `href="/archive/"`. Links between the three archived pages stay relative so the
+  snapshot is self-contained.
+- Add the edition to `archive/index.html`: month, verdict, tally, one line on the headline
+  finding, and links to its three pages.
+- Verify the snapshot opens and its internal links resolve before you edit anything live.
+
+Never edit a file inside `archive/`. If an archived edition contains an error, the
+correction goes in a NEW change log entry on the live methodology page. The archive is the
+receipt; it does not get revised.
+
 ## 1. Dates
 Update the masthead in index.html: "Updated <Month Year>" and
 "Next update <Month Year>" (one quarter out).
@@ -43,6 +63,12 @@ Refresh the two paragraphs under "Why the city looks the way it does" so every
 sentence matches a current graded number. Same voice: plain, short, no em dashes.
 This text doubles as the quarterly email; draft that email as a separate
 markdown file in data/emails/ for David to send.
+
+## 5b. Say what changed
+Rewrite the `.changed` line above the measures so it names, in one sentence each: every
+figure that moved, every grade that changed, and any measure that was added or replaced.
+Link the word "past editions" to `archive/`. If a grade changed, say which way and why in
+half a clause. This is the first thing a returning reader looks for.
 
 ## 6. Log it
 methodology.html change log: new version entry at the top listing every

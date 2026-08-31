@@ -18,8 +18,8 @@ Files:
 - `calculator.html` — employer impact tool (illustration, never a forecast)
 - `flywheel.svg` — the compounding diagram, embedded by index.html
 - `press/flywheel.png` — 1600px social/press export of the SVG
-- `data/` — pulled datasets (DOR files, attention-audit classifications)
-- `.claude/commands/` — `/quarterly-update` and `/attention-audit` runbooks
+- `data/` — pulled datasets (DOR files, Census pulls, city-lever data obtained by request)
+- `.claude/commands/` — the `/quarterly-update` runbook
 
 ## Non-negotiable editorial rules
 
@@ -79,7 +79,11 @@ a paycheck, or a neighbor.
 ## Roadmap (November first, in this order)
 
 1. Pre-registered numeric grade thresholds published BEFORE re-grading.
-2. Attention audit (see `/attention-audit`). Pre-register the counting rule.
+2. City-controlled output measures, where the data can be obtained: permit turnaround
+   time, employment-land readiness, business fees, major expansions retained or won.
+   Retired 2026-08-31: the council attention audit. Counting agenda mentions is a weak
+   proxy for results, gameable, and it pushed the project toward political watchdog and
+   away from scorekeeper. Measure the scoreboard, not how often the coach talks about winning.
 3. Swap unemployment card for working-age employment (Spokane Trends 2.4.2).
 4. Add full-time worker median earnings (ACS S2001, needs Census key).
 5. Peer-metro comparison column (Boise, Chattanooga, Huntsville).

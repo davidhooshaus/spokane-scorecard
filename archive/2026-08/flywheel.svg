@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 820" role="img" aria-label="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop, with city focus at the hub. A red leak arrow shows graduates leaving when career-grade employers are missing. Colored dots mark Spokane's current scorecard grades.">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1c2321"/>
+    </marker>
+    <marker id="arrL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b5b95"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b3402e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="820" fill="#fbfbf8"/>
+
+  <text x="24" y="48" font-family="Source Serif 4, Georgia, serif" font-size="36" font-weight="700" fill="#1c2321">How a city compounds</text>
+  <text x="24" y="76" font-family="Public Sans, -apple-system, sans-serif" font-size="17" fill="#4c544f">and where Spokane leaks</text>
+
+  <g transform="translate(0,100)">
+
+    <!-- ring arrows (clockwise) -->
+    <g stroke="#1c2321" stroke-width="3" fill="none">
+      <path d="M442.9,144.4 A215,215 0 0 1 526.6,192.8" marker-end="url(#arr)"/>
+      <path d="M589.5,301.6 A215,215 0 0 1 589.5,398.4" marker-end="url(#arr)"/>
+      <path d="M526.6,507.2 A215,215 0 0 1 442.9,555.6" marker-end="url(#arr)"/>
+      <path d="M317.1,555.6 A215,215 0 0 1 233.4,507.2" marker-end="url(#arr)"/>
+      <path d="M170.5,398.4 A215,215 0 0 1 170.5,301.6" marker-end="url(#arr)"/>
+      <path d="M233.4,192.8 A215,215 0 0 1 317.1,144.4" marker-end="url(#arr)"/>
+    </g>
+
+    <!-- the leak -->
+    <path d="M474,138 C566,118 640,106 698,92" stroke="#b3402e" stroke-width="3" stroke-dasharray="7 6" fill="none" marker-end="url(#arrR)"/>
+    <text x="744" y="26" text-anchor="end" font-family="Public Sans, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#b3402e">The leak</text>
+    <text x="744" y="48" text-anchor="end" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">No career-grade employers here,</text>
+    <text x="744" y="68" text-anchor="end" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">so graduates take their degrees</text>
+    <text x="744" y="88" text-anchor="end" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">to Boise or Seattle instead.</text>
+
+    <!-- hub -->
+    <circle cx="380" cy="350" r="84" fill="#f1eef8" stroke="#6b5b95" stroke-width="2"/>
+    <text x="380" y="340" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#1c2321">City focus</text>
+    <text x="380" y="364" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="15" fill="#4c544f">permitting, safety,</text>
+    <text x="380" y="383" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="15" fill="#4c544f">recruitment</text>
+    <path d="M456,306 L492,286" stroke="#6b5b95" stroke-width="2.5" fill="none" marker-end="url(#arrL)"/>
+    <path d="M304,306 L268,286" stroke="#6b5b95" stroke-width="2.5" fill="none" marker-end="url(#arrL)"/>
+
+    <!-- node: Talent (top) -->
+    <g>
+      <rect x="292" y="92" width="176" height="86" rx="8" fill="#ffffff" stroke="#d9d9d0" stroke-width="1.5"/>
+      <circle cx="380" cy="107" r="7" fill="#2e7d5b"/>
+      <text x="380" y="131" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1c2321">Talent</text>
+      <text x="380" y="151" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">grads + newcomers</text>
+      <text x="380" y="170" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">choosing Spokane</text>
+    </g>
+
+    <!-- node: Employers (upper right) -->
+    <g>
+      <rect x="478" y="199.5" width="176" height="86" rx="8" fill="#ffffff" stroke="#d9d9d0" stroke-width="1.5"/>
+      <circle cx="566" cy="214.5" r="7" fill="#b3402e"/>
+      <text x="566" y="238.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1c2321">Employers</text>
+      <text x="566" y="258.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">companies that sell</text>
+      <text x="566" y="277.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">to the outside world</text>
+    </g>
+
+    <!-- node: Spending (lower right) -->
+    <g>
+      <rect x="478" y="414.5" width="176" height="86" rx="8" fill="#ffffff" stroke="#d9d9d0" stroke-width="1.5"/>
+      <circle cx="566" cy="429.5" r="7" fill="#b3402e"/>
+      <text x="566" y="453.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1c2321">Spending</text>
+      <text x="566" y="473.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">paychecks become</text>
+      <text x="566" y="492.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">local customers</text>
+    </g>
+
+    <!-- node: Storefronts (bottom) -->
+    <g>
+      <rect x="292" y="522" width="176" height="86" rx="8" fill="#ffffff" stroke="#d9d9d0" stroke-width="1.5"/>
+      <circle cx="380" cy="537" r="7" fill="#a06e0a"/>
+      <text x="380" y="561" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1c2321">Storefronts</text>
+      <text x="380" y="581" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">shops that can</text>
+      <text x="380" y="600" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">make the rent</text>
+    </g>
+
+    <!-- node: Tax base (lower left) -->
+    <g>
+      <rect x="106" y="414.5" width="176" height="86" rx="8" fill="#ffffff" stroke="#d9d9d0" stroke-width="1.5"/>
+      <circle cx="194" cy="429.5" r="7" fill="#b9b4a6"/>
+      <text x="194" y="453.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1c2321">Tax base</text>
+      <text x="194" y="473.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">sales + property tax</text>
+      <text x="194" y="492.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">without raising rates</text>
+    </g>
+
+    <!-- node: Services (upper left) -->
+    <g>
+      <rect x="106" y="199.5" width="176" height="86" rx="8" fill="#ffffff" stroke="#d9d9d0" stroke-width="1.5"/>
+      <circle cx="194" cy="214.5" r="7" fill="#b9b4a6"/>
+      <text x="194" y="238.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="25" font-weight="700" fill="#1c2321">Services</text>
+      <text x="194" y="258.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">a safe, working city</text>
+      <text x="194" y="277.5" text-anchor="middle" font-family="Public Sans, -apple-system, sans-serif" font-size="16" fill="#4c544f">worth staying in</text>
+    </g>
+
+  </g>
+
+  <text x="24" y="776" font-family="Public Sans, -apple-system, sans-serif" font-size="15" fill="#4c544f">Dots: current Spokane Employer Scorecard grades (gray = not yet graded)</text>
+  <text x="736" y="804" text-anchor="end" font-family="Public Sans, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#6b5b95">spokanescorecard.com</text>
+  <text x="24" y="804" font-family="Public Sans, -apple-system, sans-serif" font-size="15" fill="#4c544f">The Spokane Employer Scorecard, August 2026</text>
+</svg>
