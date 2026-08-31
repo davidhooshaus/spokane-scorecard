@@ -251,6 +251,42 @@
   .num .l { margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
   @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
 
+  /* Flow diagram */
+  .flow {
+    display: flex; align-items: stretch; gap: 8px; margin: 4px 0 14px;
+  }
+  .node {
+    flex: 1 1 0; background: #fff; border: 1px solid var(--rule);
+    border-top: 4px solid var(--rule-strong); border-radius: 3px; padding: 12px 10px;
+    text-align: center; min-width: 0;
+  }
+  .node.g { border-top-color: var(--green); }
+  .node.y { border-top-color: var(--amber); }
+  .node.r { border-top-color: var(--red); }
+  .nlab { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); }
+  .nval { display: block; margin-top: 6px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; }
+  .node.g .nval { color: var(--green); } .node.y .nval { color: var(--amber); } .node.r .nval { color: var(--red); }
+  .nstate { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--ink-soft); }
+  .farrow { align-self: center; color: var(--ink-soft); font-size: 1.1rem; flex: 0 0 auto; }
+  .flowsum { font-weight: 600; font-size: 1.02rem; max-width: 42em; }
+  @media (max-width: 700px) {
+    .flow { flex-direction: column; gap: 4px; }
+    .farrow { transform: rotate(90deg); font-size: 1rem; }
+    .node { display: flex; align-items: baseline; gap: 8px; text-align: left; padding: 9px 12px; border-top-width: 1px; border-left: 4px solid var(--rule-strong); }
+    .node.g { border-left-color: var(--green); border-top-color: var(--rule); }
+    .node.y { border-left-color: var(--amber); border-top-color: var(--rule); }
+    .node.r { border-left-color: var(--red); border-top-color: var(--rule); }
+    .nlab { flex: 0 0 88px; }
+    .nval { margin-top: 0; font-size: 1.05rem; }
+    .nstate { margin-top: 0; }
+  }
+
+  /* Geography key */
+  .geokey { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .geokey svg { flex: 0 0 auto; }
+  .geokey .gk { font-size: 0.8rem; color: var(--ink-soft); }
+  .geokey .gk b { color: var(--ink); }
+
   /* Chain */
   .chain {
     background: #ffffff;
@@ -271,81 +307,61 @@
   .chain .arrow { color: var(--ink-soft); }
   .chain .cap { flex-basis: 100%; font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
 
-  /* Ledger rows as disclosure */
-  .scope {
-    background: var(--panel);
-    border-left: 4px solid var(--lilac);
-    padding: 12px 14px;
-    border-radius: 0 4px 4px 0;
-    font-size: 0.92rem;
-    max-width: 42em;
-    margin-bottom: 14px;
-  }
-  .changed { font-size: 0.9rem; color: var(--ink-soft); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 14px; max-width: 42em; }
-  .changed b { color: var(--ink); }
-  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 6px; }
+  /* Ledger rows: a 4-across tile grid that opens to full width in place */
+  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; }
+  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .grid8 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .grid8 { grid-template-columns: 1fr; } }
+
   .row {
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    padding-left: 18px;
-  }
-  .row:first-of-type { border-top: 1px solid var(--rule); }
-  .row::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 5px; border-radius: 3px; }
-  .row.g::before { background: var(--green); }
-  .row.y::before { background: var(--amber); }
-  .row.r::before { background: var(--red); }
-  .row > summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 18px 30px 18px 0;
-    position: relative;
-  }
-  .row > summary::-webkit-details-marker { display: none; }
-  .row > summary::after {
-    content: "+";
-    position: absolute;
-    right: 2px;
-    top: 18px;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink-soft);
-    line-height: 1;
-  }
-  .row[open] > summary::after { content: "\2212"; }
-  .row > summary:hover .measure { color: var(--teal); }
-  .row > summary:hover { background: linear-gradient(90deg, rgba(42,107,115,.05), transparent 60%); }
-  .row[open] { background: linear-gradient(90deg, rgba(42,107,115,.035), transparent 70%); }
-  .row > summary .figure, .row > summary .result,
-  .city > summary .name, .city > summary .move, .city > summary .headline { display: block; }
-  .grade {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 2px 8px;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--rule-strong);
     border-radius: 3px;
-    vertical-align: 2px;
+    position: relative;
+  }
+  .row.g { border-top-color: var(--green); }
+  .row.y { border-top-color: var(--amber); }
+  .row.r { border-top-color: var(--red); }
+  .row[open] { grid-column: 1 / -1; }
+  .row > summary { list-style: none; cursor: pointer; padding: 13px 14px 15px; }
+  .row > summary::-webkit-details-marker { display: none; }
+  .row > summary:hover { background: #f6faf9; }
+
+  .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
+  .geo {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-soft); background: #eef2f1; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
+  }
+  .grade {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
   }
   .row.g .grade { color: var(--green); background: var(--green-bg); }
   .row.y .grade { color: var(--amber); background: var(--amber-bg); }
   .row.r .grade { color: var(--red); background: var(--red-bg); }
   .measure {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-left: 8px;
+    display: block; font-family: "Fraunces", Georgia, serif; font-weight: 600;
+    font-size: 0.98rem; line-height: 1.2; color: var(--ink-soft);
   }
   .figure {
-    margin-top: 8px;
-    font-size: clamp(1.5rem, 5.4vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
+    display: block; margin-top: 4px; font-size: 1.45rem; font-weight: 700;
+    letter-spacing: -0.015em; line-height: 1.12;
   }
-  .figure small { font-size: 0.5em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
-  .result { margin-top: 4px; font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); }
-  .row .body { padding: 0 0 24px; }
+  .figure small { display: block; font-size: 0.5em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; margin-top: 2px; }
+  .result { display: block; margin-top: 8px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
+
+  /* microbar: Spokane as a share of its benchmark, tick at the benchmark */
+  .micro { display: block; margin-top: 10px; }
+  .mtrack { display: block; position: relative; height: 6px; background: #e6ecec; border-radius: 3px; }
+  .mfill { display: block; height: 100%; border-radius: 3px; background: var(--teal); }
+  .row.r .mfill { background: var(--red); }
+  .row.y .mfill { background: var(--amber); }
+  .row.g .mfill { background: var(--green); }
+  .mmark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .55; }
+  .mcap { display: block; margin-top: 5px; font-size: 0.7rem; color: var(--ink-soft); line-height: 1.3; }
+
+  .row .body { padding: 0 14px 18px; border-top: 1px solid var(--rule); margin-top: 4px; padding-top: 14px; }
   .bench { font-weight: 600; font-size: 0.95rem; max-width: 42em; }
   .why { margin-top: 12px; color: var(--ink-soft); max-width: 42em; }
   .src { margin-top: 12px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
@@ -522,10 +538,31 @@
   <p class="changed"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="archive/">past editions</a>.</p>
   <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
 
+  <details class="more" style="margin-top:0;margin-bottom:16px;">
+    <summary>What the County, Metro and City labels mean</summary>
+    <div class="inner">
+      <div class="geokey">
+        <svg width="190" height="96" viewBox="0 0 190 96" role="img" aria-label="Diagram: the City of Spokane sits inside Spokane County, which sits inside the Spokane metro area, which also includes Stevens County.">
+          <rect x="1" y="1" width="188" height="94" rx="4" fill="#eef3f2" stroke="#b9c6c4"/>
+          <text x="7" y="14" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#4a5654" letter-spacing="1">METRO</text>
+          <rect x="14" y="20" width="140" height="66" rx="3" fill="#ddeae9" stroke="#8fa9a7"/>
+          <text x="20" y="33" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#4a5654" letter-spacing="1">COUNTY</text>
+          <rect x="27" y="39" width="76" height="40" rx="3" fill="#2a6b73"/>
+          <text x="33" y="53" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="1">CITY</text>
+          <text x="33" y="67" font-size="8" font-family="Public Sans, sans-serif" fill="#cfe4e6">of Spokane</text>
+        </svg>
+        <p class="gk"><b>City</b> is Spokane proper. <b>County</b> is Spokane County. <b>Metro</b> is the county plus Stevens County. Each measure is labeled with the one it covers, because a number that is true of the metro is not automatically true of the city. Most job and wage data only exists at county or metro level, which is why the labels change from card to card.</p>
+      </div>
+    </div>
+  </details>
+
+  <div class="grid8">
   <details class="row r">
     <summary>
-      <span class="grade">Weak</span><span class="measure">Job growth</span>
-      <span class="figure">&minus;2,900 jobs <small>Spokane County, year over year</small></span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
+      <span class="measure">Job growth</span>
+      <span class="figure">&minus;2,900<small>jobs, year over year</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:14%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">2026 pace is 14% of the 5-year average. Tick marks the average.</span></span>
       <span class="result">Payrolls fell 1.1% over the year</span>
     </summary>
     <div class="body">
@@ -543,8 +580,9 @@
 
   <details class="row r">
     <summary>
-      <span class="grade">Weak</span><span class="measure">Who&rsquo;s actually hiring</span>
-      <span class="figure">1 sector <small>drives nearly all growth</small></span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
+      <span class="measure">Who&rsquo;s hiring</span>
+      <span class="figure">1 sector<small>drives nearly all growth</small></span>
       <span class="result">Health care carries the load. Finance shed 12%.</span>
     </summary>
     <div class="body">
@@ -561,9 +599,11 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Unemployment (read with care)</span>
-      <span class="figure">3.8% <small>Spokane County, June 2026</small></span>
-      <span class="result">Beats the U.S. and Washington, over a shrinking labor pool</span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Mixed</span></span>
+      <span class="measure">Unemployment</span>
+      <span class="figure">3.8%<small>June 2026</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:86%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">86% of the U.S. rate of 4.4%. Shorter is better here.</span></span>
+      <span class="result">Beats the U.S., but over a shrinking labor pool</span>
     </summary>
     <div class="body">
       <p class="bench">Beats Washington (4.7%) and the U.S. (4.4%). But this number flatters us: it counts only people actively looking, and Spokane&rsquo;s labor force participation lags the national rate, with retirements shrinking the pool faster than new workers replace it. A low rate over a shrinking base is not strength.</p>
@@ -580,9 +620,11 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Paychecks</span>
-      <span class="figure">$32.96/hr <small>vs. $33.54 U.S. average, Spokane metro</small></span>
-      <span class="result">Nearly at parity with the U.S., but income growth is falling behind</span>
+      <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
+      <span class="measure">Paychecks</span>
+      <span class="figure">$32.96<small>average hourly wage</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:98%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">98% of the U.S. average of $33.54.</span></span>
+      <span class="result">Nearly at parity, but income growth is falling behind</span>
     </summary>
     <div class="body">
       <p class="bench">Spokane wages have nearly reached the national average. But per-person income grew 4.9% in 2024 while the U.S. grew 6.6%, so the gap with the rest of the country widened again.</p>
@@ -598,9 +640,11 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Incomes</span>
-      <span class="figure">$44,107 <small>per person, Spokane County, 2024</small></span>
-      <span class="result">Below the U.S., and just 80% of Washington</span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Mixed</span></span>
+      <span class="measure">Incomes</span>
+      <span class="figure">$44,107<small>per person, 2024</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:97%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">97% of the U.S. figure, and 80% of Washington's.</span></span>
+      <span class="result">Below the U.S., and 80% of Washington</span>
     </summary>
     <div class="body">
       <p class="bench">Below the U.S. ($45,256) and just 80% of Washington ($55,177), and it grew 4.9% in 2024 while the nation grew 6.6%, so the gap widened. Household income did top the U.S. median for the first time ($86,206 vs. about $81,400), but economists can&rsquo;t fully explain that one-year jump and suspect federal transfer payments, so it doesn&rsquo;t carry a grade on its own.</p>
@@ -617,9 +661,11 @@
 
   <details class="row r">
     <summary>
-      <span class="grade">Weak</span><span class="measure">Spending in the city</span>
-      <span class="figure">+1.2% <small>City of Spokane, taxable retail sales, Q4 2024 (latest city figure)</small></span>
-      <span class="result">Against a long-run normal of 4 to 5%</span>
+      <span class="tiletop"><span class="geo">City</span><span class="grade">Weak</span></span>
+      <span class="measure">Spending</span>
+      <span class="figure">+1.2%<small>taxable retail sales, Q4 2024</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:27%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">27% of the long-run normal of 4 to 5%.</span></span>
+      <span class="result">A quarter of its normal pace</span>
     </summary>
     <div class="body">
       <p class="bench">The newest county reading (Q2 2025) grew 2.8% against the state&rsquo;s 3.4%, and the long-run normal is 4&ndash;5%. In the latest city-level release, Spokane grew just 1.2% while its own county grew 3.1%. County sales tax receipts have grown about 1% against a two-decade average of 4%.</p>
@@ -637,9 +683,10 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Storefronts</span>
-      <span class="figure">5.3% <small>retail vacancy, Spokane metro, Q2 2026</small></span>
-      <span class="result">Flat year over year, with little new construction</span>
+      <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
+      <span class="measure">Storefronts</span>
+      <span class="figure">5.3%<small>retail vacancy, Q2 2026</small></span>
+      <span class="result">Flat year over year, little new construction</span>
     </summary>
     <div class="body">
       <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
@@ -650,8 +697,9 @@
 
   <details class="row g">
     <summary>
-      <span class="grade">Strong</span><span class="measure">People</span>
-      <span class="figure">~556,000 <small>county residents, growing</small></span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Strong</span></span>
+      <span class="measure">People</span>
+      <span class="figure">~556,000<small>county residents</small></span>
       <span class="result">Growing faster than the state and the country</span>
     </summary>
     <div class="body">
@@ -660,6 +708,7 @@
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
     </div>
   </details>
+  </div>
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
@@ -682,18 +731,18 @@
     </div>
   </div>
 
-  <div class="chain">
-    <span class="step">People <span class="dir up">&uarr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Employers <span class="dir down">&darr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Paychecks <span class="dir mid">&rarr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Spending <span class="dir down">&darr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Storefronts <span class="dir mid">&rarr;</span></span>
-    <span class="cap">Each link is a graded measure above. The chain breaks at employers, and everything downstream of the break sags.</span>
+  <div class="flow">
+    <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node r"><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node y"><span class="nlab">Paychecks</span><span class="nval">$32.96</span><span class="nstate">near U.S.</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node r"><span class="nlab">Spending</span><span class="nval">+1.2%</span><span class="nstate">below normal</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node y"><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
   </div>
+  <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
 
   <details class="more">
     <summary>See the whole machine, and why each turn makes the next one easier</summary>
