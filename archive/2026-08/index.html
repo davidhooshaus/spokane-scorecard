@@ -475,6 +475,28 @@
   .asklabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 2px; }
   .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
 
+  /* Poll reasons */
+  .reasons { margin-top: 4px; }
+  .rrow { display: flex; align-items: center; gap: 12px; margin: 7px 0; font-size: 0.9rem; }
+  .rlab { flex: 0 0 172px; color: var(--ink-soft); }
+  .rtrack { flex: 1 1 auto; height: 13px; background: #dde5e4; border-radius: 2px; overflow: hidden; }
+  .rfill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
+  .rrow:first-child .rfill { background: var(--basalt); }
+  .rval { flex: 0 0 42px; text-align: right; font-weight: 700; }
+  .rnote { margin-top: 12px; font-size: 0.8rem; color: var(--ink-soft); max-width: 44em; }
+  @media (max-width: 560px) { .rlab { flex-basis: 118px; font-size: 0.82rem; } }
+
+  /* Tax burden pair */
+  .taxpair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+  @media (max-width: 620px) { .taxpair { grid-template-columns: 1fr; } }
+  .tp { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--rule-strong); border-radius: 3px; padding: 16px; }
+  .tp.lo { border-top-color: var(--red); }
+  .tp.hi { border-top-color: var(--teal); }
+  .tpn { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 2.2rem; line-height: 1; letter-spacing: -0.02em; }
+  .tp.lo .tpn { color: var(--red); }
+  .tp.hi .tpn { color: var(--teal); }
+  .tpl { display: block; margin-top: 9px; font-size: 0.85rem; line-height: 1.4; color: var(--ink-soft); }
+
   /* Goal tiles */
   .goals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; }
   @media (max-width: 760px) { .goals { grid-template-columns: repeat(2, 1fr); } }
@@ -646,6 +668,7 @@
 <nav class="jump" aria-label="Section navigation">
   <a href="#scorecard">The score</a>
   <a href="#story">Why it matters</a>
+  <a href="#taxes">But isn&rsquo;t it taxes?</a>
   <a href="#effect">What one employer does</a>
   <a href="#goals">The targets</a>
   <a href="#levers">Who controls what</a>
@@ -887,6 +910,46 @@
     <div class="inner prose">
       <p>If you live here, you&rsquo;ve seen the puzzle pieces without the box top. Ground-floor spaces sit empty on Monroe while apartments rise around them. New commercial construction has slowed to a trickle. Help-wanted signs everywhere, yet the higher-wage jobs always seem to be somewhere else.</p>
       <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight measures above are that story, counted. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ============ THE OBJECTION ============ -->
+<section id="taxes" class="band">
+  <p class="eyebrow">The objection</p>
+  <h2 class="sect">But people here say the problem is taxes</h2>
+  <p class="lede">Greater Spokane Inc. polls Spokane-area voters every few months. In April 2026 it found that <b>68% had actively considered moving out of the area</b>. When it asked them why, jobs and wages did not make the list at all.</p>
+
+  <div class="reasons wide">
+    <p class="rrow"><span class="rlab">Taxes</span><span class="rtrack"><span class="rfill" style="width:100%"></span></span><span class="rval">21%</span></p>
+    <p class="rrow"><span class="rlab">Government leadership</span><span class="rtrack"><span class="rfill" style="width:90%"></span></span><span class="rval">19%</span></p>
+    <p class="rrow"><span class="rlab">Cost of living</span><span class="rtrack"><span class="rfill" style="width:81%"></span></span><span class="rval">17%</span></p>
+    <p class="rrow"><span class="rlab">Public safety</span><span class="rtrack"><span class="rfill" style="width:62%"></span></span><span class="rval">13%</span></p>
+    <p class="rrow"><span class="rlab">Homelessness</span><span class="rtrack"><span class="rfill" style="width:33%"></span></span><span class="rval">7%</span></p>
+    <p class="rnote">Reasons given by the 395 respondents who had considered leaving. GSI&rsquo;s Pulse, fourth edition, 600 voters across the city, the valley and the county, April 2026.</p>
+  </div>
+
+  <p class="lede" style="margin-top:22px;">That is a real finding from a real poll, run by the region&rsquo;s own economic development group. It is also not the argument this page makes. So which one is right?</p>
+
+  <h3 style="margin-top:26px;">Both. It is the same squeeze from opposite ends.</h3>
+  <p class="prose" style="max-width:42em;">A tax bill is not a fixed weight. It is a share of what you earn. The same property tax is an irritation at one income and a reason to leave at another.</p>
+  <p class="prose" style="max-width:42em;margin-top:12px;">Washington makes that gap unusually wide. The Institute on Taxation and Economic Policy ranks this state <b>49th out of 50</b> for how much more of their income lower earners hand over than higher earners do.</p>
+
+  <div class="taxpair wide">
+    <div class="tp lo"><span class="tpn">13.8%</span><span class="tpl">of income paid in state and local taxes by the poorest fifth of Washington households</span></div>
+    <div class="tp hi"><span class="tpn">4.1%</span><span class="tpl">paid by the wealthiest 1%, households earning over $848,400</span></div>
+  </div>
+
+  <p class="prose" style="max-width:42em;margin-top:20px;">Now set that next to the Incomes measure above. Spokane earns about <b>80 cents for every dollar of income in Washington</b>. The tax structure here is the same one they have in Bellevue. The paychecks are not.</p>
+  <p class="flowsum" style="margin-top:16px;">So when a Spokane voter says taxes and this page says wages, we are pointing at the same squeeze from opposite ends. You can loosen it by lowering what people pay, or by raising what they earn. This page is about the second one, because it is the one that compounds.</p>
+
+  <details class="more">
+    <summary>Three things to be careful about in this section</summary>
+    <div class="inner prose">
+      <p><b>These tax numbers are for Washington as a whole.</b> There is no Spokane version of them, and we are not going to invent one. What we can say is structural: this state takes a bigger share from lower earners, and Spokane earns less than the state average.</p>
+      <p><b>Washington is getting less regressive, not more.</b> It moved off last place in 2024, after the Working Families Tax Credit and the capital gains tax. That is real progress and it belongs on the record.</p>
+      <p><b>The poll asked voters, not residents.</b> Voters skew older and more settled than the young people deciding whether to start a career here. Their reasons are worth knowing. They are not the whole picture.</p>
+      <p>Sources: <a href="https://greaterspokane.org/what-we-do/greater-voice/the-pulse-community-poll/">GSI, The Pulse community poll</a>; <a href="https://itep.org/whopays-7th-edition/">Institute on Taxation and Economic Policy, Who Pays? seventh edition</a> (January 2024).</p>
     </div>
   </details>
 </section>
