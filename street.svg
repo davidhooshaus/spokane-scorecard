@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" role="img" aria-labelledby="st sd">
+  <title id="st">A commercial block with full apartments above and half-empty storefronts below</title>
+  <desc id="sd">A drawing of four adjoining buildings. Every apartment window on the upper floor is lit. On the ground floor, two storefronts are open with awnings, and two are dark with papered-over glass and For Lease signs.</desc>
+  <rect width="1200" height="260" fill="#fcfcfb"/>
+  <g stroke="#2b3134" stroke-width="2" fill="none">
+    <rect x="30" y="40" width="270" height="200"/><rect x="310" y="40" width="270" height="200"/>
+    <rect x="590" y="40" width="270" height="200"/><rect x="870" y="40" width="270" height="200"/>
+    <line x1="30" y1="140" x2="1140" y2="140"/>
+  </g>
+  <g fill="#f7f0de" stroke="#2b3134" stroke-width="1.5">
+    <rect x="60" y="62" width="46" height="52"/><rect x="130" y="62" width="46" height="52"/><rect x="200" y="62" width="46" height="52"/>
+    <rect x="340" y="62" width="46" height="52"/><rect x="410" y="62" width="46" height="52"/><rect x="480" y="62" width="46" height="52"/>
+    <rect x="620" y="62" width="46" height="52"/><rect x="690" y="62" width="46" height="52"/><rect x="760" y="62" width="46" height="52"/>
+    <rect x="900" y="62" width="46" height="52"/><rect x="970" y="62" width="46" height="52"/><rect x="1040" y="62" width="46" height="52"/>
+  </g>
+  <g stroke="#2b3134" stroke-width="1.5">
+    <rect x="55" y="160" width="220" height="80" fill="#ddebec"/>
+    <rect x="335" y="160" width="220" height="80" fill="#e6e8e6"/>
+    <rect x="615" y="160" width="220" height="80" fill="#ddebec"/>
+    <rect x="895" y="160" width="220" height="80" fill="#e6e8e6"/>
+  </g>
+  <g fill="#2a6b73">
+    <path d="M48 160 L282 160 L268 144 L62 144 Z"/>
+    <path d="M608 160 L842 160 L828 144 L622 144 Z"/>
+  </g>
+  <g stroke="#9aa5a3" stroke-width="1.4">
+    <line x1="345" y1="175" x2="545" y2="225"/><line x1="345" y1="225" x2="545" y2="175"/>
+    <line x1="905" y1="175" x2="1105" y2="225"/><line x1="905" y1="225" x2="1105" y2="175"/>
+  </g>
+  <g fill="#4a5654" font-family="Public Sans, Helvetica, sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <text x="440" y="206">FOR LEASE</text><text x="1000" y="206">FOR LEASE</text>
+  </g>
+</svg>
