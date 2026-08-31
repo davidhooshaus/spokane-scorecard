@@ -341,6 +341,26 @@
   p + p { margin-top: 12px; }
   .prose p { max-width: 42em; }
 
+  /* Hand-off lines: the seam between one section and the next */
+  .handoff {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 40em;
+  }
+  .handoff a {
+    font-weight: 700;
+    color: var(--teal);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .handoff a:hover { text-decoration: underline; }
+  .band-dark .handoff { border-top-color: rgba(255,255,255,.2); color: #c7d4d2; }
+  .band-dark .handoff a { color: #9ed4d8; }
+
   /* Three numbers */
   .three {
     display: grid;
@@ -767,6 +787,8 @@
     <a class="btn solid" href="#scorecard">See the eight measures</a>
     <a class="btn" href="calculator.html">Try the employer calculator</a>
   </div>
+
+  <p class="handoff">That call is built from eight measures. <a href="#scorecard">Here they are <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 02 THE EIGHT MEASURES ============ -->
@@ -775,6 +797,7 @@
   <h2 class="sect">Eight measures, graded from public data</h2>
   <p class="lede" style="font-weight:600;">The question, stated exactly: is Spokane attracting the kind of employers that raise wages?</p>
   <p class="scope"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is a separate section, on purpose.</p>
+  <p class="changed"><b>Measured against what?</b> The region has already published targets for jobs and investment. We check progress against them in <a href="#goals">the targets</a> below.</p>
   <p class="changed"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="/archive/">past editions</a>.</p>
   <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
 
@@ -957,6 +980,8 @@
     </div>
     <a class="btn solid" href="https://tally.so/r/2E6e8g">Send me the update</a>
   </div>
+
+  <p class="handoff">Eight separate problems, or one? <a href="#story">Here is how they connect <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
@@ -1013,6 +1038,8 @@
       <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight measures above are that story, counted. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
     </div>
   </details>
+
+  <p class="handoff">There is an obvious objection to all of this, and it comes from the region&rsquo;s own polling. <a href="#taxes">Let us take it head on <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 04 THE OBJECTION ============ -->
@@ -1053,6 +1080,8 @@
       <p>Sources: <a href="https://greaterspokane.org/what-we-do/greater-voice/the-pulse-community-poll/">GSI, The Pulse community poll</a>; <a href="https://itep.org/whopays-7th-edition/">Institute on Taxation and Economic Policy, Who Pays? seventh edition</a> (January 2024).</p>
     </div>
   </details>
+
+  <p class="handoff">So if the fix is what people earn, what would actually move it? <a href="#effect">Look at one employer <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 05 WHAT ONE EMPLOYER DOES ============ -->
@@ -1107,6 +1136,8 @@
   </div>
 
 
+
+  <p class="handoff">That is one employer. <a href="#goals">Here is what the region already said it wants <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 06 THE TARGETS ============ -->
@@ -1124,6 +1155,8 @@
 
   <p class="flowsum" style="margin-top:18px;">So how are we doing?</p>
   <p class="lede" style="margin-bottom:0;">That is the whole job of this page. The eight measures above are public data on whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
+
+  <p class="handoff">Goals need somebody to move them. <a href="#levers">Here is who holds what <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 07 WHO CONTROLS WHAT ============ -->
@@ -1202,6 +1235,8 @@
       <p><b>On big local employers.</b> Cheap power is already drawing interest from data centers, which shows the pull is real. The question is whether it turns into employers who hire a lot of people.</p>
     </div>
   </details>
+
+  <p class="handoff">None of this is theoretical. <a href="#done">Four cities have already done it <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 08 IT'S BEEN DONE ============ -->
@@ -1282,6 +1317,8 @@
   </div>
 
   <p class="lede" style="margin-top:18px;margin-bottom:0;"><b>The pattern across all four:</b> a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline.</p>
+
+  <p class="handoff">So here is what we are asking of the people who hold the levers here. <a href="#asks">The three asks <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 09 WHAT WE'RE ASKING ============ -->
@@ -1327,6 +1364,8 @@
   </div>
 
   <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
+
+  <p class="handoff">And here is how to check every number on this page. <a href="#nerd">Argue with us <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 10 THE RECEIPTS ============ -->
