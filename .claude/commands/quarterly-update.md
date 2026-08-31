@@ -75,6 +75,15 @@ methodology.html change log: new version entry at the top listing every
 changed figure's new vintage and every grade change with a one-line reason.
 Never touch old entries.
 
+## 6b. Check the reading level
+Run `python3 tools/readability.py`. The standard: prose at or below 6th grade,
+except where a term is load-bearing and simplifying it would change the meaning
+(taxable retail sales, labor force participation, local multiplier, the names of
+agencies and schools). Rewrite anything new that lands high, usually by splitting
+long sentences rather than by swapping words. Never simplify a number, a
+geography label, or a caveat into something less precise. Clarity is the goal,
+not a lower score.
+
 ## 7. Verify before showing David
 - every link resolves
 - every new claim has a source
