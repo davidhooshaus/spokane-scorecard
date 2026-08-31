@@ -69,6 +69,27 @@
   .sitenav { display: flex; gap: 18px; font-size: 0.85rem; }
   .sitenav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
   .sitenav a:hover { color: var(--teal); text-decoration: underline; }
+  .navcta {
+    background: var(--teal); color: #fff !important; border-radius: 3px;
+    padding: 6px 12px; text-decoration: none !important; white-space: nowrap;
+  }
+  .navcta:hover { background: var(--basalt); }
+
+  /* Inline signup blocks */
+  .signup {
+    background: #fff; border: 1px solid var(--rule); border-left: 5px solid var(--teal);
+    border-radius: 0 4px 4px 0; padding: 20px 22px; margin-top: 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .signup .stext { flex: 1 1 22em; min-width: 0; }
+  .signup .shead { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.15rem; line-height: 1.2; }
+  .signup .ssub { margin-top: 6px; font-size: 0.9rem; line-height: 1.45; color: var(--ink-soft); }
+  .signup .btn { flex: 0 0 auto; }
+  .band-dark .signup { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); border-left-color: #7fbfc4; }
+  .band-dark .signup .shead { color: #fff; }
+  .band-dark .signup .ssub { color: #c7d4d2; }
+  .band-dark .signup .btn { border-color: #9ed4d8; color: #fff; }
+  .band-dark .signup .btn:hover { background: #9ed4d8; color: var(--basalt); border-color: #9ed4d8; }
   @media (max-width: 560px) {
     .headrow { gap: 10px; }
     .bname { font-size: 0.95rem; }
@@ -652,22 +673,40 @@
   <div class="headrow">
     <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/></svg></span><span class="bname">The Spokane Prosperity Scorecard</span></a>
     <nav class="sitenav" aria-label="Site">
-      <a href="#scorecard">The score</a>
+      <a href="#scorecard">The Score</a>
       <a href="methodology.html">Methodology</a>
-      <a href="archive/">Past editions</a>
-      <a href="who.html">Who made this</a>
+      <a href="archive/">Past Editions</a>
+      <a href="who.html">Who Made This</a>
+      <a class="navcta" href="https://tally.so/r/2E6e8g">Get the Update</a>
     </nav>
   </div>
 </header>
 
 <!-- ============ HERO VERDICT ============ -->
 <div class="hero tintband">
-  <p class="edition">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source</p>
   <p class="hook">We want our kids to be able to stay here. That&rsquo;s the whole thing.</p>
   <p class="hooksub">Which takes employers who pay enough to make staying possible. That is what the word <b>prosperity</b> means on this page. Not a slogan. A paycheck that covers a life in Spokane.</p>
   <p class="hooksub">So four times a year we check whether the region is landing those employers. The grades are judgment calls. The numbers underneath them are not. Every one is public and we link all of them. Go look.</p>
+  <p class="edition">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source</p>
+  <p class="notewho"><b>A report card on Spokane, not on any employer.</b> Nobody here is grading a business. We are grading how the region is doing at drawing good ones in. Every answer links to public data you can look up yourself.</p>
+</div>
 
-  <p class="q">So how is that going?</p>
+<nav class="jump" aria-label="Section navigation">
+  <a href="#scorecard">The Score</a>
+  <a href="#story">Why It Matters</a>
+  <a href="#taxes">But Isn&rsquo;t It Taxes?</a>
+  <a href="#effect">What One Employer Does</a>
+  <a href="#goals">The Targets</a>
+  <a href="#levers">Who Controls What</a>
+  <a href="#done">It&rsquo;s Been Done</a>
+  <a href="#asks">What We&rsquo;re Asking</a>
+  <a href="archive/">Past Editions</a>
+</nav>
+
+<!-- ============ 01 THE VERDICT ============ -->
+<section id="verdict">
+  <p class="eyebrow"><span class="secnum">01</span>The verdict</p>
+  <h2 class="sect">So how is that going?</h2>
   <p class="status">Off track</p>
   <p class="because">Payrolls shrank by 2,900 jobs over the past year, and nearly all the growth that remains is in one sector.</p>
   <div class="spectrum" role="img" aria-label="Scale of three possible verdicts: off track, mixed, and on track. Spokane is currently at off track, the first of the three.">
@@ -684,7 +723,7 @@
       <span class="sprule">more strong than weak</span>
     </div>
   </div>
-  <p class="spwhere"><b>Spokane is here.</b> Three measures are weak and one is strong. One weak measure turning strong, or two turning mixed, would move the region to the middle.</p>
+    <p class="spwhere"><b>Spokane is here.</b> Three measures are weak and one is strong. One weak measure turning strong, or two turning mixed, would move the region to the middle.</p>
   <p class="tally">Eight measures this quarter:
     <span class="chip g"></span><b>1 strong</b>
     <span class="chip y"></span><b>4 mixed</b>
@@ -695,24 +734,11 @@
     <a class="btn solid" href="#scorecard">See the eight measures</a>
     <a class="btn" href="calculator.html">Try the employer calculator</a>
   </div>
-  <p class="notewho"><b>A report card on Spokane, not on any employer.</b> Nobody here is grading a business. We are grading how the region is doing at drawing good ones in. Every answer links to public data you can look up yourself.</p>
-</div>
+</section>
 
-<nav class="jump" aria-label="Section navigation">
-  <a href="#scorecard">The score</a>
-  <a href="#story">Why it matters</a>
-  <a href="#taxes">But isn&rsquo;t it taxes?</a>
-  <a href="#effect">What one employer does</a>
-  <a href="#goals">The targets</a>
-  <a href="#levers">Who controls what</a>
-  <a href="#done">It&rsquo;s been done</a>
-  <a href="#asks">What we&rsquo;re asking</a>
-  <a href="archive/">Past editions</a>
-</nav>
-
-<!-- ============ 30 SECONDS ============ -->
+<!-- ============ 02 THE EIGHT MEASURES ============ -->
 <section id="scorecard">
-  <p class="eyebrow"><span class="secnum">01</span>Regional results</p>
+  <p class="eyebrow"><span class="secnum">02</span>Regional results</p>
   <h2 class="sect">Eight measures, graded from public data</h2>
   <p class="lede" style="font-weight:600;">The question, stated exactly: is Spokane attracting the kind of employers that raise wages?</p>
   <p class="scope"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is a separate section, on purpose.</p>
@@ -890,11 +916,19 @@
     </div>
   </details>
   </div>
+
+  <div class="signup">
+    <div class="stext">
+      <p class="shead">These numbers change four times a year.</p>
+      <p class="ssub">Leave an email and we will send you the new ones the day they are posted. One message a quarter. Nothing else, ever.</p>
+    </div>
+    <a class="btn solid" href="https://tally.so/r/2E6e8g">Send me the update</a>
+  </div>
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
 <section id="story" class="band">
-  <p class="eyebrow"><span class="secnum">02</span>The story in 30 seconds</p>
+  <p class="eyebrow"><span class="secnum">03</span>The story in 30 seconds</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
   <div class="three">
@@ -948,9 +982,9 @@
   </details>
 </section>
 
-<!-- ============ THE OBJECTION ============ -->
+<!-- ============ 04 THE OBJECTION ============ -->
 <section id="taxes">
-  <p class="eyebrow"><span class="secnum">03</span>The objection</p>
+  <p class="eyebrow"><span class="secnum">04</span>The objection</p>
   <h2 class="sect">But people here say the problem is taxes</h2>
   <p class="lede">Greater Spokane Inc. polls Spokane-area voters every few months. In April 2026 it found that <b>68% had actively considered moving out of the area</b>. When it asked them why, jobs and wages did not make the list at all.</p>
 
@@ -988,9 +1022,9 @@
   </details>
 </section>
 
-<!-- ============ CALCULATOR TEASER ============ -->
+<!-- ============ 05 WHAT ONE EMPLOYER DOES ============ -->
 <section id="effect" class="band-deep">
-  <p class="eyebrow"><span class="secnum">04</span>What one employer does</p>
+  <p class="eyebrow"><span class="secnum">05</span>What One Employer Does</p>
   <h2 class="sect">Same headcount. Different city.</h2>
   <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
 
@@ -1042,9 +1076,9 @@
 
 </section>
 
-<!-- ============ THE PLAN ALREADY EXISTS ============ -->
+<!-- ============ 06 THE TARGETS ============ -->
 <section id="goals">
-  <p class="eyebrow"><span class="secnum">05</span>The region already set targets</p>
+  <p class="eyebrow"><span class="secnum">06</span>The region already set targets</p>
   <h2 class="sect">Somebody already said what winning looks like</h2>
   <p class="lede">This page did not invent a standard. Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
@@ -1059,9 +1093,9 @@
   <p class="lede" style="margin-bottom:0;">That is the whole job of this page. The eight measures above are public data on whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
 </section>
 
-<!-- ============ LEVERS ============ -->
+<!-- ============ 07 WHO CONTROLS WHAT ============ -->
 <section id="levers" class="band">
-  <p class="eyebrow"><span class="secnum">06</span>Who controls what</p>
+  <p class="eyebrow"><span class="secnum">07</span>Who Controls What</p>
   <h2 class="sect">Nobody moves those numbers alone</h2>
   <p class="scope"><b>The grades above are regional results. The levers below belong to named institutions.</b> Keeping those two apart is what makes this a scorecard and not an accusation.</p>
   <p class="lede">The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the same machine with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades. Tied to a measure above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
@@ -1137,9 +1171,9 @@
   </details>
 </section>
 
-<!-- ============ IT'S BEEN DONE ============ -->
+<!-- ============ 08 IT'S BEEN DONE ============ -->
 <section id="done">
-  <p class="eyebrow"><span class="secnum">07</span>It&rsquo;s been done</p>
+  <p class="eyebrow"><span class="secnum">08</span>It&rsquo;s Been Done</p>
   <h2 class="sect">Four cities Spokane can learn from</h2>
   <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
@@ -1217,9 +1251,9 @@
   <p class="lede" style="margin-top:18px;margin-bottom:0;"><b>The pattern across all four:</b> a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline.</p>
 </section>
 
-<!-- ============ ASKS ============ -->
+<!-- ============ 09 WHAT WE'RE ASKING ============ -->
 <section id="asks" class="band-dark">
-  <p class="eyebrow"><span class="secnum">08</span>What we&rsquo;re asking</p>
+  <p class="eyebrow"><span class="secnum">09</span>What We&rsquo;re Asking</p>
   <h2 class="sect">Three things we&rsquo;re asking leaders to do</h2>
   <p class="lede">Not a policy platform. Three commitments any mayor or council member could make tomorrow.</p>
 
@@ -1251,12 +1285,20 @@
     <p>It would also have a known blind spot, and that is worth saying out loud. It would catch graduates who leave Spokane for Seattle, because Seattle is in Washington. It would miss the ones who leave for Boise or Denver. That is still far more than we know today.</p>
   </div>
 
+  <div class="signup">
+    <div class="stext">
+      <p class="shead">Want to know whether any of this moves?</p>
+      <p class="ssub">We publish the new grades every quarter, and we say what changed. You will hear from us four times a year.</p>
+    </div>
+    <a class="btn solid" href="https://tally.so/r/2E6e8g">Count me in</a>
+  </div>
+
   <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
 </section>
 
-<!-- ============ NERD STUFF ============ -->
+<!-- ============ 10 THE RECEIPTS ============ -->
 <section id="nerd">
-  <p class="eyebrow"><span class="secnum">09</span>The receipts</p>
+  <p class="eyebrow"><span class="secnum">10</span>The receipts</p>
   <h2 class="sect">Argue with us</h2>
   <p class="lede">Every number above links to its source. The <a href="methodology.html">full methodology</a> covers the grading rules, the limits of the data, and what it can and cannot tell you. Corrections are welcome, and they get posted.</p>
 
