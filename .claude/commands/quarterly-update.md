@@ -64,6 +64,14 @@ sentence matches a current graded number. Same voice: plain, short, no em dashes
 This text doubles as the quarterly email; draft that email as a separate
 markdown file in data/emails/ for David to send.
 
+## 5a. Update the verdict spectrum
+The hero carries a three-point scale (off track, mixed, on track) with a marker on
+the current verdict, and a line stating what would move it. Recompute both. The rule
+is mechanical: off track when weak outnumber strong, mixed when they tie, on track
+when strong outnumber weak. Move the `here` class to the correct segment, and rewrite
+the "what would move it" sentence from the new counts. Check the arithmetic rather
+than eyeballing it; the sentence is a falsifiable claim and readers can check it.
+
 ## 5b. Say what changed
 Rewrite the `.changed` line above the measures so it names, in one sentence each: every
 figure that moved, every grade that changed, and any measure that was added or replaced.
