@@ -23,7 +23,7 @@
     --paper: #fcfcfb;
     --ink: #171d1c;
     --ink-soft: #4a5654;
-    --rule: #dbe2e1;
+    --rule: #d2dcda;
     --rule-strong: #b9c6c4;
     --lilac: #2a6b73;
     --teal: #2a6b73;
@@ -34,8 +34,8 @@
     --green-bg: #eaf3ee;
     --amber-bg: #f7f0de;
     --red-bg: #f8e9e5;
-    --panel: #eef3f2;
-    --panel-deep: #e3ebea;
+    --panel: #e2ecea;
+    --panel-deep: #d3e3e1;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -154,7 +154,7 @@
   .spectrum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 20px; max-width: 34em; }
   .spseg {
     border-top: 5px solid var(--rule-strong);
-    background: #f2f5f4;
+    background: #ffffff;
     padding: 9px 10px 10px;
     border-radius: 0 0 3px 3px;
     opacity: .55;
@@ -426,7 +426,7 @@
   .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
   .geo {
     font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--ink-soft); background: #eef2f1; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
+    color: var(--ink-soft); background: #e6eeec; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
   }
   .grade {
     font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
@@ -448,7 +448,7 @@
 
   /* microbar: Spokane as a share of its benchmark, tick at the benchmark */
   .micro { display: block; margin-top: 10px; }
-  .mtrack { display: block; position: relative; height: 6px; background: #e6ecec; border-radius: 3px; }
+  .mtrack { display: block; position: relative; height: 6px; background: #d5e2e0; border-radius: 3px; }
   .mfill { display: block; height: 100%; border-radius: 3px; background: var(--teal); }
   .row.r .mfill { background: var(--red); }
   .row.y .mfill { background: var(--amber); }
@@ -465,7 +465,7 @@
   .chart { margin-top: 14px; max-width: 32em; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
   .lab { flex: 0 0 96px; color: var(--ink-soft); line-height: 1.25; }
-  .track { flex: 1 1 auto; height: 11px; background: #dde5e4; border-radius: 2px; overflow: hidden; }
+  .track { flex: 1 1 auto; height: 11px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
   .fill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .bar.spk .lab { color: var(--ink); font-weight: 600; }
   .bar.spk .fill { background: var(--lilac); }
@@ -509,7 +509,7 @@
   .reasons { margin-top: 4px; }
   .rrow { display: flex; align-items: center; gap: 12px; margin: 7px 0; font-size: 0.9rem; }
   .rlab { flex: 0 0 172px; color: var(--ink-soft); }
-  .rtrack { flex: 1 1 auto; height: 13px; background: #dde5e4; border-radius: 2px; overflow: hidden; }
+  .rtrack { flex: 1 1 auto; height: 13px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
   .rfill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .rrow:first-child .rfill { background: var(--basalt); }
   .rval { flex: 0 0 42px; text-align: right; font-weight: 700; }
