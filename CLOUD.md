@@ -59,8 +59,11 @@ Read first, and follow them exactly:
 
 Connectors required: Gmail, and web fetch or Firecrawl.
 
-Do the runbook, steps 1 through 7, in order. Save any files you pull under
-data/<dataset>/<YYYY-QN>/.
+Do the runbook, steps 0 through 7, in order. Step 0 is not optional: freeze the outgoing
+edition into archive/<YYYY-MM>/ BEFORE touching any figure, and add it to archive/index.html.
+A run that updates figures without archiving the previous edition has broken the one promise
+this project makes. If step 0 fails for any reason, stop and report it rather than proceeding
+to edit the live figures. Save any files you pull under data/<dataset>/<YYYY-QN>/.
 
 Then, instead of runbook step 8's interactive hand-off, do this:
 
@@ -98,6 +101,9 @@ Hard rules for this run:
 - If you cannot re-export press/flywheel.png (cairosvg may be unavailable in
   this environment), edit flywheel.svg anyway and flag the stale PNG as an
   open item in both the PR body and the email. Do not skip the SVG edit.
+- Never edit anything inside archive/. Archived editions are frozen. A correction to a past
+  edition goes in a new change log entry on the live methodology page, never by rewriting the
+  archived file.
 - If a source is unreachable, do not guess and do not carry forward last
   quarter's number as if it were fresh. Leave the old figure, mark it in the PR
   as not refreshed this quarter, and name the source that failed.
