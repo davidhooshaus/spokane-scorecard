@@ -149,6 +149,15 @@
     nav.jump { flex-wrap: nowrap; overflow-x: auto; gap: 0 16px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav.jump::-webkit-scrollbar { display: none; }
     nav.jump a { white-space: nowrap; }
+    /* The bar is swipeable, but a word chopped at the edge reads as broken, not
+       scrollable. Fade the last stretch so it reads as "more this way". */
+    nav.jump {
+      -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 38px), transparent);
+      mask-image: linear-gradient(to right, #000 calc(100% - 38px), transparent);
+    }
+    /* 96px of a 335px row is a lot to give a label; the bars need the room more */
+    .lab { flex-basis: 74px; font-size: 0.8rem; }
+    .bar { gap: 8px; }
   }
 
   /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
@@ -380,6 +389,8 @@
     border-radius: 3px;
   }
   .collegeask { border-left-color: var(--green); margin-top: 26px; }
+  .stateask { border-left-color: var(--teal); margin-top: 26px; }
+  .band-dark .stateask { border-left-color: #9ed4d8; }
   .asklabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 2px; }
   .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
 
@@ -757,7 +768,7 @@
     <div class="lever">
       <h4>Higher education</h4>
       <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW and GU medical partnership, and the community colleges. They decide how many graduates come out, and in which fields. They also decide whether students intern at local firms, and whether research here turns into companies.</p>
-      <p class="stat"><span class="tag gap">Data gap</span>Nursing numbers are published, and they are strong. For engineering, computing and business, we could not find one local school that publishes how many graduates stay.</p>
+      <p class="stat"><span class="tag gap">Data gap</span>Nursing numbers are published, and they are strong. For engineering, computing and business, no local school publishes how many graduates stay. The state could answer this for everyone at once. See the ask below.</p>
     </div>
     <div class="lever">
       <h4>Anchor employers</h4>
@@ -873,6 +884,14 @@
     <p class="asklabel">And one ask for Spokane&rsquo;s colleges</p>
     <h4>Publish where your graduates go, by program.</h4>
     <p>To the region&rsquo;s colleges and universities. You already report this for nursing, where the story is good. Nobody reports it for engineering, computing or business. The share of those graduates who stay is the single number this whole system turns on. The first school to publish it gets the green ink.</p>
+  </div>
+
+  <div class="ask stateask">
+    <p class="asklabel">And one ask for the state</p>
+    <h4>Publish which county graduates work in.</h4>
+    <p>Washington already links school records to paycheck records. The state&rsquo;s <a href="https://erdc.wa.gov/data-dashboards/earnings-graduates-dashboard">Earnings for Graduates dashboard</a> shows what graduates earn, broken out by school and by major, using unemployment insurance wage records. What it does not show is where those graduates work. It only says &ldquo;somewhere in Washington.&rdquo;</p>
+    <p>The employer&rsquo;s location is already sitting in those records. Adding county of employment is a different cut of a report that already exists. It is not a new survey. It would answer this for every school in the state at once, in weeks rather than years.</p>
+    <p>It would also have a known blind spot, and that is worth saying out loud. It would catch graduates who leave Spokane for Seattle, because Seattle is in Washington. It would miss the ones who leave for Boise or Denver. That is still far more than we know today.</p>
   </div>
 
   <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
