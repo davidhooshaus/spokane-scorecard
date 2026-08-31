@@ -251,6 +251,12 @@
   .num .l { margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
   @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
 
+  /* Street illustration */
+  .street { margin: 18px 0 4px; }
+  .street img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+  .street figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 42em; }
+  .street figcaption b { color: var(--ink); }
+
   /* Flow diagram */
   .flow {
     display: flex; align-items: stretch; gap: 8px; margin: 4px 0 14px;
@@ -779,6 +785,11 @@
     <div class="node y"><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
   </div>
   <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
+
+  <figure class="street">
+    <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
+    <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
+  </figure>
 
   <details class="more">
     <summary>See the whole machine, and why each turn makes the next one easier</summary>
