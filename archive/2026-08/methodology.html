@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/mark.svg" type="image/svg+xml">
+<link rel="mask-icon" href="/mark.svg" color="#2a6b73">
 <meta name="robots" content="noindex">
 <title>Methodology | The Spokane Employer Scorecard</title>
 <meta property="og:title" content="Methodology | The Spokane Employer Scorecard">
@@ -16,13 +18,16 @@
     --ink: #1c2321;
     --ink-soft: #4c544f;
     --rule: #d9d9d0;
-    --lilac: #6b5b95;
+    --lilac: #2a6b73;
+    --teal: #2a6b73;
+    --basalt: #2b3134;
     --green: #2e7d5b;
     --amber: #a06e0a;
     --red: #b3402e;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
+    font-variant-numeric: tabular-nums;
     background: var(--paper);
     color: var(--ink);
     font-family: "Public Sans", -apple-system, sans-serif;
@@ -30,6 +35,8 @@
     line-height: 1.6;
   }
   a { color: var(--lilac); text-underline-offset: 2px; }
+  .mark { display: inline-block; width: 26px; height: 26px; vertical-align: -6px; margin-right: 9px; }
+  .mark svg { width: 100%; height: 100%; display: block; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
   header { padding: 44px 0 24px; border-bottom: 3px solid var(--ink); }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
@@ -66,7 +73,7 @@
 <body>
 <div style="background:#f7f0de;border-bottom:2px solid #a06e0a;padding:12px 0;">
   <div style="max-width:760px;margin:0 auto;padding:0 20px;font-family:'Public Sans',-apple-system,sans-serif;font-size:0.92rem;color:#1c2321;line-height:1.45;">
-    <b>Archived edition, August 2026.</b> Frozen as published. The figures and grades here are not updated. <a href="/" style="color:#6b5b95;">See the current scorecard</a> or <a href="/archive/" style="color:#6b5b95;">all past editions</a>.
+    <b>Archived edition, August 2026.</b> Frozen as published. The figures and grades here are not updated. <a href="/" style="color:#2a6b73;">See the current scorecard</a> or <a href="/archive/" style="color:#2a6b73;">all past editions</a>.
   </div>
 </div>
 <div class="wrap">
@@ -137,6 +144,7 @@
 
 <section>
   <h2>Change log</h2>
+  <p>v1.6, August 2026. Visual identity, no content change. Added a mark: three basalt columns of uneven height, which read equally as the rock this city sits on and as a bar chart, and which match the coloured column already running down the left edge of every measure. It now serves as the site favicon, which did not previously exist. Moved the accent colour from lilac to a river teal, and added basalt charcoal as a second. The reason is a constraint rather than a preference: green, amber and red can only ever mean a grade here, which rules out the otherwise obvious ponderosa green and brick red, since a brand colour colliding with a grade on the same screen would be a defect. Set every figure in tabular numerals so columns of numbers align on the decimal. Replaced the social preview image, which was the flywheel diagram, with a card carrying the mark and the standing question. No figure, source, grade or piece of copy was changed.</p>
   <p>v1.5, August 2026. Review pass, no figure or grade changed. <b>Retired a planned measure:</b> the council attention audit is dropped from the roadmap. Counting how often an agenda mentions employer attraction is a weak proxy for results, it is gameable, and a zoning or infrastructure item can matter enormously without using the words. It also pulled the project toward political watchdog and away from scorekeeper. In its place the roadmap now lists city-controlled outputs that can actually be measured: permit turnaround time, employment-land readiness, business fees, and major employer expansions retained or won. <b>Claims softened where the evidence was thinner than the wording:</b> the lead line now reads &ldquo;employer growth isn&rsquo;t keeping up&rdquo; rather than asserting an absence of high-paying employers, which the data supports less directly; the case studies are framed as four cities Spokane can learn from rather than four cities that looked like Spokane, and no longer claim none of them got lucky. <b>Labels:</b> lever-map statuses now read Unanswered, Data gap or Not graded in neutral type, so that the graded vocabulary (strong, mixed, weak) appears only where something is actually being graded. Anchor employers keeps the only graded status because it alone is tied to a measure. <b>Added</b> a Who made this page carrying identity, background, funding and the corrections policy, and made the calculator comparison carry a prominent &ldquo;illustrative multiplier range, not a Spokane forecast&rdquo; label.</p>
   <p>v1.4, August 2026. Two substantive changes and one structural one. <b>Substantive:</b> the &ldquo;who&rsquo;s actually hiring&rdquo; card no longer says health care simply serves people already here. It now states that much of health care serves existing local demand while Spokane&rsquo;s role as a regional referral hub treating Idaho and Montana patients does bring outside dollars in, which is what the calculator&rsquo;s own multiplier basis has said all along. The claim was too strong and the two pages disagreed. Also retired the phrase &ldquo;career-grade jobs&rdquo; in favor of &ldquo;higher-wage jobs,&rdquo; because the economic distinction being drawn is about wage level and whether a job brings outside money into the region, not about whether someone&rsquo;s work counts as a career. And the flywheel caption no longer calls fixing the missing gear &ldquo;the city&rsquo;s job&rdquo;; it is the region&rsquo;s challenge, with city hall responsible for pulling its own levers toward it. No figure, source or grade changed. <b>Structural:</b> the eight measures now sit directly under the verdict, ahead of the argument, and carry an explicit note that they are regional outcomes rather than any one institution&rsquo;s performance, with the lever map labeled as the separate accountability half. Started the public archive at <a href="/archive/">past editions</a>: each quarter the outgoing edition is frozen unchanged before any figure is touched, and archived editions are never edited. Added a &ldquo;what changed this quarter&rdquo; line above the measures, which carries content from the November update onward.</p>
   <p>v1.3, August 2026. Presentation only. No figure, source or grade changed. Rebuilt the scorecard page around progressive disclosure so a reader gets the story in ten seconds, the eight measures in two minutes, and the full evidence when they want it: each measure now opens to reveal its benchmark chart, its &ldquo;why it matters&rdquo; paragraph and its sources, with nothing removed. Added an overall verdict at the top (off track) under the mechanical rule now published above, replacing an unlabeled tally the reader had to interpret. Added plain-language grade labels (strong, mixed, weak) bound to the existing color grades. Added a homepage teaser for the employer calculator, showing multiplier ranges only. Turned the lever map and the four city case studies into cards, carrying their status lines and citations across verbatim. Prose that previously ran ahead of the numbers now sits behind &ldquo;read the longer explanation.&rdquo; Nothing was deleted from the page.</p>

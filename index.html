@@ -3,11 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/mark.svg" type="image/svg+xml">
+<link rel="mask-icon" href="/mark.svg" color="#2a6b73">
 <title>The Spokane Employer Scorecard</title>
 <meta name="description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Eight measures, graded quarterly from public data. Every number links to its source.">
 <meta property="og:title" content="The Spokane Employer Scorecard">
 <meta property="og:description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Built entirely from public data.">
-<meta property="og:image" content="https://spokanescorecard.com/press/flywheel.png">
+<meta property="og:image" content="https://spokanescorecard.com/press/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://spokanescorecard.com/">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +24,9 @@
     --ink: #1c2321;
     --ink-soft: #4c544f;
     --rule: #d9d9d0;
-    --lilac: #6b5b95;
+    --lilac: #2a6b73;
+    --teal: #2a6b73;
+    --basalt: #2b3134;
     --green: #2e7d5b;
     --amber: #a06e0a;
     --red: #b3402e;
@@ -31,6 +38,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
+    font-variant-numeric: tabular-nums;
     background: var(--paper);
     color: var(--ink);
     font-family: "Public Sans", -apple-system, sans-serif;
@@ -39,6 +47,8 @@
   }
   a { color: var(--lilac); text-underline-offset: 2px; }
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--lilac); outline-offset: 2px; }
+  .mark { display: inline-block; width: 26px; height: 26px; vertical-align: -6px; margin-right: 9px; }
+  .mark svg { width: 100%; height: 100%; display: block; }
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
 
   /* Masthead */
@@ -398,7 +408,7 @@
 <div class="wrap">
 
 <header>
-  <p class="kicker">A neighbor-run public ledger</p>
+  <p class="kicker"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/></svg></span>A neighbor-run public ledger</p>
   <h1>The Spokane Employer Scorecard</h1>
   <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="archive/">Past editions</a> &middot; <a href="who.html">Who made this</a></p>
 </header>
