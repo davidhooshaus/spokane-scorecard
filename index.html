@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Spokane Employer Scorecard</title>
+<meta name="description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Eight measures, graded quarterly from public data. Every number links to its source.">
 <meta property="og:title" content="The Spokane Employer Scorecard">
 <meta property="og:description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Built entirely from public data.">
+<meta property="og:image" content="https://spokanescorecard.com/press/flywheel.png">
+<meta property="og:url" content="https://spokanescorecard.com/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
@@ -22,9 +26,10 @@
     --green-bg: #eaf3ee;
     --amber-bg: #f7f0de;
     --red-bg: #f8e9e5;
+    --panel: #f4f3ec;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
     background: var(--paper);
     color: var(--ink);
@@ -33,77 +38,213 @@
     line-height: 1.55;
   }
   a { color: var(--lilac); text-underline-offset: 2px; }
-  a:focus-visible { outline: 2px solid var(--lilac); outline-offset: 2px; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--lilac); outline-offset: 2px; }
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
 
   /* Masthead */
-  header { padding: 44px 0 28px; border-bottom: 3px solid var(--ink); }
+  header { padding: 40px 0 22px; }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   h1 {
     font-family: "Source Serif 4", Georgia, serif;
     font-weight: 700;
-    font-size: clamp(2rem, 7vw, 3.1rem);
+    font-size: clamp(1.9rem, 6.4vw, 2.9rem);
     line-height: 1.08;
     letter-spacing: -0.01em;
   }
-  .standfirst {
-    margin-top: 14px;
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    max-width: 40em;
-  }
-  .dateline { margin-top: 16px; font-size: 0.9rem; color: var(--ink-soft); }
+  .dateline { margin-top: 14px; font-size: 0.9rem; color: var(--ink-soft); }
 
-  /* Verdict */
-  .verdict { padding: 26px 0; border-bottom: 1px solid var(--rule); }
-  .verdict p.big {
+  /* Hero verdict */
+  .hero {
+    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    padding: 30px 0 28px;
+  }
+  .hero .q {
     font-family: "Source Serif 4", Georgia, serif;
     font-weight: 600;
-    font-size: clamp(1.25rem, 4vw, 1.55rem);
+    font-size: clamp(1.15rem, 3.6vw, 1.4rem);
     line-height: 1.3;
-    max-width: 30em;
+    max-width: 24em;
   }
-  .tally { margin-top: 14px; font-size: 0.95rem; color: var(--ink-soft); }
+  .status {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: clamp(2.4rem, 10vw, 4rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .hero .because {
+    margin-top: 14px;
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    font-weight: 600;
+    max-width: 30em;
+    line-height: 1.35;
+  }
+  .tally { margin-top: 18px; font-size: 0.95rem; color: var(--ink-soft); }
   .tally b { color: var(--ink); }
   .chip { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin: 0 5px 0 14px; vertical-align: baseline; }
-  .chip:first-child { margin-left: 0; }
+  .chip:first-of-type { margin-left: 0; }
   .chip.g { background: var(--green); } .chip.y { background: var(--amber); } .chip.r { background: var(--red); }
+  .rulenote { margin-top: 10px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
+  .ctas { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    background: transparent;
+  }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--lilac); border-color: var(--lilac); color: #fff; }
 
-  /* Ledger */
-  .ledger { padding: 8px 0 12px; }
-  .row { padding: 26px 0 26px 20px; border-bottom: 1px solid var(--rule); position: relative; }
-  .row::before { content: ""; position: absolute; left: 0; top: 30px; bottom: 30px; width: 5px; border-radius: 3px; }
+  /* Anchor nav */
+  nav.jump {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  nav.jump a { font-weight: 600; text-decoration: none; color: var(--ink-soft); }
+  nav.jump a:hover { color: var(--lilac); text-decoration: underline; }
+
+  /* Section scaffolding */
+  section { padding: 34px 0; border-bottom: 1px solid var(--rule); }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lilac);
+    margin-bottom: 8px;
+  }
+  h2.sect {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.35rem, 4vw, 1.7rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  .lede { max-width: 42em; margin-bottom: 16px; }
+  p + p { margin-top: 12px; }
+  .prose p { max-width: 42em; }
+
+  /* Three numbers */
+  .three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 4px 0 20px;
+  }
+  .num { border-top: 4px solid var(--red); padding-top: 12px; }
+  .num.flat { border-top-color: var(--amber); }
+  .num .n {
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .num .l { margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
+  @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
+
+  /* Chain */
+  .chain {
+    background: var(--panel);
+    border-radius: 4px;
+    padding: 16px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    font-size: 0.95rem;
+  }
+  .chain .step { font-weight: 700; white-space: nowrap; }
+  .chain .step .dir { font-weight: 700; }
+  .chain .up { color: var(--green); }
+  .chain .down { color: var(--red); }
+  .chain .mid { color: var(--amber); }
+  .chain .arrow { color: var(--ink-soft); }
+  .chain .cap { flex-basis: 100%; font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
+
+  /* Ledger rows as disclosure */
+  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 6px; }
+  .row {
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    padding-left: 18px;
+  }
+  .row:first-of-type { border-top: 1px solid var(--rule); }
+  .row::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 5px; border-radius: 3px; }
   .row.g::before { background: var(--green); }
   .row.y::before { background: var(--amber); }
   .row.r::before { background: var(--red); }
+  .row > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 30px 18px 0;
+    position: relative;
+  }
+  .row > summary::-webkit-details-marker { display: none; }
+  .row > summary::after {
+    content: "+";
+    position: absolute;
+    right: 2px;
+    top: 18px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    line-height: 1;
+  }
+  .row[open] > summary::after { content: "\2212"; }
+  .row > summary:hover .measure { color: var(--lilac); }
+  .row > summary .figure, .row > summary .result,
+  .city > summary .name, .city > summary .move, .city > summary .headline { display: block; }
   .grade {
     display: inline-block;
-    font-size: 0.82rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    padding: 2px 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
     border-radius: 3px;
-    margin-bottom: 10px;
+    vertical-align: 2px;
   }
   .row.g .grade { color: var(--green); background: var(--green-bg); }
   .row.y .grade { color: var(--amber); background: var(--amber-bg); }
   .row.r .grade { color: var(--red); background: var(--red-bg); }
-  .row h2 {
+  .measure {
     font-family: "Source Serif 4", Georgia, serif;
     font-weight: 600;
-    font-size: 1.35rem;
-    line-height: 1.2;
+    font-size: 1.2rem;
+    margin-left: 8px;
   }
   .figure {
-    margin-top: 10px;
-    font-size: clamp(1.7rem, 6vw, 2.2rem);
+    margin-top: 8px;
+    font-size: clamp(1.5rem, 5.4vw, 2rem);
     font-weight: 700;
     letter-spacing: -0.01em;
     line-height: 1.1;
   }
-  .figure small { font-size: 0.55em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
-  .bench { margin-top: 6px; font-weight: 600; font-size: 0.95rem; }
-  .why { margin-top: 10px; color: var(--ink-soft); max-width: 42em; }
-  .src { margin-top: 10px; font-size: 0.85rem; color: var(--ink-soft); }
+  .figure small { font-size: 0.5em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
+  .result { margin-top: 4px; font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); }
+  .row .body { padding: 0 0 24px; }
+  .bench { font-weight: 600; font-size: 0.95rem; max-width: 42em; }
+  .why { margin-top: 12px; color: var(--ink-soft); max-width: 42em; }
+  .src { margin-top: 12px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
 
   /* Benchmark bars */
   .chart { margin-top: 14px; max-width: 32em; }
@@ -116,21 +257,102 @@
   .bar.neg .fill { background: var(--red); }
   .chart .note { margin-top: 6px; font-size: 0.8rem; color: var(--ink-soft); }
 
-  /* Prose sections */
-  section.prose { padding: 30px 0; border-bottom: 1px solid var(--rule); }
-  section.prose h3 {
-    font-family: "Source Serif 4", Georgia, serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
+  /* Calculator teaser */
+  .teaser { background: var(--panel); border-radius: 4px; padding: 22px; }
+  .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 16px 0 4px; }
+  .versus .side .in { font-weight: 700; font-size: 1.02rem; }
+  .versus .side .out {
+    margin-top: 6px;
+    font-size: clamp(1.35rem, 4.6vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
   }
-  section.prose p { margin-bottom: 12px; max-width: 42em; }
-  section.prose p:last-child { margin-bottom: 0; }
+  .versus .side.hi .out { color: var(--green); }
+  .versus .side.lo .out { color: var(--red); }
+  .versus .side .cap { margin-top: 4px; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.35; }
+  @media (max-width: 620px) { .versus { grid-template-columns: 1fr; gap: 16px; } }
+  .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
+
+  /* Lever map */
+  .levers { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
+  @media (max-width: 620px) { .levers { grid-template-columns: 1fr; } }
+  .lever { border: 1px solid var(--rule); border-radius: 4px; padding: 16px; background: #fff; }
+  .lever h4 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  .lever .holds { margin-top: 8px; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.4; }
+  .lever .stat {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: 1px;
+  }
+  .tag.red { color: var(--red); background: var(--red-bg); }
+  .tag.open { color: var(--lilac); background: #efecf5; }
+  .tag.mixed { color: var(--amber); background: var(--amber-bg); }
+
+  /* City cards */
+  .cities { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
+  @media (max-width: 620px) { .cities { grid-template-columns: 1fr; } }
+  .city { border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+  .city > summary { list-style: none; cursor: pointer; padding: 16px; position: relative; }
+  .city > summary::-webkit-details-marker { display: none; }
+  .city > summary::after {
+    content: "+"; position: absolute; right: 14px; top: 14px;
+    font-size: 1.2rem; color: var(--ink-soft); line-height: 1;
+  }
+  .city[open] > summary::after { content: "\2212"; }
+  .city .name {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1.15rem; font-weight: 600;
+  }
+  .city .move { margin-top: 4px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--lilac); }
+  .city .headline { margin-top: 8px; font-weight: 600; font-size: 0.95rem; padding-right: 20px; }
+  .city .detail { padding: 0 16px 16px; font-size: 0.92rem; color: var(--ink-soft); }
+  .city .detail p + p { margin-top: 10px; }
+  .city .ours { margin-top: 10px; color: var(--ink); font-weight: 600; }
+
+  /* Asks */
+  .ask { border-left: 4px solid var(--lilac); padding: 4px 0 4px 16px; margin-top: 18px; max-width: 42em; }
+  .ask h4 { font-size: 1.05rem; font-weight: 700; }
+  .ask p { margin-top: 4px; color: var(--ink-soft); }
+
+  /* Generic disclosure */
+  details.more { margin-top: 14px; }
+  details.more > summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--lilac);
+    list-style: none;
+  }
+  details.more > summary::-webkit-details-marker { display: none; }
+  details.more > summary::before { content: "+ "; }
+  details.more[open] > summary::before { content: "\2212 "; }
+  details.more .inner { margin-top: 12px; }
+  details.more .inner p { max-width: 42em; }
 
   footer { padding: 28px 0 56px; font-size: 0.9rem; color: var(--ink-soft); }
   footer p { margin-bottom: 8px; max-width: 42em; }
 
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  @media print { .row, .city, details.more { display: block; } .row .body, .city .detail, details.more .inner { display: block !important; } nav.jump, .ctas { display: none; } }
 </style>
 </head>
 <body>
@@ -139,190 +361,420 @@
 <header>
   <p class="kicker">A neighbor-run public ledger</p>
   <h1>The Spokane Employer Scorecard</h1>
-  <p class="standfirst">One question, graded from public data every quarter: is Spokane attracting the kind of employers that raise wages? Because good jobs are what fill storefronts, fund neighborhoods, and keep families here.</p>
-  <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="methodology.html">Full methodology</a> &middot; <a href="calculator.html">Employer calculator</a></p>
+  <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source</p>
 </header>
 
-<div class="verdict">
-  <p class="big">People are moving to Spokane. High-wage employers aren&rsquo;t. Payrolls shrank over the past year, growth is concentrated in one sector, and spending in the city trails the region it anchors.</p>
-  <p class="tally">This quarter:
-    <span class="chip g"></span><b>1 green</b>
-    <span class="chip y"></span><b>4 yellow</b>
-    <span class="chip r"></span><b>3 red</b>
+<!-- ============ HERO VERDICT ============ -->
+<div class="hero">
+  <p class="q">Is Spokane attracting the kind of employers that raise wages?</p>
+  <p class="status">Off track</p>
+  <p class="because">Payrolls shrank by 2,900 jobs over the past year, and nearly all the growth that remains is in one sector.</p>
+  <p class="tally">Eight measures this quarter:
+    <span class="chip g"></span><b>1 strong</b>
+    <span class="chip y"></span><b>4 mixed</b>
+    <span class="chip r"></span><b>3 weak</b>
   </p>
-  <p class="tally">Figures cover Spokane County or the Spokane metro (which includes Stevens County) unless a card says City of Spokane. Each card states its geography.</p>
+  <p class="rulenote">The overall call follows a rule set before the reading, not a feeling: off track when weak measures outnumber strong ones, mixed when they tie, on track when strong outnumber weak. Three weak against one strong. There is no letter grade here because the eight measures are neither equally important nor independent, and a GPA would imply a precision this data doesn&rsquo;t have. <a href="methodology.html">How the grades work</a>.</p>
+  <div class="ctas">
+    <a class="btn solid" href="#scorecard">See the eight measures</a>
+    <a class="btn" href="calculator.html">Try the employer calculator</a>
+  </div>
 </div>
 
-<section class="prose">
-  <h3>Why the city looks the way it does</h3>
-  <p>If you live here, you&rsquo;ve seen the puzzle pieces without the box top. Ground-floor spaces sit empty on Monroe while apartments rise around them. New commercial construction has slowed to a trickle. Help-wanted signs everywhere, yet the career-grade jobs always seem to be somewhere else.</p>
-  <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight numbers below are that story, measured. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
-</section>
+<nav class="jump" aria-label="Section navigation">
+  <a href="#story">The story</a>
+  <a href="#scorecard">The score</a>
+  <a href="#effect">What one employer does</a>
+  <a href="#levers">Who can change it</a>
+  <a href="#done">It&rsquo;s been done</a>
+  <a href="#asks">What we&rsquo;re asking</a>
+</nav>
 
-<section class="prose">
-  <h3>How a city compounds</h3>
-  <p>Everything on this page is one machine. Schools and in-migration supply talent, employers turn talent into paychecks, paychecks become customers, customers become storefronts and tax base, and the tax base funds the services that make people and companies want to stay. Each turn makes the next one easier. Unless a gear is missing.</p>
-  <img src="flywheel.svg" alt="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop with city focus at the hub. A red dashed leak arrow shows graduates leaving for Boise or Seattle when career-grade employers are missing. Grade dots mark Spokane green on talent, red on employers and spending, yellow on storefronts." style="width:100%;height:auto;display:block;margin:6px 0 10px;border:1px solid var(--rule);border-radius:4px;">
-  <p style="font-size:0.85rem;color:var(--ink-soft);">The dots are Spokane&rsquo;s current grades from the ledger below. Green where people enter the wheel, red exactly where the employers should be, and the red bleeding downstream. The city&rsquo;s job isn&rsquo;t to spin every gear. It&rsquo;s to fix the one that&rsquo;s missing.</p>
-</section>
+<!-- ============ 30 SECONDS ============ -->
+<section id="story">
+  <p class="eyebrow">The story in 30 seconds</p>
+  <h2 class="sect">People keep arriving. The employers that pay well don&rsquo;t.</h2>
 
-<div class="ledger">
-
-  <article class="row r">
-    <span class="grade">Red</span>
-    <h2>Job growth</h2>
-    <p class="figure">&minus;2,900 jobs <small>Spokane County, year over year</small></p>
-    <p class="bench">Spokane County payrolls fell 1.1% from June 2025 to June 2026. In 2026 the metro has added an average of 58 jobs a month, the weakest pace since 2020.</p>
-    <div class="chart">
-      <p class="bar"><span class="lab">5-yr average</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+410/mo</span></p>
-      <p class="bar"><span class="lab">2025</span><span class="track"><span class="fill" style="width:32%"></span></span><span class="val">+133/mo</span></p>
-      <p class="bar spk"><span class="lab">2026</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="val">+58/mo</span></p>
-      <p class="note">Average jobs added per month, Spokane metro</p>
+  <div class="three">
+    <div class="num">
+      <p class="n">&minus;2,900</p>
+      <p class="l">jobs lost across Spokane County over the past year</p>
     </div>
-    <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
-    <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
-  </article>
-
-  <article class="row r">
-    <span class="grade">Red</span>
-    <h2>Who&rsquo;s actually hiring</h2>
-    <p class="figure">1 sector <small>drives nearly all growth</small></p>
-    <p class="bench">Health care added about 5,900 jobs in five years (+13%). Finance and insurance shed 12% of its jobs in the same window. Manufacturing is hoping for stabilization, not growth.</p>
-    <div class="chart">
-      <p class="bar spk"><span class="lab">Health care</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+13%</span></p>
-      <p class="bar neg"><span class="lab">Finance &amp; insurance</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">&minus;12%</span></p>
-      <p class="note">Five-year job change by sector, Spokane County</p>
+    <div class="num">
+      <p class="n">1 sector</p>
+      <p class="l">health care carries nearly all the growth that is left</p>
     </div>
-    <p class="why">Why it matters: health care serves the people already here. Employers that raise a region&rsquo;s wages sell to the outside world (manufacturing, software, professional services) and bring new money in. Those are the ones not showing up, and leaning on one sector is a risk in itself.</p>
-    <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
-  </article>
-
-  <article class="row y">
-    <span class="grade">Yellow</span>
-    <h2>Unemployment (read with care)</h2>
-    <p class="figure">3.8% <small>Spokane County, June 2026</small></p>
-    <p class="bench">Beats Washington (4.7%) and the U.S. (4.4%). But this number flatters us: it counts only people actively looking, and Spokane&rsquo;s labor force participation lags the national rate, with retirements shrinking the pool faster than new workers replace it. A low rate over a shrinking base is not strength.</p>
-    <div class="chart">
-      <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:81%"></span></span><span class="val">3.8%</span></p>
-      <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">4.4%</span></p>
-      <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4.7%</span></p>
-      <p class="note">Unemployment rate, June 2026. Shorter bar is better.</p>
+    <div class="num flat">
+      <p class="n">+1.2%</p>
+      <p class="l">city spending growth, against a long-run normal of 4 to 5%</p>
     </div>
-    <p class="why">Why it matters: this is the number politicians reach for, so it stays on the board, graded honestly. The truer measure is the share of working-age adults actually holding jobs, which Spokane&rsquo;s own data project tracks. That becomes this card in November.</p>
-    <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a> (June 2026); <a href="https://www.spokanejournal.com/articles/159-spokane-s-labor-force-participation-lags-the-us-rate">EWU Institute for Public Policy via Spokane Journal of Business</a>; replacement metric: <a href="https://www.spokanetrends.org/graph.cfm?cat_id=2&amp;sub_cat_id=4&amp;ind_id=3">Spokane Trends 2.4.2</a></p>
-  </article>
+  </div>
 
-  <article class="row y">
-    <span class="grade">Yellow</span>
-    <h2>Paychecks</h2>
-    <p class="figure">$32.96/hr <small>vs. $33.54 U.S. average, Spokane metro</small></p>
-    <p class="bench">Spokane wages have nearly reached the national average. But per-person income grew 4.9% in 2024 while the U.S. grew 6.6%, so the gap with the rest of the country widened again.</p>
-    <div class="chart">
-      <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">$32.96</span></p>
-      <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$33.54</span></p>
-      <p class="note">Average hourly wage, May 2025</p>
+  <div class="chain">
+    <span class="step">People <span class="dir up">&uarr;</span></span>
+    <span class="arrow">&rarr;</span>
+    <span class="step">Employers <span class="dir down">&darr;</span></span>
+    <span class="arrow">&rarr;</span>
+    <span class="step">Paychecks <span class="dir mid">&rarr;</span></span>
+    <span class="arrow">&rarr;</span>
+    <span class="step">Spending <span class="dir down">&darr;</span></span>
+    <span class="arrow">&rarr;</span>
+    <span class="step">Storefronts <span class="dir mid">&rarr;</span></span>
+    <span class="cap">Each arrow is a graded measure below. The chain breaks at employers, and everything downstream of the break sags.</span>
+  </div>
+
+  <details class="more">
+    <summary>Read the longer explanation</summary>
+    <div class="inner prose">
+      <p>If you live here, you&rsquo;ve seen the puzzle pieces without the box top. Ground-floor spaces sit empty on Monroe while apartments rise around them. New commercial construction has slowed to a trickle. Help-wanted signs everywhere, yet the career-grade jobs always seem to be somewhere else.</p>
+      <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight numbers below are that story, measured. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
     </div>
-    <p class="why">Why it matters: wage level is the clearest test of employer quality. Parity with the U.S. average is real progress. Losing ground on income growth says the progress isn&rsquo;t compounding.</p>
-    <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025); <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">Spokesman-Review / EWU Institute for Public Policy</a></p>
-  </article>
-
-  <article class="row y">
-    <span class="grade">Yellow</span>
-    <h2>Incomes</h2>
-    <p class="figure">$44,107 <small>per person, Spokane County, 2024</small></p>
-    <p class="bench">Below the U.S. ($45,256) and just 80% of Washington ($55,177), and it grew 4.9% in 2024 while the nation grew 6.6%, so the gap widened. Household income did top the U.S. median for the first time ($86,206 vs. about $81,400), but economists can&rsquo;t fully explain that one-year jump and suspect federal transfer payments, so it doesn&rsquo;t carry a grade on its own.</p>
-    <div class="chart">
-      <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="val">$44.1k</span></p>
-      <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="val">$45.3k</span></p>
-      <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$55.2k</span></p>
-      <p class="note">Per-person income, 2024</p>
-    </div>
-    <p class="why">Why it matters: per-person income is the harder test because transfers and household size can&rsquo;t juice it. In November this card adds the cleanest read on employer quality: median earnings of full-time, year-round workers (Census table S2001).</p>
-    <p class="src">Source: <a href="http://censusreporter.org/profiles/05000US53063-spokane-county-wa/">Census ACS 2024 via Census Reporter</a>; <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a>; <a href="https://www.spokanepublicradio.org/regional-news/2025-12-11/spokanes-median-household-income-higher-than-nations-first-time">Spokane Public Radio</a></p>
-  </article>
-
-  <article class="row r">
-    <span class="grade">Red</span>
-    <h2>Spending in the city</h2>
-    <p class="figure">+1.2% <small>City of Spokane, taxable retail sales, Q4 2024 (latest city figure)</small></p>
-    <p class="bench">The newest county reading (Q2 2025) grew 2.8% against the state&rsquo;s 3.4%, and the long-run normal is 4&ndash;5%. In the latest city-level release, Spokane grew just 1.2% while its own county grew 3.1%. County sales tax receipts have grown about 1% against a two-decade average of 4%.</p>
-    <div class="chart">
-      <p class="bar spk"><span class="lab">City (Q4 &rsquo;24)</span><span class="track"><span class="fill" style="width:27%"></span></span><span class="val">+1.2%</span></p>
-      <p class="bar"><span class="lab">County (Q2 &rsquo;25)</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="val">+2.8%</span></p>
-      <p class="bar"><span class="lab">State (Q2 &rsquo;25)</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="val">+3.4%</span></p>
-      <p class="bar"><span class="lab">Long-run norm</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4&ndash;5%</span></p>
-      <p class="note">Taxable retail sales growth, year over year, latest reading per geography</p>
-    </div>
-    <p class="why">Why it matters: this is where jobs and wages become street life. When spending growth in the city runs at a quarter of its historical pace, storefronts stay dark no matter what gets built.</p>
-    <p class="src">Source: <a href="https://www.spokanejournal.com/articles/17363-taxable-retail-sales-increase-in-spokane-county">WA Dept. of Revenue via Spokane Journal of Business</a> (Q4 2024); <a href="https://www.spokanejournal.com/articles/17796-retail-growth-off-to-slow-start-in-q2-of-2025">Q2 2025 county update</a>; <a href="https://www.thecentersquare.com/washington/article_c1ee84f2-cc88-11ef-b0d9-73220b141f39.html">The Center Square</a></p>
-  </article>
-
-  <article class="row y">
-    <span class="grade">Yellow</span>
-    <h2>Storefronts</h2>
-    <p class="figure">5.3% <small>retail vacancy, Spokane metro, Q2 2026</small></p>
-    <p class="bench">Flat year over year. Only about 49,000 sq ft of retail is under construction, far below the decade average. Downtown storefronts lag because daytime office workers never fully returned; Spokane Valley sits at a healthy 4&ndash;5%.</p>
-    <p class="why">Why it matters: developers aren&rsquo;t refusing to build ground-floor retail out of stubbornness. They&rsquo;re reading the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
-    <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
-  </article>
-
-  <article class="row g">
-    <span class="grade">Green</span>
-    <h2>People</h2>
-    <p class="figure">~556,000 <small>county residents, growing</small></p>
-    <p class="bench">Spokane grew slightly faster than both the state and the country last year, and the largest age group is 25 to 34.</p>
-    <p class="why">Why it matters: workers are choosing Spokane before the employers do. That&rsquo;s the region&rsquo;s strongest card, and it&rsquo;s perishable. Working-age people who can&rsquo;t find career-grade jobs here eventually leave for them.</p>
-    <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
-  </article>
-
-</div>
-
-<section class="prose">
-  <h3>What city leadership actually controls</h3>
-  <p>No mayor recruits a manufacturer alone, and this scorecard doesn&rsquo;t pretend otherwise. Employer attraction runs through Greater Spokane Inc., the county, the state, and forces nobody local controls. But the city holds real levers: how fast and predictably it permits, whether zoned land is actually ready to build on, whether downtown feels safe enough for employers to bring people back, what it charges businesses to operate, and where the council spends its attention.</p>
-  <p>The grades above measure the region&rsquo;s results. The question for city hall is simpler: are your levers pulled toward these numbers, or toward something else? When the agenda majors on the minors, this page is the reminder of what the majors are.</p>
+  </details>
 </section>
 
-<section class="prose">
-  <h3>Who moves which levers</h3>
-  <p>The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the flywheel with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades: tied to a card above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
-  <p><b>City of Spokane (mayor and council)</b> holds permitting speed and predictability, zoning that keeps employment land ready to build, downtown safety, business fees, and the council&rsquo;s attention. On track looks like published permit-turnaround targets and adopting a public scoreboard. Today: the three asks above are open, and November&rsquo;s attention audit will measure the attention lever directly.</p>
-  <p><b>The regional recruiters (Spokane County and Greater Spokane Inc.)</b> hold the actual sales operation: target sectors, site readiness, incentive coordination, and the pitch employers hear. On track looks like a short named list of target sectors and a public pipeline report on prospects pursued and landed. Today: an open question. If that plan and pipeline report exist, send them and this page will link them prominently.</p>
-  <p><b>Higher education (Gonzaga, Whitworth, EWU, WSU Spokane, the UW&ndash;GU medical partnership, and the community colleges)</b> holds degree production in the fields target employers hire, internship pipelines that root students in local firms, and, the Pittsburgh lesson, converting research into companies. On track looks like publishing where graduates go, by program, and growing completions in engineering, computing, and health tech. Today: the number gets published exactly where it shines. SCC reports 99% of its nursing graduates staying in the Spokane area, and Gonzaga and EWU report similar strength in nursing. For engineering, computing, and business, the fields the missing employers hire, no local institution publishes a stay-in-region rate we could find. The regional indicator called &ldquo;retention&rdquo; measures whether students stay enrolled, not whether graduates stay home. The first institution to publish program-level retention gets celebrated at the top of this page.</p>
-  <p><b>Anchor employers (Itron, Kaiser Aluminum, Providence, MultiCare, Avista, and peers)</b> hold the decision Boise teaches: expand here or somewhere else. Also internship seats, supplier development, and telling their industries that Spokane works. Today: measured by the Employers card above, currently red, though cheap power drawing data-center inquiries shows the raw pull exists.</p>
-  <p><b>The state of Washington</b> holds tax structure, incentives, infrastructure, higher-ed funding east of the Cascades, and the wage floor that already lifted Spokane&rsquo;s hourly pay to near the national average. This page tracks regional outcomes rather than Olympia, but the lever is real and this region&rsquo;s legislators pull it.</p>
-  <p><b>Residents, including this page,</b> hold attention, votes, meeting rooms, and corrections. On track looks like showing up when the levers above get discussed. Today: you&rsquo;re reading the lever.</p>
+<!-- ============ THE SCORECARD ============ -->
+<section id="scorecard">
+  <p class="eyebrow">The score</p>
+  <h2 class="sect">Eight measures, graded from public data</h2>
+  <p class="legend">Tap any measure for the benchmark comparison, why it matters, and the sources. Figures cover Spokane County or the Spokane metro (which includes Stevens County) unless the measure says City of Spokane.</p>
+
+  <details class="row r">
+    <summary>
+      <span class="grade">Weak</span><span class="measure">Job growth</span>
+      <span class="figure">&minus;2,900 jobs <small>Spokane County, year over year</small></span>
+      <span class="result">Payrolls fell 1.1% over the year</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Spokane County payrolls fell 1.1% from June 2025 to June 2026. In 2026 the metro has added an average of 58 jobs a month, the weakest pace since 2020.</p>
+      <div class="chart">
+        <p class="bar"><span class="lab">5-yr average</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+410/mo</span></p>
+        <p class="bar"><span class="lab">2025</span><span class="track"><span class="fill" style="width:32%"></span></span><span class="val">+133/mo</span></p>
+        <p class="bar spk"><span class="lab">2026</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="val">+58/mo</span></p>
+        <p class="note">Average jobs added per month, Spokane metro</p>
+      </div>
+      <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
+      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
+    </div>
+  </details>
+
+  <details class="row r">
+    <summary>
+      <span class="grade">Weak</span><span class="measure">Who&rsquo;s actually hiring</span>
+      <span class="figure">1 sector <small>drives nearly all growth</small></span>
+      <span class="result">Health care carries the load. Finance shed 12%.</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Health care added about 5,900 jobs in five years (+13%). Finance and insurance shed 12% of its jobs in the same window. Manufacturing is hoping for stabilization, not growth.</p>
+      <div class="chart">
+        <p class="bar spk"><span class="lab">Health care</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+13%</span></p>
+        <p class="bar neg"><span class="lab">Finance &amp; insurance</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">&minus;12%</span></p>
+        <p class="note">Five-year job change by sector, Spokane County</p>
+      </div>
+      <p class="why">Why it matters: health care serves the people already here. Employers that raise a region&rsquo;s wages sell to the outside world (manufacturing, software, professional services) and bring new money in. Those are the ones not showing up, and leaning on one sector is a risk in itself.</p>
+      <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
+    </div>
+  </details>
+
+  <details class="row y">
+    <summary>
+      <span class="grade">Mixed</span><span class="measure">Unemployment (read with care)</span>
+      <span class="figure">3.8% <small>Spokane County, June 2026</small></span>
+      <span class="result">Beats the U.S. and Washington, over a shrinking labor pool</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Beats Washington (4.7%) and the U.S. (4.4%). But this number flatters us: it counts only people actively looking, and Spokane&rsquo;s labor force participation lags the national rate, with retirements shrinking the pool faster than new workers replace it. A low rate over a shrinking base is not strength.</p>
+      <div class="chart">
+        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:81%"></span></span><span class="val">3.8%</span></p>
+        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">4.4%</span></p>
+        <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4.7%</span></p>
+        <p class="note">Unemployment rate, June 2026. Shorter bar is better.</p>
+      </div>
+      <p class="why">Why it matters: this is the number politicians reach for, so it stays on the board, graded honestly. The truer measure is the share of working-age adults actually holding jobs, which Spokane&rsquo;s own data project tracks. That becomes this card in November.</p>
+      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a> (June 2026); <a href="https://www.spokanejournal.com/articles/159-spokane-s-labor-force-participation-lags-the-us-rate">EWU Institute for Public Policy via Spokane Journal of Business</a>; replacement metric: <a href="https://www.spokanetrends.org/graph.cfm?cat_id=2&amp;sub_cat_id=4&amp;ind_id=3">Spokane Trends 2.4.2</a></p>
+    </div>
+  </details>
+
+  <details class="row y">
+    <summary>
+      <span class="grade">Mixed</span><span class="measure">Paychecks</span>
+      <span class="figure">$32.96/hr <small>vs. $33.54 U.S. average, Spokane metro</small></span>
+      <span class="result">Nearly at parity with the U.S., but income growth is falling behind</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Spokane wages have nearly reached the national average. But per-person income grew 4.9% in 2024 while the U.S. grew 6.6%, so the gap with the rest of the country widened again.</p>
+      <div class="chart">
+        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">$32.96</span></p>
+        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$33.54</span></p>
+        <p class="note">Average hourly wage, May 2025</p>
+      </div>
+      <p class="why">Why it matters: wage level is the clearest test of employer quality. Parity with the U.S. average is real progress. Losing ground on income growth says the progress isn&rsquo;t compounding.</p>
+      <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025); <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">Spokesman-Review / EWU Institute for Public Policy</a></p>
+    </div>
+  </details>
+
+  <details class="row y">
+    <summary>
+      <span class="grade">Mixed</span><span class="measure">Incomes</span>
+      <span class="figure">$44,107 <small>per person, Spokane County, 2024</small></span>
+      <span class="result">Below the U.S., and just 80% of Washington</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Below the U.S. ($45,256) and just 80% of Washington ($55,177), and it grew 4.9% in 2024 while the nation grew 6.6%, so the gap widened. Household income did top the U.S. median for the first time ($86,206 vs. about $81,400), but economists can&rsquo;t fully explain that one-year jump and suspect federal transfer payments, so it doesn&rsquo;t carry a grade on its own.</p>
+      <div class="chart">
+        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="val">$44.1k</span></p>
+        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="val">$45.3k</span></p>
+        <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$55.2k</span></p>
+        <p class="note">Per-person income, 2024</p>
+      </div>
+      <p class="why">Why it matters: per-person income is the harder test because transfers and household size can&rsquo;t juice it. In November this card adds the cleanest read on employer quality: median earnings of full-time, year-round workers (Census table S2001).</p>
+      <p class="src">Source: <a href="http://censusreporter.org/profiles/05000US53063-spokane-county-wa/">Census ACS 2024 via Census Reporter</a>; <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a>; <a href="https://www.spokanepublicradio.org/regional-news/2025-12-11/spokanes-median-household-income-higher-than-nations-first-time">Spokane Public Radio</a></p>
+    </div>
+  </details>
+
+  <details class="row r">
+    <summary>
+      <span class="grade">Weak</span><span class="measure">Spending in the city</span>
+      <span class="figure">+1.2% <small>City of Spokane, taxable retail sales, Q4 2024 (latest city figure)</small></span>
+      <span class="result">Against a long-run normal of 4 to 5%</span>
+    </summary>
+    <div class="body">
+      <p class="bench">The newest county reading (Q2 2025) grew 2.8% against the state&rsquo;s 3.4%, and the long-run normal is 4&ndash;5%. In the latest city-level release, Spokane grew just 1.2% while its own county grew 3.1%. County sales tax receipts have grown about 1% against a two-decade average of 4%.</p>
+      <div class="chart">
+        <p class="bar spk"><span class="lab">City (Q4 &rsquo;24)</span><span class="track"><span class="fill" style="width:27%"></span></span><span class="val">+1.2%</span></p>
+        <p class="bar"><span class="lab">County (Q2 &rsquo;25)</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="val">+2.8%</span></p>
+        <p class="bar"><span class="lab">State (Q2 &rsquo;25)</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="val">+3.4%</span></p>
+        <p class="bar"><span class="lab">Long-run norm</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4&ndash;5%</span></p>
+        <p class="note">Taxable retail sales growth, year over year, latest reading per geography</p>
+      </div>
+      <p class="why">Why it matters: this is where jobs and wages become street life. When spending growth in the city runs at a quarter of its historical pace, storefronts stay dark no matter what gets built.</p>
+      <p class="src">Source: <a href="https://www.spokanejournal.com/articles/17363-taxable-retail-sales-increase-in-spokane-county">WA Dept. of Revenue via Spokane Journal of Business</a> (Q4 2024); <a href="https://www.spokanejournal.com/articles/17796-retail-growth-off-to-slow-start-in-q2-of-2025">Q2 2025 county update</a>; <a href="https://www.thecentersquare.com/washington/article_c1ee84f2-cc88-11ef-b0d9-73220b141f39.html">The Center Square</a></p>
+    </div>
+  </details>
+
+  <details class="row y">
+    <summary>
+      <span class="grade">Mixed</span><span class="measure">Storefronts</span>
+      <span class="figure">5.3% <small>retail vacancy, Spokane metro, Q2 2026</small></span>
+      <span class="result">Flat year over year, with little new construction</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Flat year over year. Only about 49,000 sq ft of retail is under construction, far below the decade average. Downtown storefronts lag because daytime office workers never fully returned; Spokane Valley sits at a healthy 4&ndash;5%.</p>
+      <p class="why">Why it matters: developers aren&rsquo;t refusing to build ground-floor retail out of stubbornness. They&rsquo;re reading the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
+      <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
+    </div>
+  </details>
+
+  <details class="row g">
+    <summary>
+      <span class="grade">Strong</span><span class="measure">People</span>
+      <span class="figure">~556,000 <small>county residents, growing</small></span>
+      <span class="result">Growing faster than the state and the country</span>
+    </summary>
+    <div class="body">
+      <p class="bench">Spokane grew slightly faster than both the state and the country last year, and the largest age group is 25 to 34.</p>
+      <p class="why">Why it matters: workers are choosing Spokane before the employers do. That&rsquo;s the region&rsquo;s strongest card, and it&rsquo;s perishable. Working-age people who can&rsquo;t find career-grade jobs here eventually leave for them.</p>
+      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
+    </div>
+  </details>
 </section>
 
-<section class="prose">
-  <h3>It&rsquo;s been done</h3>
-  <p>Four cities that shared Spokane&rsquo;s profile (mid-size, inland, easy to overlook) turned it around, and none of them got lucky. Each picked an asset it already had, built a sales operation around it, and kept at it for a decade.</p>
-  <p><b>Boise grew its own anchor.</b> Instead of only chasing strangers, Idaho helped its homegrown employer expand at home: Micron is building leading-edge memory fabs at its Boise headquarters, an investment that started at $15 billion (the largest private investment in state history) and has grown to roughly $50 billion, with about 17,000 Idaho jobs tied to it and suppliers like Lam Research opening offices behind it. Retention is recruitment. Spokane&rsquo;s version of the asset: the anchors already here, like Itron and Kaiser Aluminum, whose next expansion has to want to happen here. <a href="https://commerce.idaho.gov/blog/micron-announces-15-billion-investment-in-boise/">Idaho Commerce</a>, <a href="https://www.cnbc.com/2026/08/20/micron-boise-chip-fab-expansion.html">CNBC</a></p>
-  <p><b>Chattanooga went and won one.</b> A mid-size inland city once labeled America&rsquo;s dirtiest recruited Volkswagen&rsquo;s $1 billion plant in 2008. A University of Tennessee study later found it beat its own job projections, with more than 12,400 direct and indirect jobs by 2012, and VW-related activity now supports roughly 17,000 Tennessee jobs. The city also built the country&rsquo;s first citywide gigabit network to give employers a concrete reason to look. Spokane&rsquo;s version of the asset: cheap, reliable power that&rsquo;s already drawing data-center inquiries. The job is converting that pull into employers that hire broadly, not just server halls. <a href="https://www.timesfreepress.com/news/local/story/2013/jun/05/vw-plants-impact-better-than-projected/109956/">Times Free Press</a></p>
-  <p><b>Huntsville sold its federal anchor relentlessly.</b> Redstone Arsenal now employs over 42,000 people and drives half the metro&rsquo;s economy. The region kept selling it until the FBI made Redstone its unofficial second headquarters, on a path toward thousands of employees, with Space Command following. Spokane&rsquo;s version of the asset: Fairchild AFB and a health-sciences campus with two medical schools, both underused as recruitment platforms today. <a href="https://huntsvillebusinessjournal.com/news/2023/12/04/redstone-arsenal-2023-fbis-explosive-growth-nasas-artemis-thrust-and-the-rise-of-a-technological-hub-unveiled-at-huntsvilles-annual-update/">Huntsville Business Journal</a>, <a href="https://www.huntsvilleal.gov/with-growing-missions-from-multiple-tenants-redstone-arsenal-continues-to-flourish/">City of Huntsville</a></p>
-  <p><b>Pittsburgh converted eds and meds into tech.</b> The purest answer to &ldquo;aren&rsquo;t we too dependent on health care?&rdquo; After steel collapsed and the city lost half its population, leaders deliberately rebuilt around universities and hospitals, then converted that base into something bigger: Carnegie Mellon&rsquo;s research became the country&rsquo;s largest concentration of robotics work, with more than 80 robotics companies along a two-mile corridor. The honest caveat: Pittsburgh is several times Spokane&rsquo;s size and the turnaround took decades, with job quality recovering long before headcount did. The lesson survives the caveat: a health-and-universities economy is a launchpad if the region builds a research-to-company pipeline on top of it. Spokane&rsquo;s version of the asset: two medical schools and a health-sciences campus that could seed med-tech the way Carnegie Mellon seeded robotics. <a href="https://community.triblive.com/news/4029971">TribLive</a>, <a href="https://mercury.com/blog/pittsburgh-robotics-industry-growth-ai">Robotics Row</a></p>
-  <p>The pattern across all four: a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline.</p>
+<!-- ============ CALCULATOR TEASER ============ -->
+<section id="effect">
+  <p class="eyebrow">What one employer does</p>
+  <h2 class="sect">Same headcount. Different city.</h2>
+  <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
+
+  <div class="teaser">
+    <div class="versus">
+      <div class="side hi">
+        <p class="in">500 software jobs</p>
+        <p class="out">900 to 1,900</p>
+        <p class="cap">additional local jobs, on top of the 500</p>
+      </div>
+      <div class="side lo">
+        <p class="in">500 retail jobs</p>
+        <p class="out">0 to 100</p>
+        <p class="cap">additional local jobs, on top of the 500</p>
+      </div>
+    </div>
+    <p class="punch">The same 500 hires either build a second wave or don&rsquo;t.</p>
+    <p class="rulenote">Ranges, never point estimates. They come from published local-multiplier research (Moretti, capped downward per Bartik and the Upjohn Institute) and are deliberately widened. This illustrates a mechanism. It is not a forecast.</p>
+    <div class="ctas">
+      <a class="btn solid" href="calculator.html">Change the employer</a>
+    </div>
+  </div>
+
+  <details class="more">
+    <summary>How the numbers connect to each other</summary>
+    <div class="inner prose">
+      <p>Everything on this page is one machine. Schools and in-migration supply talent, employers turn talent into paychecks, paychecks become customers, customers become storefronts and tax base, and the tax base funds the services that make people and companies want to stay. Each turn makes the next one easier. Unless a gear is missing.</p>
+      <img src="flywheel.svg" alt="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop with city focus at the hub. A red dashed leak arrow shows graduates leaving for Boise or Seattle when career-grade employers are missing. Grade dots mark Spokane green on talent, red on employers and spending, yellow on storefronts." style="width:100%;height:auto;display:block;margin:14px 0 10px;border:1px solid var(--rule);border-radius:4px;">
+      <p style="font-size:0.85rem;color:var(--ink-soft);">The dots are Spokane&rsquo;s current grades from the ledger above. Green where people enter the wheel, red exactly where the employers should be, and the red bleeding downstream. The city&rsquo;s job isn&rsquo;t to spin every gear. It&rsquo;s to fix the one that&rsquo;s missing.</p>
+    </div>
+  </details>
 </section>
 
-<section class="prose">
-  <h3>What this page asks of city leadership</h3>
-  <p>Not a policy. A posture. Three commitments any mayor or council member could make tomorrow:</p>
-  <p><b>Adopt a scoreboard.</b> These eight measures or better ones. Report against them in public, on a schedule, the way the city already reports on potholes and permits.</p>
-  <p><b>Publish the plan.</b> Which sectors, which assets, who owns recruitment, and what the targets are. If that plan already exists, send the link and this page will feature it.</p>
-  <p><b>Show the balance.</b> Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Starting with the November update, this scorecard will count how much of the council&rsquo;s public agenda over the past year touched employer attraction at all. It&rsquo;s public record.</p>
-  <p><b>And one ask beyond city hall.</b> To the region&rsquo;s colleges and universities: publish where your graduates go, by program. You already report it for nursing, where the story is great. The share of engineering, computing, and business graduates who stay is the single number this whole system turns on, and today nobody reports it. First institution to publish gets the green ink.</p>
-  <p>And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
+<!-- ============ LEVERS ============ -->
+<section id="levers">
+  <p class="eyebrow">Who can change it</p>
+  <h2 class="sect">Nobody moves these numbers alone</h2>
+  <p class="lede">The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the same machine with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades. Tied to a measure above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
+
+  <div class="levers">
+    <div class="lever">
+      <h4>City of Spokane</h4>
+      <p class="holds">Permitting speed and predictability. Zoning that keeps employment land ready to build. Downtown safety. Business fees. The council&rsquo;s attention.</p>
+      <p class="stat"><span class="tag open">Open</span>The three asks below are unanswered. November&rsquo;s attention audit will measure the attention lever directly.</p>
+    </div>
+    <div class="lever">
+      <h4>The regional recruiters</h4>
+      <p class="holds">Spokane County and Greater Spokane Inc. hold the actual sales operation: target sectors, site readiness, incentive coordination, and the pitch employers hear.</p>
+      <p class="stat"><span class="tag open">Open</span>If a target-sector list and public pipeline report exist, send them and this page will link them prominently.</p>
+    </div>
+    <div class="lever">
+      <h4>Higher education</h4>
+      <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW&ndash;GU medical partnership and the community colleges hold degree production, internship pipelines, and turning research into companies.</p>
+      <p class="stat"><span class="tag open">Open</span>Nursing retention is reported and strong. For engineering, computing and business, no local institution publishes a stay-in-region rate we could find.</p>
+    </div>
+    <div class="lever">
+      <h4>Anchor employers</h4>
+      <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and peers hold the decision Boise teaches: expand here or somewhere else. Also internship seats and supplier development.</p>
+      <p class="stat"><span class="tag red">Weak</span>Measured by the &ldquo;Who&rsquo;s actually hiring&rdquo; measure above, currently weak.</p>
+    </div>
+    <div class="lever">
+      <h4>The state of Washington</h4>
+      <p class="holds">Tax structure, incentives, infrastructure, higher-ed funding east of the Cascades, and the wage floor that already lifted Spokane&rsquo;s hourly pay to near the national average.</p>
+      <p class="stat"><span class="tag open">Not graded</span>This page tracks regional outcomes rather than Olympia. The lever is real, and this region&rsquo;s legislators pull it.</p>
+    </div>
+    <div class="lever">
+      <h4>Residents, including this page</h4>
+      <p class="holds">Attention, votes, meeting rooms, and corrections. On track looks like showing up when the levers above get discussed.</p>
+      <p class="stat"><span class="tag open">Live</span>You&rsquo;re reading the lever.</p>
+    </div>
+  </div>
+
+  <details class="more">
+    <summary>The longer version, including what city hall does and doesn&rsquo;t control</summary>
+    <div class="inner prose">
+      <p>No mayor recruits a manufacturer alone, and this scorecard doesn&rsquo;t pretend otherwise. Employer attraction runs through Greater Spokane Inc., the county, the state, and forces nobody local controls. But the city holds real levers: how fast and predictably it permits, whether zoned land is actually ready to build on, whether downtown feels safe enough for employers to bring people back, what it charges businesses to operate, and where the council spends its attention.</p>
+      <p>The grades above measure the region&rsquo;s results. The question for city hall is simpler: are your levers pulled toward these numbers, or toward something else? When the agenda majors on the minors, this page is the reminder of what the majors are.</p>
+      <p><b>On higher education, the detail behind the status.</b> The number gets published exactly where it shines. SCC reports 99% of its nursing graduates staying in the Spokane area, and Gonzaga and EWU report similar strength in nursing. For engineering, computing, and business, the fields the missing employers hire, no local institution publishes a stay-in-region rate we could find. The regional indicator called &ldquo;retention&rdquo; measures whether students stay enrolled, not whether graduates stay home. The first institution to publish program-level retention gets celebrated at the top of this page.</p>
+      <p><b>On anchor employers.</b> Cheap power drawing data-center inquiries shows the raw pull exists. The question is whether it converts into employers that hire broadly.</p>
+    </div>
+  </details>
 </section>
 
-<section class="prose">
-  <h3>How the grades work</h3>
-  <p>Green means Spokane beats its benchmark (the U.S. or Washington) or is clearly improving. Yellow means near benchmark or mixed signals. Red means below benchmark and not improving. Grades are judgment calls made in public: every number links to its source, and corrections are welcome and will be posted.</p>
-  <p>All data covers Spokane County or the Spokane metro unless noted, because that&rsquo;s the level where reliable public employment data exists. Updated quarterly, by hand. The <a href="methodology.html">full methodology</a> covers what this data can and can&rsquo;t tell you.</p>
+<!-- ============ IT'S BEEN DONE ============ -->
+<section id="done">
+  <p class="eyebrow">It&rsquo;s been done</p>
+  <h2 class="sect">Four cities that looked like Spokane and turned it around</h2>
+  <p class="lede">Mid-size, inland, easy to overlook. None of them got lucky. Each picked an asset it already had, built a sales operation around it, and kept at it for a decade.</p>
+
+  <div class="cities">
+    <details class="city">
+      <summary>
+        <span class="name">Boise</span>
+        <span class="move">Grew its own anchor</span>
+        <span class="headline">Micron&rsquo;s hometown expansion grew from $15B to roughly $50B</span>
+      </summary>
+      <div class="detail">
+        <p>Instead of only chasing strangers, Idaho helped its homegrown employer expand at home. Micron is building leading-edge memory fabs at its Boise headquarters, an investment that started at $15 billion (the largest private investment in state history) and has grown to roughly $50 billion, with about 17,000 Idaho jobs tied to it and suppliers like Lam Research opening offices behind it. Retention is recruitment.</p>
+        <p class="ours">Spokane&rsquo;s version of the asset: the anchors already here, like Itron and Kaiser Aluminum, whose next expansion has to want to happen here.</p>
+        <p><a href="https://commerce.idaho.gov/blog/micron-announces-15-billion-investment-in-boise/">Idaho Commerce</a>, <a href="https://www.cnbc.com/2026/08/20/micron-boise-chip-fab-expansion.html">CNBC</a></p>
+      </div>
+    </details>
+
+    <details class="city">
+      <summary>
+        <span class="name">Chattanooga</span>
+        <span class="move">Went and won one</span>
+        <span class="headline">Volkswagen&rsquo;s plant beat its own projections: 12,400+ jobs by 2012</span>
+      </summary>
+      <div class="detail">
+        <p>A mid-size inland city once labeled America&rsquo;s dirtiest recruited Volkswagen&rsquo;s $1 billion plant in 2008. A University of Tennessee study later found it beat its own job projections, with more than 12,400 direct and indirect jobs by 2012, and VW-related activity now supports roughly 17,000 Tennessee jobs. The city also built the country&rsquo;s first citywide gigabit network to give employers a concrete reason to look.</p>
+        <p class="ours">Spokane&rsquo;s version of the asset: cheap, reliable power that&rsquo;s already drawing data-center inquiries. The job is converting that pull into employers that hire broadly, not just server halls.</p>
+        <p><a href="https://www.timesfreepress.com/news/local/story/2013/jun/05/vw-plants-impact-better-than-projected/109956/">Times Free Press</a></p>
+      </div>
+    </details>
+
+    <details class="city">
+      <summary>
+        <span class="name">Huntsville</span>
+        <span class="move">Sold an existing asset relentlessly</span>
+        <span class="headline">Redstone Arsenal now employs 42,000+ and drives half the metro economy</span>
+      </summary>
+      <div class="detail">
+        <p>Redstone Arsenal now employs over 42,000 people and drives half the metro&rsquo;s economy. The region kept selling it until the FBI made Redstone its unofficial second headquarters, on a path toward thousands of employees, with Space Command following.</p>
+        <p class="ours">Spokane&rsquo;s version of the asset: Fairchild AFB and a health-sciences campus with two medical schools, both underused as recruitment platforms today.</p>
+        <p><a href="https://huntsvillebusinessjournal.com/news/2023/12/04/redstone-arsenal-2023-fbis-explosive-growth-nasas-artemis-thrust-and-the-rise-of-a-technological-hub-unveiled-at-huntsvilles-annual-update/">Huntsville Business Journal</a>, <a href="https://www.huntsvilleal.gov/with-growing-missions-from-multiple-tenants-redstone-arsenal-continues-to-flourish/">City of Huntsville</a></p>
+      </div>
+    </details>
+
+    <details class="city">
+      <summary>
+        <span class="name">Pittsburgh</span>
+        <span class="move">Commercialized its research</span>
+        <span class="headline">80+ robotics companies along a two-mile corridor, out of university research</span>
+      </summary>
+      <div class="detail">
+        <p>The purest answer to &ldquo;aren&rsquo;t we too dependent on health care?&rdquo; After steel collapsed and the city lost half its population, leaders deliberately rebuilt around universities and hospitals, then converted that base into something bigger: Carnegie Mellon&rsquo;s research became the country&rsquo;s largest concentration of robotics work, with more than 80 robotics companies along a two-mile corridor.</p>
+        <p>The honest caveat: Pittsburgh is several times Spokane&rsquo;s size and the turnaround took decades, with job quality recovering long before headcount did. The lesson survives the caveat: a health-and-universities economy is a launchpad if the region builds a research-to-company pipeline on top of it.</p>
+        <p class="ours">Spokane&rsquo;s version of the asset: two medical schools and a health-sciences campus that could seed med-tech the way Carnegie Mellon seeded robotics.</p>
+        <p><a href="https://community.triblive.com/news/4029971">TribLive</a>, <a href="https://mercury.com/blog/pittsburgh-robotics-industry-growth-ai">Robotics Row</a></p>
+      </div>
+    </details>
+  </div>
+
+  <p class="lede" style="margin-top:18px;margin-bottom:0;"><b>The pattern across all four:</b> a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline.</p>
 </section>
 
-<section class="prose">
-  <h3>Coming in future updates</h3>
-  <p>Four measures worth adding: new business applications per resident (Census Business Formation Statistics), the city&rsquo;s median permit turnaround time (a lever the city fully controls), storefront vacancy by corridor so Monroe, Garland, and Division get their own lines instead of hiding inside a metro average, and the attention audit described above: the share of the council&rsquo;s public agenda that touched employer attraction at all. A fifth arrives when institutions publish or provide it: graduate retention in the region, by school and program.</p>
+<!-- ============ ASKS ============ -->
+<section id="asks">
+  <p class="eyebrow">What we&rsquo;re asking</p>
+  <h2 class="sect">Not a policy. A posture.</h2>
+  <p class="lede">Three commitments any mayor or council member could make tomorrow.</p>
+
+  <div class="ask">
+    <h4>Adopt a scoreboard.</h4>
+    <p>These eight measures or better ones. Report against them in public, on a schedule, the way the city already reports on potholes and permits.</p>
+  </div>
+  <div class="ask">
+    <h4>Publish the plan.</h4>
+    <p>Which sectors, which assets, who owns recruitment, and what the targets are. If that plan already exists, send the link and this page will feature it.</p>
+  </div>
+  <div class="ask">
+    <h4>Show the balance.</h4>
+    <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Starting with the November update, this scorecard will count how much of the council&rsquo;s public agenda over the past year touched employer attraction at all. It&rsquo;s public record.</p>
+  </div>
+  <div class="ask">
+    <h4>And one ask beyond city hall.</h4>
+    <p>To the region&rsquo;s colleges and universities: publish where your graduates go, by program. You already report it for nursing, where the story is great. The share of engineering, computing, and business graduates who stay is the single number this whole system turns on, and today nobody reports it. First institution to publish gets the green ink.</p>
+  </div>
+
+  <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
+</section>
+
+<!-- ============ NERD STUFF ============ -->
+<section id="nerd">
+  <p class="eyebrow">The receipts</p>
+  <h2 class="sect">Argue with us</h2>
+  <p class="lede">Every number above links to its source, and the <a href="methodology.html">full methodology</a> covers the rubric, the limitations, and what this data can and can&rsquo;t tell you. Corrections are welcome and get posted.</p>
+
+  <details class="more">
+    <summary>How the grades work</summary>
+    <div class="inner prose">
+      <p>Strong means Spokane beats its benchmark (the U.S. or Washington) or is clearly improving. Mixed means near benchmark or mixed signals. Weak means below benchmark and not improving. Grades are judgment calls made in public: every number links to its source, and corrections are welcome and will be posted.</p>
+      <p>The overall call at the top follows a rule set before the reading: off track when weak measures outnumber strong ones, mixed when they tie, on track when strong outnumber weak. There is deliberately no letter grade, because the eight measures are neither equally important nor independent of each other, and averaging them would imply a precision this data doesn&rsquo;t have.</p>
+      <p>All data covers Spokane County or the Spokane metro unless noted, because that&rsquo;s the level where reliable public employment data exists. Updated quarterly, by hand.</p>
+    </div>
+  </details>
+
+  <details class="more">
+    <summary>Coming in future updates</summary>
+    <div class="inner prose">
+      <p>Four measures worth adding: new business applications per resident (Census Business Formation Statistics), the city&rsquo;s median permit turnaround time (a lever the city fully controls), storefront vacancy by corridor so Monroe, Garland, and Division get their own lines instead of hiding inside a metro average, and the attention audit described above: the share of the council&rsquo;s public agenda that touched employer attraction at all. A fifth arrives when institutions publish or provide it: graduate retention in the region, by school and program.</p>
+    </div>
+  </details>
 </section>
 
 <footer>
