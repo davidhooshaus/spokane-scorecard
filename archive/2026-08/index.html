@@ -251,6 +251,42 @@
   .num .l { margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
   @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
 
+  /* Flow diagram */
+  .flow {
+    display: flex; align-items: stretch; gap: 8px; margin: 4px 0 14px;
+  }
+  .node {
+    flex: 1 1 0; background: #fff; border: 1px solid var(--rule);
+    border-top: 4px solid var(--rule-strong); border-radius: 3px; padding: 12px 10px;
+    text-align: center; min-width: 0;
+  }
+  .node.g { border-top-color: var(--green); }
+  .node.y { border-top-color: var(--amber); }
+  .node.r { border-top-color: var(--red); }
+  .nlab { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); }
+  .nval { display: block; margin-top: 6px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; }
+  .node.g .nval { color: var(--green); } .node.y .nval { color: var(--amber); } .node.r .nval { color: var(--red); }
+  .nstate { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--ink-soft); }
+  .farrow { align-self: center; color: var(--ink-soft); font-size: 1.1rem; flex: 0 0 auto; }
+  .flowsum { font-weight: 600; font-size: 1.02rem; max-width: 42em; }
+  @media (max-width: 700px) {
+    .flow { flex-direction: column; gap: 4px; }
+    .farrow { transform: rotate(90deg); font-size: 1rem; }
+    .node { display: flex; align-items: baseline; gap: 8px; text-align: left; padding: 9px 12px; border-top-width: 1px; border-left: 4px solid var(--rule-strong); }
+    .node.g { border-left-color: var(--green); border-top-color: var(--rule); }
+    .node.y { border-left-color: var(--amber); border-top-color: var(--rule); }
+    .node.r { border-left-color: var(--red); border-top-color: var(--rule); }
+    .nlab { flex: 0 0 88px; }
+    .nval { margin-top: 0; font-size: 1.05rem; }
+    .nstate { margin-top: 0; }
+  }
+
+  /* Geography key */
+  .geokey { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .geokey svg { flex: 0 0 auto; }
+  .geokey .gk { font-size: 0.8rem; color: var(--ink-soft); }
+  .geokey .gk b { color: var(--ink); }
+
   /* Chain */
   .chain {
     background: #ffffff;
@@ -271,81 +307,61 @@
   .chain .arrow { color: var(--ink-soft); }
   .chain .cap { flex-basis: 100%; font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
 
-  /* Ledger rows as disclosure */
-  .scope {
-    background: var(--panel);
-    border-left: 4px solid var(--lilac);
-    padding: 12px 14px;
-    border-radius: 0 4px 4px 0;
-    font-size: 0.92rem;
-    max-width: 42em;
-    margin-bottom: 14px;
-  }
-  .changed { font-size: 0.9rem; color: var(--ink-soft); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 10px 0; margin-bottom: 14px; max-width: 42em; }
-  .changed b { color: var(--ink); }
-  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 6px; }
+  /* Ledger rows: a 4-across tile grid that opens to full width in place */
+  .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; }
+  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .grid8 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .grid8 { grid-template-columns: 1fr; } }
+
   .row {
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    padding-left: 18px;
-  }
-  .row:first-of-type { border-top: 1px solid var(--rule); }
-  .row::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 5px; border-radius: 3px; }
-  .row.g::before { background: var(--green); }
-  .row.y::before { background: var(--amber); }
-  .row.r::before { background: var(--red); }
-  .row > summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 18px 30px 18px 0;
-    position: relative;
-  }
-  .row > summary::-webkit-details-marker { display: none; }
-  .row > summary::after {
-    content: "+";
-    position: absolute;
-    right: 2px;
-    top: 18px;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--ink-soft);
-    line-height: 1;
-  }
-  .row[open] > summary::after { content: "\2212"; }
-  .row > summary:hover .measure { color: var(--teal); }
-  .row > summary:hover { background: linear-gradient(90deg, rgba(42,107,115,.05), transparent 60%); }
-  .row[open] { background: linear-gradient(90deg, rgba(42,107,115,.035), transparent 70%); }
-  .row > summary .figure, .row > summary .result,
-  .city > summary .name, .city > summary .move, .city > summary .headline { display: block; }
-  .grade {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 2px 8px;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--rule-strong);
     border-radius: 3px;
-    vertical-align: 2px;
+    position: relative;
+  }
+  .row.g { border-top-color: var(--green); }
+  .row.y { border-top-color: var(--amber); }
+  .row.r { border-top-color: var(--red); }
+  .row[open] { grid-column: 1 / -1; }
+  .row > summary { list-style: none; cursor: pointer; padding: 13px 14px 15px; }
+  .row > summary::-webkit-details-marker { display: none; }
+  .row > summary:hover { background: #f6faf9; }
+
+  .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
+  .geo {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-soft); background: #eef2f1; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
+  }
+  .grade {
+    font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
   }
   .row.g .grade { color: var(--green); background: var(--green-bg); }
   .row.y .grade { color: var(--amber); background: var(--amber-bg); }
   .row.r .grade { color: var(--red); background: var(--red-bg); }
   .measure {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-left: 8px;
+    display: block; font-family: "Fraunces", Georgia, serif; font-weight: 600;
+    font-size: 0.98rem; line-height: 1.2; color: var(--ink-soft);
   }
   .figure {
-    margin-top: 8px;
-    font-size: clamp(1.5rem, 5.4vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
+    display: block; margin-top: 4px; font-size: 1.45rem; font-weight: 700;
+    letter-spacing: -0.015em; line-height: 1.12;
   }
-  .figure small { font-size: 0.5em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
-  .result { margin-top: 4px; font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); }
-  .row .body { padding: 0 0 24px; }
+  .figure small { display: block; font-size: 0.5em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; margin-top: 2px; }
+  .result { display: block; margin-top: 8px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
+
+  /* microbar: Spokane as a share of its benchmark, tick at the benchmark */
+  .micro { display: block; margin-top: 10px; }
+  .mtrack { display: block; position: relative; height: 6px; background: #e6ecec; border-radius: 3px; }
+  .mfill { display: block; height: 100%; border-radius: 3px; background: var(--teal); }
+  .row.r .mfill { background: var(--red); }
+  .row.y .mfill { background: var(--amber); }
+  .row.g .mfill { background: var(--green); }
+  .mmark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .55; }
+  .mcap { display: block; margin-top: 5px; font-size: 0.7rem; color: var(--ink-soft); line-height: 1.3; }
+
+  .row .body { padding: 0 14px 18px; border-top: 1px solid var(--rule); margin-top: 4px; padding-top: 14px; }
   .bench { font-weight: 600; font-size: 0.95rem; max-width: 42em; }
   .why { margin-top: 12px; color: var(--ink-soft); max-width: 42em; }
   .src { margin-top: 12px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
@@ -394,11 +410,45 @@
   .asklabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 2px; }
   .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
 
+  /* Goal tiles */
+  .goals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; }
+  @media (max-width: 760px) { .goals { grid-template-columns: repeat(2, 1fr); } }
+  .goal { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--teal); border-radius: 3px; padding: 14px; }
+  .gnum { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1.9rem; line-height: 1; letter-spacing: -0.02em; color: var(--teal); }
+  .glab { display: block; margin-top: 7px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
+
+  /* Money in vs money already here */
+  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 4px; }
+  @media (max-width: 620px) { .moneyflow { grid-template-columns: 1fr; } }
+  .mcol { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 15px; }
+  .mcol.in { border-top: 4px solid var(--teal); }
+  .mcol.here { border-top: 4px solid var(--rule-strong); }
+  .mhead { font-weight: 700; font-size: 0.98rem; }
+  .msub { margin-top: 3px; font-size: 0.8rem; color: var(--ink-soft); }
+  .mlist { margin: 10px 0 0; padding: 0; list-style: none; }
+  .mlist li { font-size: 0.88rem; padding: 3px 0 3px 16px; position: relative; color: var(--ink-soft); }
+  .mlist li::before { content: "\2192"; position: absolute; left: 0; color: var(--teal); }
+  .mcol.here .mlist li::before { content: "\21BB"; color: var(--rule-strong); }
+  .mnote { margin-top: 14px; font-size: 0.9rem; font-weight: 600; max-width: 42em; }
+
+  /* Ecosystem diagram */
+  .ecosys { margin: 4px 0 22px; }
+  .ecosys svg { width: 100%; height: auto; display: block; }
+  .ecap { margin-top: 10px; font-size: 0.9rem; color: var(--ink-soft); max-width: 42em; }
+  @media (max-width: 620px) { .ecosys { display: none; } }
+
   /* Lever map */
   .levers { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
   @media (max-width: 620px) { .levers { grid-template-columns: 1fr; } }
-  .lever { border: 1px solid var(--rule); border-radius: 4px; padding: 16px; background: #fff; }
-  .lever h4 {
+  .lever { border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+  .lever > summary { list-style: none; cursor: pointer; padding: 14px 34px 14px 16px; position: relative; }
+  .lever > summary::-webkit-details-marker { display: none; }
+  .lever > summary::after { content: "+"; position: absolute; right: 14px; top: 12px; font-size: 1.15rem; color: var(--ink-soft); line-height: 1; }
+  .lever[open] > summary::after { content: "\2212"; }
+  .lever > summary:hover h4 { color: var(--teal); }
+  .lever .holds, .lever .stat { padding: 0 16px; }
+  .lever .stat { padding-bottom: 15px; }
+  .lever h4 { display: inline;
     font-family: "Fraunces", Georgia, serif;
     font-size: 1.05rem;
     font-weight: 600;
@@ -440,19 +490,20 @@
     font-size: 1.2rem; color: var(--ink-soft); line-height: 1;
   }
   .city[open] > summary::after { content: "\2212"; }
-  .city .name {
-    font-family: "Fraunces", Georgia, serif;
-    font-size: 1.15rem; font-weight: 600;
-  }
-  .city .move { margin-top: 4px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--lilac); }
-  .city .headline { margin-top: 8px; font-weight: 600; font-size: 0.95rem; padding-right: 20px; }
+  .cname { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; font-weight: 700; }
+  .cmove { display: block; margin-top: 3px; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); padding-right: 22px; line-height: 1.3; }
+  .amr { margin-top: 12px; display: grid; grid-template-columns: auto 1fr; gap: 5px 10px; align-items: baseline; }
+  .amr dt { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); }
+  .amr dd { font-size: 0.88rem; line-height: 1.35; }
   .city .detail { padding: 0 16px 16px; font-size: 0.92rem; color: var(--ink-soft); }
   .city .detail p + p { margin-top: 10px; }
   .city .ours { margin-top: 10px; color: var(--ink); font-weight: 600; }
 
   /* Asks */
-  .ask { border-left: 4px solid var(--lilac); padding: 4px 0 4px 16px; margin-top: 18px; max-width: 42em; }
-  .ask h4 { font-size: 1.05rem; font-weight: 700; }
+  .ask { border-left: 4px solid var(--teal); padding: 2px 0 2px 18px; margin-top: 26px; max-width: 42em; }
+  .ask h4 { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+  .asknum { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 2.1rem; line-height: 1; color: var(--teal); opacity: .45; margin-bottom: 2px; }
+  .band-dark .asknum { color: #7fbfc4; opacity: .75; }
   .ask p { margin-top: 4px; color: var(--ink-soft); }
 
   /* Generic disclosure */
@@ -513,6 +564,7 @@
   <a href="#scorecard">The score</a>
   <a href="#story">Why it matters</a>
   <a href="#effect">What one employer does</a>
+  <a href="#goals">The targets</a>
   <a href="#levers">Who controls what</a>
   <a href="#done">It&rsquo;s been done</a>
   <a href="#asks">What we&rsquo;re asking</a>
@@ -527,10 +579,31 @@
   <p class="changed"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="/archive/">past editions</a>.</p>
   <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
 
+  <details class="more" style="margin-top:0;margin-bottom:16px;">
+    <summary>What the County, Metro and City labels mean</summary>
+    <div class="inner">
+      <div class="geokey">
+        <svg width="190" height="96" viewBox="0 0 190 96" role="img" aria-label="Diagram: the City of Spokane sits inside Spokane County, which sits inside the Spokane metro area, which also includes Stevens County.">
+          <rect x="1" y="1" width="188" height="94" rx="4" fill="#eef3f2" stroke="#b9c6c4"/>
+          <text x="7" y="14" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#4a5654" letter-spacing="1">METRO</text>
+          <rect x="14" y="20" width="140" height="66" rx="3" fill="#ddeae9" stroke="#8fa9a7"/>
+          <text x="20" y="33" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#4a5654" letter-spacing="1">COUNTY</text>
+          <rect x="27" y="39" width="76" height="40" rx="3" fill="#2a6b73"/>
+          <text x="33" y="53" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="1">CITY</text>
+          <text x="33" y="67" font-size="8" font-family="Public Sans, sans-serif" fill="#cfe4e6">of Spokane</text>
+        </svg>
+        <p class="gk"><b>City</b> is Spokane proper. <b>County</b> is Spokane County. <b>Metro</b> is the county plus Stevens County. Each measure is labeled with the one it covers, because a number that is true of the metro is not automatically true of the city. Most job and wage data only exists at county or metro level, which is why the labels change from card to card.</p>
+      </div>
+    </div>
+  </details>
+
+  <div class="grid8">
   <details class="row r">
     <summary>
-      <span class="grade">Weak</span><span class="measure">Job growth</span>
-      <span class="figure">&minus;2,900 jobs <small>Spokane County, year over year</small></span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
+      <span class="measure">Job growth</span>
+      <span class="figure">&minus;2,900<small>jobs, year over year</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:14%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">2026 pace is 14% of the 5-year average. Tick marks the average.</span></span>
       <span class="result">Payrolls fell 1.1% over the year</span>
     </summary>
     <div class="body">
@@ -548,8 +621,9 @@
 
   <details class="row r">
     <summary>
-      <span class="grade">Weak</span><span class="measure">Who&rsquo;s actually hiring</span>
-      <span class="figure">1 sector <small>drives nearly all growth</small></span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
+      <span class="measure">Who&rsquo;s hiring</span>
+      <span class="figure">1 sector<small>drives nearly all growth</small></span>
       <span class="result">Health care carries the load. Finance shed 12%.</span>
     </summary>
     <div class="body">
@@ -566,9 +640,11 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Unemployment (read with care)</span>
-      <span class="figure">3.8% <small>Spokane County, June 2026</small></span>
-      <span class="result">Beats the U.S. and Washington, over a shrinking labor pool</span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Mixed</span></span>
+      <span class="measure">Unemployment</span>
+      <span class="figure">3.8%<small>June 2026</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:86%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">86% of the U.S. rate of 4.4%. Shorter is better here.</span></span>
+      <span class="result">Beats the U.S., but over a shrinking labor pool</span>
     </summary>
     <div class="body">
       <p class="bench">Beats Washington (4.7%) and the U.S. (4.4%). But this number flatters us: it counts only people actively looking, and Spokane&rsquo;s labor force participation lags the national rate, with retirements shrinking the pool faster than new workers replace it. A low rate over a shrinking base is not strength.</p>
@@ -585,9 +661,11 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Paychecks</span>
-      <span class="figure">$32.96/hr <small>vs. $33.54 U.S. average, Spokane metro</small></span>
-      <span class="result">Nearly at parity with the U.S., but income growth is falling behind</span>
+      <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
+      <span class="measure">Paychecks</span>
+      <span class="figure">$32.96<small>average hourly wage</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:98%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">98% of the U.S. average of $33.54.</span></span>
+      <span class="result">Nearly at parity, but income growth is falling behind</span>
     </summary>
     <div class="body">
       <p class="bench">Spokane wages have nearly reached the national average. But per-person income grew 4.9% in 2024 while the U.S. grew 6.6%, so the gap with the rest of the country widened again.</p>
@@ -603,9 +681,11 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Incomes</span>
-      <span class="figure">$44,107 <small>per person, Spokane County, 2024</small></span>
-      <span class="result">Below the U.S., and just 80% of Washington</span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Mixed</span></span>
+      <span class="measure">Incomes</span>
+      <span class="figure">$44,107<small>per person, 2024</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:97%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">97% of the U.S. figure, and 80% of Washington's.</span></span>
+      <span class="result">Below the U.S., and 80% of Washington</span>
     </summary>
     <div class="body">
       <p class="bench">Below the U.S. ($45,256) and just 80% of Washington ($55,177), and it grew 4.9% in 2024 while the nation grew 6.6%, so the gap widened. Household income did top the U.S. median for the first time ($86,206 vs. about $81,400), but economists can&rsquo;t fully explain that one-year jump and suspect federal transfer payments, so it doesn&rsquo;t carry a grade on its own.</p>
@@ -622,9 +702,11 @@
 
   <details class="row r">
     <summary>
-      <span class="grade">Weak</span><span class="measure">Spending in the city</span>
-      <span class="figure">+1.2% <small>City of Spokane, taxable retail sales, Q4 2024 (latest city figure)</small></span>
-      <span class="result">Against a long-run normal of 4 to 5%</span>
+      <span class="tiletop"><span class="geo">City</span><span class="grade">Weak</span></span>
+      <span class="measure">Spending</span>
+      <span class="figure">+1.2%<small>taxable retail sales, Q4 2024</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:27%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">27% of the long-run normal of 4 to 5%.</span></span>
+      <span class="result">A quarter of its normal pace</span>
     </summary>
     <div class="body">
       <p class="bench">The newest county reading (Q2 2025) grew 2.8% against the state&rsquo;s 3.4%, and the long-run normal is 4&ndash;5%. In the latest city-level release, Spokane grew just 1.2% while its own county grew 3.1%. County sales tax receipts have grown about 1% against a two-decade average of 4%.</p>
@@ -642,9 +724,10 @@
 
   <details class="row y">
     <summary>
-      <span class="grade">Mixed</span><span class="measure">Storefronts</span>
-      <span class="figure">5.3% <small>retail vacancy, Spokane metro, Q2 2026</small></span>
-      <span class="result">Flat year over year, with little new construction</span>
+      <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
+      <span class="measure">Storefronts</span>
+      <span class="figure">5.3%<small>retail vacancy, Q2 2026</small></span>
+      <span class="result">Flat year over year, little new construction</span>
     </summary>
     <div class="body">
       <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
@@ -655,8 +738,9 @@
 
   <details class="row g">
     <summary>
-      <span class="grade">Strong</span><span class="measure">People</span>
-      <span class="figure">~556,000 <small>county residents, growing</small></span>
+      <span class="tiletop"><span class="geo">County</span><span class="grade">Strong</span></span>
+      <span class="measure">People</span>
+      <span class="figure">~556,000<small>county residents</small></span>
       <span class="result">Growing faster than the state and the country</span>
     </summary>
     <div class="body">
@@ -665,6 +749,7 @@
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
     </div>
   </details>
+  </div>
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
@@ -687,18 +772,18 @@
     </div>
   </div>
 
-  <div class="chain">
-    <span class="step">People <span class="dir up">&uarr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Employers <span class="dir down">&darr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Paychecks <span class="dir mid">&rarr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Spending <span class="dir down">&darr;</span></span>
-    <span class="arrow">&rarr;</span>
-    <span class="step">Storefronts <span class="dir mid">&rarr;</span></span>
-    <span class="cap">Each link is a graded measure above. The chain breaks at employers, and everything downstream of the break sags.</span>
+  <div class="flow">
+    <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node r"><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node y"><span class="nlab">Paychecks</span><span class="nval">$32.96</span><span class="nstate">near U.S.</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node r"><span class="nlab">Spending</span><span class="nval">+1.2%</span><span class="nstate">below normal</span></div>
+    <span class="farrow" aria-hidden="true">&rarr;</span>
+    <div class="node y"><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
   </div>
+  <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
 
   <details class="more">
     <summary>See the whole machine, and why each turn makes the next one easier</summary>
@@ -724,6 +809,30 @@
   <h2 class="sect">Same headcount. Different city.</h2>
   <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
 
+  <div class="moneyflow">
+    <div class="mcol in">
+      <p class="mhead">Money that comes in from outside</p>
+      <p class="msub">Someone elsewhere pays Spokane for something</p>
+      <ul class="mlist">
+        <li>Software sold nationally</li>
+        <li>Manufactured goods shipped out</li>
+        <li>Engineering and professional work done for clients elsewhere</li>
+        <li>Patients from Idaho and Montana treated here</li>
+      </ul>
+    </div>
+    <div class="mcol here">
+      <p class="mhead">Money already here, moving around</p>
+      <p class="msub">Spokane paying Spokane</p>
+      <ul class="mlist">
+        <li>Groceries and restaurants</li>
+        <li>Retail</li>
+        <li>Clinics serving neighbors</li>
+        <li>Trades and local services</li>
+      </ul>
+    </div>
+  </div>
+  <p class="mnote">Both sides are real jobs and real paychecks. Neither is worth more than the other. The difference is that the left side grows the pot, and the right side circulates it. A region needs both, but only one of them makes the pot bigger.</p>
+
   <div class="teaser">
     <p class="warnbadge">Illustrative multiplier range, not a Spokane forecast</p>
     <div class="versus">
@@ -748,6 +857,23 @@
 
 </section>
 
+<!-- ============ THE PLAN ALREADY EXISTS ============ -->
+<section id="goals" class="band-deep">
+  <p class="eyebrow">The region already set targets</p>
+  <h2 class="sect">Somebody already said what winning looks like</h2>
+  <p class="lede">This page did not invent a standard. Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
+
+  <div class="goals">
+    <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span></div>
+    <div class="goal"><span class="gnum">$1B</span><span class="glab">new capital investment</span></div>
+    <div class="goal"><span class="gnum">300</span><span class="glab">internships with local employers</span></div>
+    <div class="goal"><span class="gnum">5,000</span><span class="glab">students given career pathway experiences</span></div>
+  </div>
+
+  <p class="flowsum" style="margin-top:18px;">So how are we doing?</p>
+  <p class="lede" style="margin-bottom:0;">That is the whole job of this page. The eight measures above are public data on whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
+</section>
+
 <!-- ============ LEVERS ============ -->
 <section id="levers" class="band">
   <p class="eyebrow">Who controls what</p>
@@ -755,37 +881,64 @@
   <p class="scope"><b>The grades above are regional results. The levers below belong to named institutions.</b> Keeping those two apart is what makes this a scorecard and not an accusation.</p>
   <p class="lede">The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the same machine with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades. Tied to a measure above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
 
+  <div class="ecosys">
+    <svg viewBox="0 0 640 330" role="img" aria-label="Diagram: six actors surround the regional economy. The city holds permits, land and fees. Regional recruiters sell Spokane and ready sites. Colleges supply talent and research. Employers hire, expand and buy locally. The state sets tax, infrastructure and funding. Residents work, vote, build and spend.">
+      <defs><style>
+        .en { fill:#fff; stroke:#b9c6c4; }
+        .et { font-family:"Public Sans",sans-serif; font-weight:700; font-size:12px; fill:#171d1c; }
+        .es { font-family:"Public Sans",sans-serif; font-size:9.5px; fill:#4a5654; }
+        .el { stroke:#b9c6c4; stroke-width:1.5; }
+      </style></defs>
+      <line class="el" x1="320" y1="165" x2="110" y2="52"/>
+      <line class="el" x1="320" y1="165" x2="530" y2="52"/>
+      <line class="el" x1="320" y1="165" x2="72"  y2="165"/>
+      <line class="el" x1="320" y1="165" x2="568" y2="165"/>
+      <line class="el" x1="320" y1="165" x2="110" y2="278"/>
+      <line class="el" x1="320" y1="165" x2="530" y2="278"/>
+      <circle cx="320" cy="165" r="62" fill="#2a6b73"/>
+      <text x="320" y="159" text-anchor="middle" class="et" fill="#fff" font-size="12.5">REGIONAL</text>
+      <text x="320" y="175" text-anchor="middle" class="et" fill="#fff" font-size="12.5">ECONOMY</text>
+      <g><rect class="en" x="16" y="14" width="188" height="46" rx="3"/><text x="26" y="33" class="et">City of Spokane</text><text x="26" y="49" class="es">Permits, land, fees, attention</text></g>
+      <g><rect class="en" x="436" y="14" width="188" height="46" rx="3"/><text x="446" y="33" class="et">Regional recruiters</text><text x="446" y="49" class="es">Sell Spokane, ready sites</text></g>
+      <g><rect class="en" x="16" y="142" width="188" height="46" rx="3"/><text x="26" y="161" class="et">Colleges</text><text x="26" y="177" class="es">Talent, research, internships</text></g>
+      <g><rect class="en" x="436" y="142" width="188" height="46" rx="3"/><text x="446" y="161" class="et">Employers</text><text x="446" y="177" class="es">Hire, expand, buy locally</text></g>
+      <g><rect class="en" x="16" y="270" width="188" height="46" rx="3"/><text x="26" y="289" class="et">The state</text><text x="26" y="305" class="es">Tax, infrastructure, funding</text></g>
+      <g><rect class="en" x="436" y="270" width="188" height="46" rx="3"/><text x="446" y="289" class="et">Residents</text><text x="446" y="305" class="es">Work, vote, build, spend</text></g>
+    </svg>
+    <p class="ecap">Six actors, one economy. None of them moves those eight numbers alone. Open any one below for the levers it actually holds and where things stand.</p>
+  </div>
+
   <div class="levers">
-    <div class="lever">
-      <h4>City of Spokane</h4>
+    <details class="lever">
+      <summary><h4>City of Spokane</h4></summary>
       <p class="holds">How fast permits move, and how predictable they are. Zoning that keeps land ready for employers to build on. Downtown safety. What businesses pay in fees. Where the council spends its time.</p>
       <p class="stat"><span class="tag gap">Not scored yet</span>The city has an economic development chapter in its comprehensive plan, with living-wage language and target investment areas. What it does not publish is measurable progress. Later editions aim to score things the city controls outright. How long a permit takes. Whether zoned land is ready to build on. What businesses pay in fees.</p>
-    </div>
-    <div class="lever">
-      <h4>The regional recruiters</h4>
+    </details>
+    <details class="lever">
+      <summary><h4>The regional recruiters</h4></summary>
       <p class="holds">Spokane County and Greater Spokane Inc. run the actual sales effort. They pick the target industries, get sites ready, line up incentives, and make the pitch employers hear.</p>
       <p class="stat"><span class="tag pub">Goals published</span>GSI&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign sets public five-year goals, including 5,000 jobs and $1 billion in new capital investment, and posts progress updates. GSI also runs a public <a href="https://greaterspokane.org/what-we-do/greater-growth/spokane-economic-indicators-dashboard/">regional indicators dashboard</a>. The plan is not the open question. Progress against it is.</p>
-    </div>
-    <div class="lever">
-      <h4>Higher education</h4>
+    </details>
+    <details class="lever">
+      <summary><h4>Higher education</h4></summary>
       <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW and GU medical partnership, and the community colleges. They decide how many graduates come out, and in which fields. They also decide whether students intern at local firms, and whether research here turns into companies.</p>
       <p class="stat"><span class="tag pub">Partly published</span>Gonzaga publishes a <a href="https://www.gonzaga.edu/student-life/career-services/annual-first-destination-survey-report">First Destination dashboard</a> you can filter by major and by location. Whitworth publishes graduate outcomes too. Nursing retention is reported and strong. What the region lacks is one comparable number across all the schools.</p>
-    </div>
-    <div class="lever">
-      <h4>Anchor employers</h4>
+    </details>
+    <details class="lever">
+      <summary><h4>Anchor employers</h4></summary>
       <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and others. They hold the choice Boise teaches: grow here, or grow somewhere else. They also decide how many interns they take and which local suppliers they build up.</p>
       <p class="stat"><span class="tag red">Regional signal weak</span>This grade describes the region, not any one company. Traded-sector hiring across Spokane is weak. That is not a mark against any employer who is investing here. What we cannot see is which local anchors are adding payroll and capital, because that is not published.</p>
-    </div>
-    <div class="lever">
-      <h4>The state of Washington</h4>
+    </details>
+    <details class="lever">
+      <summary><h4>The state of Washington</h4></summary>
       <p class="holds">Taxes, incentives, roads and other infrastructure, and college funding east of the Cascades. Also the minimum wage, which already pushed Spokane&rsquo;s hourly pay close to the national average.</p>
       <p class="stat"><span class="tag gap">Not graded</span>This page tracks regional outcomes rather than Olympia. The lever is real, and this region&rsquo;s legislators pull it.</p>
-    </div>
-    <div class="lever">
-      <h4>Residents, including this page</h4>
+    </details>
+    <details class="lever">
+      <summary><h4>Residents, including this page</h4></summary>
       <p class="holds">Attention, votes, meeting rooms, and corrections. On track looks like showing up when the levers above get discussed.</p>
       <p class="stat">You&rsquo;re reading the lever.</p>
-    </div>
+    </details>
   </div>
 
   <details class="more">
@@ -808,9 +961,13 @@
   <div class="cities">
     <details class="city">
       <summary>
-        <span class="name">Boise</span>
-        <span class="move">Grew its own anchor</span>
-        <span class="headline">Micron&rsquo;s hometown expansion grew from $15B to roughly $50B</span>
+        <span class="cname">Boise</span>
+        <span class="cmove">Grew its own anchor</span>
+        <dl class="amr">
+          <dt>Asset</dt><dd>Micron</dd>
+          <dt>Move</dt><dd>Help the anchor expand at home</dd>
+          <dt>Result</dt><dd><b>$15B grew to roughly $50B</b></dd>
+        </dl>
       </summary>
       <div class="detail">
         <p>Idaho did not only chase strangers. It helped a company already there grow at home. Micron is building advanced memory plants at its Boise headquarters. The investment started at $15 billion, the largest private investment in state history. It has since grown to roughly $50 billion. About 17,000 Idaho jobs are tied to it, and suppliers like Lam Research opened offices behind it. Keeping a company is its own kind of recruiting.</p>
@@ -821,9 +978,13 @@
 
     <details class="city">
       <summary>
-        <span class="name">Chattanooga</span>
-        <span class="move">Went and won one</span>
-        <span class="headline">Volkswagen&rsquo;s plant beat its own projections: 12,400+ jobs by 2012</span>
+        <span class="cname">Chattanooga</span>
+        <span class="cmove">Went and won one</span>
+        <dl class="amr">
+          <dt>Asset</dt><dd>Cheap power and connectivity</dd>
+          <dt>Move</dt><dd>Recruit Volkswagen</dd>
+          <dt>Result</dt><dd><b>12,400+ jobs by 2012</b></dd>
+        </dl>
       </summary>
       <div class="detail">
         <p>Chattanooga was once called the dirtiest city in America. In 2008 it landed a $1 billion Volkswagen plant. A University of Tennessee study later found the plant beat its own job forecasts. It counted more than 12,400 jobs by 2012, direct and indirect. Volkswagen-related work now supports about 17,000 jobs in Tennessee. The city also built the first citywide gigabit internet network in the country, to give employers a concrete reason to look.</p>
@@ -834,9 +995,13 @@
 
     <details class="city">
       <summary>
-        <span class="name">Huntsville</span>
-        <span class="move">Sold an existing asset relentlessly</span>
-        <span class="headline">Redstone Arsenal now employs 42,000+ and drives half the metro economy</span>
+        <span class="cname">Huntsville</span>
+        <span class="cmove">Sold an existing asset relentlessly</span>
+        <dl class="amr">
+          <dt>Asset</dt><dd>Redstone Arsenal</dd>
+          <dt>Move</dt><dd>Keep selling the federal cluster</dd>
+          <dt>Result</dt><dd><b>42,000+ jobs, half the metro economy</b></dd>
+        </dl>
       </summary>
       <div class="detail">
         <p>Redstone Arsenal now employs more than 42,000 people. It drives half the metro economy. The region kept selling that asset until the FBI made Redstone its unofficial second headquarters, heading toward thousands of staff. Space Command followed.</p>
@@ -847,9 +1012,13 @@
 
     <details class="city">
       <summary>
-        <span class="name">Pittsburgh</span>
-        <span class="move">Commercialized its research</span>
-        <span class="headline">80+ robotics companies along a two-mile corridor, out of university research</span>
+        <span class="cname">Pittsburgh</span>
+        <span class="cmove">Commercialized its research</span>
+        <dl class="amr">
+          <dt>Asset</dt><dd>Universities and hospitals</dd>
+          <dt>Move</dt><dd>Turn research into companies</dd>
+          <dt>Result</dt><dd><b>80+ robotics companies</b></dd>
+        </dl>
       </summary>
       <div class="detail">
         <p>This is the answer to &ldquo;aren&rsquo;t we too dependent on health care?&rdquo; Steel collapsed. The city lost half its people. Leaders rebuilt on purpose around universities and hospitals. Then they turned that base into something bigger. Research at Carnegie Mellon grew into the largest cluster of robotics work in the country. More than 80 robotics companies now sit along a two-mile stretch.</p>
@@ -870,15 +1039,15 @@
   <p class="lede">Not a policy platform. Three commitments any mayor or council member could make tomorrow.</p>
 
   <div class="ask">
-    <h4>Adopt a scoreboard.</h4>
+    <span class="asknum">1</span><h4>Adopt a scoreboard.</h4>
     <p>These eight measures or better ones. Report against them in public, on a schedule, the way the city already reports on potholes and permits.</p>
   </div>
   <div class="ask">
-    <h4>Publish progress against the plan.</h4>
+    <span class="asknum">2</span><h4>Publish progress against the plan.</h4>
     <p>The plans exist. GSI has published five-year goals. The city has an economic development chapter in its comprehensive plan. What is missing is a short public scoreboard showing how we are tracking against them, updated on a schedule, in one place a resident can find.</p>
   </div>
   <div class="ask">
-    <h4>Explain the tradeoffs.</h4>
+    <span class="asknum">3</span><h4>Explain the tradeoffs.</h4>
     <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Name what is being traded away, not just what is being bought.</p>
   </div>
   <div class="ask collegeask">
