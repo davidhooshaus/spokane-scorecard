@@ -106,6 +106,11 @@
 
   /* Anchor nav */
   nav.jump {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    box-shadow: 0 1px 0 var(--rule);
     padding: 14px 0;
     border-bottom: 1px solid var(--rule);
     font-size: 0.85rem;
@@ -116,8 +121,16 @@
   nav.jump a { font-weight: 600; text-decoration: none; color: var(--ink-soft); }
   nav.jump a:hover { color: var(--lilac); text-decoration: underline; }
 
+  /* on phones keep the sticky bar to one swipeable line instead of three stacked rows */
+  @media (max-width: 620px) {
+    nav.jump { flex-wrap: nowrap; overflow-x: auto; gap: 0 16px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    nav.jump::-webkit-scrollbar { display: none; }
+    nav.jump a { white-space: nowrap; }
+  }
+
   /* Section scaffolding */
   section { padding: 34px 0; border-bottom: 1px solid var(--rule); }
+  section[id] { scroll-margin-top: 56px; }
   .eyebrow {
     font-size: 0.78rem;
     font-weight: 700;
@@ -283,6 +296,20 @@
   .versus .side.lo .out { color: var(--red); }
   .versus .side .cap { margin-top: 4px; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.35; }
   @media (max-width: 620px) { .versus { grid-template-columns: 1fr; gap: 16px; } }
+  .warnbadge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: var(--amber-bg);
+    border: 1px solid #e2d3a6;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  .collegeask { border-left-color: var(--green); margin-top: 26px; }
+  .asklabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 2px; }
   .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
 
   /* Lever map */
@@ -315,6 +342,7 @@
     vertical-align: 1px;
   }
   .tag.red { color: var(--red); background: var(--red-bg); }
+  .tag.gap { color: var(--ink-soft); background: #e8e7de; }
   .tag.open { color: var(--lilac); background: #efecf5; }
   .tag.mixed { color: var(--amber); background: var(--amber-bg); }
 
@@ -377,7 +405,7 @@
 <header>
   <p class="kicker">A neighbor-run public ledger</p>
   <h1>The Spokane Employer Scorecard</h1>
-  <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="/archive/">Past editions</a></p>
+  <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="/archive/">Past editions</a> &middot; <a href="/who.html">Who made this</a></p>
 </header>
 
 <!-- ============ HERO VERDICT ============ -->
@@ -390,7 +418,7 @@
     <span class="chip y"></span><b>4 mixed</b>
     <span class="chip r"></span><b>3 weak</b>
   </p>
-  <p class="rulenote">The overall call follows a rule set before the reading, not a feeling: off track when weak measures outnumber strong ones, mixed when they tie, on track when strong outnumber weak. Three weak against one strong. There is no letter grade here because the eight measures are neither equally important nor independent, and a GPA would imply a precision this data doesn&rsquo;t have. <a href="methodology.html">How the grades work</a>.</p>
+  <p class="rulenote"><a href="methodology.html#overall">How the overall call works</a></p>
   <div class="ctas">
     <a class="btn solid" href="#scorecard">See the eight measures</a>
     <a class="btn" href="calculator.html">Try the employer calculator</a>
@@ -557,9 +585,23 @@
 
 <!-- ============ THE SCORECARD ============ -->
 <section id="story">
-  <p class="eyebrow">Why this pattern matters</p>
-  <h2 class="sect">People keep arriving. The employers that pay well don&rsquo;t.</h2>
-  <p class="lede">Those eight measures are not eight separate problems. They are one chain, and it breaks in the same place every quarter.</p>
+  <p class="eyebrow">The story in 30 seconds</p>
+  <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
+
+  <div class="three">
+    <div class="num">
+      <span class="n">&minus;2,900</span>
+      <span class="l">jobs lost across Spokane County over the past year</span>
+    </div>
+    <div class="num">
+      <span class="n">1 sector</span>
+      <span class="l">health care carries nearly all the growth that is left</span>
+    </div>
+    <div class="num flat">
+      <span class="n">+1.2%</span>
+      <span class="l">city spending growth, against a long-run normal of 4 to 5%</span>
+    </div>
+  </div>
 
   <div class="chain">
     <span class="step">People <span class="dir up">&uarr;</span></span>
@@ -599,6 +641,7 @@
   <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
 
   <div class="teaser">
+    <p class="warnbadge">Illustrative multiplier range, not a Spokane forecast</p>
     <div class="versus">
       <div class="side hi">
         <p class="in">500 software jobs</p>
@@ -632,32 +675,32 @@
     <div class="lever">
       <h4>City of Spokane</h4>
       <p class="holds">Permitting speed and predictability. Zoning that keeps employment land ready to build. Downtown safety. Business fees. The council&rsquo;s attention.</p>
-      <p class="stat"><span class="tag open">Open</span>The three asks below are unanswered. November&rsquo;s attention audit will measure the attention lever directly.</p>
+      <p class="stat"><span class="tag gap">Unanswered</span>The three asks below have had no public response. Future editions aim to measure this lever with city-controlled outputs: permit turnaround time, whether zoned employment land is actually ready to build on, business fees, and major employer expansions retained or won.</p>
     </div>
     <div class="lever">
       <h4>The regional recruiters</h4>
       <p class="holds">Spokane County and Greater Spokane Inc. hold the actual sales operation: target sectors, site readiness, incentive coordination, and the pitch employers hear.</p>
-      <p class="stat"><span class="tag open">Open</span>If a target-sector list and public pipeline report exist, send them and this page will link them prominently.</p>
+      <p class="stat"><span class="tag gap">Data gap</span>If a target-sector list and public pipeline report exist, send them and this page will link them prominently.</p>
     </div>
     <div class="lever">
       <h4>Higher education</h4>
       <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW&ndash;GU medical partnership and the community colleges hold degree production, internship pipelines, and turning research into companies.</p>
-      <p class="stat"><span class="tag open">Open</span>Nursing retention is reported and strong. For engineering, computing and business, no local institution publishes a stay-in-region rate we could find.</p>
+      <p class="stat"><span class="tag gap">Data gap</span>Nursing retention is reported and strong. For engineering, computing and business, no local institution publishes a stay-in-region rate we could find.</p>
     </div>
     <div class="lever">
       <h4>Anchor employers</h4>
       <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and peers hold the decision Boise teaches: expand here or somewhere else. Also internship seats and supplier development.</p>
-      <p class="stat"><span class="tag red">Weak</span>Measured by the &ldquo;Who&rsquo;s actually hiring&rdquo; measure above, currently weak.</p>
+      <p class="stat"><span class="tag red">Weak</span>The only lever here tied to a graded measure. See &ldquo;Who&rsquo;s actually hiring&rdquo; above.</p>
     </div>
     <div class="lever">
       <h4>The state of Washington</h4>
       <p class="holds">Tax structure, incentives, infrastructure, higher-ed funding east of the Cascades, and the wage floor that already lifted Spokane&rsquo;s hourly pay to near the national average.</p>
-      <p class="stat"><span class="tag open">Not graded</span>This page tracks regional outcomes rather than Olympia. The lever is real, and this region&rsquo;s legislators pull it.</p>
+      <p class="stat"><span class="tag gap">Not graded</span>This page tracks regional outcomes rather than Olympia. The lever is real, and this region&rsquo;s legislators pull it.</p>
     </div>
     <div class="lever">
       <h4>Residents, including this page</h4>
       <p class="holds">Attention, votes, meeting rooms, and corrections. On track looks like showing up when the levers above get discussed.</p>
-      <p class="stat"><span class="tag open">Live</span>You&rsquo;re reading the lever.</p>
+      <p class="stat">You&rsquo;re reading the lever.</p>
     </div>
   </div>
 
@@ -675,8 +718,8 @@
 <!-- ============ IT'S BEEN DONE ============ -->
 <section id="done">
   <p class="eyebrow">It&rsquo;s been done</p>
-  <h2 class="sect">Four cities that looked like Spokane and turned it around</h2>
-  <p class="lede">Mid-size, inland, easy to overlook. None of them got lucky. Each picked an asset it already had, built a sales operation around it, and kept at it for a decade.</p>
+  <h2 class="sect">Four cities Spokane can learn from</h2>
+  <p class="lede">Different sizes, different advantages, no claim that any of them is Spokane&rsquo;s twin. The pattern is what transfers: each picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
   <div class="cities">
     <details class="city">
@@ -739,8 +782,8 @@
 <!-- ============ ASKS ============ -->
 <section id="asks">
   <p class="eyebrow">What we&rsquo;re asking</p>
-  <h2 class="sect">Not a policy. A posture.</h2>
-  <p class="lede">Three commitments any mayor or council member could make tomorrow.</p>
+  <h2 class="sect">Three things we&rsquo;re asking leaders to do</h2>
+  <p class="lede">Not a policy platform. Three commitments any mayor or council member could make tomorrow.</p>
 
   <div class="ask">
     <h4>Adopt a scoreboard.</h4>
@@ -751,12 +794,13 @@
     <p>Which sectors, which assets, who owns recruitment, and what the targets are. If that plan already exists, send the link and this page will feature it.</p>
   </div>
   <div class="ask">
-    <h4>Show the balance.</h4>
-    <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Starting with the November update, this scorecard will count how much of the council&rsquo;s public agenda over the past year touched employer attraction at all. It&rsquo;s public record.</p>
+    <h4>Explain the tradeoffs.</h4>
+    <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Name what is being traded away, not just what is being bought.</p>
   </div>
-  <div class="ask">
-    <h4>And one ask beyond city hall.</h4>
-    <p>To the region&rsquo;s colleges and universities: publish where your graduates go, by program. You already report it for nursing, where the story is great. The share of engineering, computing, and business graduates who stay is the single number this whole system turns on, and today nobody reports it. First institution to publish gets the green ink.</p>
+  <div class="ask collegeask">
+    <p class="asklabel">And one ask for Spokane&rsquo;s colleges</p>
+    <h4>Publish where your graduates go, by program.</h4>
+    <p>To the region&rsquo;s colleges and universities: You already report it for nursing, where the story is great. The share of engineering, computing, and business graduates who stay is the single number this whole system turns on, and today nobody reports it. First institution to publish gets the green ink.</p>
   </div>
 
   <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard isn&rsquo;t rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
@@ -780,14 +824,14 @@
   <details class="more">
     <summary>Coming in future updates</summary>
     <div class="inner prose">
-      <p>Four measures worth adding: new business applications per resident (Census Business Formation Statistics), the city&rsquo;s median permit turnaround time (a lever the city fully controls), storefront vacancy by corridor so Monroe, Garland, and Division get their own lines instead of hiding inside a metro average, and the attention audit described above: the share of the council&rsquo;s public agenda that touched employer attraction at all. A fifth arrives when institutions publish or provide it: graduate retention in the region, by school and program.</p>
+      <p>Four measures worth adding: new business applications per resident (Census Business Formation Statistics), the city&rsquo;s median permit turnaround time (a lever the city fully controls), storefront vacancy by corridor so Monroe, Garland, and Division get their own lines instead of hiding inside a metro average, and city-controlled outputs where the data can be obtained: permit turnaround time, whether zoned employment land is ready to build on, business fees, and major employer expansions retained or won. A fifth arrives when institutions publish or provide it: graduate retention in the region, by school and program.</p>
     </div>
   </details>
 </section>
 
 <footer>
   <p>Can you help this matter? Intros to employers, data help, or just the quarterly email: <a href="https://tally.so/r/2E6e8g">leave your name here</a>. Takes 30 seconds, never shared.</p>
-  <p>Maintained by a Spokane resident. Not affiliated with, funded by, or run past the City of Spokane. All figures are from public sources linked above and reflect the most recent releases as of August 2026.</p>
+  <p><a href="/who.html">Who made this, and how to correct it</a>. Not affiliated with, funded by, or run past the City of Spokane. All figures are from public sources linked above and reflect the most recent releases as of August 2026.</p>
   <p>Spotted an error or a better data source? Send it: [your email here]</p>
 </footer>
 

@@ -120,6 +120,6 @@ Hard rules for this run:
   Census key. The cloud runner has no access to a local environment variable.
   Solve this before November, either with a secret in the cloud environment or
   by pulling from data.census.gov by hand that quarter.
-- **The attention audit is not a routine.** `/attention-audit` requires
-  pre-registering a counting rule with David before any counting, and a
-  20-row human spot-check. That is interactive work. Run it locally.
+- **City-lever measures are not yet automated.** Permit turnaround time,
+  employment-land readiness and business fees have no public feed to pull. They
+  arrive by request or by hand, so a cloud run should not try to invent them.

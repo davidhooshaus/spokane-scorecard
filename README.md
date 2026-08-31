@@ -61,5 +61,4 @@ changes. It never touches `main`. Reviewing and merging that PR is the act of
 publishing, and only David does it. Setup and the routine prompt are in
 CLOUD.md. Running `/quarterly-update` locally still works and is the fallback.
 
-Next: November 2026, led by pre-registered grade thresholds and the attention
-audit (`/attention-audit`), which stays interactive and local.
+Next: November 2026, led by pre-registered grade thresholds.
