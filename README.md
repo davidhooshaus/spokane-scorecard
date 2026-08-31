@@ -17,6 +17,7 @@ Live site (once deployed): https://spokanescorecard.com
 - `press/flywheel.png` — social/press image
 - `data/` — pulled datasets and audit files
 - `CLAUDE.md` — editorial constitution for Claude Code sessions
+- `CLOUD.md` — how the quarterly refresh runs as a cloud routine
 
 ## Preview locally
 
@@ -25,8 +26,9 @@ localhost:8000.
 
 ## Deploy (GitHub Pages)
 
-1. Push this repo to GitHub (public or private with Pages enabled):
-   `gh repo create spokane-scorecard --public --source=. --push`
+1. The repo lives at `github.com/davidhooshaus/spokane-scorecard`, currently
+   **private**, default branch `main`. Free GitHub Pages requires a public
+   repo, so flip it to public at launch (or use Pages on a paid plan).
 2. Repo Settings, Pages: deploy from branch `main`, folder `/ (root)`.
 3. Custom domain: at your registrar (Porkbun/Cloudflare), point the apex
    `spokanescorecard.com` at GitHub Pages with A records
@@ -41,7 +43,7 @@ look broken in the interim.
 ## Launch checklist
 
 - [ ] Register spokanescorecard.com (and .org, redirected)
-- [ ] Push repo, enable Pages, set DNS, enforce HTTPS
+- [ ] Flip repo to public, enable Pages, set DNS, enforce HTTPS
 - [ ] Replace email placeholders: `grep -rn "your email here" *.html`
 - [ ] Tally form (tally.so/r/2E6e8g): set "Anything else?" to optional
 - [ ] Get a free Census API key, export as CENSUS_API_KEY (needed for the
@@ -53,6 +55,11 @@ look broken in the interim.
 
 ## Cadence
 
-Quarterly, by hand, via `/quarterly-update` in Claude Code. Next: November
-2026, led by pre-registered grade thresholds and the attention audit
-(`/attention-audit`).
+Quarterly. A scheduled cloud routine runs `/quarterly-update` on the 15th of
+February, May, August and November and opens a pull request with the proposed
+changes. It never touches `main`. Reviewing and merging that PR is the act of
+publishing, and only David does it. Setup and the routine prompt are in
+CLOUD.md. Running `/quarterly-update` locally still works and is the fallback.
+
+Next: November 2026, led by pre-registered grade thresholds and the attention
+audit (`/attention-audit`), which stays interactive and local.

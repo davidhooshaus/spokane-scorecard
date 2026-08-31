@@ -57,7 +57,15 @@ Never touch old entries.
 - chart widths match the numbers
 
 ## 8. Hand off
-Present David a summary: numbers changed, grades changed (with diffs), the
-draft email. Only after his sign-off: commit as "quarterly update YYYY-QN"
-and push. Then remind him: send the email, note the update to press contacts,
-and if anything went green, say it louder than the reds.
+Never publish without David. How you hand off depends on where this is running.
+
+**Local, with David present.** Present a summary: numbers changed, grades
+changed (with diffs), the draft email. Only after his sign-off: commit as
+"quarterly update YYYY-QN" and push. Then remind him: send the email, note the
+update to press contacts, and if anything went green, say it louder than the reds.
+
+**Unattended cloud run.** There is nobody to sign off, so do not try to get
+sign-off and do not proceed as if you had it. Commit to a new branch
+`claude/quarterly-YYYY-QN`, open a pull request into `main`, and draft the
+review email. Full instructions in CLOUD.md. `main` is what deploys, so merging
+is publishing, and only David merges.
