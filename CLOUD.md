@@ -17,6 +17,13 @@ says David reviews every grade change before it publishes. The routine writes
 a branch and opens a pull request. `main` is what deploys. Merging is the act
 of publishing, and only David does it.
 
+## A note on identity
+
+This repository is public, and the maintainer publishes the scorecard without a byline.
+Do not add the maintainer's name, personal email, employer, or any other identifying
+detail to any file here, in a commit message, or in a routine prompt stored in the repo.
+Addresses and credentials belong in the routine configuration, which is private.
+
 ## One-time setup
 
 1. Repo is on GitHub at `davidhooshaus/spokane-scorecard`, private, default
@@ -76,8 +83,9 @@ Then, instead of runbook step 8's interactive hand-off, do this:
    - every grade that changed, with a one-line reason tied to the rubric
    - every source link that was added or replaced
    - anything you could NOT verify, stated plainly
-3. Create a Gmail DRAFT to david@hausadvisors.com and nobody else. The subject
-   must be exactly:
+3. Create a Gmail DRAFT to the maintainer address and nobody else. That address is
+   set in the routine's own configuration in claude.ai and is deliberately NOT stored
+   in this repository, which is public. The subject must be exactly:
    "[AUTO] Spokane Scorecard quarterly update <YYYY-QN> ready for review"
    Lead the body with a BLUF: in two to four sentences, say what changed, which
    grades moved and in which direction, and what David has to decide. Put the
