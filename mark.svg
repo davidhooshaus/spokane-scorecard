@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="t d">
+  <title id="t">The Spokane Employer Scorecard</title>
+  <desc id="d">Three basalt columns of uneven height, which also read as a bar chart.</desc>
+  <rect width="48" height="48" fill="#fbfbf8"/>
+  <path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="#2b3134"/>
+  <path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="#2a6b73"/>
+  <path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="#2b3134"/>
+  <line x1="13" y1="17" x2="13" y2="42" stroke="#fbfbf8" stroke-width=".9" opacity=".45"/>
+  <line x1="26" y1="8"  x2="26" y2="42" stroke="#fbfbf8" stroke-width=".9" opacity=".45"/>
+  <line x1="39" y1="24" x2="39" y2="42" stroke="#fbfbf8" stroke-width=".9" opacity=".45"/>
+</svg>
