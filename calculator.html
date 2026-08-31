@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Employer Effect | The Spokane Employer Scorecard</title>
+<meta property="og:title" content="The Employer Effect: what one company does to a town">
+<meta property="og:description" content="Plug in a hypothetical employer and watch the ripple. See why the kind of job matters more than the count.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #fbfbf8;
+    --ink: #1c2321;
+    --ink-soft: #4c544f;
+    --rule: #d9d9d0;
+    --lilac: #6b5b95;
+    --green: #2e7d5b;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  a { color: var(--lilac); text-underline-offset: 2px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 44px 0 24px; border-bottom: 3px solid var(--ink); }
+  .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
+  .kicker a { text-decoration: none; }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 6vw, 2.8rem);
+    line-height: 1.1;
+  }
+  .standfirst { margin-top: 12px; font-size: 1.05rem; color: var(--ink-soft); max-width: 40em; }
+
+  .intro { padding: 24px 0 8px; max-width: 44em; }
+  .intro p { margin-bottom: 12px; }
+
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 0 8px;
+  }
+  @media (min-width: 700px) { .compare { grid-template-columns: 1fr 1fr; } }
+
+  .emp {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 5px solid var(--ink);
+    border-radius: 4px;
+    padding: 22px 20px 24px;
+  }
+  .emp.a { border-top-color: var(--lilac); }
+  .emp h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+  select {
+    width: 100%;
+    font: inherit;
+    font-size: 0.95rem;
+    padding: 9px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .jobsrow { display: flex; align-items: center; gap: 12px; }
+  input[type="range"] { flex: 1 1 auto; accent-color: var(--lilac); }
+  input[type="number"] {
+    flex: 0 0 88px;
+    font: inherit;
+    font-size: 0.95rem;
+    padding: 8px 9px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .wagenote { margin-top: 6px; font-size: 0.8rem; color: var(--ink-soft); }
+
+  .results { margin-top: 18px; border-top: 1px solid var(--rule); padding-top: 16px; }
+  .res { margin-bottom: 14px; }
+  .res .n {
+    font-weight: 700;
+    font-size: 1.45rem;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .res.hero .n { font-size: 1.9rem; }
+  .res .l { font-size: 0.85rem; color: var(--ink-soft); margin-top: 2px; }
+
+  .verdict {
+    margin: 22px 0 8px;
+    padding: 22px 20px;
+    background: #f2f0e9;
+    border-radius: 4px;
+  }
+  .verdict p {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.35;
+    max-width: 36em;
+  }
+
+  section.prose { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+  section.prose h3 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+  }
+  section.prose p { margin-bottom: 12px; max-width: 44em; }
+  section.prose p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 6px 0 12px; }
+  th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 700; }
+  ul { margin: 0 0 12px 1.2em; max-width: 42em; }
+  li { margin-bottom: 8px; }
+
+  footer { padding: 26px 0 56px; font-size: 0.9rem; color: var(--ink-soft); }
+  footer p { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker"><a href="index.html">&larr; The Spokane Employer Scorecard</a></p>
+  <h1>The Employer Effect</h1>
+  <p class="standfirst">What one company does to a town. Pick two hypothetical employers, drag the sliders, and watch how differently they ripple through Spokane. This is a teaching tool built on published research, not a forecast; the fine print is below and worth reading.</p>
+</header>
+
+<div class="intro">
+  <p>The idea being tested here is called the local multiplier. Jobs at companies that sell to the outside world (planes, software, engineering) bring new money into a region, and that money becomes customers for everyone else. Jobs that serve local demand are essential, but they mostly circulate money that&rsquo;s already here. Same job count, very different town.</p>
+</div>
+
+<div class="compare">
+
+  <div class="emp a">
+    <h2>Employer A</h2>
+    <div class="field">
+      <label for="sectorA">What kind of company?</label>
+      <select id="sectorA"></select>
+      <p class="wagenote" id="wageA"></p>
+    </div>
+    <div class="field">
+      <label for="jobsA">How many jobs?</label>
+      <div class="jobsrow">
+        <input type="range" id="jobsA" min="25" max="5000" step="25" value="1000">
+        <input type="number" id="jobsAn" min="25" max="5000" step="25" value="1000" aria-label="Employer A jobs">
+      </div>
+    </div>
+    <div class="results" aria-live="polite">
+      <div class="res hero"><p class="n" id="totalA"></p><p class="l">total jobs in the region (direct + ripple)</p></div>
+      <div class="res"><p class="n" id="rippleA"></p><p class="l">additional local jobs created (shops, restaurants, services, trades)</p></div>
+      <div class="res"><p class="n" id="payrollA"></p><p class="l">new annual payroll in the region</p></div>
+      <div class="res"><p class="n" id="spendA"></p><p class="l">new local spending per year</p></div>
+      <div class="res"><p class="n" id="storesA"></p><p class="l">neighborhood storefronts that spending could sustain</p></div>
+      <div class="res"><p class="n" id="hhA"></p><p class="l">median Spokane household incomes, direct paychecks alone</p></div>
+    </div>
+  </div>
+
+  <div class="emp b">
+    <h2>Employer B</h2>
+    <div class="field">
+      <label for="sectorB">What kind of company?</label>
+      <select id="sectorB"></select>
+      <p class="wagenote" id="wageB"></p>
+    </div>
+    <div class="field">
+      <label for="jobsB">How many jobs?</label>
+      <div class="jobsrow">
+        <input type="range" id="jobsB" min="25" max="5000" step="25" value="400">
+        <input type="number" id="jobsBn" min="25" max="5000" step="25" value="400" aria-label="Employer B jobs">
+      </div>
+    </div>
+    <div class="results" aria-live="polite">
+      <div class="res hero"><p class="n" id="totalB"></p><p class="l">total jobs in the region (direct + ripple)</p></div>
+      <div class="res"><p class="n" id="rippleB"></p><p class="l">additional local jobs created (shops, restaurants, services, trades)</p></div>
+      <div class="res"><p class="n" id="payrollB"></p><p class="l">new annual payroll in the region</p></div>
+      <div class="res"><p class="n" id="spendB"></p><p class="l">new local spending per year</p></div>
+      <div class="res"><p class="n" id="storesB"></p><p class="l">neighborhood storefronts that spending could sustain</p></div>
+      <div class="res"><p class="n" id="hhB"></p><p class="l">median Spokane household incomes, direct paychecks alone</p></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="verdict"><p id="verdict"></p></div>
+
+<section class="prose">
+  <h3>How this math works</h3>
+  <p>Each new job is assigned the average wage for its sector using Spokane-area figures where available. Then a multiplier range estimates the additional local jobs created as those paychecks get spent at shops, restaurants, clinics, and contractors. The ranges come from published economics, deliberately widened and discounted downward, because researchers debate the exact sizes even while agreeing on the direction.</p>
+  <table>
+    <tr><th>Sector</th><th>Extra local jobs per new job</th><th>Basis</th></tr>
+    <tr><td>Software &amp; tech</td><td>1.8 to 3.8</td><td>Moretti finds up to 4.9 for high-tech; capped here per more conservative county-level research</td></tr>
+    <tr><td>Aerospace &amp; advanced manufacturing</td><td>1.2 to 2.0</td><td>Moretti estimates 1.6 for manufacturing</td></tr>
+    <tr><td>Finance &amp; professional services</td><td>1.0 to 2.3</td><td>Skilled tradable jobs: roughly 2.0 to 2.5</td></tr>
+    <tr><td>Health care</td><td>0.3 to 0.9</td><td>Partly tradable here: Spokane is the referral hub treating Idaho and Montana patients</td></tr>
+    <tr><td>Retail &amp; food service</td><td>0.0 to 0.2</td><td>Mostly shifts spending locals were already doing</td></tr>
+  </table>
+  <p>Multiplier research: Enrico Moretti, <a href="https://eml.berkeley.edu/~moretti/multipliers.pdf">&ldquo;Local Multipliers,&rdquo; American Economic Review (2010)</a>, summarized well by <a href="https://www.npr.org/sections/planet-money/2025/06/03/g-s1-70167/can-bringing-back-manufacturing-help-the-heartland-catch-up-with-superstar-cities">NPR&rsquo;s Planet Money</a>; the <a href="https://research.upjohn.org/cgi/viewcontent.cgi?article=1319&amp;context=up_workingpapers">Upjohn Institute (Bartik)</a> surveys the debate and finds smaller county-level multipliers, which is why our ranges sit below the published maxima. Wages: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane</a> (tech, food service) and <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council</a> industry data (health care, finance, manufacturing).</p>
+  <p>The remaining assumptions are round on purpose, and you should argue with them: 35% of new payroll becomes local consumer spending; ripple jobs pay an average of $52,000; a neighborhood storefront needs about $500,000 a year in sales to survive; the median Spokane County household income is $86,206 (Census ACS, 2024).</p>
+</section>
+
+<section class="prose">
+  <h3>What this is not</h3>
+  <p>A forecast. Real outcomes depend on wages actually paid, how many hires come from out of the area, housing capacity, and luck. It also leaves out the costs: recruited employers often extract tax incentives, and growth brings housing-price pressure, which Boise knows well. And no calculator lands an employer; a decade of focused selling does. The point of this page is smaller and sturdier: the kind of job matters more than the count of jobs, and a city that wants full storefronts should chase the kinds at the top of the table.</p>
+</section>
+
+<footer>
+  <p>Part of <a href="index.html">The Spokane Employer Scorecard</a>. Maintained by a Spokane resident. Corrections and better assumptions welcome: [your email here]</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var PRESETS = {
+    tech:   { name: "Software & tech",                    wage: 108600, mLo: 1.8, mHi: 3.8,
+              note: "Avg wage $108,600 (BLS, Spokane computer & math occupations, May 2025)" },
+    aero:   { name: "Aerospace & advanced manufacturing", wage: 84000,  mLo: 1.2, mHi: 2.0,
+              note: "Avg wage $84,000 (Spokane Workforce Council targeted-industry data)" },
+    finpro: { name: "Finance & professional services",    wage: 137400, mLo: 1.0, mHi: 2.3,
+              note: "Avg wage $137,400 (Lightcast via Spokane Workforce Council)" },
+    health: { name: "Health care",                        wage: 83100,  mLo: 0.3, mHi: 0.9,
+              note: "Avg wage $83,100 (Lightcast via Spokane Workforce Council)" },
+    retail: { name: "Retail & food service",              wage: 44100,  mLo: 0.0, mHi: 0.2,
+              note: "Avg wage $44,100 (BLS, Spokane food prep & serving, May 2025)" }
+  };
+  var SPEND_SHARE = 0.35;
+  var RIPPLE_WAGE = 52000;
+  var STOREFRONT_SALES = 500000;
+  var MEDIAN_HH = 86206;
+
+  function fillSelect(sel) {
+    Object.keys(PRESETS).forEach(function (k) {
+      var o = document.createElement("option");
+      o.value = k;
+      o.textContent = PRESETS[k].name;
+      sel.appendChild(o);
+    });
+  }
+
+  function fmtMoney(n) {
+    if (n >= 1e9) return "$" + (n / 1e9).toFixed(1) + "B";
+    if (n >= 1e6) return "$" + (n / 1e6).toFixed(1) + "M";
+    return "$" + Math.round(n / 1000).toLocaleString() + "K";
+  }
+  function fmtJobs(n) {
+    var r = n >= 1000 ? Math.round(n / 50) * 50 : Math.round(n / 10) * 10;
+    return r.toLocaleString();
+  }
+  function range(lo, hi, fmt) {
+    var a = fmt(lo), b = fmt(hi);
+    return a === b ? a : a + " to " + b;
+  }
+
+  function compute(sectorKey, jobs) {
+    var p = PRESETS[sectorKey];
+    var direct = jobs * p.wage;
+    var rLo = jobs * p.mLo, rHi = jobs * p.mHi;
+    var payLo = direct + rLo * RIPPLE_WAGE;
+    var payHi = direct + rHi * RIPPLE_WAGE;
+    return {
+      jobs: jobs, direct: direct,
+      rLo: rLo, rHi: rHi,
+      tLo: jobs + rLo, tHi: jobs + rHi,
+      payLo: payLo, payHi: payHi,
+      spLo: payLo * SPEND_SHARE, spHi: payHi * SPEND_SHARE,
+      stLo: payLo * SPEND_SHARE / STOREFRONT_SALES,
+      stHi: payHi * SPEND_SHARE / STOREFRONT_SALES,
+      hh: direct / MEDIAN_HH,
+      mid: jobs + (rLo + rHi) / 2,
+      spMid: (payLo + payHi) / 2 * SPEND_SHARE
+    };
+  }
+
+  function render(side, r, preset) {
+    document.getElementById("wage" + side).textContent = preset.note;
+    document.getElementById("total" + side).textContent = range(r.tLo, r.tHi, fmtJobs);
+    document.getElementById("ripple" + side).textContent = "+" + range(r.rLo, r.rHi, fmtJobs);
+    document.getElementById("payroll" + side).textContent = range(r.payLo, r.payHi, fmtMoney) + "/yr";
+    document.getElementById("spend" + side).textContent = range(r.spLo, r.spHi, fmtMoney) + "/yr";
+    document.getElementById("stores" + side).textContent = "about " + range(r.stLo, r.stHi, function (n) { return Math.max(0, Math.round(n)).toLocaleString(); });
+    document.getElementById("hh" + side).textContent = Math.round(r.hh).toLocaleString();
+  }
+
+  function update() {
+    var kA = selA.value, kB = selB.value;
+    var jA = clamp(jobsAn.value), jB = clamp(jobsBn.value);
+    var rA = compute(kA, jA), rB = compute(kB, jB);
+    render("A", rA, PRESETS[kA]);
+    render("B", rB, PRESETS[kB]);
+
+    var jr = rA.mid / rB.mid, sr = rA.spMid / rB.spMid;
+    var v;
+    if (jr >= 0.95 && jr <= 1.05) {
+      v = "With these inputs, the two employers land in roughly the same place. Change the sector and watch that stop being true.";
+    } else {
+      var big = jr > 1 ? "A" : "B";
+      var jx = (jr > 1 ? jr : 1 / jr).toFixed(1);
+      var sx = (sr > 1 ? sr : 1 / sr).toFixed(1);
+      v = "With these inputs, Employer " + big + " delivers roughly " + jx + "\u00d7 the total jobs and " + sx + "\u00d7 the new local spending. Not because the people matter more. Because the paychecks come from outside and get spent here.";
+    }
+    document.getElementById("verdict").textContent = v;
+  }
+
+  function clamp(v) {
+    var n = parseInt(v, 10);
+    if (isNaN(n)) n = 25;
+    return Math.min(5000, Math.max(25, n));
+  }
+  function link(rangeEl, numEl) {
+    rangeEl.addEventListener("input", function () { numEl.value = rangeEl.value; update(); });
+    numEl.addEventListener("input", function () { rangeEl.value = clamp(numEl.value); update(); });
+  }
+
+  var selA = document.getElementById("sectorA"), selB = document.getElementById("sectorB");
+  var jobsA = document.getElementById("jobsA"), jobsAn = document.getElementById("jobsAn");
+  var jobsB = document.getElementById("jobsB"), jobsBn = document.getElementById("jobsBn");
+  fillSelect(selA); fillSelect(selB);
+  selA.value = "aero"; selB.value = "health";
+  selA.addEventListener("change", update);
+  selB.addEventListener("change", update);
+  link(jobsA, jobsAn); link(jobsB, jobsBn);
+  update();
+})();
+</script>
+</body>
+</html>
