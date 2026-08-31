@@ -23,7 +23,7 @@
     --paper: #fcfcfb;
     --ink: #171d1c;
     --ink-soft: #4a5654;
-    --rule: #dbe2e1;
+    --rule: #d2dcda;
     --rule-strong: #b9c6c4;
     --lilac: #2a6b73;
     --teal: #2a6b73;
@@ -34,8 +34,8 @@
     --green-bg: #eaf3ee;
     --amber-bg: #f7f0de;
     --red-bg: #f8e9e5;
-    --panel: #eef3f2;
-    --panel-deep: #e3ebea;
+    --panel: #e2ecea;
+    --panel-deep: #d3e3e1;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -53,8 +53,28 @@
   .mark svg { width: 100%; height: 100%; display: block; }
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
 
-  /* Masthead */
-  header { padding: 40px 0 22px; }
+  /* Full-bleed tint, used for the whole above-the-fold block */
+  .tintband {
+    background: var(--panel);
+    box-shadow: 0 0 0 100vmax var(--panel);
+    clip-path: inset(0 -100vmax);
+  }
+
+  /* Site header: brand left, links right */
+  .sitehead { padding: 16px 0 14px; }
+  .headrow { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
+  .bname { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.005em; }
+  .brand .mark { width: 22px; height: 22px; margin: 0; vertical-align: 0; }
+  .sitenav { display: flex; gap: 18px; font-size: 0.85rem; }
+  .sitenav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--teal); text-decoration: underline; }
+  @media (max-width: 560px) {
+    .headrow { gap: 10px; }
+    .bname { font-size: 0.95rem; }
+    .sitenav { gap: 14px; font-size: 0.8rem; flex-wrap: wrap; }
+  }
+  .edition { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 22px; }
   .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
   h1 {
     font-family: "Fraunces", Georgia, serif;
@@ -77,9 +97,8 @@
 
   /* Hero verdict */
   .hero {
-    border-top: 3px solid var(--ink);
     border-bottom: 3px solid var(--ink);
-    padding: 48px 0 44px;
+    padding: 30px 0 48px;
   }
   .hook {
     font-family: "Fraunces", Georgia, serif;
@@ -135,7 +154,7 @@
   .spectrum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 20px; max-width: 34em; }
   .spseg {
     border-top: 5px solid var(--rule-strong);
-    background: #f2f5f4;
+    background: #ffffff;
     padding: 9px 10px 10px;
     border-radius: 0 0 3px 3px;
     opacity: .55;
@@ -220,7 +239,9 @@
   }
 
   /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
-  section { padding: 64px 0; border-bottom: 1px solid var(--rule); }
+  section { padding: 72px 0; border-bottom: none; }
+  section + section { border-top: 1px solid var(--rule); }
+  section.band + section, section.band-deep + section, section.band-dark + section { border-top: none; }
   .band {
     background: var(--panel);
     box-shadow: 0 0 0 100vmax var(--panel);
@@ -248,6 +269,15 @@
   .band-dark a:hover { color: #ffffff; }
   .band-dark .collegeask { border-left-color: #9ed4d8; }
   section[id] { scroll-margin-top: 56px; }
+  .secnum {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--teal);
+    opacity: .5;
+    letter-spacing: 0;
+  }
+  .band-dark .secnum { color: #7fbfc4; opacity: .8; }
   .eyebrow {
     font-size: 0.72rem;
     font-weight: 700;
@@ -311,14 +341,14 @@
   @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
 
   /* Street illustration */
-  .street { margin: 18px 0 4px; }
+  .street { margin-top: 18px; margin-bottom: 4px; }
   .street img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
   .street figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 42em; }
   .street figcaption b { color: var(--ink); }
 
   /* Flow diagram */
   .flow {
-    display: flex; align-items: stretch; gap: 8px; margin: 4px 0 14px;
+    display: flex; align-items: stretch; gap: 8px; margin-top: 4px; margin-bottom: 14px;
   }
   .node {
     flex: 1 1 0; background: #fff; border: 1px solid var(--rule);
@@ -396,7 +426,7 @@
   .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
   .geo {
     font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--ink-soft); background: #eef2f1; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
+    color: var(--ink-soft); background: #e6eeec; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
   }
   .grade {
     font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
@@ -418,7 +448,7 @@
 
   /* microbar: Spokane as a share of its benchmark, tick at the benchmark */
   .micro { display: block; margin-top: 10px; }
-  .mtrack { display: block; position: relative; height: 6px; background: #e6ecec; border-radius: 3px; }
+  .mtrack { display: block; position: relative; height: 6px; background: #d5e2e0; border-radius: 3px; }
   .mfill { display: block; height: 100%; border-radius: 3px; background: var(--teal); }
   .row.r .mfill { background: var(--red); }
   .row.y .mfill { background: var(--amber); }
@@ -435,7 +465,7 @@
   .chart { margin-top: 14px; max-width: 32em; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
   .lab { flex: 0 0 96px; color: var(--ink-soft); line-height: 1.25; }
-  .track { flex: 1 1 auto; height: 11px; background: #dde5e4; border-radius: 2px; overflow: hidden; }
+  .track { flex: 1 1 auto; height: 11px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
   .fill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .bar.spk .lab { color: var(--ink); font-weight: 600; }
   .bar.spk .fill { background: var(--lilac); }
@@ -479,7 +509,7 @@
   .reasons { margin-top: 4px; }
   .rrow { display: flex; align-items: center; gap: 12px; margin: 7px 0; font-size: 0.9rem; }
   .rlab { flex: 0 0 172px; color: var(--ink-soft); }
-  .rtrack { flex: 1 1 auto; height: 13px; background: #dde5e4; border-radius: 2px; overflow: hidden; }
+  .rtrack { flex: 1 1 auto; height: 13px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
   .rfill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .rrow:first-child .rfill { background: var(--basalt); }
   .rval { flex: 0 0 42px; text-align: right; font-weight: 700; }
@@ -505,7 +535,7 @@
   .glab { display: block; margin-top: 7px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
 
   /* Money in vs money already here */
-  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 4px; }
+  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; margin-bottom: 4px; }
   @media (max-width: 620px) { .moneyflow { grid-template-columns: 1fr; } }
   .mcol { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 15px; }
   .mcol.in { border-top: 4px solid var(--teal); }
@@ -519,7 +549,7 @@
   .mnote { margin-top: 14px; font-size: 0.9rem; font-weight: 600; max-width: 42em; }
 
   /* Ecosystem diagram */
-  .ecosys { margin: 4px 0 22px; }
+  .ecosys { margin-top: 4px; margin-bottom: 22px; }
   .ecosys svg { width: 100%; height: auto; display: block; }
   .ecap { margin-top: 10px; font-size: 0.9rem; color: var(--ink-soft); max-width: 42em; }
   @media (max-width: 620px) { .ecosys svg { display: none; } .ecap { margin-top: 0; } }
@@ -623,14 +653,21 @@
 </div>
 <div class="wrap">
 
-<header>
-  <p class="kicker"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--paper)" stroke-width=".9" opacity=".45"/></svg></span>A neighbor-run public ledger</p>
-  <h1>The Spokane Prosperity Scorecard</h1>
-  <p class="dateline">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source &middot; <a href="/archive/">Past editions</a> &middot; <a href="who.html">Who made this</a></p>
+<header class="sitehead tintband">
+  <div class="headrow">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/></svg></span><span class="bname">The Spokane Prosperity Scorecard</span></a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="#scorecard">The score</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="/archive/">Past editions</a>
+      <a href="who.html">Who made this</a>
+    </nav>
+  </div>
 </header>
 
 <!-- ============ HERO VERDICT ============ -->
-<div class="hero">
+<div class="hero tintband">
+  <p class="edition">Updated August 2026 &middot; Next update November 2026 &middot; Every number links to its source</p>
   <p class="hook">We want our kids to be able to stay here. That&rsquo;s the whole thing.</p>
   <p class="hooksub">Which takes employers who pay enough to make staying possible. That is what the word <b>prosperity</b> means on this page. Not a slogan. A paycheck that covers a life in Spokane.</p>
   <p class="hooksub">So four times a year we check whether the region is landing those employers. The grades are judgment calls. The numbers underneath them are not. Every one is public and we link all of them. Go look.</p>
@@ -680,7 +717,7 @@
 
 <!-- ============ 30 SECONDS ============ -->
 <section id="scorecard">
-  <p class="eyebrow">Regional results</p>
+  <p class="eyebrow"><span class="secnum">01</span>Regional results</p>
   <h2 class="sect">Eight measures, graded from public data</h2>
   <p class="lede" style="font-weight:600;">The question, stated exactly: is Spokane attracting the kind of employers that raise wages?</p>
   <p class="scope"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is a separate section, on purpose.</p>
@@ -862,7 +899,7 @@
 
 <!-- ============ THE SCORECARD ============ -->
 <section id="story" class="band">
-  <p class="eyebrow">The story in 30 seconds</p>
+  <p class="eyebrow"><span class="secnum">02</span>The story in 30 seconds</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
   <div class="three">
@@ -917,8 +954,8 @@
 </section>
 
 <!-- ============ THE OBJECTION ============ -->
-<section id="taxes" class="band">
-  <p class="eyebrow">The objection</p>
+<section id="taxes">
+  <p class="eyebrow"><span class="secnum">03</span>The objection</p>
   <h2 class="sect">But people here say the problem is taxes</h2>
   <p class="lede">Greater Spokane Inc. polls Spokane-area voters every few months. In April 2026 it found that <b>68% had actively considered moving out of the area</b>. When it asked them why, jobs and wages did not make the list at all.</p>
 
@@ -957,8 +994,8 @@
 </section>
 
 <!-- ============ CALCULATOR TEASER ============ -->
-<section id="effect">
-  <p class="eyebrow">What one employer does</p>
+<section id="effect" class="band-deep">
+  <p class="eyebrow"><span class="secnum">04</span>What one employer does</p>
   <h2 class="sect">Same headcount. Different city.</h2>
   <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
 
@@ -1011,8 +1048,8 @@
 </section>
 
 <!-- ============ THE PLAN ALREADY EXISTS ============ -->
-<section id="goals" class="band-deep">
-  <p class="eyebrow">The region already set targets</p>
+<section id="goals">
+  <p class="eyebrow"><span class="secnum">05</span>The region already set targets</p>
   <h2 class="sect">Somebody already said what winning looks like</h2>
   <p class="lede">This page did not invent a standard. Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
@@ -1029,7 +1066,7 @@
 
 <!-- ============ LEVERS ============ -->
 <section id="levers" class="band">
-  <p class="eyebrow">Who controls what</p>
+  <p class="eyebrow"><span class="secnum">06</span>Who controls what</p>
   <h2 class="sect">Nobody moves those numbers alone</h2>
   <p class="scope"><b>The grades above are regional results. The levers below belong to named institutions.</b> Keeping those two apart is what makes this a scorecard and not an accusation.</p>
   <p class="lede">The fairest criticism of any scorecard is that outcomes are co-produced, so blaming one office is cheap. Agreed. So here is the same machine with name tags: each actor, the levers only they hold, and where things stand. Status lines follow the same rule as grades. Tied to a measure above, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
@@ -1107,7 +1144,7 @@
 
 <!-- ============ IT'S BEEN DONE ============ -->
 <section id="done">
-  <p class="eyebrow">It&rsquo;s been done</p>
+  <p class="eyebrow"><span class="secnum">07</span>It&rsquo;s been done</p>
   <h2 class="sect">Four cities Spokane can learn from</h2>
   <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
@@ -1187,7 +1224,7 @@
 
 <!-- ============ ASKS ============ -->
 <section id="asks" class="band-dark">
-  <p class="eyebrow">What we&rsquo;re asking</p>
+  <p class="eyebrow"><span class="secnum">08</span>What we&rsquo;re asking</p>
   <h2 class="sect">Three things we&rsquo;re asking leaders to do</h2>
   <p class="lede">Not a policy platform. Three commitments any mayor or council member could make tomorrow.</p>
 
@@ -1224,7 +1261,7 @@
 
 <!-- ============ NERD STUFF ============ -->
 <section id="nerd">
-  <p class="eyebrow">The receipts</p>
+  <p class="eyebrow"><span class="secnum">09</span>The receipts</p>
   <h2 class="sect">Argue with us</h2>
   <p class="lede">Every number above links to its source. The <a href="methodology.html">full methodology</a> covers the grading rules, the limits of the data, and what it can and cannot tell you. Corrections are welcome, and they get posted.</p>
 
