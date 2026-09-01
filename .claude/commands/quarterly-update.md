@@ -40,7 +40,11 @@ For each card, fetch the newest reading and note its vintage:
 - Storefronts: newest ACTIV8/CoStar quarter (vacancy + construction pipeline)
 - People: OFM/ESD population and growth vs. state and US
 Save any downloaded files under data/<dataset>/<YYYY-QN>/.
-Refresh the trend data with `python3 tools/pull_trends.py` (the newest complete
+Refresh the trend data with `python3 tools/pull_trends.py`, and refresh the
+calculator's QCEW-sourced industry pay (construction 23, logistics 48-49,
+hotels 72) from the new annual file, updating data/qcew/industry_pay_*.csv and
+BOTH preset lists (calculator.html and the index.html mini calculator; they
+must stay identical, wages and notes) (the newest complete
 year lands each June) and regenerate the two trend charts from it, keeping the
 vintage sentence in each caption true.
 
