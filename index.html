@@ -277,15 +277,6 @@
   .band-dark .collegeask { border-left-color: #9ed4d8; }
   section[id] { scroll-margin-top: 62px; }
   @media (max-width: 620px) { section[id] { scroll-margin-top: 104px; } }
-  .secnum {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 900;
-    font-size: 0.95rem;
-    color: var(--teal);
-    opacity: .5;
-    letter-spacing: 0;
-  }
-  .band-dark .secnum { color: #7fbfc4; opacity: .8; }
   .eyebrow {
     max-width: 46em;
     font-size: 0.72rem;
@@ -602,22 +593,20 @@
   @media (max-width: 620px) { .ecosys svg { display: none; } .ecap { margin-top: 0; } }
 
   /* Lever map */
-  .levers { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
-  @media (max-width: 620px) { .levers { grid-template-columns: 1fr; } }
+  .levers { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 6px; }
   .lever { border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
   .lever > summary { list-style: none; cursor: pointer; padding: 14px 34px 14px 16px; position: relative; }
   .lever > summary::-webkit-details-marker { display: none; }
-  .lever > summary::after { content: "+"; position: absolute; right: 14px; top: 12px; font-size: 1.15rem; color: var(--ink-soft); line-height: 1; }
+  .lever > summary::after { content: "+"; position: absolute; right: 14px; top: 50%; margin-top: -0.6em; font-size: 1.15rem; color: var(--ink-soft); line-height: 1; }
+  .lever > summary { display: grid; grid-template-columns: 200px 1fr auto; gap: 14px; align-items: center; padding-right: 40px; }
+  .actor { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1rem; }
+  .lshort { font-size: 0.82rem; color: var(--ink-soft); }
+  .lchip .tag { margin: 0; }
+  @media (max-width: 640px) { .lever > summary { grid-template-columns: 1fr auto; } .lshort { display: none; } }
+  .lever > summary:hover .actor { color: var(--teal); }
   .lever[open] > summary::after { content: "\2212"; }
-  .lever > summary:hover h4 { color: var(--teal); }
   .lever .holds, .lever .stat { padding: 0 16px; }
   .lever .stat { padding-bottom: 15px; }
-  .lever h4 { display: inline;
-    font-family: "Fraunces", Georgia, serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.25;
-  }
   .lever .holds { margin-top: 8px; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.4; }
   .lever .stat {
     margin-top: 12px;
@@ -669,7 +658,7 @@
     padding: 22px; margin-top: 26px; align-items: start;
   }
   @media (max-width: 700px) { .expo { grid-template-columns: 1fr; } }
-  .expophoto { margin: 0; }
+  .expophoto { margin: 12px 0 0; max-width: 340px; }
   .expophoto img { width: 100%; height: auto; display: block; border-radius: 3px; }
   .expophoto figcaption { margin-top: 8px; font-size: 0.75rem; color: var(--ink-soft); line-height: 1.4; }
   .expotext h3 { margin-top: 4px; }
@@ -712,10 +701,9 @@
   <div class="headrow">
     <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="var(--basalt)"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="var(--teal)"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="var(--basalt)"/><line x1="13" y1="17" x2="13" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="26" y1="8" x2="26" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/><line x1="39" y1="24" x2="39" y2="42" stroke="var(--panel)" stroke-width=".9" opacity=".45"/></svg></span><h1 class="bname">The Spokane Prosperity Scorecard</h1></a>
     <nav class="sitenav" aria-label="Site">
-      <a href="#scorecard">The Score</a>
+      <a href="#scorecard">Scorecard</a>
       <a href="methodology.html">Methodology</a>
-      <a href="archive/">Past Editions</a>
-      <a href="who.html">Who Made This</a>
+      <a href="who.html">About</a>
       <a class="navcta" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
     </nav>
   </div>
@@ -757,31 +745,32 @@
   <details class="menu" name="jumpnav">
     <summary>The Score</summary>
     <div class="menupanel">
-      <a href="#scorecard"><b>01</b> Eight Measures</a>
-      <a href="#story"><b>02</b> The Story In 30 Seconds</a>
+      <a href="#scorecard">Eight Measures</a>
+      <a href="#changed">What Changed</a>
+      <a href="#story">The Story</a>
     </div>
   </details>
   <details class="menu" name="jumpnav">
-    <summary>Why It Matters</summary>
+    <summary>The Fix</summary>
     <div class="menupanel">
-      <a href="#taxes"><b>03</b> A Reasonable Objection</a>
-      <a href="#effect"><b>04</b> What One Employer Does</a>
-    </div>
-  </details>
-  <details class="menu" name="jumpnav">
-    <summary>Who Can Change It</summary>
-    <div class="menupanel">
-      <a href="#goals"><b>05</b> The Targets</a>
-      <a href="#levers"><b>06</b> Who Controls What</a>
-      <a href="#done"><b>07</b> It&rsquo;s Been Done</a>
+      <a href="#effect">One Employer&rsquo;s Effect</a>
+      <a href="#plan">The Plan</a>
+      <a href="#done">The Playbook</a>
     </div>
   </details>
   <details class="menu" name="jumpnav">
     <summary>The Asks</summary>
     <div class="menupanel">
-      <a href="#asks"><b>08</b> Three Asks</a>
-      <a href="#nerd"><b>09</b> The Receipts</a>
-      <a href="archive/"><b>&mdash;</b> Past Editions</a>
+      <a href="#asks">Three Asks</a>
+      <a href="#objections">Questions &amp; Objections</a>
+    </div>
+  </details>
+  <details class="menu" name="jumpnav">
+    <summary>The Receipts</summary>
+    <div class="menupanel">
+      <a href="#nerd">How Grades Work</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="archive/">Past Editions</a>
     </div>
   </details>
 </nav>
@@ -790,12 +779,12 @@
 
 <!-- ============ 02 THE EIGHT MEASURES ============ -->
 <section id="scorecard">
-  <p class="eyebrow"><span class="secnum">01</span>Regional results</p>
+  <p class="eyebrow">Regional results</p>
   <h2 class="sect">Eight measures, graded every quarter</h2>
   <p class="lede" style="font-weight:600;">The question, stated exactly: is Spokane attracting the kind of employers that raise wages?</p>
   <p class="scope"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is its own section below.</p>
-  <p class="changed"><b>Measured against what?</b> The region has already published targets for jobs and investment. This page checks progress against them in <a href="#goals">the targets</a> below.</p>
-  <p class="changed"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="archive/">past editions</a>.</p>
+  
+  
   <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
 
   <details class="more" style="margin-top:0;margin-bottom:16px;">
@@ -819,7 +808,7 @@
   <div class="grid8 wide">
   <details class="row r">
     <summary>
-      <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">Job growth</span>
       <span class="figure">&minus;2,900<small>jobs, year over year</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:14%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">2026 pace is 14% of the 5-year average. Tick marks the average.</span></span>
@@ -837,13 +826,13 @@
       <p class="src">Longer history: <a href="#longview">the 12 year chart</a> below.</p>
       <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row r">
     <summary>
-      <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">Who&rsquo;s hiring</span>
       <span class="figure">1 sector<small>drives nearly all growth</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:100%"></span><span class="mmark" style="left:48%"></span></span><span class="mcap">Health care +13% over five years. Finance and insurance &minus;12%. Tick marks flat.</span></span>
@@ -866,13 +855,13 @@
       </figure>
       <p class="why">Why it matters, and this is about the shape of an economy, not the worth of a job. Most health care serves people who already live here. Spokane is also a regional hospital hub, treating patients from Idaho and Montana, and that does bring outside money in. But the employers that lift a region&rsquo;s pay are usually the ones selling to the outside world. Think manufacturing, software, professional services. Those are the ones not showing up. Local-serving work is essential and always will be; a region with no clinics or shops is not a region. The point is that something has to bring the outside money in first. Leaning on one sector is also a risk by itself. The test behind this grade is simple. Does the work bring money into the region, or just move money that is already here?</p>
       <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row y">
     <summary>
-      <span class="tiletop"><span class="geo">County</span><span class="grade">Mixed</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County">County</span><span class="grade">Mixed</span></span>
       <span class="measure">Unemployment</span>
       <span class="figure">3.8%<small>June 2026</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:86%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">86% of the U.S. rate of 4.4%. Shorter is better here.</span></span>
@@ -896,13 +885,13 @@
       </figure>
       <p class="why">Why it matters: this is the most quoted jobs number, so it stays on the board. The truer measure is the share of working-age adults actually holding jobs, which Spokane&rsquo;s own data project tracks. That becomes this card in November.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a> (June 2026); <a href="https://www.spokanejournal.com/articles/159-spokane-s-labor-force-participation-lags-the-us-rate">EWU Institute for Public Policy via Spokane Journal of Business</a>; replacement metric: <a href="https://www.spokanetrends.org/graph.cfm?cat_id=2&amp;sub_cat_id=4&amp;ind_id=3">Spokane Trends 2.4.2</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row y">
     <summary>
-      <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County plus Stevens County">Metro</span><span class="grade">Mixed</span></span>
       <span class="measure">Paychecks</span>
       <span class="figure">$32.96<small>average hourly wage</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:98%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">98% of the U.S. average of $33.54.</span></span>
@@ -925,13 +914,13 @@
       </figure>
       <p class="why">Why it matters: wage level is the clearest test of employer quality. Parity with the U.S. average is real progress. Losing ground on income growth says the progress isn&rsquo;t compounding.</p>
       <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025); <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">Spokesman-Review / EWU Institute for Public Policy</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row y">
     <summary>
-      <span class="tiletop"><span class="geo">County</span><span class="grade">Mixed</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County">County</span><span class="grade">Mixed</span></span>
       <span class="measure">Incomes</span>
       <span class="figure">$44,107<small>per person, 2024</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:97%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">97% of the U.S. figure, and 80% of Washington's.</span></span>
@@ -948,13 +937,13 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Per-person income, 2024</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$44.1k</td></tr><tr><th scope="row">U.S.</th><td>$45.3k</td></tr><tr><th scope="row">Washington</th><td>$55.2k</td></tr></tbody></table></details>
       <p class="why">Why it matters: income per person is the harder test. Household size and government payments cannot inflate it. In November this card adds the cleanest read on employer quality: the middle wage for people working full time, all year (Census table S2001).</p>
       <p class="src">Source: <a href="http://censusreporter.org/profiles/05000US53063-spokane-county-wa/">Census ACS 2024 via Census Reporter</a>; <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a>; <a href="https://www.spokanepublicradio.org/regional-news/2025-12-11/spokanes-median-household-income-higher-than-nations-first-time">Spokane Public Radio</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row r">
     <summary>
-      <span class="tiletop"><span class="geo">City</span><span class="grade">Weak</span></span>
+      <span class="tiletop"><span class="geo" title="City of Spokane only">City</span><span class="grade">Weak</span></span>
       <span class="measure">Spending</span>
       <span class="figure">+1.2%<small>taxable retail sales, Q4 2024</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:27%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">27% of the long-run normal of 4 to 5%.</span></span>
@@ -972,13 +961,13 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Taxable retail sales growth, year over year, latest reading per geography</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">City (Q4 &rsquo;24)</th><td>+1.2%</td></tr><tr><th scope="row">County (Q2 &rsquo;25)</th><td>+2.8%</td></tr><tr><th scope="row">State (Q2 &rsquo;25)</th><td>+3.4%</td></tr><tr><th scope="row">Long-run norm</th><td>4&ndash;5%</td></tr></tbody></table></details>
       <p class="why">Why it matters: this is where jobs and wages become street life. When spending growth in the city runs at a quarter of its historical pace, storefronts stay dark no matter what gets built.</p>
       <p class="src">Source: <a href="https://www.spokanejournal.com/articles/17363-taxable-retail-sales-increase-in-spokane-county">WA Dept. of Revenue via Spokane Journal of Business</a> (Q4 2024); <a href="https://www.spokanejournal.com/articles/17796-retail-growth-off-to-slow-start-in-q2-of-2025">Q2 2025 county update</a>; <a href="https://www.thecentersquare.com/washington/article_c1ee84f2-cc88-11ef-b0d9-73220b141f39.html">The Center Square</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row y">
     <summary>
-      <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County plus Stevens County">Metro</span><span class="grade">Mixed</span></span>
       <span class="measure">Storefronts</span>
       <span class="figure">5.3%<small>retail vacancy, Q2 2026</small></span>
       <span class="micro"><span class="mtrack"><span class="mfill" style="width:100%"></span><span class="mmark" style="left:85%"></span></span><span class="mcap">Spokane Valley sits at a healthier 4 to 5%, the tick. Shorter is better here.</span></span>
@@ -988,13 +977,13 @@
       <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
       <p class="why">Why it matters: developers read the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
       <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
 
   <details class="row g">
     <summary>
-      <span class="tiletop"><span class="geo">County</span><span class="grade">Strong</span></span>
+      <span class="tiletop"><span class="geo" title="Spokane County">County</span><span class="grade">Strong</span></span>
       <span class="measure">People</span>
       <span class="figure">~556,000<small>county residents</small></span>
       <span class="micro"><span class="mcap" style="margin-top:0;">Grew faster than Washington and the country last year. The sources report the direction, not a rate, so there is no bar to draw.</span></span>
@@ -1004,41 +993,36 @@
       <p class="bench">Spokane grew slightly faster than both the state and the country last year, and the largest age group is 25 to 34.</p>
       <p class="why">Why it matters: workers are choosing Spokane before the employers do. That&rsquo;s the region&rsquo;s strongest card, and it&rsquo;s perishable. Working-age people who can&rsquo;t find higher-wage work here eventually leave to find it.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
-      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade or send better data.</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
   </div>
 
-  <div class="signup">
+  
+
+  <p class="handoff">Eight separate problems, or one? <a href="#story">Here is how they connect <span aria-hidden="true">&darr;</span></a></p>
+</section>
+
+<!-- ============ WHAT CHANGED ============ -->
+<section id="changed" class="band">
+  <p class="eyebrow">Since last quarter</p>
+  <h2 class="sect">What changed</h2>
+  <p class="lede"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="archive/">past editions</a>.</p>
+<div class="signup">
     <div class="stext">
       <p class="shead">These numbers change four times a year.</p>
       <p class="ssub">Leave an email and the new numbers arrive the day they are posted. One message a quarter. Nothing else, ever.</p>
     </div>
     <a class="btn solid" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
   </div>
-
-  <p class="handoff">Eight separate problems, or one? <a href="#story">Here is how they connect <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
-<section id="story" class="band">
-  <p class="eyebrow"><span class="secnum">02</span>The story in 30 seconds</p>
+<section id="story" class="band-deep">
+  <p class="eyebrow">The story in 30 seconds</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
-  <div class="three">
-    <div class="num">
-      <span class="n">&minus;2,900</span>
-      <span class="l">jobs lost across Spokane County over the past year</span>
-    </div>
-    <div class="num">
-      <span class="n">1 sector</span>
-      <span class="l">health care carries nearly all the growth that is left</span>
-    </div>
-    <div class="num flat">
-      <span class="n">+1.2%</span>
-      <span class="l">city spending growth, against a long-run normal of 4 to 5%</span>
-    </div>
-  </div>
+  
 
   <div class="flow wide">
     <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
@@ -1059,15 +1043,23 @@
     <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
     <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
   </figure>
-  <figure class="street wide">
+  <details class="more">
+    <summary>What this looks like at street level</summary>
+    <div class="inner">
+<figure class="street wide">
     <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
     <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
   </figure>
-
-  <figure class="street wide">
+<figure class="street wide">
     <img src="img/garland-900-block-2016.jpg" alt="The Garland Theater marquee on a sunny day, with storefronts beside it displaying large For Lease signs in their windows. The 900 block of West Garland Avenue, Spokane, photographed in 2016." loading="lazy">
     <figcaption><b>A real block: the 900 block of West Garland Avenue, 2016.</b> The marquee Spokane loves, and For Lease signs in the windows beside it. This photo is from 2016, so it is not evidence about today&rsquo;s vacancy. The 5.3% figure above is. What the picture shows is the stake: these are the storefronts the whole chain ends at. Photo: Charles Burns, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:The_Garland_Theatre_in_Spokane,_WA.jpg">Wikimedia Commons</a>.</figcaption>
   </figure>
+    </div>
+  </details>
+
+  
+
+  
 
   <details class="more">
     <summary>See the whole machine, and why each turn makes the next one easier</summary>
@@ -1086,88 +1078,20 @@
     </div>
   </details>
 
-  <p class="handoff">There is an obvious objection to all of this, and it comes from the region&rsquo;s own polling. <a href="#taxes">Take it head on <span aria-hidden="true">&darr;</span></a></p>
+  <p class="handoff">So what would actually move it? <a href="#effect">Start with one employer <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 04 THE OBJECTION ============ -->
-<section id="taxes" class="band-deep">
-  <p class="eyebrow"><span class="secnum">03</span>A reasonable objection</p>
-  <h2 class="sect">What about taxes?</h2>
-  <p class="lede">In Greater Spokane Inc.&rsquo;s April 2026 poll, 68% of Spokane-area voters said they had actively considered moving away, and taxes topped their stated reasons. Jobs did not make the list. That finding cuts against this page&rsquo;s argument, so it gets a straight answer rather than a footnote.</p>
-  <details class="more">
-    <summary>Open the poll, the tax data, and the answer</summary>
-    <div class="inner">
 
-  <p class="lede">Greater Spokane Inc. polls Spokane-area voters every few months. In April 2026 it found that <b>68% had actively considered moving out of the area</b>. When it asked them why, jobs and wages did not make the list at all.</p>
-
-  <div class="reasons wide">
-    <p class="rrow"><span class="rlab">Taxes</span><span class="rtrack"><span class="rfill" style="width:100%"></span></span><span class="rval">21%</span></p>
-    <p class="rrow"><span class="rlab">Government leadership</span><span class="rtrack"><span class="rfill" style="width:90%"></span></span><span class="rval">19%</span></p>
-    <p class="rrow"><span class="rlab">Cost of living</span><span class="rtrack"><span class="rfill" style="width:81%"></span></span><span class="rval">17%</span></p>
-    <p class="rrow"><span class="rlab">Public safety</span><span class="rtrack"><span class="rfill" style="width:62%"></span></span><span class="rval">13%</span></p>
-    <p class="rrow"><span class="rlab">Homelessness</span><span class="rtrack"><span class="rfill" style="width:33%"></span></span><span class="rval">7%</span></p>
-    <p class="rnote">Reasons given by the 395 respondents who had considered leaving. GSI&rsquo;s Pulse, fourth edition, 600 voters across the city, the valley and the county, April 2026.</p>
-  </div>
-
-  <p class="lede" style="margin-top:22px;">That is a real finding from a real poll, run by the region&rsquo;s own economic development group. It is also not the argument this page makes. So which one is right?</p>
-
-  <h3 style="margin-top:26px;">Both. It is the same squeeze from opposite ends.</h3>
-  <p class="prose" style="max-width:42em;">A tax bill is not a fixed weight. It is a share of what you earn. The same property tax is an irritation at one income and a reason to leave at another.</p>
-  <p class="prose" style="max-width:42em;margin-top:12px;">Washington makes that gap unusually wide. The Institute on Taxation and Economic Policy ranks this state <b>49th out of 50</b> for how much more of their income lower earners hand over than higher earners do.</p>
-
-  <div class="taxpair wide">
-    <div class="tp lo"><span class="tpn">13.8%</span><span class="tpl">of income paid in state and local taxes by the poorest fifth of Washington households</span></div>
-    <div class="tp hi"><span class="tpn">4.1%</span><span class="tpl">paid by the wealthiest 1%, households earning over $848,400</span></div>
-  </div>
-
-  <p class="prose" style="max-width:42em;margin-top:20px;">Now set that next to the Incomes measure above. Spokane earns about <b>80 cents for every dollar of income in Washington</b>. The tax structure here is the same one they have in Bellevue. The paychecks are not.</p>
-  <p class="flowsum" style="margin-top:16px;">So when a Spokane voter says taxes and this page says wages, both are pointing at the same squeeze from opposite ends. You can loosen it by lowering what people pay, or by raising what they earn. This page is about the second one, because it is the one that compounds.</p>
-
-  <details class="more">
-    <summary>Three things to be careful about in this section</summary>
-    <div class="inner prose">
-      <p><b>These tax numbers are for Washington as a whole.</b> There is no Spokane version of them, and this page will not invent one. The claim here is structural: this state takes a bigger share from lower earners, and Spokane earns less than the state average.</p>
-      <p><b>Washington is getting less regressive, not more.</b> It moved off last place in 2024, after the Working Families Tax Credit and the capital gains tax. That is real progress and it belongs on the record.</p>
-      <p><b>The poll asked voters, not residents.</b> Voters skew older and more settled than the young people deciding whether to start a career here. Their reasons are worth knowing. They are not the whole picture.</p>
-      <p>Sources: <a href="https://greaterspokane.org/what-we-do/greater-voice/the-pulse-community-poll/">GSI, The Pulse community poll</a>; <a href="https://itep.org/whopays-7th-edition/">Institute on Taxation and Economic Policy, Who Pays? seventh edition</a> (January 2024).</p>
-    </div>
-  </details>
-
-      </div>
-  </details>
-
-  <p class="handoff">So if the fix is what people earn, what would actually move it? <a href="#effect">Look at one employer <span aria-hidden="true">&darr;</span></a></p>
-</section>
 
 <!-- ============ 05 WHAT ONE EMPLOYER DOES ============ -->
 <section id="effect">
-  <p class="eyebrow"><span class="secnum">04</span>What One Employer Does</p>
+  <p class="eyebrow">What One Employer Does</p>
   <h2 class="sect">Same headcount. Different city.</h2>
-  <p class="lede">Five hundred jobs is five hundred jobs, until you ask what kind. Jobs at companies that sell to the outside world bring new money in, and that money becomes customers for everyone else.</p>
+  <p class="lede">Spokane has people. It needs more employers selling beyond Spokane, because that is what brings new money in.</p>
 
-  <div class="moneyflow wide">
-    <div class="mcol in">
-      <p class="mhead">Money that comes in from outside</p>
-      <p class="msub">Someone elsewhere pays Spokane for something</p>
-      <ul class="mlist">
-        <li>Software sold nationally</li>
-        <li>Manufactured goods shipped out</li>
-        <li>Engineering and professional work done for clients elsewhere</li>
-        <li>Patients from Idaho and Montana treated here</li>
-      </ul>
-    </div>
-    <div class="mcol here">
-      <p class="mhead">Money already here, moving around</p>
-      <p class="msub">Spokane paying Spokane</p>
-      <ul class="mlist">
-        <li>Groceries and restaurants</li>
-        <li>Retail</li>
-        <li>Clinics serving neighbors</li>
-        <li>Trades and local services</li>
-      </ul>
-    </div>
-  </div>
-  <p class="mnote">Both sides are real jobs and real paychecks. Neither is worth more than the other. The difference is that the left side grows the pot, and the right side circulates it. A region needs both, but only one of them makes the pot bigger.</p>
+  
+  
 
   <div class="teaser">
     <p class="warnbadge">Illustrative multiplier range, not a Spokane forecast</p>
@@ -1185,9 +1109,7 @@
     </div>
     <p class="punch">The same 500 hires either build a second wave or don&rsquo;t.</p>
     <p class="rulenote">Ranges, never single numbers. They come from published research on local multipliers (Moretti, capped downward per Bartik and the Upjohn Institute), and the ranges are widened on purpose. This shows how the effect works, never a forecast.</p>
-    <div class="ctas">
-      <a class="btn solid" href="calculator.html">Change the employer</a>
-    </div>
+    
   </div>
 
   <div class="minicalc" id="minicalc" hidden>
@@ -1253,13 +1175,43 @@
     document.getElementById("minicalc").hidden = false;
   })();
   </script>
+    <details class="more">
+    <summary>Outside money and local money do different jobs</summary>
+    <div class="inner">
+<div class="moneyflow wide">
+    <div class="mcol in">
+      <p class="mhead">Money that comes in from outside</p>
+      <p class="msub">Someone elsewhere pays Spokane for something</p>
+      <ul class="mlist">
+        <li>Software sold nationally</li>
+        <li>Manufactured goods shipped out</li>
+        <li>Engineering and professional work done for clients elsewhere</li>
+        <li>Patients from Idaho and Montana treated here</li>
+      </ul>
+    </div>
+    <div class="mcol here">
+      <p class="mhead">Money already here, moving around</p>
+      <p class="msub">Spokane paying Spokane</p>
+      <ul class="mlist">
+        <li>Groceries and restaurants</li>
+        <li>Retail</li>
+        <li>Clinics serving neighbors</li>
+        <li>Trades and local services</li>
+      </ul>
+    </div>
+  </div>
+<p class="mnote">Both sides are real jobs and real paychecks. Neither is worth more than the other. The difference is that the left side grows the pot, and the right side circulates it. A region needs both, but only one of them makes the pot bigger.</p>
+    </div>
+  </details>
+
   <p class="handoff">That is one employer. <a href="#goals">Here is what the region already said it wants <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 06 THE TARGETS ============ -->
-<section id="goals" class="band">
-  <p class="eyebrow"><span class="secnum">05</span>The region already set targets</p>
-  <h2 class="sect">Somebody already said what winning looks like</h2>
+<section id="plan" class="band">
+  <span id="goals"></span>
+  <p class="eyebrow">The plan</p>
+  <h2 class="sect">Spokane already set targets. Who moves them?</h2>
   <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
   <div class="goals wide">
@@ -1272,13 +1224,11 @@
   <p class="flowsum" style="margin-top:18px;">So how is the region doing?</p>
   <p class="lede" style="margin-bottom:0;">That is the whole job of this page. The eight measures above track whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
 
-  <p class="handoff">Goals need somebody to move them. <a href="#levers">Here is who holds what <span aria-hidden="true">&darr;</span></a></p>
-</section>
 
-<!-- ============ 07 WHO CONTROLS WHAT ============ -->
-<section id="levers" class="band-deep">
-  <p class="eyebrow"><span class="secnum">06</span>Who Controls What</p>
-  <h2 class="sect">Nobody moves those numbers alone</h2>
+  <p class="lede" style="margin-top:34px;"><b>Who holds the levers?</b> Goals need owners. </p>
+  <span id="levers"></span>
+
+  
   <p class="scope"><b>The grades above are regional results. The levers below belong to named institutions.</b></p>
   <p class="lede">No single office controls those eight numbers. Here is the machine with name tags: each actor, the levers only it holds, and where things stand. Every status line is tied to a measure, tied to a source, or stated as an open question. Open questions are invitations: send the data and it gets linked.</p>
 
@@ -1311,32 +1261,32 @@
 
   <div class="levers wide">
     <details class="lever">
-      <summary><h4>City of Spokane</h4></summary>
+      <summary><span class="actor">City of Spokane</span><span class="lshort">Permits &middot; land &middot; fees &middot; downtown</span><span class="lchip"><span class="tag gap">Not scored yet</span></span></summary>
       <p class="holds">How fast permits move, and how predictable they are. Zoning that keeps land ready for employers to build on. Downtown safety. What businesses pay in fees. Where the council spends its time.</p>
       <p class="stat"><span class="tag gap">Not scored yet</span>The city has an economic development chapter in its comprehensive plan, with living-wage language and target investment areas. What it does not publish is measurable progress. Later editions aim to score things the city controls outright. How long a permit takes. Whether zoned land is ready to build on. What businesses pay in fees.</p>
     </details>
     <details class="lever">
-      <summary><h4>The regional recruiters</h4></summary>
+      <summary><span class="actor">The regional recruiters</span><span class="lshort">Recruiting &middot; sites &middot; incentives</span><span class="lchip"><span class="tag pub">Goals published</span></span></summary>
       <p class="holds">Spokane County and Greater Spokane Inc. run the actual sales effort. They pick the target industries, get sites ready, line up incentives, and make the pitch employers hear.</p>
       <p class="stat"><span class="tag pub">Goals published</span>GSI&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign sets public five-year goals, including 5,000 jobs and $1 billion in new capital investment, and posts progress updates. GSI also runs a public <a href="https://greaterspokane.org/what-we-do/greater-growth/spokane-economic-indicators-dashboard/">regional indicators dashboard</a>. The plan is not the open question. Progress against it is.</p>
     </details>
     <details class="lever">
-      <summary><h4>Higher education</h4></summary>
+      <summary><span class="actor">Higher education</span><span class="lshort">Talent &middot; internships &middot; research</span><span class="lchip"><span class="tag pub">Partly published</span></span></summary>
       <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW and GU medical partnership, and the community colleges. They decide how many graduates come out, and in which fields. They also decide whether students intern at local firms, and whether research here turns into companies.</p>
       <p class="stat"><span class="tag pub">Partly published</span>Gonzaga publishes a <a href="https://www.gonzaga.edu/student-life/career-services/annual-first-destination-survey-report">First Destination dashboard</a> you can filter by major and by location. Whitworth publishes graduate outcomes too. Nursing retention is reported and strong. What the region lacks is one comparable number across all the schools.</p>
     </details>
     <details class="lever">
-      <summary><h4>Anchor employers</h4></summary>
+      <summary><span class="actor">Anchor employers</span><span class="lshort">Expansion &middot; hiring &middot; suppliers</span><span class="lchip"><span class="tag red">Regional signal weak</span></span></summary>
       <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and others. They hold the choice Boise teaches: grow here, or grow somewhere else. They also decide how many interns they take and which local suppliers they build up.</p>
       <p class="stat"><span class="tag red">Regional signal weak</span>This grade describes the region, not any one company. Traded-sector hiring across Spokane is weak. That is not a mark against any employer who is investing here. What no one outside can see is which local anchors are adding payroll and capital, because that is not published.</p>
     </details>
     <details class="lever">
-      <summary><h4>The state of Washington</h4></summary>
+      <summary><span class="actor">The state of Washington</span><span class="lshort">Taxes &middot; incentives &middot; infrastructure</span><span class="lchip"><span class="tag gap">Upstream, not graded</span></span></summary>
       <p class="holds">Taxes, incentives, roads and other infrastructure, and college funding east of the Cascades. Also the minimum wage, which already pushed Spokane&rsquo;s hourly pay close to the national average.</p>
       <p class="stat"><span class="tag gap">Upstream, not graded</span>This is the biggest lever on the board and the one furthest from Spokane. Tax structure, incentives, infrastructure money and higher-education funding east of the Cascades are all set in Olympia. This page grades regional outcomes rather than state policy, but a scorecard that pretended the state was a footnote would be lying about how the machine works.</p>
     </details>
     <details class="lever">
-      <summary><h4>Residents, including this page</h4></summary>
+      <summary><span class="actor">Residents, including this page</span><span class="lshort">Votes &middot; attention &middot; corrections</span><span class="lchip"><span class="tag gap">Yours</span></span></summary>
       <p class="holds">Attention, votes, meeting rooms, and corrections. On track looks like showing up when the levers above get discussed.</p>
       <p class="stat">You&rsquo;re reading the lever.</p>
     </details>
@@ -1355,10 +1305,13 @@
   <p class="handoff">None of this is theoretical. <a href="#done">Four cities have already done it <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
+<!-- ============ 07 WHO CONTROLS WHAT ============ -->
+
+
 <!-- ============ 08 IT'S BEEN DONE ============ -->
-<section id="done">
-  <p class="eyebrow"><span class="secnum">07</span>It&rsquo;s Been Done</p>
-  <h2 class="sect">Four cities Spokane can learn from</h2>
+<section id="done" class="band-deep">
+  <p class="eyebrow">It&rsquo;s Been Done</p>
+  <h2 class="sect">What has worked elsewhere</h2>
   <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
   <div class="cities wide">
@@ -1430,22 +1383,32 @@
         <p><a href="https://community.triblive.com/news/4029971">TribLive</a>, <a href="https://mercury.com/blog/pittsburgh-robotics-industry-growth-ai">Robotics Row</a></p>
       </div>
     </details>
-  </div>
+      <details class="city">
+      <summary>
+        <span class="cname">Spokane</span>
+        <span class="cmove">Has made big civic bets before</span>
+        <dl class="amr">
+          <dt>Asset</dt><dd>A river buried under rail yards</dd>
+          <dt>Move</dt><dd>Tear them out for Expo &rsquo;74</dd>
+          <dt>Result</dt><dd><b>Riverfront Park</b></dd>
+        </dl>
+      </summary>
+      <div class="detail">
 
-  <div class="expo wide">
-    <figure class="expophoto">
-      <img src="img/clocktower-riverfront-2024.jpg" alt="The Great Northern clock tower in Riverfront Park, framed by trees, with the Howard Street bridge and the Spokane River behind it." loading="lazy">
-      <figcaption>The clock tower in Riverfront Park, 2024. Photo: <a href="https://unsplash.com/photos/a-tall-clock-tower-towering-over-a-lush-green-park-agr9AcIcp1I">Steven Cordes</a>, <a href="https://unsplash.com/license">Unsplash License</a>.</figcaption>
-    </figure>
-    <div class="expotext">
-      <p class="cmove" style="padding-right:0;">And one city that already ran this play: this one</p>
-      <h3>The proof is standing in Riverfront Park.</h3>
       <p>For decades, rail yards and trestles covered Havermale Island and blocked downtown from its own falls. In 1974 Spokane tore them out and hosted a world&rsquo;s fair on the site, the first with an environmental theme. When the fair closed, the grounds became Riverfront Park.</p>
       <p>The clock tower is what was kept. It is the last piece of the 1902 Great Northern depot, whose yards covered the ground it now stands on.</p>
       <p><b>This does not prove Spokane can land wage-raising employers.</b> It proves something smaller and sturdier: this city can pick a long, unglamorous project and finish it. That is the muscle the employer problem needs. Nobody calls it lucky now. They call it Riverfront Park.</p>
       <p class="src">Source: <a href="https://www.historylink.org/file/10791">HistoryLink, Expo &rsquo;74: Spokane World&rsquo;s Fair</a>; <a href="https://my.spokanecity.org/riverfrontspokane/about-us/history/">City of Spokane, Riverfront Park history</a>.</p>
-    </div>
-  </div>
+    
+<figure class="expophoto">
+      <img src="img/clocktower-riverfront-2024.jpg" alt="The Great Northern clock tower in Riverfront Park, framed by trees, with the Howard Street bridge and the Spokane River behind it." loading="lazy">
+      <figcaption>The clock tower in Riverfront Park, 2024. Photo: <a href="https://unsplash.com/photos/a-tall-clock-tower-towering-over-a-lush-green-park-agr9AcIcp1I">Steven Cordes</a>, <a href="https://unsplash.com/license">Unsplash License</a>.</figcaption>
+    </figure>
+      </div>
+    </details>
+</div>
+
+  
 
   <p class="lede" style="margin-top:18px;margin-bottom:0;"><b>The pattern across all four:</b> a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline. And Spokane has run the play before.</p>
 
@@ -1454,7 +1417,7 @@
 
 <!-- ============ 09 WHAT WE'RE ASKING ============ -->
 <section id="asks" class="band-dark">
-  <p class="eyebrow"><span class="secnum">08</span>The Asks</p>
+  <p class="eyebrow">The Asks</p>
   <h2 class="sect">Three asks of Spokane&rsquo;s leaders</h2>
   <p class="lede">Three commitments any mayor or council member could make tomorrow.</p>
 
@@ -1496,12 +1459,82 @@
 
   <p class="lede" style="margin-top:22px;margin-bottom:0;">And a commitment back: this scorecard is not rooting for anyone to fail. The quarter these numbers improve, the top of this page will say so, in green, with credit to whoever moved them.</p>
 
+  <p class="handoff">Skeptical? Good. <a href="#objections">Start with the objections <span aria-hidden="true">&darr;</span></a></p>
+</section>
+
+<!-- ============ OBJECTIONS ============ -->
+<section id="objections">
+  <p class="eyebrow">Questions and objections</p>
+  <h2 class="sect">The strongest cases against this page</h2>
+  <p class="lede">Skepticism is the right response to a scorecard. These are the best objections, taken in their strongest form.</p>
+
+  <h3 style="margin-top:20px;">What about taxes?</h3>
+  <p class="lede">In Greater Spokane Inc.&rsquo;s April 2026 poll, 68% of Spokane-area voters said they had actively considered moving away, and taxes topped their stated reasons. Jobs did not make the list. That finding cuts against this page&rsquo;s argument, so it gets a straight answer rather than a footnote.</p>
+  <details class="more">
+    <summary>Open the poll, the tax data, and the answer</summary>
+    <div class="inner">
+
+  <p class="lede">Greater Spokane Inc. polls Spokane-area voters every few months. In April 2026 it found that <b>68% had actively considered moving out of the area</b>. When it asked them why, jobs and wages did not make the list at all.</p>
+
+  <div class="reasons wide">
+    <p class="rrow"><span class="rlab">Taxes</span><span class="rtrack"><span class="rfill" style="width:100%"></span></span><span class="rval">21%</span></p>
+    <p class="rrow"><span class="rlab">Government leadership</span><span class="rtrack"><span class="rfill" style="width:90%"></span></span><span class="rval">19%</span></p>
+    <p class="rrow"><span class="rlab">Cost of living</span><span class="rtrack"><span class="rfill" style="width:81%"></span></span><span class="rval">17%</span></p>
+    <p class="rrow"><span class="rlab">Public safety</span><span class="rtrack"><span class="rfill" style="width:62%"></span></span><span class="rval">13%</span></p>
+    <p class="rrow"><span class="rlab">Homelessness</span><span class="rtrack"><span class="rfill" style="width:33%"></span></span><span class="rval">7%</span></p>
+    <p class="rnote">Reasons given by the 395 respondents who had considered leaving. GSI&rsquo;s Pulse, fourth edition, 600 voters across the city, the valley and the county, April 2026.</p>
+  </div>
+
+  <p class="lede" style="margin-top:22px;">That is a real finding from a real poll, run by the region&rsquo;s own economic development group. It is also not the argument this page makes. So which one is right?</p>
+
+  <h3 style="margin-top:26px;">Both. It is the same squeeze from opposite ends.</h3>
+  <p class="prose" style="max-width:42em;">A tax bill is not a fixed weight. It is a share of what you earn. The same property tax is an irritation at one income and a reason to leave at another.</p>
+  <p class="prose" style="max-width:42em;margin-top:12px;">Washington makes that gap unusually wide. The Institute on Taxation and Economic Policy ranks this state <b>49th out of 50</b> for how much more of their income lower earners hand over than higher earners do.</p>
+
+  <div class="taxpair wide">
+    <div class="tp lo"><span class="tpn">13.8%</span><span class="tpl">of income paid in state and local taxes by the poorest fifth of Washington households</span></div>
+    <div class="tp hi"><span class="tpn">4.1%</span><span class="tpl">paid by the wealthiest 1%, households earning over $848,400</span></div>
+  </div>
+
+  <p class="prose" style="max-width:42em;margin-top:20px;">Now set that next to the Incomes measure above. Spokane earns about <b>80 cents for every dollar of income in Washington</b>. The tax structure here is the same one they have in Bellevue. The paychecks are not.</p>
+  <p class="flowsum" style="margin-top:16px;">So when a Spokane voter says taxes and this page says wages, both are pointing at the same squeeze from opposite ends. You can loosen it by lowering what people pay, or by raising what they earn. This page is about the second one, because it is the one that compounds.</p>
+
+  <details class="more">
+    <summary>Three things to be careful about in this section</summary>
+    <div class="inner prose">
+      <p><b>These tax numbers are for Washington as a whole.</b> There is no Spokane version of them, and this page will not invent one. The claim here is structural: this state takes a bigger share from lower earners, and Spokane earns less than the state average.</p>
+      <p><b>Washington is getting less regressive, not more.</b> It moved off last place in 2024, after the Working Families Tax Credit and the capital gains tax. That is real progress and it belongs on the record.</p>
+      <p><b>The poll asked voters, not residents.</b> Voters skew older and more settled than the young people deciding whether to start a career here. Their reasons are worth knowing. They are not the whole picture.</p>
+      <p>Sources: <a href="https://greaterspokane.org/what-we-do/greater-voice/the-pulse-community-poll/">GSI, The Pulse community poll</a>; <a href="https://itep.org/whopays-7th-edition/">Institute on Taxation and Economic Policy, Who Pays? seventh edition</a> (January 2024).</p>
+    </div>
+  </details>
+
+      </div>
+  </details>
+
+  <details class="more">
+    <summary>Isn&rsquo;t unemployment low? That sounds like good news.</summary>
+    <div class="inner prose"><p>It is low, 3.8% in June 2026, and it stays on the board. But the rate only counts people actively looking, and Spokane&rsquo;s labor force participation lags the national rate. A low rate over a shrinking pool is a mixed signal, not a green one. The full picture is in <a href="#scorecard">the unemployment measure</a>.</p></div>
+  </details>
+  <details class="more">
+    <summary>Isn&rsquo;t health care growth good?</summary>
+    <div class="inner prose"><p>Yes. Health care is essential work, and Spokane&rsquo;s referral-hub role brings outside money in. The concern is concentration, not quality: more than one in five county jobs is now in one sector, and leaning that hard on any single sector is a risk. The chart is in <a href="#scorecard">the hiring measure</a>.</p></div>
+  </details>
+  <details class="more">
+    <summary>How much of this can City Hall actually control?</summary>
+    <div class="inner prose"><p>A minority of it, and this page says so. The grades measure regional results that no office controls alone. What the city does control outright is in <a href="#plan">the plan</a>: permitting speed, land readiness, fees, and downtown conditions.</p></div>
+  </details>
+  <details class="more">
+    <summary>People keep moving here. Doesn&rsquo;t that mean Spokane is succeeding?</summary>
+    <div class="inner prose"><p>It is the region&rsquo;s strongest card, and it is graded strong. It is also perishable: people who arrive and cannot find work that pays eventually leave for it. Population is the engine working. The employer engine is the one this page watches.</p></div>
+  </details>
+
   <p class="handoff">And here is how to check every number on this page. <a href="#nerd">Argue with the grades <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ 10 THE RECEIPTS ============ -->
-<section id="nerd">
-  <p class="eyebrow"><span class="secnum">09</span>The receipts</p>
+<section id="nerd" class="band">
+  <p class="eyebrow">The receipts</p>
   <h2 class="sect">Argue with the grades</h2>
   <p class="lede">Every number above links to its source. The <a href="methodology.html">full methodology</a> covers the grading rules, the limits of the data, and what it can and cannot tell you. Corrections are welcome, and they get posted.</p>
 
