@@ -1181,14 +1181,21 @@
     var P = {
       tech:   { name: "Software & tech",                    wage: 108600, mLo: 1.8, mHi: 3.8,
                 note: "Avg wage $108,600 (BLS, Spokane computer & math occupations, May 2025)" },
-      aero:   { name: "Aerospace & advanced manufacturing", wage: 84000,  mLo: 1.2, mHi: 2.0,
-                note: "Avg wage $84,000 (Spokane Workforce Council targeted-industry data)" },
       finpro: { name: "Finance & professional services",    wage: 137400, mLo: 1.0, mHi: 2.3,
                 note: "Avg wage $137,400 (Lightcast via Spokane Workforce Council)" },
-      health: { name: "Health care",                        wage: 75600,  mLo: 0.3, mHi: 0.9,
-                note: "Avg wage $75,600 (Spokane Workforce Council targeted-industry data)" },
+      aero:   { name: "Aerospace & advanced manufacturing", wage: 84000,  mLo: 1.2, mHi: 2.0,
+                note: "Avg wage $84,000 (Spokane Workforce Council targeted-industry data)" },
+      logi:   { name: "Logistics & warehousing",            wage: 62577,  mLo: 0.4, mHi: 1.2,
+                note: "Avg pay $62,577 (BLS QCEW, Spokane County transportation & warehousing, 2025)" },
+      health: { name: "Health care",                        wage: 83100,  mLo: 0.3, mHi: 0.9,
+                note: "Avg wage $83,100 (Lightcast via Spokane Workforce Council)" },
+      hotel:  { name: "Hotels & tourism",                   wage: 30425,  mLo: 0.2, mHi: 0.7,
+                note: "Avg pay $30,425 (BLS QCEW, Spokane County accommodation & food services, 2025)" },
+      constr: { name: "Construction",                       wage: 74306,  mLo: 0.1, mHi: 0.5,
+                note: "Avg pay $74,306 (BLS QCEW, Spokane County construction, 2025)" },
       retail: { name: "Retail & food service",              wage: 44100,  mLo: 0.0, mHi: 0.2,
                 note: "Avg wage $44,100 (BLS, Spokane food prep & serving, May 2025)" }
+    
     };
     var SPEND = 0.35, RIPPLE_WAGE = 52000, STORE = 500000;
     var sel = document.getElementById("mc-sector");

@@ -248,9 +248,12 @@
     <tr><td>Aerospace &amp; advanced manufacturing</td><td>1.2 to 2.0</td><td>Moretti estimates 1.6 for manufacturing</td></tr>
     <tr><td>Finance &amp; professional services</td><td>1.0 to 2.3</td><td>Skilled tradable jobs: roughly 2.0 to 2.5</td></tr>
     <tr><td>Health care</td><td>0.3 to 0.9</td><td>Partly tradable here: Spokane is the referral hub treating Idaho and Montana patients</td></tr>
+    <tr><td>Logistics &amp; warehousing</td><td>0.4 to 1.2</td><td>Moves goods for buyers beyond the county, but pay sits below manufacturing, so the range is held under Moretti&rsquo;s 1.6</td></tr>
+    <tr><td>Hotels &amp; tourism</td><td>0.2 to 0.7</td><td>Visitor spending brings outside money in, but low pay per job limits the ripple</td></tr>
+    <tr><td>Construction</td><td>0.1 to 0.5</td><td>Mostly builds for demand already here, so it largely moves local money</td></tr>
     <tr><td>Retail &amp; food service</td><td>0.0 to 0.2</td><td>Mostly shifts spending locals were already doing</td></tr>
   </table>
-  <p>Multiplier research: Enrico Moretti, <a href="https://eml.berkeley.edu/~moretti/multipliers.pdf">&ldquo;Local Multipliers,&rdquo; American Economic Review (2010)</a>, summarized well by <a href="https://www.npr.org/sections/planet-money/2025/06/03/g-s1-70167/can-bringing-back-manufacturing-help-the-heartland-catch-up-with-superstar-cities">NPR&rsquo;s Planet Money</a>; the <a href="https://research.upjohn.org/cgi/viewcontent.cgi?article=1319&amp;context=up_workingpapers">Upjohn Institute (Bartik)</a> surveys the debate and finds smaller county-level multipliers, which is why our ranges sit below the published maxima. Wages: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane</a> (tech, food service) and <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council</a> industry data (health care, finance, manufacturing).</p>
+  <p>Multiplier research: Enrico Moretti, <a href="https://eml.berkeley.edu/~moretti/multipliers.pdf">&ldquo;Local Multipliers,&rdquo; American Economic Review (2010)</a>, summarized well by <a href="https://www.npr.org/sections/planet-money/2025/06/03/g-s1-70167/can-bringing-back-manufacturing-help-the-heartland-catch-up-with-superstar-cities">NPR&rsquo;s Planet Money</a>; the <a href="https://research.upjohn.org/cgi/viewcontent.cgi?article=1319&amp;context=up_workingpapers">Upjohn Institute (Bartik)</a> surveys the debate and finds smaller county-level multipliers, which is why our ranges sit below the published maxima. Wages: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane</a> (tech, food service); <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council</a> industry data (health care, finance, manufacturing); and <a href="https://www.bls.gov/cew/">BLS QCEW</a> Spokane County industry pay, 2025 (logistics, hotels, construction), <a href="/">archived with this site&rsquo;s data</a> at <a href="data/qcew/industry_pay_2025.csv">data/qcew/industry_pay_2025.csv</a>.</p>
   <p>The remaining assumptions are round on purpose, and you should argue with them: 35% of new payroll becomes local consumer spending; ripple jobs pay an average of $52,000; a neighborhood storefront needs about $500,000 a year in sales to survive; the median Spokane County household income is $86,206 (Census ACS, 2024).</p>
 </section>
 
@@ -270,60 +273,21 @@
   var PRESETS = {
     tech:   { name: "Software & tech",                    wage: 108600, mLo: 1.8, mHi: 3.8,
               note: "Avg wage $108,600 (BLS, Spokane computer & math occupations, May 2025)" },
-    aero:   { name: "Aerospace & advanced manufacturing", wage: 84000,  mLo: 1.2, mHi: 2.0,
-              note: "Avg wage $84,000 (Spokane Workforce Council targeted-industry data)" },
     finpro: { name: "Finance & professional services",    wage: 137400, mLo: 1.0, mHi: 2.3,
               note: "Avg wage $137,400 (Lightcast via Spokane Workforce Council)" },
+    aero:   { name: "Aerospace & advanced manufacturing", wage: 84000,  mLo: 1.2, mHi: 2.0,
+              note: "Avg wage $84,000 (Spokane Workforce Council targeted-industry data)" },
+    logi:   { name: "Logistics & warehousing",            wage: 62577,  mLo: 0.4, mHi: 1.2,
+              note: "Avg pay $62,577 (BLS QCEW, Spokane County transportation & warehousing, 2025)" },
     health: { name: "Health care",                        wage: 83100,  mLo: 0.3, mHi: 0.9,
               note: "Avg wage $83,100 (Lightcast via Spokane Workforce Council)" },
+    hotel:  { name: "Hotels & tourism",                   wage: 30425,  mLo: 0.2, mHi: 0.7,
+              note: "Avg pay $30,425 (BLS QCEW, Spokane County accommodation & food services, 2025)" },
+    constr: { name: "Construction",                       wage: 74306,  mLo: 0.1, mHi: 0.5,
+              note: "Avg pay $74,306 (BLS QCEW, Spokane County construction, 2025)" },
     retail: { name: "Retail & food service",              wage: 44100,  mLo: 0.0, mHi: 0.2,
               note: "Avg wage $44,100 (BLS, Spokane food prep & serving, May 2025)" }
-  };
-  var SPEND_SHARE = 0.35;
-  var RIPPLE_WAGE = 52000;
-  var STOREFRONT_SALES = 500000;
-  var MEDIAN_HH = 86206;
-
-  function fillSelect(sel) {
-    Object.keys(PRESETS).forEach(function (k) {
-      var o = document.createElement("option");
-      o.value = k;
-      o.textContent = PRESETS[k].name;
-      sel.appendChild(o);
-    });
-  }
-
-  function fmtMoney(n) {
-    if (n >= 1e9) return "$" + (n / 1e9).toFixed(1) + "B";
-    if (n >= 1e6) return "$" + (n / 1e6).toFixed(1) + "M";
-    return "$" + Math.round(n / 1000).toLocaleString() + "K";
-  }
-  function fmtJobs(n) {
-    var r = n >= 1000 ? Math.round(n / 50) * 50 : Math.round(n / 10) * 10;
-    return r.toLocaleString();
-  }
-  function range(lo, hi, fmt) {
-    var a = fmt(lo), b = fmt(hi);
-    return a === b ? a : a + " to " + b;
-  }
-
-  function compute(sectorKey, jobs) {
-    var p = PRESETS[sectorKey];
-    var direct = jobs * p.wage;
-    var rLo = jobs * p.mLo, rHi = jobs * p.mHi;
-    var payLo = direct + rLo * RIPPLE_WAGE;
-    var payHi = direct + rHi * RIPPLE_WAGE;
-    return {
-      jobs: jobs, direct: direct,
-      rLo: rLo, rHi: rHi,
-      tLo: jobs + rLo, tHi: jobs + rHi,
-      payLo: payLo, payHi: payHi,
-      spLo: payLo * SPEND_SHARE, spHi: payHi * SPEND_SHARE,
-      stLo: payLo * SPEND_SHARE / STOREFRONT_SALES,
-      stHi: payHi * SPEND_SHARE / STOREFRONT_SALES,
-      hh: direct / MEDIAN_HH,
-      mid: jobs + (rLo + rHi) / 2,
-      spMid: (payLo + payHi) / 2 * SPEND_SHARE
+  
     };
   }
 
