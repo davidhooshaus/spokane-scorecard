@@ -108,17 +108,14 @@
 
   /* Hero verdict */
   .hero {
+    position: relative;
     border-bottom: 3px solid var(--ink);
     padding: 30px 0 48px;
   }
-  .herogrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
-  .heroviz { display: none; margin: 0; }
-  @media (min-width: 980px) {
-    .herogrid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; }
-    .heroviz { display: block; }
-  }
-  .heroviz svg { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
-  .herocap { margin-top: 10px; font-size: 0.8rem; line-height: 1.5; color: var(--ink-soft); }
+  .herowm { position: absolute; top: 0; bottom: 0; left: 0; right: calc(50% - 50vw); z-index: 0; pointer-events: none; display: none; }
+  .herowm svg { width: 100%; height: 100%; display: block; }
+  @media (min-width: 720px) { .herowm { display: block; } }
+  .hero > :not(.herowm) { position: relative; z-index: 1; }
   .hook {
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
@@ -752,7 +749,7 @@
   .mcn { transition: opacity 150ms ease; }
   .mcn.bump { opacity: 0.25; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
-  @media print { .row, .city, details.more { display: block; } .row .body, .city .detail, details.more .inner { display: block !important; } nav.jump, .ctas { display: none; } }
+  @media print { .herowm { display: none; } .row, .city, details.more { display: block; } .row .body, .city .detail, details.more .inner { display: block !important; } nav.jump, .ctas { display: none; } }
 </style>
 </head>
 <body>
@@ -786,8 +783,11 @@
 
 <!-- ============ HERO VERDICT ============ -->
 <div class="hero tintband">
-  <div class="herogrid">
-  <div class="herotext">
+  <div class="herowm" aria-hidden="true">
+      <!-- hero-chart:start -->
+      <svg viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true"><polygon points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4 1600,520 0,520" fill="#2a6b73" opacity="0.07"/><polyline points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4" fill="none" stroke="#2a6b73" stroke-width="3" opacity="0.18" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+      <!-- hero-chart:end -->
+  </div>
   <p class="hook">Can Spokane attract the employers that let more people build a good life here?</p>
   <p class="hooksub">This resident-run scorecard checks the numbers four times a year: jobs, wages, income, spending, storefronts and the employers behind them. Every grade links to its source. Most of the data comes straight from public agencies, and privately sourced figures are labeled.</p>
   <p class="edition">Updated August 2026 &middot; Next update November 2026</p>
@@ -816,37 +816,6 @@
     <a class="btn" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
   </div>
   <p class="notewho">Independently maintained by one Spokane resident. No sponsors, no institutional funding, no political affiliation. <a href="who.html">Who made this</a>.</p>
-  </div>
-  <figure class="heroviz">
-      <!-- hero-chart:start -->
-      <svg viewBox="0 0 560 400" aria-hidden="true" font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums">
-      <rect width="560" height="400" fill="#ffffff"/>
-      <text x="52" y="18" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#4a5654">SPOKANE COUNTY JOBS SINCE 2014</text>
-      <line x1="52" y1="327.3" x2="540" y2="327.3" stroke="#e0e5e4" stroke-width="1"/>
-      <text x="44" y="330.8" text-anchor="end" font-size="9.5" fill="#4a5654">200k</text>
-      <line x1="52" y1="212.4" x2="540" y2="212.4" stroke="#e0e5e4" stroke-width="1"/>
-      <text x="44" y="215.9" text-anchor="end" font-size="9.5" fill="#4a5654">220k</text>
-      <line x1="52" y1="97.5" x2="540" y2="97.5" stroke="#e0e5e4" stroke-width="1"/>
-      <text x="44" y="101.0" text-anchor="end" font-size="9.5" fill="#4a5654">240k</text>
-      <line x1="318.2" y1="56" x2="318.2" y2="356" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/>
-      <text x="323.2" y="68" font-size="9.5" fill="#a06e0a">pandemic</text>
-      <polygon points="52.0,294.7 96.4,273.3 140.7,241.0 185.1,221.1 229.5,191.1 273.8,163.5 318.2,222.0 362.5,155.6 406.9,109.9 451.3,88.6 495.6,79.3 540.0,76.2 540.0,356 52.0,356" fill="#2a6b73" opacity="0.14"/>
-      <polyline points="52.0,294.7 96.4,273.3 140.7,241.0 185.1,221.1 229.5,191.1 273.8,163.5 318.2,222.0 362.5,155.6 406.9,109.9 451.3,88.6 495.6,79.3 540.0,76.2" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-      <line x1="52" y1="356" x2="540" y2="356" stroke="#4a5654" stroke-width="1.2"/>
-      <line x1="540.0" y1="356" x2="540.0" y2="76.2" stroke="#2b3134" stroke-width="1.5" stroke-dasharray="3,3"/>
-      <circle cx="540.0" cy="76.2" r="3.5" fill="#2a6b73"/>
-      <text x="532" y="52.2" text-anchor="end" font-size="11.5" font-weight="700" fill="#171d1c">243,704 jobs in 2025</text>
-      <text x="532" y="68.2" text-anchor="end" font-size="10.5" fill="#4a5654">the climb stalls in 2024</text>
-      <text x="52.0" y="376" text-anchor="middle" font-size="9.5" fill="#4a5654">2014</text>
-      <text x="185.1" y="376" text-anchor="middle" font-size="9.5" fill="#4a5654">2017</text>
-      <text x="318.2" y="376" text-anchor="middle" font-size="9.5" fill="#4a5654">2020</text>
-      <text x="451.3" y="376" text-anchor="middle" font-size="9.5" fill="#4a5654">2023</text>
-      <text x="540.0" y="376" text-anchor="middle" font-size="9.5" fill="#4a5654">2025</text>
-      </svg>
-      <!-- hero-chart:end -->
-    <figcaption class="herocap">Spokane County jobs since 2014. Same data, with sources, in the <a href="#jobgrowth">Job growth card</a> below.</figcaption>
-  </figure>
-  </div>
 </div>
 
 <nav class="jump" aria-label="Sections">
