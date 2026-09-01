@@ -49,7 +49,11 @@ matches what the sorted chart shows, updating data/qcew/industry_pay_*.csv and
 BOTH preset lists (calculator.html and the index.html mini calculator; they
 must stay identical, wages and notes) (the newest complete
 year lands each June) and regenerate the two trend charts from it, keeping the
-vintage sentence in each caption true.
+vintage sentence in each caption true. Then run `python3 tools/make_hero_chart.py`
+to redraw the hero background watermark from the same file. It is the real
+QCEW jobs line with no axes or numbers; the sourced version lives in the Job
+growth card. If the script exits saying the data left its fixed range, widen
+VMIN/VMAX in the script and rerun.
 
 ## 3. Update each card
 Figure, the <small> geography+vintage label, bench text, source dates, and
