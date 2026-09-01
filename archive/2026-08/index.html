@@ -61,7 +61,7 @@
   }
 
   /* Site header: brand left, links right */
-  .sitehead { padding: 16px 0 14px; }
+  .sitehead { padding: 26px 0 22px; }
   .headrow { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
   .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
   .bname { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.005em; }
@@ -95,7 +95,7 @@
     .bname { font-size: 0.95rem; }
     .sitenav { gap: 14px; font-size: 0.8rem; flex-wrap: wrap; }
   }
-  .edition { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 22px; max-width: 46em; }
+  .edition { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 34px; max-width: 46em; }
   h1 {
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
@@ -108,9 +108,14 @@
 
   /* Hero verdict */
   .hero {
+    position: relative;
     border-bottom: 3px solid var(--ink);
-    padding: 30px 0 48px;
+    padding: clamp(48px, 7vw, 84px) 0 clamp(56px, 7vw, 88px);
   }
+  .herowm { position: absolute; top: 0; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw); z-index: 0; pointer-events: none; display: none; }
+  .herowm svg { width: 100%; height: 100%; display: block; }
+  @media (min-width: 720px) { .herowm { display: block; } }
+  .hero > :not(.herowm) { position: relative; z-index: 1; }
   .hook {
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
@@ -137,7 +142,7 @@
     display: inline-block;
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
-    margin-top: 10px;
+    margin-top: 14px;
     font-size: clamp(1.6rem, 4.0vw, 2.35rem);
     font-weight: 900;
     line-height: 1;
@@ -153,7 +158,7 @@
     line-height: 1.35;
   }
   /* Verdict spectrum: where OFF TRACK sits on the only three-point scale there is */
-  .spectrum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 20px; max-width: 34em; }
+  .spectrum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 26px; max-width: 34em; }
   .spseg {
     border-top: 5px solid var(--rule-strong);
     background: #ffffff;
@@ -185,7 +190,7 @@
   .chip:first-of-type { margin-left: 0; }
   .chip.g { background: var(--green); } .chip.y { background: var(--amber); } .chip.r { background: var(--red); }
   .rulenote { margin-top: 10px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
-  .ctas { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .ctas { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
   .btn {
     display: inline-block;
     padding: 9px 16px;
@@ -256,7 +261,7 @@
   /* Section scaffolding. Full-bleed tinted bands break the endless-cream scroll. */
   /* Every adjacent pair now differs in surface, so the colour change is the
      divider and a rule between them would be redundant. */
-  section { padding: 72px 0; border: none; }
+  section { padding: clamp(72px, 9vw, 112px) 0; border: none; }
   .band {
     background: var(--panel);
     box-shadow: 0 0 0 100vmax var(--panel);
@@ -293,7 +298,7 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--teal);
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -312,7 +317,7 @@
     font-size: clamp(1.4rem, 3.4vw, 1.95rem);
     line-height: 1.15;
     letter-spacing: -0.015em;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
   }
   h3 {
     font-family: "Fraunces", Georgia, serif;
@@ -320,13 +325,13 @@
     font-size: 1.25rem;
     margin-bottom: 10px;
   }
-  .lede { max-width: 42em; margin-bottom: 16px; }
-  p + p { margin-top: 12px; }
+  .lede { max-width: 42em; margin-bottom: 24px; }
+  p + p { margin-top: 14px; }
   .prose p { max-width: 42em; }
 
   /* Hand-off lines: the seam between one section and the next */
   .handoff {
-    margin-top: 40px;
+    margin-top: 56px;
     padding-top: 18px;
     border-top: 1px solid var(--rule);
     font-size: 1.02rem;
@@ -422,7 +427,7 @@
 
   /* Ledger rows: a 4-across tile grid that opens to full width in place */
   .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; max-width: 46em; }
-  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media (max-width: 900px) { .grid8 { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .grid8 { grid-template-columns: 1fr; } }
 
@@ -496,7 +501,7 @@
   .astable > summary::-webkit-details-marker { display: none; }
   .astable > summary::before { content: "+ "; }
   .astable[open] > summary::before { content: "\2212 "; }
-  .astable table { border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; }
+  .astable table { border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; width: 100%; }
   .astable caption { text-align: left; color: var(--ink-soft); font-size: 0.78rem; padding-bottom: 6px; }
   .astable th, .astable td { text-align: left; padding: 5px 18px 5px 0; border-bottom: 1px solid var(--rule); }
   .astable thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
@@ -507,7 +512,7 @@
   .fixit a:hover { color: var(--teal); }
 
   /* Benchmark bars */
-  .chart { margin-top: 14px; max-width: 32em; }
+  .chart { margin-top: 14px; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
   .lab { flex: 0 0 96px; color: var(--ink-soft); line-height: 1.25; }
   .track { flex: 1 1 auto; height: 11px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
@@ -558,7 +563,7 @@
   .trend figcaption b { color: var(--ink); }
 
   /* Mini calculator */
-  .minicalc { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 20px 22px; margin-top: 18px; }
+  .minicalc { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 26px 28px; margin-top: 28px; }
   .mchead { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; }
   .mcrow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   @media (max-width: 620px) { .mcrow { grid-template-columns: 1fr; } }
@@ -572,6 +577,8 @@
   .mcstat { border-top: 3px solid var(--teal); background: var(--paper); padding: 9px 10px 11px; border-radius: 0 0 3px 3px; }
   .mcn { display: block; font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; line-height: 1.2; }
   .mcl { display: block; margin-top: 3px; font-size: 0.72rem; line-height: 1.3; color: var(--ink-soft); }
+  .mcchart { margin-top: 14px; border: 1px solid var(--rule); border-radius: 3px; background: #fff; }
+  .mcchart svg { width: 100%; height: auto; display: block; }
 
   /* Poll reasons */
   .reasons { margin-top: 4px; }
@@ -597,7 +604,7 @@
 
   /* Owner/target matrix */
   .ownmx { margin-top: 24px; overflow-x: auto; }
-  .ownmx table { border-collapse: collapse; font-size: 0.85rem; min-width: 480px; }
+  .ownmx table { border-collapse: collapse; font-size: 0.85rem; min-width: 480px; width: 100%; }
   .ownmx th, .ownmx td { padding: 8px 12px; border-bottom: 1px solid var(--rule); text-align: center; }
   .ownmx tbody th { text-align: left; font-weight: 700; white-space: nowrap; }
   .ownmx thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
@@ -616,17 +623,8 @@
   .gwho { display: block; margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); }
 
   /* Money in vs money already here */
-  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; margin-bottom: 4px; }
-  @media (max-width: 620px) { .moneyflow { grid-template-columns: 1fr; } }
-  .mcol { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 15px; }
-  .mcol.in { border-top: 4px solid var(--teal); }
-  .mcol.here { border-top: 4px solid var(--rule-strong); }
-  .mhead { font-weight: 700; font-size: 0.98rem; }
-  .msub { margin-top: 3px; font-size: 0.8rem; color: var(--ink-soft); }
-  .mlist { margin: 10px 0 0; padding: 0; list-style: none; }
-  .mlist li { font-size: 0.88rem; padding: 3px 0 3px 16px; position: relative; color: var(--ink-soft); }
-  .mlist li::before { content: "\2192"; position: absolute; left: 0; color: var(--teal); }
-  .mcol.here .mlist li::before { content: "\21BB"; color: var(--rule-strong); }
+  .moneyflow { margin-top: 16px; margin-bottom: 4px; }
+  .moneyflow svg { width: 100%; height: auto; display: block; }
   .mnote { margin-top: 14px; font-size: 0.9rem; font-weight: 600; max-width: 42em; }
 
   /* Ecosystem diagram */
@@ -702,7 +700,7 @@
     padding: 22px; margin-top: 26px; align-items: start;
   }
   @media (max-width: 700px) { .expo { grid-template-columns: 1fr; } }
-  .expophoto { margin: 12px 0 0; max-width: 340px; }
+  .expophoto { margin: 12px 0 0; }
   .expophoto img { width: 100%; height: auto; display: block; border-radius: 3px; }
   .expophoto figcaption { margin-top: 8px; font-size: 0.75rem; color: var(--ink-soft); line-height: 1.4; }
   .expotext h3 { margin-top: 4px; }
@@ -731,7 +729,7 @@
   details.more .inner { margin-top: 12px; }
   details.more .inner p { max-width: 42em; }
 
-  footer { padding: 28px 0 56px; font-size: 0.9rem; color: var(--ink-soft); }
+  footer { padding: 44px 0 72px; font-size: 0.9rem; color: var(--ink-soft); }
   footer p { margin-bottom: 8px; max-width: 42em; }
 
   /* Quiet rewards. 180ms, and nothing moves for people who asked it not to. */
@@ -742,7 +740,7 @@
   .mcn { transition: opacity 150ms ease; }
   .mcn.bump { opacity: 0.25; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
-  @media print { .row, .city, details.more { display: block; } .row .body, .city .detail, details.more .inner { display: block !important; } nav.jump, .ctas { display: none; } }
+  @media print { .herowm { display: none; } .row, .city, details.more { display: block; } .row .body, .city .detail, details.more .inner { display: block !important; } nav.jump, .ctas { display: none; } }
 </style>
 </head>
 <body>
@@ -781,6 +779,11 @@
 
 <!-- ============ HERO VERDICT ============ -->
 <div class="hero tintband">
+  <div class="herowm" aria-hidden="true">
+      <!-- hero-chart:start -->
+      <svg viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true"><polygon points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4 1600,520 0,520" fill="#2a6b73" opacity="0.07"/><polyline points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4" fill="none" stroke="#2a6b73" stroke-width="3" opacity="0.18" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+      <!-- hero-chart:end -->
+  </div>
   <p class="hook">Can Spokane attract the employers that let more people build a good life here?</p>
   <p class="hooksub">This resident-run scorecard checks the numbers four times a year: jobs, wages, income, spending, storefronts and the employers behind them. Every grade links to its source. Most of the data comes straight from public agencies, and privately sourced figures are labeled.</p>
   <p class="edition">Updated August 2026 &middot; Next update November 2026</p>
@@ -870,7 +873,7 @@
   </details>
 
   <div class="grid8 wide">
-  <details class="row r">
+  <details class="row r" id="jobgrowth">
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">Job growth</span>
@@ -1191,7 +1194,27 @@
       <div class="mcstat"><span class="mcn" id="mc-spend"></span><span class="mcl">new local spending per year</span></div>
       <div class="mcstat"><span class="mcn" id="mc-stores"></span><span class="mcl">storefronts that spending could sustain</span></div>
     </div>
-    <p class="rulenote" style="margin-top:12px;">Ranges, never single numbers. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
+    <div class="mcchart" aria-hidden="true">
+      <svg id="mc-chart" viewBox="0 0 680 256" font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums">
+        <defs><pattern id="hatchw" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#93a8a6" stroke-width="2"/></pattern></defs>
+        <rect width="680" height="256" fill="#ffffff"/>
+        <text x="56" y="16" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#4a5654">EXTRA LOCAL JOBS THIS COULD CREATE <tspan font-weight="400" letter-spacing="0.4">(left scale)</tspan></text>
+        <g stroke="#e0e5e4" stroke-width="1"><line x1="56" y1="162.1" x2="664" y2="162.1"/><line x1="56" y1="114.2" x2="664" y2="114.2"/><line x1="56" y1="66.3" x2="664" y2="66.3"/></g>
+        <g font-size="9.5" fill="#4a5654" text-anchor="end"><text x="48" y="165">5,000</text><text x="48" y="117">10,000</text><text x="48" y="69">15,000</text></g>
+        <polygon id="mcw-tint" points="56,210 664,123.8 664,210" fill="#2a6b73" opacity="0.45"/>
+        <polygon id="mcw-hatch" points="56,210 664,28 664,123.8" fill="url(#hatchw)"/>
+        <line id="mcw-lo" x1="56" y1="210" x2="664" y2="123.8" stroke="#2a6b73" stroke-width="2"/>
+        <line id="mcw-hi" x1="56" y1="210" x2="664" y2="28" stroke="#2a6b73" stroke-width="1.2"/>
+        <line x1="56" y1="210" x2="664" y2="210" stroke="#4a5654" stroke-width="1.2"/>
+        <g font-size="9.5" fill="#4a5654"><text x="56" y="228" text-anchor="middle">0</text><text x="360" y="228" text-anchor="middle">2,500</text><text x="664" y="228" text-anchor="end">5,000</text></g>
+        <text x="360" y="248" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#4a5654">JOBS HIRED, SET BY THE SLIDER ABOVE</text>
+        <line id="mcw-mark" x1="116.8" y1="210" x2="116.8" y2="191.8" stroke="#2b3134" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <circle id="mcw-dlo" cx="116.8" cy="201.4" r="3.5" fill="#2b3134"/>
+        <circle id="mcw-dhi" cx="116.8" cy="191.8" r="3.5" fill="#2b3134"/>
+        <text id="mcw-lab" x="116.8" y="182.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="#171d1c">900 to 1,900 extra jobs</text>
+      </svg>
+    </div>
+    <p class="rulenote" style="margin-top:12px;">How to read the chart: the bottom axis counts jobs hired. The height shows the extra local jobs those hires could support, from the low estimate to the high one. The dashed line is your pick. One scale for every sector, so a flat wedge really is flat. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
   </div>
   <script>
   (function () {
@@ -1237,6 +1260,25 @@
       document.getElementById("mc-payroll").textContent = rng(payLo,payHi,mf);
       document.getElementById("mc-spend").textContent   = rng(payLo*SPEND,payHi*SPEND,mf);
       document.getElementById("mc-stores").textContent  = rng(payLo*SPEND/STORE,payHi*SPEND/STORE,jf);
+      var CX0=56, CX1=664, CY0=210, CY1=28, NMX=5000, YMX=19000;
+      function gx(v){ return CX0 + v/NMX*(CX1-CX0); }
+      function gy(v){ return CY0 - v/YMX*(CY0-CY1); }
+      var eLo=gy(NMX*p.mLo).toFixed(1), eHi=gy(NMX*p.mHi).toFixed(1);
+      document.getElementById("mcw-tint").setAttribute("points", CX0+","+CY0+" "+CX1+","+eLo+" "+CX1+","+CY0);
+      document.getElementById("mcw-hatch").setAttribute("points", CX0+","+CY0+" "+CX1+","+eHi+" "+CX1+","+eLo);
+      document.getElementById("mcw-lo").setAttribute("y2", eLo);
+      document.getElementById("mcw-hi").setAttribute("y2", eHi);
+      var mx=gx(n).toFixed(1), myLo=gy(rLo).toFixed(1), myHi=gy(rHi).toFixed(1);
+      var mk=document.getElementById("mcw-mark");
+      mk.setAttribute("x1",mx); mk.setAttribute("x2",mx); mk.setAttribute("y2",myHi);
+      var d1=document.getElementById("mcw-dlo"); d1.setAttribute("cx",mx); d1.setAttribute("cy",myLo);
+      var d2=document.getElementById("mcw-dhi"); d2.setAttribute("cx",mx); d2.setAttribute("cy",myHi);
+      var lab=document.getElementById("mcw-lab");
+      lab.textContent = rng(rLo,rHi,jf) + " extra jobs";
+      lab.setAttribute("y", Math.max(myHi-9, 14).toFixed(1));
+      if (+mx < CX0+52) { lab.setAttribute("text-anchor","start"); lab.setAttribute("x",(+mx+8).toFixed(1)); }
+      else if (+mx > CX1-52) { lab.setAttribute("text-anchor","end"); lab.setAttribute("x",(+mx-8).toFixed(1)); }
+      else { lab.setAttribute("text-anchor","middle"); lab.setAttribute("x",mx); }
     }
     sel.addEventListener("input", go);
     jobs.addEventListener("input", go);
