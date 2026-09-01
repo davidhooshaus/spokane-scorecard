@@ -472,6 +472,21 @@
   .why { margin-top: 12px; color: var(--ink-soft); max-width: 42em; }
   .src { margin-top: 12px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
 
+  .astable { margin-top: 12px; }
+  .astable > summary { cursor: pointer; font-size: 0.8rem; font-weight: 600; color: var(--teal); list-style: none; }
+  .astable > summary::-webkit-details-marker { display: none; }
+  .astable > summary::before { content: "+ "; }
+  .astable[open] > summary::before { content: "\2212 "; }
+  .astable table { border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; }
+  .astable caption { text-align: left; color: var(--ink-soft); font-size: 0.78rem; padding-bottom: 6px; }
+  .astable th, .astable td { text-align: left; padding: 5px 18px 5px 0; border-bottom: 1px solid var(--rule); }
+  .astable thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .astable tbody th { font-weight: 600; color: var(--ink-soft); }
+  .astable td { font-weight: 700; }
+  .fixit { margin-top: 10px; font-size: 0.82rem; }
+  .fixit a { color: var(--ink-soft); }
+  .fixit a:hover { color: var(--teal); }
+
   /* Benchmark bars */
   .chart { margin-top: 14px; max-width: 32em; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
@@ -799,8 +814,10 @@
         <p class="bar spk"><span class="lab">2026</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="val">+58/mo</span></p>
         <p class="note">Average jobs added per month, Spokane metro</p>
       </div>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+410/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026</th><td>+58/mo</td></tr></tbody></table></details>
       <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -809,6 +826,7 @@
       <span class="tiletop"><span class="geo">County</span><span class="grade">Weak</span></span>
       <span class="measure">Who&rsquo;s hiring</span>
       <span class="figure">1 sector<small>drives nearly all growth</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:100%"></span><span class="mmark" style="left:48%"></span></span><span class="mcap">Health care +13% over five years. Finance and insurance &minus;12%. Tick marks flat.</span></span>
       <span class="result">Health care carries the load. Finance shed 12%.</span>
     </summary>
     <div class="body">
@@ -818,8 +836,10 @@
         <p class="bar neg"><span class="lab">Finance &amp; insurance</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">&minus;12%</span></p>
         <p class="note">Five-year job change by sector, Spokane County</p>
       </div>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Five-year job change by sector, Spokane County</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Health care</th><td>+13%</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>&minus;12%</td></tr></tbody></table></details>
       <p class="why">Why it matters, and this is about the shape of an economy, not the worth of a job. Most health care serves people who already live here. Spokane is also a regional hospital hub, treating patients from Idaho and Montana, and that does bring outside money in. But the employers that lift a region&rsquo;s pay are usually the ones selling to the outside world. Think manufacturing, software, professional services. Those are the ones not showing up. Local-serving work is essential and always will be; a region with no clinics or shops is not a region. The point is that something has to bring the outside money in first. Leaning on one sector is also a risk by itself. The test behind this grade is simple. Does the work bring money into the region, or just move money that is already here?</p>
       <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -839,8 +859,10 @@
         <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4.7%</span></p>
         <p class="note">Unemployment rate, June 2026. Shorter bar is better.</p>
       </div>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Unemployment rate, June 2026. Shorter bar is better.</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>3.8%</td></tr><tr><th scope="row">U.S.</th><td>4.4%</td></tr><tr><th scope="row">Washington</th><td>4.7%</td></tr></tbody></table></details>
       <p class="why">Why it matters: this is the number politicians reach for, so it stays on the board, graded honestly. The truer measure is the share of working-age adults actually holding jobs, which Spokane&rsquo;s own data project tracks. That becomes this card in November.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a> (June 2026); <a href="https://www.spokanejournal.com/articles/159-spokane-s-labor-force-participation-lags-the-us-rate">EWU Institute for Public Policy via Spokane Journal of Business</a>; replacement metric: <a href="https://www.spokanetrends.org/graph.cfm?cat_id=2&amp;sub_cat_id=4&amp;ind_id=3">Spokane Trends 2.4.2</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -859,8 +881,10 @@
         <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$33.54</span></p>
         <p class="note">Average hourly wage, May 2025</p>
       </div>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average hourly wage, May 2025</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$32.96</td></tr><tr><th scope="row">U.S.</th><td>$33.54</td></tr></tbody></table></details>
       <p class="why">Why it matters: wage level is the clearest test of employer quality. Parity with the U.S. average is real progress. Losing ground on income growth says the progress isn&rsquo;t compounding.</p>
       <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025); <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">Spokesman-Review / EWU Institute for Public Policy</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -880,8 +904,10 @@
         <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$55.2k</span></p>
         <p class="note">Per-person income, 2024</p>
       </div>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Per-person income, 2024</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$44.1k</td></tr><tr><th scope="row">U.S.</th><td>$45.3k</td></tr><tr><th scope="row">Washington</th><td>$55.2k</td></tr></tbody></table></details>
       <p class="why">Why it matters: income per person is the harder test. Household size and government payments cannot inflate it. In November this card adds the cleanest read on employer quality: the middle wage for people working full time, all year (Census table S2001).</p>
       <p class="src">Source: <a href="http://censusreporter.org/profiles/05000US53063-spokane-county-wa/">Census ACS 2024 via Census Reporter</a>; <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a>; <a href="https://www.spokanepublicradio.org/regional-news/2025-12-11/spokanes-median-household-income-higher-than-nations-first-time">Spokane Public Radio</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -902,8 +928,10 @@
         <p class="bar"><span class="lab">Long-run norm</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4&ndash;5%</span></p>
         <p class="note">Taxable retail sales growth, year over year, latest reading per geography</p>
       </div>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Taxable retail sales growth, year over year, latest reading per geography</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">City (Q4 &rsquo;24)</th><td>+1.2%</td></tr><tr><th scope="row">County (Q2 &rsquo;25)</th><td>+2.8%</td></tr><tr><th scope="row">State (Q2 &rsquo;25)</th><td>+3.4%</td></tr><tr><th scope="row">Long-run norm</th><td>4&ndash;5%</td></tr></tbody></table></details>
       <p class="why">Why it matters: this is where jobs and wages become street life. When spending growth in the city runs at a quarter of its historical pace, storefronts stay dark no matter what gets built.</p>
       <p class="src">Source: <a href="https://www.spokanejournal.com/articles/17363-taxable-retail-sales-increase-in-spokane-county">WA Dept. of Revenue via Spokane Journal of Business</a> (Q4 2024); <a href="https://www.spokanejournal.com/articles/17796-retail-growth-off-to-slow-start-in-q2-of-2025">Q2 2025 county update</a>; <a href="https://www.thecentersquare.com/washington/article_c1ee84f2-cc88-11ef-b0d9-73220b141f39.html">The Center Square</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -912,12 +940,14 @@
       <span class="tiletop"><span class="geo">Metro</span><span class="grade">Mixed</span></span>
       <span class="measure">Storefronts</span>
       <span class="figure">5.3%<small>retail vacancy, Q2 2026</small></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:100%"></span><span class="mmark" style="left:85%"></span></span><span class="mcap">Spokane Valley sits at a healthier 4 to 5%, the tick. Shorter is better here.</span></span>
       <span class="result">Flat year over year, little new construction</span>
     </summary>
     <div class="body">
       <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
       <p class="why">Why it matters: developers aren&rsquo;t refusing to build ground-floor retail out of stubbornness. They&rsquo;re reading the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
       <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
 
@@ -926,12 +956,14 @@
       <span class="tiletop"><span class="geo">County</span><span class="grade">Strong</span></span>
       <span class="measure">People</span>
       <span class="figure">~556,000<small>county residents</small></span>
+      <span class="micro"><span class="mcap" style="margin-top:0;">Grew faster than Washington and the country last year. The sources report the direction, not a rate, so there is no bar to draw.</span></span>
       <span class="result">Growing faster than the state and the country</span>
     </summary>
     <div class="body">
       <p class="bench">Spokane grew slightly faster than both the state and the country last year, and the largest age group is 25 to 34.</p>
       <p class="why">Why it matters: workers are choosing Spokane before the employers do. That&rsquo;s the region&rsquo;s strongest card, and it&rsquo;s perishable. Working-age people who can&rsquo;t find higher-wage work here eventually leave to find it.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
+      <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
     </div>
   </details>
   </div>
