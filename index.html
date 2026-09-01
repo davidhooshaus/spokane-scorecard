@@ -501,7 +501,7 @@
   .astable > summary::-webkit-details-marker { display: none; }
   .astable > summary::before { content: "+ "; }
   .astable[open] > summary::before { content: "\2212 "; }
-  .astable table { border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; }
+  .astable table { border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; width: 100%; }
   .astable caption { text-align: left; color: var(--ink-soft); font-size: 0.78rem; padding-bottom: 6px; }
   .astable th, .astable td { text-align: left; padding: 5px 18px 5px 0; border-bottom: 1px solid var(--rule); }
   .astable thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
@@ -512,7 +512,7 @@
   .fixit a:hover { color: var(--teal); }
 
   /* Benchmark bars */
-  .chart { margin-top: 14px; max-width: 32em; }
+  .chart { margin-top: 14px; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
   .lab { flex: 0 0 96px; color: var(--ink-soft); line-height: 1.25; }
   .track { flex: 1 1 auto; height: 11px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
@@ -604,7 +604,7 @@
 
   /* Owner/target matrix */
   .ownmx { margin-top: 24px; overflow-x: auto; }
-  .ownmx table { border-collapse: collapse; font-size: 0.85rem; min-width: 480px; }
+  .ownmx table { border-collapse: collapse; font-size: 0.85rem; min-width: 480px; width: 100%; }
   .ownmx th, .ownmx td { padding: 8px 12px; border-bottom: 1px solid var(--rule); text-align: center; }
   .ownmx tbody th { text-align: left; font-weight: 700; white-space: nowrap; }
   .ownmx thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
@@ -623,17 +623,8 @@
   .gwho { display: block; margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); }
 
   /* Money in vs money already here */
-  .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; margin-bottom: 4px; }
-  @media (max-width: 620px) { .moneyflow { grid-template-columns: 1fr; } }
-  .mcol { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 15px; }
-  .mcol.in { border-top: 4px solid var(--teal); }
-  .mcol.here { border-top: 4px solid var(--rule-strong); }
-  .mhead { font-weight: 700; font-size: 0.98rem; }
-  .msub { margin-top: 3px; font-size: 0.8rem; color: var(--ink-soft); }
-  .mlist { margin: 10px 0 0; padding: 0; list-style: none; }
-  .mlist li { font-size: 0.88rem; padding: 3px 0 3px 16px; position: relative; color: var(--ink-soft); }
-  .mlist li::before { content: "\2192"; position: absolute; left: 0; color: var(--teal); }
-  .mcol.here .mlist li::before { content: "\21BB"; color: var(--rule-strong); }
+  .moneyflow { margin-top: 16px; margin-bottom: 4px; }
+  .moneyflow svg { width: 100%; height: auto; display: block; }
   .mnote { margin-top: 14px; font-size: 0.9rem; font-weight: 600; max-width: 42em; }
 
   /* Ecosystem diagram */
@@ -709,7 +700,7 @@
     padding: 22px; margin-top: 26px; align-items: start;
   }
   @media (max-width: 700px) { .expo { grid-template-columns: 1fr; } }
-  .expophoto { margin: 12px 0 0; max-width: 340px; }
+  .expophoto { margin: 12px 0 0; }
   .expophoto img { width: 100%; height: auto; display: block; border-radius: 3px; }
   .expophoto figcaption { margin-top: 8px; font-size: 0.75rem; color: var(--ink-soft); line-height: 1.4; }
   .expotext h3 { margin-top: 4px; }
