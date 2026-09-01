@@ -49,7 +49,10 @@ matches what the sorted chart shows, updating data/qcew/industry_pay_*.csv and
 BOTH preset lists (calculator.html and the index.html mini calculator; they
 must stay identical, wages and notes) (the newest complete
 year lands each June) and regenerate the two trend charts from it, keeping the
-vintage sentence in each caption true.
+vintage sentence in each caption true. Then run `python3 tools/make_hero_chart.py`
+to redraw the hero jobs chart from the same file, and review its ANNOTATION
+constant: it must describe what the new line actually does (a chart shows data,
+never a grade), so rewrite it if the story changed.
 
 ## 3. Update each card
 Figure, the <small> geography+vintage label, bench text, source dates, and
