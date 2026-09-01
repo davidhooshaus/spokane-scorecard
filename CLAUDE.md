@@ -86,6 +86,12 @@ a paycheck, or a neighbor.
 - BLS QCEW open CSV API — county jobs and pay history for the trend charts
   (annual averages, 2014 forward, no key; pulled by `tools/pull_trends.py` into `data/qcew/`)
 
+## The eight measures stay eight
+
+Registered in methodology v4.1: the top level never grows past eight cards. New data
+replaces a card (labeled, logged) or lives a layer down. Every quarter can add data;
+it should not automatically add visual complexity.
+
 ## Roadmap (November first, in this order)
 
 1. Pre-registered numeric grade thresholds published BEFORE re-grading.

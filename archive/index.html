@@ -9,7 +9,7 @@
 <meta name="description" content="Every past edition of The Spokane Prosperity Scorecard, frozen as published. Nothing is edited after the fact.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #fcfcfb; --ink: #171d1c; --ink-soft: #4a5654;
@@ -44,6 +44,14 @@
   h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.35rem; margin-bottom: 12px; }
   p { max-width: 42em; }
   p + p { margin-top: 12px; }
+  .traj { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 6px; }
+  .tnode { border: 1px solid var(--rule); border-radius: 4px; background: #fff; padding: 12px 16px; }
+  .tdate { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-soft); }
+  .tverdict { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1.15rem; color: #b3402e; text-transform: uppercase; margin-top: 3px; }
+  .tdots { display: flex; gap: 4px; margin-top: 8px; }
+  .tdots .d { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+  .d.g { background: #2e7d5b; } .d.y { background: #a06e0a; } .d.r { background: #b3402e; }
+  .tnote { margin-top: 12px; font-size: 0.85rem; color: var(--ink-soft); }
   .edition { border: 1px solid var(--rule); border-radius: 4px; background: #fff; padding: 18px; margin-top: 14px; }
   .edition .when { font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; font-weight: 600; }
   .edition .tag { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 3px; margin-left: 8px; vertical-align: 3px; color: var(--lilac); background: #efecf5; }
@@ -80,6 +88,20 @@
   <h2>Why this page exists</h2>
   <p>A scorecard that can edit its own past is not a scorecard. The whole claim here is simple. The numbers were what they were on the day they went up. And anyone can check whether a grade moved because the data moved, or because the argument got inconvenient.</p>
   <p>So each quarter, before any figure is touched, the current edition is copied here unchanged. The live page moves forward. This page does not.</p>
+</section>
+
+<section>
+  <h2>The trajectory so far</h2>
+  <div class="traj">
+    <div class="tnode">
+      <span class="tdate">Aug 2026</span>
+      <span class="tverdict">Off track</span>
+      <span class="tdots" aria-label="Grades: one strong, four mixed, three weak">
+        <i class="d g" title="People: strong"></i><i class="d y" title="Unemployment: mixed"></i><i class="d y" title="Paychecks: mixed"></i><i class="d y" title="Incomes: mixed"></i><i class="d y" title="Storefronts: mixed"></i><i class="d r" title="Jobs: weak"></i><i class="d r" title="Hiring: weak"></i><i class="d r" title="Spending: weak"></i>
+      </span>
+    </div>
+  </div>
+  <p class="tnote">One node per edition. As quarters accumulate, this becomes the story of whether Spokane is turning.</p>
 </section>
 
 <section>
