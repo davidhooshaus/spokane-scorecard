@@ -392,6 +392,14 @@
   .nval { display: block; margin-top: 6px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.1; }
   .node.g .nval { color: var(--green); } .node.y .nval { color: var(--amber); } .node.r .nval { color: var(--red); }
   .nstate { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--ink-soft); }
+  .node { position: relative; }
+  .node.break { border-top-width: 6px; }
+  .nbreak {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    background: var(--red); color: #fff; font-size: 0.56rem; font-weight: 800;
+    letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+  }
+  @media (max-width: 700px) { .nbreak { left: auto; right: 8px; transform: none; top: 50%; margin-top: -0.7em; } .node.break { border-top-width: 1px; border-left-width: 6px; } }
   .farrow { align-self: center; color: var(--ink-soft); font-size: 1.1rem; flex: 0 0 auto; }
   .flowsum { font-weight: 600; font-size: 1.02rem; max-width: 42em; }
   @media (max-width: 700px) {
@@ -587,6 +595,18 @@
   .tp.hi .tpn { color: var(--teal); }
   .tpl { display: block; margin-top: 9px; font-size: 0.85rem; line-height: 1.4; color: var(--ink-soft); }
 
+  /* Owner/target matrix */
+  .ownmx { margin-top: 24px; overflow-x: auto; }
+  .ownmx table { border-collapse: collapse; font-size: 0.85rem; min-width: 480px; }
+  .ownmx th, .ownmx td { padding: 8px 12px; border-bottom: 1px solid var(--rule); text-align: center; }
+  .ownmx tbody th { text-align: left; font-weight: 700; white-space: nowrap; }
+  .ownmx thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .ownmx thead a { color: var(--teal); text-decoration: none; }
+  .ownmx thead a:hover { text-decoration: underline; }
+  .mdot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--teal); }
+  .mxnote { margin-top: 10px; font-size: 0.82rem; color: var(--ink-soft); max-width: 44em; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
   /* Goal tiles */
   .goals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; }
   @media (max-width: 760px) { .goals { grid-template-columns: repeat(2, 1fr); } }
@@ -669,6 +689,7 @@
   .cmove { display: block; margin-top: 3px; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); padding-right: 22px; line-height: 1.3; }
   .amr { margin-top: 12px; display: grid; grid-template-columns: auto 1fr; gap: 5px 10px; align-items: baseline; }
   .amr dt { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); }
+  .amr dt:not(:first-of-type)::before { content: "\2192\00a0"; color: var(--teal); font-weight: 400; }
   .amr dd { font-size: 0.88rem; line-height: 1.35; }
   .city .detail { padding: 0 16px 16px; font-size: 0.92rem; color: var(--ink-soft); }
   .city .detail p + p { margin-top: 10px; }
@@ -878,13 +899,13 @@
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">Who&rsquo;s hiring</span>
-      <span class="figure">1 sector<small>drives nearly all growth</small></span>
+      <span class="figure">2 sectors<small>carry 3 in 4 new jobs</small></span>
       <span class="result">Growth is concentrated in one sector.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:100%"></span><span class="mmark" style="left:48%"></span></span><span class="mcap">Health care +13% over five years. Finance and insurance &minus;12%. Tick marks flat.</span></span>
+      <span class="micro"><span class="mtrack"><span class="mfill" style="width:74%"></span><span class="mmark" style="left:50%"></span></span><span class="mcap">Health care and logistics: 74% of net job growth since 2019. Tick marks half.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Health care added about 5,900 jobs in five years (+13%). Finance and insurance shed 12% of its jobs in the same window. Manufacturing is hoping for stabilization, not growth.</p>
+      <p class="bench">Since 2019, health care added 6,159 jobs and logistics 5,059, about three in four of all net new jobs between them. Manufacturing, finance, information and retail all shrank. The Workforce Council&rsquo;s five-year window tells the same story: health care up 13%, finance down 12%.</p>
       <div class="chart">
         <p class="bar spk"><span class="lab">Health care</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+13%</span></p>
         <p class="bar neg"><span class="lab">Finance &amp; insurance</span><span class="track"><span class="fill" style="width:92%"></span></span><span class="val">&minus;12%</span></p>
@@ -892,6 +913,12 @@
       </div>
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Five-year job change by sector, Spokane County</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Health care</th><td>+13%</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>&minus;12%</td></tr></tbody></table></details>
 
+      <figure class="trend">
+        <svg viewBox="0 0 680 364" role="img" aria-label="Bar chart of the change in Spokane County jobs by sector, 2019 to 2025. Health care leads at plus 6,159, transportation and warehousing is close behind at plus 5,059, and together they account for about three quarters of all net growth. Manufacturing, finance, information, retail and several others shrank." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="364" fill="#ffffff"/><line x1="232.2" y1="12" x2="232.2" y2="356" stroke="#b9c6c4" stroke-width="1"/><rect x="232.2" y="19" width="383.8" height="10" fill="#2a6b73"/><text x="170" y="27" text-anchor="end" font-size="10.5" fill="#4a5654">Health care &amp; social assistance</text><text x="621.0" y="27" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+6,159</text><rect x="232.2" y="36" width="315.2" height="10" fill="#2a6b73"/><text x="170" y="44" text-anchor="end" font-size="10.5" fill="#4a5654">Transportation &amp; warehousing</text><text x="552.5" y="44" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+5,059</text><rect x="232.2" y="53" width="91.0" height="10" fill="#2a6b73"/><text x="170" y="61" text-anchor="end" font-size="10.5" fill="#4a5654">Government (all levels)</text><text x="328.2" y="61" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,460</text><rect x="232.2" y="70" width="90.9" height="10" fill="#2a6b73"/><text x="170" y="78" text-anchor="end" font-size="10.5" fill="#4a5654">Admin &amp; support services</text><text x="328.1" y="78" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,459</text><rect x="232.2" y="87" width="77.3" height="10" fill="#2a6b73"/><text x="170" y="95" text-anchor="end" font-size="10.5" fill="#4a5654">Professional &amp; technical services</text><text x="314.5" y="95" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,240</text><rect x="232.2" y="104" width="55.0" height="10" fill="#2a6b73"/><text x="170" y="112" text-anchor="end" font-size="10.5" fill="#4a5654">Arts &amp; recreation</text><text x="292.2" y="112" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+882</text><rect x="232.2" y="121" width="48.9" height="10" fill="#2a6b73"/><text x="170" y="129" text-anchor="end" font-size="10.5" fill="#4a5654">Construction</text><text x="286.1" y="129" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+784</text><rect x="232.2" y="138" width="43.9" height="10" fill="#2a6b73"/><text x="170" y="146" text-anchor="end" font-size="10.5" fill="#4a5654">Private education</text><text x="281.1" y="146" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+705</text><rect x="232.2" y="155" width="36.2" height="10" fill="#2a6b73"/><text x="170" y="163" text-anchor="end" font-size="10.5" fill="#4a5654">Other services</text><text x="273.4" y="163" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+581</text><rect x="232.2" y="172" width="11.2" height="10" fill="#2a6b73"/><text x="170" y="180" text-anchor="end" font-size="10.5" fill="#4a5654">Wholesale trade</text><text x="248.4" y="180" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+179</text><rect x="232.2" y="189" width="4.0" height="10" fill="#2a6b73"/><text x="170" y="197" text-anchor="end" font-size="10.5" fill="#4a5654">Utilities</text><text x="241.2" y="197" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+64</text><rect x="232.2" y="206" width="3.1" height="10" fill="#2a6b73"/><text x="170" y="214" text-anchor="end" font-size="10.5" fill="#4a5654">Real estate</text><text x="240.3" y="214" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+49</text><rect x="232.2" y="223" width="2.5" height="10" fill="#2a6b73"/><text x="170" y="231" text-anchor="end" font-size="10.5" fill="#4a5654">Mining</text><text x="239.7" y="231" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+40</text><rect x="219.8" y="240" width="12.4" height="10" fill="#b3402e"/><text x="170" y="248" text-anchor="end" font-size="10.5" fill="#4a5654">Hotels &amp; restaurants</text><text x="214.8" y="248" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-199</text><rect x="217.9" y="257" width="14.3" height="10" fill="#b3402e"/><text x="170" y="265" text-anchor="end" font-size="10.5" fill="#4a5654">Farming &amp; forestry</text><text x="212.9" y="265" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-230</text><rect x="210.4" y="274" width="21.8" height="10" fill="#b3402e"/><text x="170" y="282" text-anchor="end" font-size="10.5" fill="#4a5654">Manufacturing</text><text x="205.4" y="282" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-350</text><rect x="202.2" y="291" width="30.0" height="10" fill="#b3402e"/><text x="170" y="299" text-anchor="end" font-size="10.5" fill="#4a5654">Information</text><text x="197.2" y="299" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-482</text><rect x="194.8" y="308" width="37.4" height="10" fill="#b3402e"/><text x="170" y="316" text-anchor="end" font-size="10.5" fill="#4a5654">Retail trade</text><text x="189.8" y="316" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-600</text><rect x="189.0" y="325" width="43.2" height="10" fill="#b3402e"/><text x="170" y="333" text-anchor="end" font-size="10.5" fill="#4a5654">Company management</text><text x="184.0" y="333" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-693</text><rect x="176.0" y="342" width="56.2" height="10" fill="#b3402e"/><text x="170" y="350" text-anchor="end" font-size="10.5" fill="#4a5654">Finance &amp; insurance</text><text x="171.0" y="350" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-902</text></svg>
+        <figcaption><b>Jobs added and lost by sector, Spokane County, 2019 to 2025.</b> Absolute jobs, from before the pandemic to the newest complete year, sorted by change. Two sectors carried about three in four of the net new jobs: health care and logistics. Manufacturing, finance, information and retail all shrank. Private sectors; government is all levels combined.
+        <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Change in average annual employment by sector, Spokane County (QCEW)</caption><thead><tr><th scope="col">Sector</th><th scope="col">Change</th><th scope="col">2019 &rarr; 2025</th></tr></thead><tbody><tr><th scope="row">Health care &amp; social assistance</th><td>+6,159</td><td>42,667 &rarr; 48,826</td></tr><tr><th scope="row">Transportation &amp; warehousing</th><td>+5,059</td><td>6,085 &rarr; 11,144</td></tr><tr><th scope="row">Government (all levels)</th><td>+1,460</td><td>35,860 &rarr; 37,320</td></tr><tr><th scope="row">Admin &amp; support services</th><td>+1,459</td><td>11,531 &rarr; 12,990</td></tr><tr><th scope="row">Professional &amp; technical services</th><td>+1,240</td><td>10,534 &rarr; 11,774</td></tr><tr><th scope="row">Arts &amp; recreation</th><td>+882</td><td>2,962 &rarr; 3,844</td></tr><tr><th scope="row">Construction</th><td>+784</td><td>12,751 &rarr; 13,535</td></tr><tr><th scope="row">Private education</th><td>+705</td><td>4,052 &rarr; 4,757</td></tr><tr><th scope="row">Other services</th><td>+581</td><td>6,195 &rarr; 6,776</td></tr><tr><th scope="row">Wholesale trade</th><td>+179</td><td>10,303 &rarr; 10,482</td></tr><tr><th scope="row">Utilities</th><td>+64</td><td>327 &rarr; 391</td></tr><tr><th scope="row">Real estate</th><td>+49</td><td>3,790 &rarr; 3,839</td></tr><tr><th scope="row">Mining</th><td>+40</td><td>234 &rarr; 274</td></tr><tr><th scope="row">Hotels &amp; restaurants</th><td>-199</td><td>20,008 &rarr; 19,809</td></tr><tr><th scope="row">Farming &amp; forestry</th><td>-230</td><td>1,772 &rarr; 1,542</td></tr><tr><th scope="row">Manufacturing</th><td>-350</td><td>16,338 &rarr; 15,988</td></tr><tr><th scope="row">Information</th><td>-482</td><td>3,095 &rarr; 2,613</td></tr><tr><th scope="row">Retail trade</th><td>-600</td><td>26,832 &rarr; 26,232</td></tr><tr><th scope="row">Company management</th><td>-693</td><td>3,348 &rarr; 2,655</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>-902</td><td>9,817 &rarr; 8,915</td></tr></tbody></table></details>
+        <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/sector_change_2019_2025.csv">Download this data (CSV)</a>.</span></figcaption>
+      </figure>
       <figure class="trend">
         <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of health care's share of all Spokane County jobs, 2014 to 2025. The share stays above 20 percent for the whole period and reaches 21.3 percent in 2025, its highest point." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="606" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">19%</text><line x1="56" y1="153.7" x2="606" y2="153.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="157.7" text-anchor="end" font-size="11" fill="#4a5654">20%</text><line x1="56" y1="99.4" x2="606" y2="99.4" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="103.4" text-anchor="end" font-size="11" fill="#4a5654">21%</text><line x1="56" y1="45.1" x2="606" y2="45.1" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="49.1" text-anchor="end" font-size="11" fill="#4a5654">22%</text><polyline points="56.0,132.0 106.0,153.7 156.0,148.3 206.0,137.4 256.0,148.3 306.0,137.4 356.0,61.4 406.0,110.3 456.0,148.3 506.0,132.0 556.0,99.4 606.0,83.1" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="83.1" r="3.5" fill="#2a6b73"/><text x="613.0" y="87.1" font-size="11.5" font-weight="700" fill="#171d1c">21.3%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
         <figcaption><b>Health care&rsquo;s share of all county jobs, 2014 to 2025.</b> More than one in five jobs in Spokane County has been in health care and social assistance for over a decade, and the share is at its highest point now, 21.3%. This is not a new lean. It is a long one that is deepening. The share is health care jobs across all ownerships divided by all covered jobs, both from the same source.
@@ -1026,10 +1053,7 @@
     <div class="body">
       <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
       <p class="why">Why it matters: developers read the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
-      <figure class="street">
-    <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
-    <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
-  </figure>
+      
       <figure class="street">
     <img src="img/garland-900-block-2016.jpg" alt="The Garland Theater marquee on a sunny day, with storefronts beside it displaying large For Lease signs in their windows. The 900 block of West Garland Avenue, Spokane, photographed in 2016." loading="lazy">
     <figcaption><b>A real block: the 900 block of West Garland Avenue, 2016.</b> The marquee Spokane loves, and For Lease signs in the windows beside it. This photo is from 2016, so it is not evidence about today&rsquo;s vacancy. The 5.3% figure above is. What the picture shows is the stake: these are the storefronts the whole chain ends at. Photo: Charles Burns, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:The_Garland_Theatre_in_Spokane,_WA.jpg">Wikimedia Commons</a>.</figcaption>
@@ -1081,7 +1105,7 @@
   <div class="flow wide">
     <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node r"><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
+    <div class="node r break"><span class="nbreak" aria-label="the break in the chain">the break</span><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
     <div class="node y"><span class="nlab">Paychecks</span><span class="nval">$32.96</span><span class="nstate">near U.S.</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
@@ -1132,19 +1156,12 @@
 
   <div class="teaser">
     <p class="warnbadge">Illustrative multiplier range, not a Spokane forecast</p>
-    <div class="versus">
-      <div class="side hi">
-        <p class="in">500 software jobs</p>
-        <p class="out">900 to 1,900</p>
-        <p class="cap">additional local jobs, on top of the 500</p>
-      </div>
-      <div class="side lo">
-        <p class="in">500 retail jobs</p>
-        <p class="out">0 to 100</p>
-        <p class="cap">additional local jobs, on top of the 500</p>
-      </div>
-    </div>
-    <p class="punch">The same 500 hires either build a second wave or don&rsquo;t.</p>
+    <figure class="trend" style="margin-top:14px;">
+      <svg viewBox="0 0 680 168" role="img" aria-label="Two bars comparing 500 software jobs with 500 retail jobs. Both start with the same solid block of 500 direct jobs. The software bar extends with a wide uncertain range of 900 to 1,900 additional local jobs, for a total of 1,400 to 2,400. The retail bar barely extends, 0 to 100 additional, for a total of 500 to 600." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><defs><pattern id="hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#93a8a6" stroke-width="2"/></pattern></defs><rect width="680" height="168" fill="#ffffff"/><text x="8" y="26" font-size="11" font-weight="700" fill="#171d1c">500 SOFTWARE JOBS</text><rect x="8.0" y="34" width="108.8" height="20" fill="#2a6b73"/><text x="62.4" y="48" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="34" width="195.8" height="20" fill="#2a6b73" opacity="0.45"/><rect x="312.5" y="34" width="217.5" height="20" fill="url(#hatch)" stroke="#2a6b73" stroke-width="1"/><text x="323.4" y="68" text-anchor="middle" font-size="10" fill="#4a5654">+900 to 1,900 more local jobs</text><text x="538.0" y="48" font-size="10.5" font-weight="700" fill="#171d1c">= 1,400 to 2,400</text><text x="8" y="102" font-size="11" font-weight="700" fill="#171d1c">500 RETAIL JOBS</text><rect x="8.0" y="110" width="108.8" height="20" fill="#2b3134"/><text x="62.4" y="124" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="110" width="21.8" height="20" fill="url(#hatch)" stroke="#2b3134" stroke-width="1"/><text x="127.6" y="144" text-anchor="middle" font-size="10" fill="#4a5654">+0 to 100 more</text><text x="146.5" y="124" font-size="10.5" font-weight="700" fill="#171d1c">= 500 to 600</text></svg>
+      <figcaption><b>Same 500 hires. Very different ripple.</b> The solid block is the direct jobs. The hatched stretch is the range of extra local jobs those paychecks could support, drawn as a range on purpose: it is an estimate from published research, not a forecast.
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>The same 500 jobs in two industries</caption><thead><tr><th scope="col">Employer</th><th scope="col">Extra local jobs</th><th scope="col">Total effect</th></tr></thead><tbody><tr><th scope="row">Software &amp; tech</th><td>900 to 1,900</td><td>1,400 to 2,400</td></tr><tr><th scope="row">Retail &amp; food service</th><td>0 to 100</td><td>500 to 600</td></tr></tbody></table></details></figcaption>
+    </figure>
+    
     <p class="rulenote">Ranges, never single numbers. They come from published research on local multipliers (Moretti, capped downward per Bartik and the Upjohn Institute), and the ranges are widened on purpose. This shows how the effect works, never a forecast.</p>
     
   </div>
@@ -1220,32 +1237,51 @@
     jobs.addEventListener("input", go);
     sel.value = "tech"; go();
     document.getElementById("minicalc").hidden = false;
+    function openTarget() {
+      var el = location.hash && document.getElementById(location.hash.slice(1));
+      if (el && el.tagName === "DETAILS") el.open = true;
+    }
+    window.addEventListener("hashchange", openTarget); openTarget();
   })();
   </script>
     <details class="more">
     <summary>Outside money and local money do different jobs</summary>
     <div class="inner">
 <div class="moneyflow wide">
-    <div class="mcol in">
-      <p class="mhead">Money that comes in from outside</p>
-      <p class="msub">Someone elsewhere pays Spokane for something</p>
-      <ul class="mlist">
-        <li>Software sold nationally</li>
-        <li>Manufactured goods shipped out</li>
-        <li>Engineering and professional work done for clients elsewhere</li>
-        <li>Patients from Idaho and Montana treated here</li>
-      </ul>
-    </div>
-    <div class="mcol here">
-      <p class="mhead">Money already here, moving around</p>
-      <p class="msub">Spokane paying Spokane</p>
-      <ul class="mlist">
-        <li>Groceries and restaurants</li>
-        <li>Retail</li>
-        <li>Clinics serving neighbors</li>
-        <li>Trades and local services</li>
-      </ul>
-    </div>
+    <svg viewBox="0 0 680 320" role="img" aria-label="Diagram of money flowing into and around Spokane. Arrows enter from outside: software sold nationally, goods shipped out, work for outside clients, and patients from Idaho and Montana. Inside Spokane, a loop circulates the money that is already here: paychecks to shops and restaurants to local services and clinics to trades and rent, and back to paychecks." font-family="Public Sans, sans-serif">
+  <rect width="680" height="320" fill="#ffffff"/>
+  <text x="340" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#4a5654">OUTSIDE SPOKANE</text>
+  <text x="120" y="44" text-anchor="middle" font-size="10.5" fill="#171d1c">Software sold nationally</text>
+  <text x="320" y="44" text-anchor="middle" font-size="10.5" fill="#171d1c">Goods shipped out</text>
+  <text x="530" y="44" text-anchor="middle" font-size="10.5" fill="#171d1c">Work for outside clients</text>
+  <g stroke="#2a6b73" stroke-width="2.5" fill="none">
+    <path d="M120 52 L120 92"/><path d="M320 52 L320 92"/><path d="M530 52 L530 92"/>
+  </g>
+  <g fill="#2a6b73"><path d="M114 90 L120 100 L126 90 Z"/><path d="M314 90 L320 100 L326 90 Z"/><path d="M524 90 L530 100 L536 90 Z"/></g>
+  <text x="36" y="80" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#2a6b73">BRINGS</text>
+  <text x="36" y="92" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#2a6b73">MONEY IN</text>
+  <rect x="60" y="104" width="560" height="196" rx="6" fill="#e2ecea" stroke="#8fa9a7" stroke-width="1.5"/>
+  <text x="340" y="126" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="2" fill="#171d1c">SPOKANE</text>
+  <g font-size="10.5" fill="#171d1c" text-anchor="middle">
+    <text x="200" y="168">Paychecks</text>
+    <text x="480" y="168">Shops &amp; restaurants</text>
+    <text x="480" y="252">Local services &amp; clinics</text>
+    <text x="200" y="252">Trades &amp; rent</text>
+  </g>
+  <g stroke="#4a5654" stroke-width="1.8" fill="none">
+    <path d="M250 164 L400 164"/><path d="M480 178 L480 236"/><path d="M410 248 L268 248"/><path d="M200 236 L200 178"/>
+  </g>
+  <g fill="#4a5654">
+    <path d="M398 158 L408 164 L398 170 Z"/><path d="M474 234 L480 244 L486 234 Z"/>
+    <path d="M270 242 L260 248 L270 254 Z"/><path d="M194 180 L200 170 L206 180 Z"/>
+  </g>
+  <text x="340" y="212" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#4a5654">CIRCULATES WHAT IS ALREADY HERE</text>
+  <text x="648" y="180" text-anchor="end" font-size="10.5" fill="#171d1c" transform="rotate(0)">Patients from</text>
+  <text x="648" y="192" text-anchor="end" font-size="10.5" fill="#171d1c">Idaho &amp; Montana</text>
+  <path d="M645 200 L600 214" stroke="#2a6b73" stroke-width="2.5" fill="none"/>
+  <path d="M606 206 L596 216 L610 218 Z" fill="#2a6b73"/>
+</svg>
+
   </div>
 <p class="mnote">Both sides are real jobs and real paychecks. Neither is worth more than the other. The difference is that the left side grows the pot, and the right side circulates it. A region needs both, but only one of them makes the pot bigger.</p>
     </div>
@@ -1262,17 +1298,30 @@
   <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
   <div class="goals wide">
-    <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span><span class="gwho">Recruiters &middot; Employers &middot; City &middot; State</span></div>
-    <div class="goal"><span class="gnum">$1B</span><span class="glab">new capital investment</span><span class="gwho">Recruiters &middot; City &middot; State</span></div>
-    <div class="goal"><span class="gnum">300</span><span class="glab">internships with local employers</span><span class="gwho">Colleges &middot; Employers</span></div>
-    <div class="goal"><span class="gnum">5,000</span><span class="glab">students given career pathway experiences</span><span class="gwho">Colleges &middot; Employers</span></div>
+    <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span></div>
+    <div class="goal"><span class="gnum">$1B</span><span class="glab">new capital investment</span></div>
+    <div class="goal"><span class="gnum">300</span><span class="glab">internships with local employers</span></div>
+    <div class="goal"><span class="gnum">5,000</span><span class="glab">students given career pathway experiences</span></div>
   </div>
 
   <p class="flowsum" style="margin-top:18px;">So how is the region doing?</p>
   <p class="lede" style="margin-bottom:0;">That is the whole job of this page. The eight measures above track whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
 
 
-  <p class="lede" style="margin-top:34px;"><b>Who holds the levers?</b> The tags under each target name the actors who can move it. Open any row for the detail.</p>
+  <div class="ownmx">
+    <table>
+      <caption class="sr">Which actors hold levers on which published targets</caption>
+      <thead><tr><th scope="col">Target</th><th scope="col"><a href="#lever-city">City</a></th><th scope="col"><a href="#lever-rec">Recruiters</a></th><th scope="col"><a href="#lever-edu">Colleges</a></th><th scope="col"><a href="#lever-emp">Employers</a></th><th scope="col"><a href="#lever-state">State</a></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">5,000 jobs</th><td><span class="mdot" aria-label="yes"></span></td><td><span class="mdot"></span></td><td></td><td><span class="mdot"></span></td><td><span class="mdot"></span></td></tr>
+        <tr><th scope="row">$1B investment</th><td><span class="mdot"></span></td><td><span class="mdot"></span></td><td></td><td><span class="mdot"></span></td><td><span class="mdot"></span></td></tr>
+        <tr><th scope="row">300 internships</th><td></td><td></td><td><span class="mdot"></span></td><td><span class="mdot"></span></td><td></td></tr>
+        <tr><th scope="row">5,000 career experiences</th><td></td><td></td><td><span class="mdot"></span></td><td><span class="mdot"></span></td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="mxnote">A dot means that actor holds a lever on that target. Tap an actor to open its detail below. Nobody owns the whole economy; different institutions own different levers.</p>
+  </div>
+  <p class="lede" style="margin-top:34px;"><b>Who holds the levers?</b> Open any row for the detail.</p>
   <span id="levers"></span>
 
   
@@ -1307,32 +1356,32 @@
   </div>
 
   <div class="levers wide">
-    <details class="lever">
+    <details class="lever" id="lever-city">
       <summary><span class="actor">City of Spokane</span><span class="lshort">Permits &middot; land &middot; fees &middot; downtown</span><span class="lchip"><span class="tag gap">Not scored yet</span></span></summary>
       <p class="holds">How fast permits move, and how predictable they are. Zoning that keeps land ready for employers to build on. Downtown safety. What businesses pay in fees. Where the council spends its time.</p>
       <p class="stat"><span class="tag gap">Not scored yet</span>The city has an economic development chapter in its comprehensive plan, with living-wage language and target investment areas. What it does not publish is measurable progress. Later editions aim to score things the city controls outright. How long a permit takes. Whether zoned land is ready to build on. What businesses pay in fees.</p>
     </details>
-    <details class="lever">
+    <details class="lever" id="lever-rec">
       <summary><span class="actor">The regional recruiters</span><span class="lshort">Recruiting &middot; sites &middot; incentives</span><span class="lchip"><span class="tag pub">Goals published</span></span></summary>
       <p class="holds">Spokane County and Greater Spokane Inc. run the actual sales effort. They pick the target industries, get sites ready, line up incentives, and make the pitch employers hear.</p>
       <p class="stat"><span class="tag pub">Goals published</span>GSI&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign sets public five-year goals, including 5,000 jobs and $1 billion in new capital investment, and posts progress updates. GSI also runs a public <a href="https://greaterspokane.org/what-we-do/greater-growth/spokane-economic-indicators-dashboard/">regional indicators dashboard</a>. The plan is not the open question. Progress against it is.</p>
     </details>
-    <details class="lever">
+    <details class="lever" id="lever-edu">
       <summary><span class="actor">Higher education</span><span class="lshort">Talent &middot; internships &middot; research</span><span class="lchip"><span class="tag pub">Partly published</span></span></summary>
       <p class="holds">Gonzaga, Whitworth, EWU, WSU Spokane, the UW and GU medical partnership, and the community colleges. They decide how many graduates come out, and in which fields. They also decide whether students intern at local firms, and whether research here turns into companies.</p>
       <p class="stat"><span class="tag pub">Partly published</span>Gonzaga publishes a <a href="https://www.gonzaga.edu/student-life/career-services/annual-first-destination-survey-report">First Destination dashboard</a> you can filter by major and by location. Whitworth publishes graduate outcomes too. Nursing retention is reported and strong. What the region lacks is one comparable number across all the schools.</p>
     </details>
-    <details class="lever">
+    <details class="lever" id="lever-emp">
       <summary><span class="actor">Anchor employers</span><span class="lshort">Expansion &middot; hiring &middot; suppliers</span><span class="lchip"><span class="tag red">Regional signal weak</span></span></summary>
       <p class="holds">Itron, Kaiser Aluminum, Providence, MultiCare, Avista and others. They hold the choice Boise teaches: grow here, or grow somewhere else. They also decide how many interns they take and which local suppliers they build up.</p>
       <p class="stat"><span class="tag red">Regional signal weak</span>This grade describes the region, not any one company. Traded-sector hiring across Spokane is weak. That is not a mark against any employer who is investing here. What no one outside can see is which local anchors are adding payroll and capital, because that is not published.</p>
     </details>
-    <details class="lever">
+    <details class="lever" id="lever-state">
       <summary><span class="actor">The state of Washington</span><span class="lshort">Taxes &middot; incentives &middot; infrastructure</span><span class="lchip"><span class="tag gap">Upstream, not graded</span></span></summary>
       <p class="holds">Taxes, incentives, roads and other infrastructure, and college funding east of the Cascades. Also the minimum wage, which already pushed Spokane&rsquo;s hourly pay close to the national average.</p>
       <p class="stat"><span class="tag gap">Upstream, not graded</span>This is the biggest lever on the board and the one furthest from Spokane. Tax structure, incentives, infrastructure money and higher-education funding east of the Cascades are all set in Olympia. This page grades regional outcomes rather than state policy, but a scorecard that pretended the state was a footnote would be lying about how the machine works.</p>
     </details>
-    <details class="lever">
+    <details class="lever" id="lever-res">
       <summary><span class="actor">Residents, including this page</span><span class="lshort">Votes &middot; attention &middot; corrections</span><span class="lchip"><span class="tag gap">Yours</span></span></summary>
       <p class="holds">Attention, votes, meeting rooms, and corrections. On track looks like showing up when the levers above get discussed.</p>
       <p class="stat">You&rsquo;re reading the lever.</p>
