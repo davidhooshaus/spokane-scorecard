@@ -663,6 +663,20 @@
   .city .detail p + p { margin-top: 10px; }
   .city .ours { margin-top: 10px; color: var(--ink); font-weight: 600; }
 
+  /* Expo feature */
+  .expo {
+    display: grid; grid-template-columns: 300px 1fr; gap: 24px;
+    background: #fff; border: 1px solid var(--rule); border-radius: 4px;
+    padding: 22px; margin-top: 26px; align-items: start;
+  }
+  @media (max-width: 700px) { .expo { grid-template-columns: 1fr; } }
+  .expophoto { margin: 0; }
+  .expophoto img { width: 100%; height: auto; display: block; border-radius: 3px; }
+  .expophoto figcaption { margin-top: 8px; font-size: 0.75rem; color: var(--ink-soft); line-height: 1.4; }
+  .expotext h3 { margin-top: 4px; }
+  .expotext p { max-width: 40em; }
+  .expotext p + p { margin-top: 10px; }
+
   /* Asks */
   .ask { border-left: 4px solid var(--teal); padding: 2px 0 2px 18px; margin-top: 26px; max-width: 42em; }
   .ask h4 { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
@@ -1432,7 +1446,23 @@
     </details>
   </div>
 
-  <p class="lede" style="margin-top:18px;margin-bottom:0;"><b>The pattern across all four:</b> a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline.</p>
+
+  <div class="expo wide">
+    <figure class="expophoto">
+      <img src="img/clocktower-riverfront-2024.jpg" alt="The Great Northern clock tower in Riverfront Park, framed by trees, with the Howard Street bridge and the Spokane River behind it." loading="lazy">
+      <figcaption>The clock tower in Riverfront Park, 2024. Photo: <a href="https://unsplash.com/photos/a-tall-clock-tower-towering-over-a-lush-green-park-agr9AcIcp1I">Steven Cordes</a>, <a href="https://unsplash.com/license">Unsplash License</a>.</figcaption>
+    </figure>
+    <div class="expotext">
+      <p class="cmove" style="padding-right:0;">And one city that already ran this play: this one</p>
+      <h3>The proof is standing in Riverfront Park.</h3>
+      <p>For decades, rail yards and trestles covered Havermale Island and blocked downtown from its own falls. In 1974 Spokane tore them out and hosted a world&rsquo;s fair on the site, the first with an environmental theme. When the fair closed, the grounds became Riverfront Park.</p>
+      <p>The clock tower is what was kept. It is the last piece of the 1902 Great Northern depot, whose yards covered the ground it now stands on.</p>
+      <p><b>That is this page&rsquo;s whole argument, already proven here once.</b> A city looked at what its downtown had become, decided on purpose to change it, and spent years doing the unglamorous work. Nobody calls it lucky now. They call it Riverfront Park.</p>
+      <p class="src">Source: <a href="https://www.historylink.org/file/10791">HistoryLink, Expo &rsquo;74: Spokane World&rsquo;s Fair</a>; <a href="https://my.spokanecity.org/riverfrontspokane/about-us/history/">City of Spokane, Riverfront Park history</a>.</p>
+    </div>
+  </div>
+
+  <p class="lede" style="margin-top:18px;margin-bottom:0;"><b>The pattern across all four:</b> a named asset, a public plan, and years of unglamorous follow-through. Nothing on that list requires luck, size, or a coastline. And Spokane has run the play before.</p>
 
   <p class="handoff">So here is what we are asking of the people who hold the levers here. <a href="#asks">The three asks <span aria-hidden="true">&darr;</span></a></p>
 </section>
