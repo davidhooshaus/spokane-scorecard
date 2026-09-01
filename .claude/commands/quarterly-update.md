@@ -40,6 +40,9 @@ For each card, fetch the newest reading and note its vintage:
 - Storefronts: newest ACTIV8/CoStar quarter (vacancy + construction pipeline)
 - People: OFM/ESD population and growth vs. state and US
 Save any downloaded files under data/<dataset>/<YYYY-QN>/.
+Refresh the trend data with `python3 tools/pull_trends.py` (the newest complete
+year lands each June) and regenerate the two trend charts from it, keeping the
+vintage sentence in each caption true.
 
 ## 3. Update each card
 Figure, the <small> geography+vintage label, bench text, source dates, and
