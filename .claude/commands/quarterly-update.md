@@ -75,7 +75,19 @@ when strong outnumber weak. Move the `here` class to the correct segment, and re
 the "what would move it" sentence from the new counts. Check the arithmetic rather
 than eyeballing it; the sentence is a falsifiable claim and readers can check it.
 
-## 5b. Say what changed
+## 5b. Say what changed (November is a launch, not a refresh)
+Promote the What Changed section (see below) and treat it as the update's front door:
+- Under the verdict: "Since August:" with one line per moved measure, each carrying a
+  delta (old value -> new value) and a label: DATA CHANGE if Spokane changed, or
+  MEASURE UPDATED if the ruler changed (per the methodology's "When a grade moves").
+- Each measure tile gets a small "Since Aug" delta line in its summary.
+- A replaced measure (unemployment -> working-age employment) says: "This measure
+  replaced the unemployment rate beginning November 2026. August's grade is preserved
+  in the archive and is not directly comparable."
+- Append the new edition to the archive trajectory strip (archive/index.html), one
+  node: verdict + eight grade dots.
+
+## Old 5b. Say what changed
 PROMOTE "What changed" back to a full section for this update: create <section id="changed"> directly under the measures (it was demoted to a note inside the signup block for the first edition, since an empty room adds a stop). In it, name in one sentence each, every
 figure that moved, every grade that changed, and any measure that was added or replaced.
 Link the word "past editions" to `archive/`. If a grade changed, say which way and why in
