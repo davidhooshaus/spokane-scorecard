@@ -211,6 +211,11 @@
     gap: 0;
   }
   .menu { position: relative; }
+  .menulink {
+    display: block; padding: 14px 16px; font-size: 0.88rem; font-weight: 600;
+    color: var(--ink-soft); text-decoration: none; white-space: nowrap;
+  }
+  .menulink:hover { color: var(--teal); }
   .menu > summary {
     list-style: none; cursor: pointer;
     padding: 14px 30px 14px 16px;
@@ -518,7 +523,8 @@
   .collegeask { border-left-color: var(--green); margin-top: 26px; }
   .stateask { border-left-color: var(--teal); margin-top: 26px; }
   .band-dark .stateask { border-left-color: #9ed4d8; }
-  .asklabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 2px; }
+  .askgroup { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--teal); margin-top: 6px; }
+  .band-dark .askgroup { color: #7fbfc4; }
   .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
 
   /* Trend charts */
@@ -571,6 +577,7 @@
   .goal { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--teal); border-radius: 3px; padding: 14px; }
   .gnum { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1.9rem; line-height: 1; letter-spacing: -0.02em; color: var(--teal); }
   .glab { display: block; margin-top: 7px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
+  .gwho { display: block; margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); }
 
   /* Money in vs money already here */
   .moneyflow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; margin-bottom: 4px; }
@@ -751,7 +758,6 @@
     <summary>The Score</summary>
     <div class="menupanel">
       <a href="#scorecard">Eight Measures</a>
-      <a href="#changed">What Changed</a>
       <a href="#story">The Story</a>
     </div>
   </details>
@@ -763,16 +769,11 @@
       <a href="#done">The Playbook</a>
     </div>
   </details>
+  <a class="menulink" href="#asks">The Asks</a>
   <details class="menu" name="jumpnav">
-    <summary>The Asks</summary>
+    <summary>Check the Work</summary>
     <div class="menupanel">
-      <a href="#asks">Three Asks</a>
       <a href="#objections">Questions &amp; Objections</a>
-    </div>
-  </details>
-  <details class="menu" name="jumpnav">
-    <summary>The Receipts</summary>
-    <div class="menupanel">
       <a href="#nerd">How Grades Work</a>
       <a href="methodology.html">Methodology</a>
       <a href="/archive/">Past Editions</a>
@@ -828,7 +829,12 @@
         <p class="note">Average jobs added per month, Spokane metro</p>
       </div>
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+410/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026</th><td>+58/mo</td></tr></tbody></table></details>
-      <p class="src">Longer history: <a href="#longview">the 12 year chart</a> below.</p>
+      <figure class="trend" id="longview">
+    <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#171d1c">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
+    <figcaption><b>The long view: jobs in Spokane County.</b> Average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
+    <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
+    <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
+  </figure>
       <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
       <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
@@ -982,6 +988,14 @@
       <p class="bench">Flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
       <p class="why">Why it matters: developers read the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
       <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
+      <figure class="street">
+    <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
+    <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
+  </figure>
+      <figure class="street">
+    <img src="img/garland-900-block-2016.jpg" alt="The Garland Theater marquee on a sunny day, with storefronts beside it displaying large For Lease signs in their windows. The 900 block of West Garland Avenue, Spokane, photographed in 2016." loading="lazy">
+    <figcaption><b>A real block: the 900 block of West Garland Avenue, 2016.</b> The marquee Spokane loves, and For Lease signs in the windows beside it. This photo is from 2016, so it is not evidence about today&rsquo;s vacancy. The 5.3% figure above is. What the picture shows is the stake: these are the storefronts the whole chain ends at. Photo: Charles Burns, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:The_Garland_Theatre_in_Spokane,_WA.jpg">Wikimedia Commons</a>.</figcaption>
+  </figure>
       <p class="fixit"><a href="https://tally.so/r/PdqAYe">Challenge this grade</a> &middot; <a href="methodology.html">Method</a></p>
     </div>
   </details>
@@ -1005,25 +1019,19 @@
 
   
 
-  <p class="handoff">Eight separate problems, or one? <a href="#story">Here is how they connect <span aria-hidden="true">&darr;</span></a></p>
-</section>
-
-<!-- ============ WHAT CHANGED ============ -->
-<section id="changed" class="band">
-  <p class="eyebrow">Since last quarter</p>
-  <h2 class="sect">What changed</h2>
-  <p class="lede"><b>What changed this quarter:</b> nothing yet. This is the first edition. From the November update on, this line names every figure that moved and every grade that changed, and the previous edition stays readable in <a href="/archive/">past editions</a>.</p>
-<div class="signup">
+  <div class="signup">
     <div class="stext">
       <p class="shead">These numbers change four times a year.</p>
-      <p class="ssub">Leave an email and the new numbers arrive the day they are posted. One message a quarter. Nothing else, ever.</p>
+      <p class="ssub">First edition, August 2026. Quarter-to-quarter changes begin in November, and each update lands in your inbox the day it posts. One message a quarter, nothing else.</p>
     </div>
     <a class="btn solid" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
   </div>
+
+  <p class="handoff">Eight separate problems, or one? <a href="#story">Here is how they connect <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
 <!-- ============ THE SCORECARD ============ -->
-<section id="story" class="band-deep">
+<section id="story" class="band">
   <p class="eyebrow">The story in 30 seconds</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
@@ -1042,46 +1050,29 @@
   </div>
   <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
 
-  <figure class="trend wide" id="longview">
-    <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#171d1c">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
-    <figcaption><b>The long view: jobs in Spokane County.</b> Average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
-    <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
-    <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
-  </figure>
-  <details class="more">
-    <summary>What this looks like at street level</summary>
-    <div class="inner">
-<figure class="street wide">
-    <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
-    <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
-  </figure>
-<figure class="street wide">
-    <img src="img/garland-900-block-2016.jpg" alt="The Garland Theater marquee on a sunny day, with storefronts beside it displaying large For Lease signs in their windows. The 900 block of West Garland Avenue, Spokane, photographed in 2016." loading="lazy">
-    <figcaption><b>A real block: the 900 block of West Garland Avenue, 2016.</b> The marquee Spokane loves, and For Lease signs in the windows beside it. This photo is from 2016, so it is not evidence about today&rsquo;s vacancy. The 5.3% figure above is. What the picture shows is the stake: these are the storefronts the whole chain ends at. Photo: Charles Burns, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:The_Garland_Theatre_in_Spokane,_WA.jpg">Wikimedia Commons</a>.</figcaption>
-  </figure>
-    </div>
-  </details>
+  
+  
 
   
 
   
 
   <details class="more">
-    <summary>See the whole machine, and why each turn makes the next one easier</summary>
+    <summary>The whole machine, and the longer story</summary>
     <div class="inner prose">
+
       <p>Everything on this page is one machine. Schools and new arrivals supply workers. Employers turn workers into paychecks. Paychecks become customers. Customers fill storefronts and pay taxes. Those taxes fund the services that make people and companies want to stay. Each turn makes the next one easier. Unless a gear is missing.</p>
       <img src="flywheel.svg" alt="Flywheel diagram: talent, employers, spending, storefronts, tax base, and city services feed one another in a loop with city focus at the hub. A red dashed leak arrow shows graduates leaving for Boise or Seattle when higher-wage employers are missing. Grade dots mark Spokane strong on talent, weak on employers and spending, and mixed on storefronts." style="width:100%;height:auto;display:block;margin:14px 0 10px;border:1px solid var(--rule);border-radius:4px;">
       <p style="font-size:0.85rem;color:var(--ink-soft);">The dots are Spokane&rsquo;s current grades from the measures above. Green where people enter the wheel, red exactly where the employers should be, and the red bleeding downstream. The region&rsquo;s challenge isn&rsquo;t to spin every gear. It&rsquo;s to fix the one that&rsquo;s missing, and city hall&rsquo;s part is to pull its own levers toward it.</p>
+    
+
+      <p>If you live here, you&rsquo;ve seen the puzzle pieces without the box top. Ground-floor spaces sit empty on Monroe while apartments rise around them. New commercial construction has slowed to a trickle. Help-wanted signs everywhere, yet the higher-wage jobs always seem to be somewhere else.</p>
+      <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight measures above are that story, counted. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
+    
     </div>
   </details>
 
-  <details class="more">
-    <summary>Read the longer explanation</summary>
-    <div class="inner prose">
-      <p>If you live here, you&rsquo;ve seen the puzzle pieces without the box top. Ground-floor spaces sit empty on Monroe while apartments rise around them. New commercial construction has slowed to a trickle. Help-wanted signs everywhere, yet the higher-wage jobs always seem to be somewhere else.</p>
-      <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight measures above are that story, counted. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
-    </div>
-  </details>
+  
 
   <p class="handoff">So what would actually move it? <a href="#effect">Start with one employer <span aria-hidden="true">&darr;</span></a></p>
 </section>
@@ -1090,7 +1081,7 @@
 
 
 <!-- ============ 05 WHAT ONE EMPLOYER DOES ============ -->
-<section id="effect">
+<section id="effect" class="band-deep">
   <p class="eyebrow">What One Employer Does</p>
   <h2 class="sect">Same headcount. Different city.</h2>
   <p class="lede">Spokane has people. It needs more employers selling beyond Spokane, because that is what brings new money in.</p>
@@ -1213,24 +1204,24 @@
 </section>
 
 <!-- ============ 06 THE TARGETS ============ -->
-<section id="plan" class="band">
+<section id="plan">
   <span id="goals"></span>
   <p class="eyebrow">The plan</p>
   <h2 class="sect">Spokane already set targets. Who moves them?</h2>
   <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
   <div class="goals wide">
-    <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span></div>
-    <div class="goal"><span class="gnum">$1B</span><span class="glab">new capital investment</span></div>
-    <div class="goal"><span class="gnum">300</span><span class="glab">internships with local employers</span></div>
-    <div class="goal"><span class="gnum">5,000</span><span class="glab">students given career pathway experiences</span></div>
+    <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span><span class="gwho">Recruiters &middot; Employers &middot; City &middot; State</span></div>
+    <div class="goal"><span class="gnum">$1B</span><span class="glab">new capital investment</span><span class="gwho">Recruiters &middot; City &middot; State</span></div>
+    <div class="goal"><span class="gnum">300</span><span class="glab">internships with local employers</span><span class="gwho">Colleges &middot; Employers</span></div>
+    <div class="goal"><span class="gnum">5,000</span><span class="glab">students given career pathway experiences</span><span class="gwho">Colleges &middot; Employers</span></div>
   </div>
 
   <p class="flowsum" style="margin-top:18px;">So how is the region doing?</p>
   <p class="lede" style="margin-bottom:0;">That is the whole job of this page. The eight measures above track whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
 
 
-  <p class="lede" style="margin-top:34px;"><b>Who holds the levers?</b> Goals need owners. </p>
+  <p class="lede" style="margin-top:34px;"><b>Who holds the levers?</b> The tags under each target name the actors who can move it. Open any row for the detail.</p>
   <span id="levers"></span>
 
   
@@ -1314,7 +1305,7 @@
 
 
 <!-- ============ 08 IT'S BEEN DONE ============ -->
-<section id="done" class="band-deep">
+<section id="done" class="band">
   <p class="eyebrow">It&rsquo;s Been Done</p>
   <h2 class="sect">What has worked elsewhere</h2>
   <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
@@ -1423,8 +1414,10 @@
 <!-- ============ 09 WHAT WE'RE ASKING ============ -->
 <section id="asks" class="band-dark">
   <p class="eyebrow">The Asks</p>
-  <h2 class="sect">Three asks of Spokane&rsquo;s leaders</h2>
-  <p class="lede">Three commitments any mayor or council member could make tomorrow.</p>
+  <h2 class="sect">What this page asks</h2>
+  <p class="lede">Grouped by who can act on each one.</p>
+
+  <p class="askgroup">City leaders</p>
 
   <div class="ask">
     <span class="asknum">1</span><h4>Adopt a scoreboard.</h4>
@@ -1438,16 +1431,16 @@
     <span class="asknum">3</span><h4>Explain the tradeoffs.</h4>
     <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Name what is being traded away, not just what is being bought.</p>
   </div>
+  <p class="askgroup" style="margin-top:30px;">Colleges</p>
   <div class="ask collegeask">
-    <p class="asklabel">And one ask for Spokane&rsquo;s colleges</p>
     <h4>Publish one comparable number.</h4>
     <p>Some of you already do a version of this. Gonzaga has a public dashboard you can filter by major and by location, and Whitworth publishes outcomes too. Credit where it is due.</p>
     <p>What the region still lacks is one number that means the same thing at every school: the share of graduates in a given field working in the Spokane area a year out. Right now the reports are not comparable, so nobody can add them up.</p>
     <p><b>And to be clear about what this measures.</b> If a school produces 200 engineers and 150 leave, that is not the school failing. It is evidence the region does not have jobs for them. Graduate retention is a diagnostic for the employer ecosystem, not a grade on any university.</p>
   </div>
 
+  <p class="askgroup" style="margin-top:30px;">Washington State</p>
   <div class="ask stateask">
-    <p class="asklabel">And one ask for the state</p>
     <h4>Publish which county graduates work in.</h4>
     <p>Washington already links school records to paycheck records. The state&rsquo;s <a href="https://erdc.wa.gov/data-dashboards/earnings-graduates-dashboard">Earnings for Graduates dashboard</a> shows what graduates earn, broken out by school and by major, using unemployment insurance wage records. What it does not show is where those graduates work. It only says &ldquo;somewhere in Washington.&rdquo;</p>
     <p>The employer&rsquo;s location is already sitting in those records. Adding county of employment is a different cut of a report that already exists. It is not a new survey. It would answer this for every school in the state at once, in weeks rather than years.</p>
@@ -1539,7 +1532,7 @@
 
 <!-- ============ 10 THE RECEIPTS ============ -->
 <section id="nerd" class="band">
-  <p class="eyebrow">The receipts</p>
+  <p class="eyebrow">Check the work</p>
   <h2 class="sect">Argue with the grades</h2>
   <p class="lede">Every number above links to its source. The <a href="methodology.html">full methodology</a> covers the grading rules, the limits of the data, and what it can and cannot tell you. Corrections are welcome, and they get posted.</p>
 
