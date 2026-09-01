@@ -76,7 +76,7 @@ the "what would move it" sentence from the new counts. Check the arithmetic rath
 than eyeballing it; the sentence is a falsifiable claim and readers can check it.
 
 ## 5b. Say what changed
-Rewrite the `.changed` line above the measures so it names, in one sentence each: every
+Rewrite the "What changed" section (id="changed", directly under the measures) so it names, in one sentence each: every
 figure that moved, every grade that changed, and any measure that was added or replaced.
 Link the word "past editions" to `archive/`. If a grade changed, say which way and why in
 half a clause. This is the first thing a returning reader looks for.
