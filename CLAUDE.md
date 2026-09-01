@@ -16,6 +16,8 @@ Files:
   lever map, case studies, asks, methodology links, Tally form link
 - `methodology.html` — rubric, sources, limitations, change log (append-only)
 - `calculator.html` — employer impact tool (illustration, never a forecast)
+- `living-in-spokane.html` — evergreen answer page for movers ("is Spokane a good
+  place to live"); reuses card figures and their sources; refreshed each quarter
 - `flywheel.svg` — the compounding diagram, embedded by index.html
 - `press/flywheel.png` — 1600px social/press export of the SVG
 - `data/` — pulled datasets (DOR files, Census pulls, city-lever data obtained by request)
