@@ -83,6 +83,8 @@ a paycheck, or a neighbor.
 - Spokane Trends (EWU) — working-age employment 2.4.2, STEM degrees 3.5.7:
   https://www.spokanetrends.org/
 - WA OFM — population (annual)
+- BLS QCEW open CSV API — county jobs and pay history for the trend charts
+  (annual averages, 2014 forward, no key; pulled by `tools/pull_trends.py` into `data/qcew/`)
 
 ## Roadmap (November first, in this order)
 

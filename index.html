@@ -531,6 +531,28 @@
   .asklabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin-bottom: 2px; }
   .punch { margin-top: 16px; font-weight: 700; font-size: 1.05rem; }
 
+  /* Trend charts */
+  .trend { margin: 26px 0 8px; }
+  .trend svg { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; }
+  .trend figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 46em; }
+  .trend figcaption b { color: var(--ink); }
+
+  /* Mini calculator */
+  .minicalc { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 20px 22px; margin-top: 18px; }
+  .mchead { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; }
+  .mcrow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 620px) { .mcrow { grid-template-columns: 1fr; } }
+  .mcfield label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+  .mcfield select { width: 100%; font: inherit; padding: 8px 10px; border: 1px solid var(--rule-strong); border-radius: 3px; background: #fff; color: var(--ink); }
+  .mcfield input[type=range] { width: 100%; accent-color: var(--teal); }
+  .mcwage { margin-top: 6px; font-size: 0.75rem; color: var(--ink-soft); }
+  .mcfield output { font-weight: 700; color: var(--teal); font-variant-numeric: tabular-nums; }
+  .mcout { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 16px; }
+  @media (max-width: 760px) { .mcout { grid-template-columns: repeat(2, 1fr); } }
+  .mcstat { border-top: 3px solid var(--teal); background: var(--paper); padding: 9px 10px 11px; border-radius: 0 0 3px 3px; }
+  .mcn { display: block; font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; line-height: 1.2; }
+  .mcl { display: block; margin-top: 3px; font-size: 0.72rem; line-height: 1.3; color: var(--ink-soft); }
+
   /* Poll reasons */
   .reasons { margin-top: 4px; }
   .rrow { display: flex; align-items: center; gap: 12px; margin: 7px 0; font-size: 0.9rem; }
@@ -810,6 +832,7 @@
         <p class="note">Average jobs added per month, Spokane metro</p>
       </div>
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+410/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026</th><td>+58/mo</td></tr></tbody></table></details>
+      <p class="src">Longer history: <a href="#longview">the 12 year chart</a> below.</p>
       <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
       <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
       <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
@@ -877,6 +900,13 @@
         <p class="note">Average hourly wage, May 2025</p>
       </div>
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average hourly wage, May 2025</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$32.96</td></tr><tr><th scope="row">U.S.</th><td>$33.54</td></tr></tbody></table></details>
+
+      <figure class="trend">
+        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average annual pay per worker in Spokane County, 2014 to 2025, rising from about 43 thousand dollars to about 69 thousand dollars. Not adjusted for inflation." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">$40k</text><line x1="56" y1="144.7" x2="610" y2="144.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="148.7" text-anchor="end" font-size="11" fill="#4a5654">$50k</text><line x1="56" y1="81.3" x2="610" y2="81.3" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="85.3" text-anchor="end" font-size="11" fill="#4a5654">$60k</text><line x1="56" y1="18.0" x2="610" y2="18.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="22.0" text-anchor="end" font-size="11" fill="#4a5654">$70k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,191.1 106.4,182.2 156.7,177.9 207.1,166.3 257.5,155.4 307.8,143.2 358.2,121.4 408.5,99.0 458.9,83.8 509.3,66.1 559.6,46.6 610.0,24.7" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="24.7" r="3.5" fill="#2a6b73"/><text x="617.0" y="28.7" font-size="11.5" font-weight="700" fill="#171d1c">$68,949</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
+        <figcaption><b>Average annual pay per worker, Spokane County, 2014 to 2025.</b> Dollars are not adjusted for inflation, so part of this climb is rising prices everywhere, not raises.
+        <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average annual pay per worker, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>$42,666</td></tr><tr><th scope="row">2015</th><td>$44,066</td></tr><tr><th scope="row">2016</th><td>$44,751</td></tr><tr><th scope="row">2017</th><td>$46,588</td></tr><tr><th scope="row">2018</th><td>$48,298</td></tr><tr><th scope="row">2019</th><td>$50,234</td></tr><tr><th scope="row">2020</th><td>$53,678</td></tr><tr><th scope="row">2021</th><td>$57,217</td></tr><tr><th scope="row">2022</th><td>$59,604</td></tr><tr><th scope="row">2023</th><td>$62,403</td></tr><tr><th scope="row">2024</th><td>$65,488</td></tr><tr><th scope="row">2025</th><td>$68,949</td></tr></tbody></table></details>
+        <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
+      </figure>
       <p class="why">Why it matters: wage level is the clearest test of employer quality. Parity with the U.S. average is real progress. Losing ground on income growth says the progress isn&rsquo;t compounding.</p>
       <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025); <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">Spokesman-Review / EWU Institute for Public Policy</a></p>
       <p class="fixit"><a href="https://tally.so/r/PdqAYe">Think this measure is wrong? Send a correction.</a></p>
@@ -1007,6 +1037,13 @@
   </div>
   <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
 
+
+  <figure class="trend wide" id="longview">
+    <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#171d1c">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
+    <figcaption><b>The long view: jobs in Spokane County.</b> Average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
+    <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
+    <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
+  </figure>
   <figure class="street wide">
     <img src="street.svg" alt="A drawing of a commercial block. Every apartment window upstairs is lit. On the ground floor, two storefronts are open with awnings and two are dark with papered-over glass and For Lease signs.">
     <figcaption><b>This is what the last link in that chain looks like from the sidewalk.</b> Apartments full upstairs. Half the ground floor papered over. It is a drawing, not a photograph of any real block. The 5.3% vacancy figure above is the evidence. This only shows what that number looks like when you walk past it.</figcaption>
@@ -1127,6 +1164,70 @@
 
 
 
+
+  <div class="minicalc" id="minicalc" hidden>
+    <p class="mchead">Try it yourself</p>
+    <div class="mcrow">
+      <div class="mcfield">
+        <label for="mc-sector">What kind of company?</label>
+        <select id="mc-sector"></select>
+        <p class="mcwage" id="mc-wage"></p>
+      </div>
+      <div class="mcfield">
+        <label for="mc-jobs">How many jobs? <output id="mc-jobs-out">500</output></label>
+        <input type="range" id="mc-jobs" min="25" max="5000" step="25" value="500">
+      </div>
+    </div>
+    <div class="mcout" aria-live="polite">
+      <div class="mcstat"><span class="mcn" id="mc-ripple"></span><span class="mcl">extra local jobs created</span></div>
+      <div class="mcstat"><span class="mcn" id="mc-total"></span><span class="mcl">total jobs, direct plus ripple</span></div>
+      <div class="mcstat"><span class="mcn" id="mc-payroll"></span><span class="mcl">new annual payroll</span></div>
+      <div class="mcstat"><span class="mcn" id="mc-spend"></span><span class="mcl">new local spending per year</span></div>
+      <div class="mcstat"><span class="mcn" id="mc-stores"></span><span class="mcl">storefronts that spending could sustain</span></div>
+    </div>
+    <p class="rulenote" style="margin-top:12px;">Ranges, never single numbers. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
+  </div>
+  <script>
+  (function () {
+    var P = {
+      tech:   { name: "Software & tech",                    wage: 108600, mLo: 1.8, mHi: 3.8,
+                note: "Avg wage $108,600 (BLS, Spokane computer & math occupations, May 2025)" },
+      aero:   { name: "Aerospace & advanced manufacturing", wage: 84000,  mLo: 1.2, mHi: 2.0,
+                note: "Avg wage $84,000 (Spokane Workforce Council targeted-industry data)" },
+      finpro: { name: "Finance & professional services",    wage: 137400, mLo: 1.0, mHi: 2.3,
+                note: "Avg wage $137,400 (Lightcast via Spokane Workforce Council)" },
+      health: { name: "Health care",                        wage: 75600,  mLo: 0.3, mHi: 0.9,
+                note: "Avg wage $75,600 (Spokane Workforce Council targeted-industry data)" },
+      retail: { name: "Retail & food service",              wage: 44100,  mLo: 0.0, mHi: 0.2,
+                note: "Avg wage $44,100 (BLS, Spokane food prep & serving, May 2025)" }
+    };
+    var SPEND = 0.35, RIPPLE_WAGE = 52000, STORE = 500000;
+    var sel = document.getElementById("mc-sector");
+    Object.keys(P).forEach(function (k) {
+      var o = document.createElement("option"); o.value = k; o.textContent = P[k].name; sel.appendChild(o);
+    });
+    var jobs = document.getElementById("mc-jobs");
+    function jf(n){ var r = n >= 1000 ? Math.round(n/50)*50 : Math.round(n/10)*10; return r.toLocaleString(); }
+    function mf(n){ return n >= 1e9 ? "$" + (n/1e9).toFixed(1) + "B" : "$" + Math.round(n/1e6) + "M"; }
+    function rng(lo,hi,f){ var a=f(lo), b=f(hi); return a===b ? a : a + " to " + b; }
+    function go(){
+      var p = P[sel.value], n = +jobs.value;
+      document.getElementById("mc-jobs-out").textContent = n.toLocaleString();
+      document.getElementById("mc-wage").textContent = p.note;
+      var rLo=n*p.mLo, rHi=n*p.mHi;
+      var payLo=n*p.wage + rLo*RIPPLE_WAGE, payHi=n*p.wage + rHi*RIPPLE_WAGE;
+      document.getElementById("mc-ripple").textContent  = rng(rLo,rHi,jf);
+      document.getElementById("mc-total").textContent   = rng(n+rLo,n+rHi,jf);
+      document.getElementById("mc-payroll").textContent = rng(payLo,payHi,mf);
+      document.getElementById("mc-spend").textContent   = rng(payLo*SPEND,payHi*SPEND,mf);
+      document.getElementById("mc-stores").textContent  = rng(payLo*SPEND/STORE,payHi*SPEND/STORE,jf);
+    }
+    sel.addEventListener("input", go);
+    jobs.addEventListener("input", go);
+    sel.value = "tech"; go();
+    document.getElementById("minicalc").hidden = false;
+  })();
+  </script>
   <p class="handoff">That is one employer. <a href="#goals">Here is what the region already said it wants <span aria-hidden="true">&darr;</span></a></p>
 </section>
 
