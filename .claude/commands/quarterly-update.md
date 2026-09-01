@@ -120,6 +120,10 @@ not a lower score.
 - geography + vintage labeled on every figure
 - no em dashes introduced
 - chart widths match the numbers
+- if you script a live-site check, pipe with `printf '%s' "$page"` or grep the
+  curl output directly. Never `echo "$page"`: the CSS contains backslash
+  escapes (like `\2192`) that zsh's echo mangles, and every check reads NO
+  against a page that is actually fine.
 
 ## 8. Hand off
 Never publish without David. How you hand off depends on where this is running.
