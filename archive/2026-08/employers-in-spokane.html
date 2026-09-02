@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/mark.svg" type="image/svg+xml">
+<link rel="mask-icon" href="/mark.svg" color="#2a6b73">
+<meta name="robots" content="noindex">
+<title>Largest employers in Spokane and where the jobs are | The Spokane Prosperity Scorecard</title>
+<meta name="description" content="Spokane County&rsquo;s largest employer, the health systems in the top 12, and every sector&rsquo;s job change since 2019, each figure linked to a public source.">
+<meta property="og:title" content="Largest employers in Spokane and where the jobs are">
+<meta property="og:description" content="Spokane County&rsquo;s largest employer, the health systems in the top 12, and every sector&rsquo;s job change since 2019, each figure linked to a public source.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#fcfcfb; --ink:#171d1c; --ink-soft:#4a5654; --rule:#d2dcda; --lilac:#2a6b73; --teal:#2a6b73; --basalt:#2b3134; --panel:#e2ecea; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-variant-numeric: tabular-nums; background: var(--paper); color: var(--ink); font-family: "Public Sans", -apple-system, sans-serif; font-size: 17px; line-height: 1.55; }
+  a { color: var(--lilac); text-underline-offset: 2px; }
+  .mark { display: inline-block; width: 26px; height: 26px; vertical-align: -6px; margin-right: 9px; }
+  .mark svg { width: 100%; height: 100%; display: block; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .sitehead { padding: 16px 0 14px; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+  .headrow { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--ink); }
+  .bname { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.05rem; }
+  .brand .mark { width: 22px; height: 22px; display: inline-block; }
+  .brand .mark svg { width: 100%; height: 100%; display: block; }
+  .sitenav { display: flex; gap: 18px; font-size: 0.85rem; flex-wrap: wrap; align-items: center; }
+  .sitenav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+  .sitenav a:hover { color: var(--teal); text-decoration: underline; }
+  .navcta { background: var(--teal); color: #fff !important; border-radius: 3px; padding: 6px 12px; text-decoration: none !important; white-space: nowrap; }
+  .navcta:hover { background: var(--basalt); }
+  @media (max-width: 560px) { .bname { font-size: 0.95rem; } .sitenav { gap: 12px; font-size: 0.8rem; } }
+  header { padding: 40px 0 22px; border-bottom: 3px solid var(--ink); }
+  .kicker { font-weight: 600; color: var(--lilac); margin-bottom: 10px; }
+  .kicker a { text-decoration: none; }
+  h1 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: clamp(1.8rem, 6vw, 2.6rem); line-height: 1.1; }
+  .standfirst { margin-top: 14px; font-size: 1.05rem; color: var(--ink-soft); max-width: 40em; }
+  section { padding: 28px 0; border-bottom: 1px solid var(--rule); }
+  h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.3rem; margin-bottom: 10px; }
+  p { max-width: 42em; }
+  p + p { margin-top: 12px; }
+  ul { margin: 10px 0 0 20px; max-width: 42em; }
+  li { margin-bottom: 8px; }
+  .pull { background: var(--panel); border-left: 4px solid var(--lilac); padding: 14px 16px; border-radius: 0 4px 4px 0; max-width: 42em; margin-top: 14px; font-weight: 600; }
+  .vint { font-size: 0.85rem; color: var(--ink-soft); }
+  .trend { margin: 22px 0 8px; }
+  .trend svg { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; }
+  .trend figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); }
+  .trend figcaption b { color: var(--ink); }
+  .src { font-size: 0.82rem; color: var(--ink-soft); }
+  .astable { margin-top: 12px; }
+  .astable > summary { cursor: pointer; font-size: 0.8rem; font-weight: 600; color: var(--teal); list-style: none; }
+  .astable > summary::-webkit-details-marker { display: none; }
+  .astable > summary::before { content: "+ "; }
+  .astable[open] > summary::before { content: "\2212 "; }
+  .astable table { border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; width: 100%; }
+  .astable caption { text-align: left; color: var(--ink-soft); font-size: 0.78rem; padding-bottom: 6px; }
+  .astable th, .astable td { text-align: left; padding: 5px 18px 5px 0; border-bottom: 1px solid var(--rule); }
+  .astable thead th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .astable tbody th { font-weight: 600; color: var(--ink-soft); }
+  .astable td { font-weight: 700; }
+  .paytable { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.92rem; }
+  .paytable th, .paytable td { text-align: left; padding: 8px 14px 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .paytable thead th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .paytable td.pay { font-weight: 700; white-space: nowrap; }
+  .paytable td.psrc { font-size: 0.8rem; color: var(--ink-soft); }
+  footer { padding: 28px 0 56px; font-size: 0.9rem; color: var(--ink-soft); }
+  footer p { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div style="background:#f7f0de;border-bottom:2px solid #a06e0a;padding:12px 0;">
+  <div style="max-width:860px;margin:0 auto;padding:0 24px;font-family:'Public Sans',-apple-system,sans-serif;font-size:0.92rem;color:#171d1c;line-height:1.45;">
+    <b>Archived edition, August 2026.</b> Frozen as published. The figures and grades here are not updated. <a href="/" style="color:#2a6b73;">See the current scorecard</a> or <a href="/archive/" style="color:#2a6b73;">all past editions</a>.
+  </div>
+</div>
+<div class="wrap">
+
+<header class="sitehead">
+  <div class="headrow">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 20 L13 17 L19 20 L19 42 L7 42 Z" fill="#2b3134"/><path d="M20 11 L26 8 L32 11 L32 42 L20 42 Z" fill="#2a6b73"/><path d="M33 27 L39 24 L45 27 L45 42 L33 42 Z" fill="#2b3134"/></svg></span><span class="bname">The Spokane Prosperity Scorecard</span></a>
+    <nav class="sitenav" aria-label="Site">
+      <a href="/">The Score</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="/archive/">Past Editions</a>
+      <a href="who.html">Who Made This</a>
+      <a class="navcta" href="https://tally.so/r/2E6e8g">Get the Update</a>
+    </nav>
+  </div>
+</header>
+
+<header>
+  <p class="kicker"><a href="/">From the resident-run scorecard that grades Spokane&rsquo;s economy four times a year</a></p>
+  <h1>Who actually employs Spokane</h1>
+  <p class="standfirst">The largest employer. The sectors that carry the jobs. Where the growth is. Every figure links to a public source. The page refreshes each quarter with the scorecard.</p>
+</header>
+
+<section>
+  <h2>The short answer</h2>
+  <p class="pull">Spokane County&rsquo;s largest employer is Fairchild Air Force Base. Four of the top 12 are health care organizations. Most of the biggest job engines here are not private companies.</p>
+  <ul>
+    <li>Fairchild Air Force Base is the county&rsquo;s largest employer, as reported in the Journal of Business 2025 Book of Lists. <a href="https://greaterspokane.org/economic-development/where-service-turns-to-opportunity-spokanes-military-legacy/">Greater Spokane Inc.</a></li>
+    <li>Four of the county&rsquo;s top 12 employers serve health care. They are Providence Inland Northwest Washington, MultiCare Health System Inland Northwest, Mann-Grandstaff VA Medical Center, and CHAS Health. <a href="https://greaterspokane.org/economic-development/the-heart-of-spokanes-economy/">Greater Spokane Inc.</a></li>
+    <li>Health care and social assistance is the county&rsquo;s largest sector, 21.3% of all jobs in 2025. <a href="data/qcew/healthcare_share.csv">The share by year</a>, from <a href="https://www.bls.gov/cew/">BLS QCEW</a>.</li>
+  </ul>
+  <p class="src">A fully ranked list with employee counts is published in the <a href="https://www.spokanejournal.com/">Journal of Business</a> Book of Lists. That list is paid. This page sticks to what a reader can check free. It will carry a full ranked table when a current public list appears. If you publish one, it gets linked here.</p>
+</section>
+
+<section>
+  <h2>Where the jobs actually are</h2>
+  <p>Employers come and go. Sectors are the steadier truth. The public record covers them completely. Here is each major sector&rsquo;s change since 2019. The counts come from unemployment insurance records.</p>
+<figure class="trend">
+        <svg viewBox="0 0 680 364" role="img" aria-label="Bar chart of the change in Spokane County jobs by sector, 2019 to 2025. Health care leads at plus 6,159, transportation and warehousing is close behind at plus 5,059, and together they account for about three quarters of all net growth. Manufacturing, finance, information, retail and several others shrank." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="364" fill="#ffffff"/><line x1="232.2" y1="12" x2="232.2" y2="356" stroke="#b9c6c4" stroke-width="1"/><rect x="232.2" y="19" width="383.8" height="10" fill="#2a6b73"/><text x="170" y="27" text-anchor="end" font-size="10.5" fill="#4a5654">Health care &amp; social assistance</text><text x="621.0" y="27" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+6,159</text><rect x="232.2" y="36" width="315.2" height="10" fill="#2a6b73"/><text x="170" y="44" text-anchor="end" font-size="10.5" fill="#4a5654">Transportation &amp; warehousing</text><text x="552.5" y="44" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+5,059</text><rect x="232.2" y="53" width="91.0" height="10" fill="#2a6b73"/><text x="170" y="61" text-anchor="end" font-size="10.5" fill="#4a5654">Government (all levels)</text><text x="328.2" y="61" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,460</text><rect x="232.2" y="70" width="90.9" height="10" fill="#2a6b73"/><text x="170" y="78" text-anchor="end" font-size="10.5" fill="#4a5654">Admin &amp; support services</text><text x="328.1" y="78" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,459</text><rect x="232.2" y="87" width="77.3" height="10" fill="#2a6b73"/><text x="170" y="95" text-anchor="end" font-size="10.5" fill="#4a5654">Professional &amp; technical services</text><text x="314.5" y="95" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,240</text><rect x="232.2" y="104" width="55.0" height="10" fill="#2a6b73"/><text x="170" y="112" text-anchor="end" font-size="10.5" fill="#4a5654">Arts &amp; recreation</text><text x="292.2" y="112" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+882</text><rect x="232.2" y="121" width="48.9" height="10" fill="#2a6b73"/><text x="170" y="129" text-anchor="end" font-size="10.5" fill="#4a5654">Construction</text><text x="286.1" y="129" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+784</text><rect x="232.2" y="138" width="43.9" height="10" fill="#2a6b73"/><text x="170" y="146" text-anchor="end" font-size="10.5" fill="#4a5654">Private education</text><text x="281.1" y="146" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+705</text><rect x="232.2" y="155" width="36.2" height="10" fill="#2a6b73"/><text x="170" y="163" text-anchor="end" font-size="10.5" fill="#4a5654">Other services</text><text x="273.4" y="163" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+581</text><rect x="232.2" y="172" width="11.2" height="10" fill="#2a6b73"/><text x="170" y="180" text-anchor="end" font-size="10.5" fill="#4a5654">Wholesale trade</text><text x="248.4" y="180" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+179</text><rect x="232.2" y="189" width="4.0" height="10" fill="#2a6b73"/><text x="170" y="197" text-anchor="end" font-size="10.5" fill="#4a5654">Utilities</text><text x="241.2" y="197" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+64</text><rect x="232.2" y="206" width="3.1" height="10" fill="#2a6b73"/><text x="170" y="214" text-anchor="end" font-size="10.5" fill="#4a5654">Real estate</text><text x="240.3" y="214" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+49</text><rect x="232.2" y="223" width="2.5" height="10" fill="#2a6b73"/><text x="170" y="231" text-anchor="end" font-size="10.5" fill="#4a5654">Mining</text><text x="239.7" y="231" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+40</text><rect x="219.8" y="240" width="12.4" height="10" fill="#b3402e"/><text x="170" y="248" text-anchor="end" font-size="10.5" fill="#4a5654">Hotels &amp; restaurants</text><text x="214.8" y="248" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-199</text><rect x="217.9" y="257" width="14.3" height="10" fill="#b3402e"/><text x="170" y="265" text-anchor="end" font-size="10.5" fill="#4a5654">Farming &amp; forestry</text><text x="212.9" y="265" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-230</text><rect x="210.4" y="274" width="21.8" height="10" fill="#b3402e"/><text x="170" y="282" text-anchor="end" font-size="10.5" fill="#4a5654">Manufacturing</text><text x="205.4" y="282" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-350</text><rect x="202.2" y="291" width="30.0" height="10" fill="#b3402e"/><text x="170" y="299" text-anchor="end" font-size="10.5" fill="#4a5654">Information</text><text x="197.2" y="299" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-482</text><rect x="194.8" y="308" width="37.4" height="10" fill="#b3402e"/><text x="170" y="316" text-anchor="end" font-size="10.5" fill="#4a5654">Retail trade</text><text x="189.8" y="316" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-600</text><rect x="189.0" y="325" width="43.2" height="10" fill="#b3402e"/><text x="170" y="333" text-anchor="end" font-size="10.5" fill="#4a5654">Company management</text><text x="184.0" y="333" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-693</text><rect x="176.0" y="342" width="56.2" height="10" fill="#b3402e"/><text x="170" y="350" text-anchor="end" font-size="10.5" fill="#4a5654">Finance &amp; insurance</text><text x="171.0" y="350" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-902</text></svg>
+        <figcaption><b>Jobs added and lost by sector, Spokane County, 2019 to 2025.</b> Absolute jobs, from before the pandemic to the newest complete year, sorted by change. Two sectors carried about three in four of the net new jobs: health care and logistics. Manufacturing, finance, information and retail all shrank. Private sectors; government is all levels combined.
+        <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Change in average annual employment by sector, Spokane County (QCEW)</caption><thead><tr><th scope="col">Sector</th><th scope="col">Change</th><th scope="col">2019 &rarr; 2025</th></tr></thead><tbody><tr><th scope="row">Health care &amp; social assistance</th><td>+6,159</td><td>42,667 &rarr; 48,826</td></tr><tr><th scope="row">Transportation &amp; warehousing</th><td>+5,059</td><td>6,085 &rarr; 11,144</td></tr><tr><th scope="row">Government (all levels)</th><td>+1,460</td><td>35,860 &rarr; 37,320</td></tr><tr><th scope="row">Admin &amp; support services</th><td>+1,459</td><td>11,531 &rarr; 12,990</td></tr><tr><th scope="row">Professional &amp; technical services</th><td>+1,240</td><td>10,534 &rarr; 11,774</td></tr><tr><th scope="row">Arts &amp; recreation</th><td>+882</td><td>2,962 &rarr; 3,844</td></tr><tr><th scope="row">Construction</th><td>+784</td><td>12,751 &rarr; 13,535</td></tr><tr><th scope="row">Private education</th><td>+705</td><td>4,052 &rarr; 4,757</td></tr><tr><th scope="row">Other services</th><td>+581</td><td>6,195 &rarr; 6,776</td></tr><tr><th scope="row">Wholesale trade</th><td>+179</td><td>10,303 &rarr; 10,482</td></tr><tr><th scope="row">Utilities</th><td>+64</td><td>327 &rarr; 391</td></tr><tr><th scope="row">Real estate</th><td>+49</td><td>3,790 &rarr; 3,839</td></tr><tr><th scope="row">Mining</th><td>+40</td><td>234 &rarr; 274</td></tr><tr><th scope="row">Hotels &amp; restaurants</th><td>-199</td><td>20,008 &rarr; 19,809</td></tr><tr><th scope="row">Farming &amp; forestry</th><td>-230</td><td>1,772 &rarr; 1,542</td></tr><tr><th scope="row">Manufacturing</th><td>-350</td><td>16,338 &rarr; 15,988</td></tr><tr><th scope="row">Information</th><td>-482</td><td>3,095 &rarr; 2,613</td></tr><tr><th scope="row">Retail trade</th><td>-600</td><td>26,832 &rarr; 26,232</td></tr><tr><th scope="row">Company management</th><td>-693</td><td>3,348 &rarr; 2,655</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>-902</td><td>9,817 &rarr; 8,915</td></tr></tbody></table></details>
+        <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/sector_change_2019_2025.csv">Download this data (CSV)</a>.</span></figcaption>
+      </figure>
+  <p style="margin-top:14px;">Two sectors carry three in four net new jobs since 2019. They are health care, and transportation &amp; warehousing. Manufacturing, finance, information and retail all shrank. That much riding on two sectors is one of the scorecard&rsquo;s three weak grades. <a href="/">See the hiring card</a>.</p>
+</section>
+
+<section>
+  <h2>What it means</h2>
+  <p>A base, hospitals, schools and government make steady paychecks. Steady is worth a lot. But they do not bring much new money into the region. An exporter does. When an employer that sells outside the region arrives, its payroll ripples into local shops, clinics and trades. <a href="calculator.html">The employer calculator</a> shows that ripple, industry by industry, with its sources shown.</p>
+  <p>The open question is whether Spokane can attract more employers like that. Right now the scorecard grades the region <a href="/">off track</a>.</p>
+</section>
+
+<section>
+  <h2>Where these numbers come from</h2>
+  <p>Sector jobs come from the BLS Quarterly Census of Employment and Wages for Spokane County. The exact rows are committed and downloadable above. The largest-employer and top-12 claims come from Greater Spokane Inc. That group cites the Journal of Business 2025 Book of Lists. Those are reported claims. They carry their source, and they are not this scorecard&rsquo;s own count.</p>
+  <p>This page was last updated in September 2026 and is refreshed each quarter. If a number here is wrong, <a href="https://tally.so/r/PdqAYe">say so</a>, and it gets fixed in public with a note in <a href="methodology.html">the change log</a>.</p>
+</section>
+
+
+<footer>
+  <p>More answers: <a href="living-in-spokane.html">Is Spokane a good place to live</a> &middot; <a href="wages-in-spokane.html">Wages in Spokane</a></p>
+  <p><a href="/">The scorecard</a> &middot; <a href="methodology.html">Methodology and change log</a> &middot; <a href="/archive/">Past editions</a> &middot; <a href="who.html">Who made this</a></p>
+</footer>
+
+</div>
+</body>
+</html>
