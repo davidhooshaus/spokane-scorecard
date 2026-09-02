@@ -18,6 +18,10 @@ Files:
 - `calculator.html` — employer impact tool (illustration, never a forecast)
 - `living-in-spokane.html` — evergreen answer page for movers ("is Spokane a good
   place to live"); reuses card figures and their sources; refreshed each quarter
+- `wages-in-spokane.html` — minimum wage (state rate, changes Jan 1) + pay by
+  industry; `employers-in-spokane.html` — largest-employer claims (labeled,
+  via GSI/Journal of Business) + sector record; both refresh quarterly
+- `sitemap.xml`, `robots.txt` — update sitemap lastmod when pages change
 - `flywheel.svg` — the compounding diagram, embedded by index.html
 - `press/flywheel.png` — 1600px social/press export of the SVG
 - `data/` — pulled datasets (DOR files, Census pulls, city-lever data obtained by request)

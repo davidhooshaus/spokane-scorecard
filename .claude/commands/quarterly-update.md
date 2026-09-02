@@ -13,8 +13,8 @@ step that makes the whole project credible, so it happens before any edit, not a
 - `mkdir -p archive/<YYYY-MM>` using the OUTGOING edition's month (the one on the masthead
   right now, not the one you are about to publish).
 - Copy `index.html`, `methodology.html`, `calculator.html`, `who.html`,
-  `living-in-spokane.html`, `flywheel.svg`, `mark.svg`, and the `data/` and `img/`
-  directories into it.
+  `living-in-spokane.html`, `wages-in-spokane.html`, `employers-in-spokane.html`,
+  `flywheel.svg`, `mark.svg`, and the `data/` and `img/` directories into it.
 - In each copied HTML file: add `<meta name="robots" content="noindex">` before `<title>`,
   drop the `og:url` tag, insert the amber archived-edition banner directly after `<body>`
   (copy the exact markup from `archive/2026-08/index.html`), and rewrite `href="archive/"`
@@ -57,12 +57,16 @@ QCEW jobs line with no axes or numbers; the sourced version lives in the Job
 growth card. If the script exits saying the data left its fixed range, widen
 VMIN/VMAX in the script and rerun.
 
-## 2b. Sync the living page
-living-in-spokane.html repeats card figures (wages, incomes, jobs, unemployment,
-sector mix) plus ACS home value and poverty and the state minimum wage. After
-the cards update, update the same figures there, refresh its "last updated"
-line, and recheck the January minimum-wage change. It freezes with the other
-pages in step 0.
+## 2b. Sync the answer pages
+living-in-spokane.html, wages-in-spokane.html and employers-in-spokane.html
+repeat card figures (wages, incomes, jobs, unemployment, sector mix) plus ACS
+home value and poverty, the state minimum wage, and the reported
+largest-employer claims. After the cards update, update the same figures there
+and refresh each page's "last updated" line. In the first quarter of the year,
+recheck the minimum wage (new rate effective Jan 1) and the local-rates page.
+Once a year, recheck the Book of Lists claims against the current GSI pages.
+Update sitemap.xml lastmod for any page that changed. They freeze with the
+other pages in step 0.
 
 ## 3. Update each card
 Figure, the <small> geography+vintage label, bench text, source dates, and
