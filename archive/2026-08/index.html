@@ -20,11 +20,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #fcfcfb;
-    --ink: #171d1c;
-    --ink-soft: #4a5654;
-    --rule: #d2dcda;
-    --rule-strong: #b9c6c4;
+    --paper: #fbf8f2;
+    --ink: #211d18;
+    --ink-soft: #5b5347;
+    --rule: #e3dcce;
+    --rule-strong: #ccc2ac;
     --lilac: #2a6b73;
     --teal: #2a6b73;
     --basalt: #2b3134;
@@ -34,8 +34,8 @@
     --green-bg: #eaf3ee;
     --amber-bg: #f7f0de;
     --red-bg: #f8e9e5;
-    --panel: #e2ecea;
-    --panel-deep: #d3e3e1;
+    --panel: #f3ecdc;
+    --panel-deep: #ebe1cb;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -70,7 +70,7 @@
   .sitenav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
   .sitenav a:hover { color: var(--teal); text-decoration: underline; }
   .navcta {
-    background: var(--teal); color: #fff !important; border-radius: 3px;
+    background: var(--teal); color: #fff !important; border-radius: 999px;
     padding: 6px 12px; text-decoration: none !important; white-space: nowrap;
   }
   .navcta:hover { background: var(--basalt); }
@@ -78,7 +78,7 @@
   /* Inline signup blocks */
   .signup {
     background: #fff; border: 1px solid var(--rule); border-left: 5px solid var(--teal);
-    border-radius: 0 4px 4px 0; padding: 20px 22px; margin-top: 28px;
+    border-radius: 0 10px 10px 0; padding: 20px 22px; margin-top: 28px;
     display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
   }
   .signup .stext { flex: 1 1 22em; min-width: 0; }
@@ -197,7 +197,7 @@
     display: inline-block;
     padding: 9px 16px;
     border: 1.5px solid var(--ink);
-    border-radius: 3px;
+    border-radius: 8px;
     font-size: 0.92rem;
     font-weight: 600;
     text-decoration: none;
@@ -230,10 +230,10 @@
   .flow.anim .node { opacity: 0; transform: translateY(6px); }
   .flow .node { transition: opacity .35s ease, transform .35s ease; }
   .flow.anim .node.lit { opacity: 1; transform: none; }
-  .guess { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 18px 20px; margin-top: 14px; }
+  .guess { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; margin-top: 14px; }
   .guess p { font-weight: 600; max-width: none; }
   .gbtns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-  .gbtn { font: inherit; font-size: 0.9rem; font-weight: 600; padding: 9px 14px; border: 1.5px solid var(--teal); border-radius: 3px; background: #fff; color: var(--teal); cursor: pointer; }
+  .gbtn { font: inherit; font-size: 0.9rem; font-weight: 600; padding: 9px 16px; border: 1.5px solid var(--teal); border-radius: 999px; background: #fff; color: var(--teal); cursor: pointer; }
   .gbtn:hover { background: var(--teal); color: #fff; }
   .gans { margin-top: 12px; font-weight: 600; }
   nav.jump a { display: block; padding: 14px 13px; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
@@ -379,14 +379,14 @@
   /* The story in three numbers */
   .tklab { font-weight: 700; font-size: 0.95rem; margin-top: 26px; }
   .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 14px 0 6px; padding: 0; list-style: none; }
-  .tnum { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 16px 18px 18px; }
+  .tnum { background: #fff; border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 1px 3px rgba(72,54,30,.06); padding: 16px 18px 18px; }
   .tnum .tn { font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 2.4rem; line-height: 1; color: var(--teal); display: block; margin-bottom: 8px; }
   .tnum p { font-size: 0.95rem; line-height: 1.5; }
   @media (max-width: 760px) { .three { grid-template-columns: 1fr; gap: 12px; } }
 
   /* Old story / new story beats */
   .beats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 28px; }
-  .beat { border-radius: 4px; padding: 16px 18px 18px; }
+  .beat { border-radius: 10px; padding: 16px 18px 18px; }
   .beat.was { background: var(--basalt); color: #e8edec; }
   .beat.now { background: #ffffff; border: 1px solid var(--rule); }
   .blab { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--teal); }
@@ -414,7 +414,7 @@
   .nbreak {
     position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
     background: var(--red); color: #fff; font-size: 0.56rem; font-weight: 800;
-    letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+    letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 9px; border-radius: 999px; white-space: nowrap;
   }
   @media (max-width: 700px) { .nbreak { left: auto; right: 8px; transform: none; top: 50%; margin-top: -0.7em; } .node.break { border-top-width: 1px; border-left-width: 6px; } }
   .farrow { align-self: center; color: var(--ink-soft); font-size: 1.1rem; flex: 0 0 auto; }
@@ -446,7 +446,8 @@
     background: #fff;
     border: 1px solid var(--rule);
     border-top: 4px solid var(--rule-strong);
-    border-radius: 3px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(72,54,30,.06);
     position: relative;
   }
   .row.g { border-top-color: var(--green); }
@@ -455,24 +456,24 @@
   .row[open] { grid-column: 1 / -1; }
   .row > summary { list-style: none; cursor: pointer; padding: 13px 14px 15px; }
   .row > summary::-webkit-details-marker { display: none; }
-  .row > summary:hover { background: #f6faf9; }
+  .row > summary:hover { background: #faf6ec; }
 
   .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
   .geo {
     font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--ink-soft); background: #e6eeec; border-radius: 2px; padding: 2px 6px; white-space: nowrap;
+    color: var(--ink-soft); background: #efe9db; border-radius: 999px; padding: 2px 9px; white-space: nowrap;
   }
   .geo { position: relative; cursor: help; }
   .geo:hover::after, .geo:focus::after {
     content: attr(data-tip);
     position: absolute; left: 0; bottom: calc(100% + 6px);
     background: var(--basalt); color: #fff; font-size: 0.68rem; font-weight: 600;
-    letter-spacing: 0.02em; text-transform: none; padding: 5px 8px; border-radius: 3px;
+    letter-spacing: 0.02em; text-transform: none; padding: 5px 10px; border-radius: 999px;
     white-space: nowrap; z-index: 50;
   }
   .grade {
     font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
-    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+    padding: 2px 9px; border-radius: 999px; white-space: nowrap;
   }
   .row.g .grade { color: var(--green); background: var(--green-bg); }
   .row.y .grade { color: var(--amber); background: var(--amber-bg); }
@@ -490,7 +491,7 @@
 
   /* microbar: Spokane as a share of its benchmark, tick at the benchmark */
   .micro { display: block; margin-top: 10px; }
-  .mtrack { display: block; position: relative; height: 6px; background: #d5e2e0; border-radius: 3px; }
+  .mtrack { display: block; position: relative; height: 6px; background: #e7dfcd; border-radius: 3px; }
   .mfill { display: block; height: 100%; border-radius: 3px; background: var(--teal); }
   .row.r .mfill { background: var(--red); }
   .row.y .mfill { background: var(--amber); }
@@ -526,7 +527,7 @@
   .chart { margin-top: 14px; }
   .bar { display: flex; align-items: center; gap: 10px; margin: 5px 0; font-size: 0.85rem; }
   .lab { flex: 0 0 96px; color: var(--ink-soft); line-height: 1.25; }
-  .track { flex: 1 1 auto; height: 11px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
+  .track { flex: 1 1 auto; height: 11px; background: #e7dfcf; border-radius: 2px; overflow: hidden; }
   .fill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .bar.spk .lab { color: var(--ink); font-weight: 600; }
   .bar.spk .fill { background: var(--lilac); }
@@ -534,7 +535,7 @@
   .chart .note { margin-top: 6px; font-size: 0.8rem; color: var(--ink-soft); }
 
   /* Calculator teaser */
-  .teaser { background: var(--panel-deep); border: 1px solid var(--rule); border-radius: 4px; padding: 22px; }
+  .teaser { background: var(--panel-deep); border: 1px solid var(--rule); border-radius: 12px; padding: 22px; }
   .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 16px 0 4px; }
   .versus .side .in { font-weight: 700; font-size: 1.02rem; }
   .versus .side .out {
@@ -574,7 +575,7 @@
   .trend figcaption b { color: var(--ink); }
 
   /* Mini calculator */
-  .minicalc { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 26px 28px; margin-top: 28px; }
+  .minicalc { background: #fff; border: 1px solid var(--rule); border-radius: 12px; box-shadow: 0 1px 3px rgba(72,54,30,.06); padding: 26px 28px; margin-top: 28px; }
   .mchead { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 12px; }
   .mcrow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   @media (max-width: 620px) { .mcrow { grid-template-columns: 1fr; } }
@@ -588,14 +589,14 @@
   .mcstat { border-top: 3px solid var(--teal); background: var(--paper); padding: 9px 10px 11px; border-radius: 0 0 3px 3px; }
   .mcn { display: block; font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; line-height: 1.2; }
   .mcl { display: block; margin-top: 3px; font-size: 0.72rem; line-height: 1.3; color: var(--ink-soft); }
-  .mcchart { margin-top: 14px; border: 1px solid var(--rule); border-radius: 3px; background: #fff; }
+  .mcchart { margin-top: 14px; border: 1px solid var(--rule); border-radius: 8px; background: #fff; }
   .mcchart svg { width: 100%; height: auto; display: block; }
 
   /* Poll reasons */
   .reasons { margin-top: 4px; }
   .rrow { display: flex; align-items: center; gap: 12px; margin: 7px 0; font-size: 0.9rem; }
   .rlab { flex: 0 0 172px; color: var(--ink-soft); }
-  .rtrack { flex: 1 1 auto; height: 13px; background: #ccdad8; border-radius: 2px; overflow: hidden; }
+  .rtrack { flex: 1 1 auto; height: 13px; background: #e7dfcf; border-radius: 2px; overflow: hidden; }
   .rfill { display: block; height: 100%; background: #93a8a6; border-radius: 2px; }
   .rrow:first-child .rfill { background: var(--basalt); }
   .rval { flex: 0 0 42px; text-align: right; font-weight: 700; }
@@ -605,7 +606,7 @@
   /* Tax burden pair */
   .taxpair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
   @media (max-width: 620px) { .taxpair { grid-template-columns: 1fr; } }
-  .tp { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--rule-strong); border-radius: 3px; padding: 16px; }
+  .tp { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--rule-strong); border-radius: 10px; padding: 16px; }
   .tp.lo { border-top-color: var(--red); }
   .tp.hi { border-top-color: var(--teal); }
   .tpn { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 2.2rem; line-height: 1; letter-spacing: -0.02em; }
@@ -628,7 +629,7 @@
   /* Goal tiles */
   .goals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 4px; }
   @media (max-width: 760px) { .goals { grid-template-columns: repeat(2, 1fr); } }
-  .goal { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--teal); border-radius: 3px; padding: 14px; }
+  .goal { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--teal); border-radius: 10px; padding: 14px; }
   .gnum { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 1.9rem; line-height: 1; letter-spacing: -0.02em; color: var(--teal); }
   .glab { display: block; margin-top: 7px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
   .gwho { display: block; margin-top: 9px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); }
@@ -646,7 +647,7 @@
 
   /* Lever map */
   .levers { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 6px; }
-  .lever { border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+  .lever { border: 1px solid var(--rule); border-radius: 10px; background: #fff; }
   .lever > summary { list-style: none; cursor: pointer; padding: 14px 34px 14px 16px; position: relative; }
   .lever > summary::-webkit-details-marker { display: none; }
   .lever > summary::after { content: "+"; position: absolute; right: 14px; top: 50%; margin-top: -0.6em; font-size: 1.15rem; color: var(--ink-soft); line-height: 1; }
@@ -679,14 +680,14 @@
     vertical-align: 1px;
   }
   .tag.red { color: var(--red); background: var(--red-bg); }
-  .tag.gap { color: var(--ink-soft); background: #dfe7e6; }
-  .tag.pub { color: var(--teal); background: #ddebec; }
-  .tag.open { color: var(--lilac); background: #efecf5; }
+  .tag.gap { color: var(--ink-soft); background: #e9e3d4; }
+  .tag.pub { color: var(--teal); background: #e4ede9; }
+  .tag.open { color: var(--lilac); background: #efe9dc; }
 
   /* City cards */
   .cities { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
   @media (max-width: 620px) { .cities { grid-template-columns: 1fr; } }
-  .city { border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+  .city { border: 1px solid var(--rule); border-radius: 10px; background: #fff; }
   .city > summary { list-style: none; cursor: pointer; padding: 16px; position: relative; }
   .city > summary::-webkit-details-marker { display: none; }
   .city > summary::after {
@@ -707,7 +708,7 @@
   /* Expo feature */
   .expo {
     display: grid; grid-template-columns: 300px 1fr; gap: 24px;
-    background: #fff; border: 1px solid var(--rule); border-radius: 4px;
+    background: #fff; border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 1px 3px rgba(72,54,30,.06);
     padding: 22px; margin-top: 26px; align-items: start;
   }
   @media (max-width: 700px) { .expo { grid-template-columns: 1fr; } }
@@ -861,9 +862,9 @@
     <div class="inner">
       <div class="geokey">
         <svg width="190" height="96" viewBox="0 0 190 96" role="img" aria-label="Diagram: the City of Spokane sits inside Spokane County, which sits inside the Spokane metro area, which also includes Stevens County.">
-          <rect x="1" y="1" width="188" height="94" rx="4" fill="#eef3f2" stroke="#b9c6c4"/>
+          <rect x="1" y="1" width="188" height="94" rx="4" fill="#f5efe3" stroke="#ccc2ac"/>
           <text x="7" y="14" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#4a5654" letter-spacing="1">METRO</text>
-          <rect x="14" y="20" width="140" height="66" rx="3" fill="#ddeae9" stroke="#8fa9a7"/>
+          <rect x="14" y="20" width="140" height="66" rx="3" fill="#ece4d2" stroke="#b3a78e"/>
           <text x="20" y="33" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#4a5654" letter-spacing="1">COUNTY</text>
           <rect x="27" y="39" width="76" height="40" rx="3" fill="#2a6b73"/>
           <text x="33" y="53" font-size="8.5" font-family="Public Sans, sans-serif" font-weight="700" fill="#ffffff" letter-spacing="1">CITY</text>
@@ -894,7 +895,7 @@
       </div>
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+410/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026</th><td>+58/mo</td></tr></tbody></table></details>
       <figure class="trend" id="longview">
-    <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#171d1c">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
+    <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#211d18">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
     <figcaption><b>The climb stopped in 2024.</b> Jobs in Spokane County, 2014 to 2025: average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
     <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
     <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
@@ -924,13 +925,13 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Five-year job change by sector, Spokane County</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Health care</th><td>+13%</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>&minus;12%</td></tr></tbody></table></details>
 
       <figure class="trend">
-        <svg viewBox="0 0 680 364" role="img" aria-label="Bar chart of the change in Spokane County jobs by sector, 2019 to 2025. Health care leads at plus 6,159, transportation and warehousing is close behind at plus 5,059, and together they account for about three quarters of all net growth. Manufacturing, finance, information, retail and several others shrank." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="364" fill="#ffffff"/><line x1="232.2" y1="12" x2="232.2" y2="356" stroke="#b9c6c4" stroke-width="1"/><rect x="232.2" y="19" width="383.8" height="10" fill="#2a6b73"/><text x="170" y="27" text-anchor="end" font-size="10.5" fill="#4a5654">Health care &amp; social assistance</text><text x="621.0" y="27" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+6,159</text><rect x="232.2" y="36" width="315.2" height="10" fill="#2a6b73"/><text x="170" y="44" text-anchor="end" font-size="10.5" fill="#4a5654">Transportation &amp; warehousing</text><text x="552.5" y="44" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+5,059</text><rect x="232.2" y="53" width="91.0" height="10" fill="#2a6b73"/><text x="170" y="61" text-anchor="end" font-size="10.5" fill="#4a5654">Government (all levels)</text><text x="328.2" y="61" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,460</text><rect x="232.2" y="70" width="90.9" height="10" fill="#2a6b73"/><text x="170" y="78" text-anchor="end" font-size="10.5" fill="#4a5654">Admin &amp; support services</text><text x="328.1" y="78" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,459</text><rect x="232.2" y="87" width="77.3" height="10" fill="#2a6b73"/><text x="170" y="95" text-anchor="end" font-size="10.5" fill="#4a5654">Professional &amp; technical services</text><text x="314.5" y="95" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,240</text><rect x="232.2" y="104" width="55.0" height="10" fill="#2a6b73"/><text x="170" y="112" text-anchor="end" font-size="10.5" fill="#4a5654">Arts &amp; recreation</text><text x="292.2" y="112" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+882</text><rect x="232.2" y="121" width="48.9" height="10" fill="#2a6b73"/><text x="170" y="129" text-anchor="end" font-size="10.5" fill="#4a5654">Construction</text><text x="286.1" y="129" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+784</text><rect x="232.2" y="138" width="43.9" height="10" fill="#2a6b73"/><text x="170" y="146" text-anchor="end" font-size="10.5" fill="#4a5654">Private education</text><text x="281.1" y="146" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+705</text><rect x="232.2" y="155" width="36.2" height="10" fill="#2a6b73"/><text x="170" y="163" text-anchor="end" font-size="10.5" fill="#4a5654">Other services</text><text x="273.4" y="163" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+581</text><rect x="232.2" y="172" width="11.2" height="10" fill="#2a6b73"/><text x="170" y="180" text-anchor="end" font-size="10.5" fill="#4a5654">Wholesale trade</text><text x="248.4" y="180" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+179</text><rect x="232.2" y="189" width="4.0" height="10" fill="#2a6b73"/><text x="170" y="197" text-anchor="end" font-size="10.5" fill="#4a5654">Utilities</text><text x="241.2" y="197" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+64</text><rect x="232.2" y="206" width="3.1" height="10" fill="#2a6b73"/><text x="170" y="214" text-anchor="end" font-size="10.5" fill="#4a5654">Real estate</text><text x="240.3" y="214" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+49</text><rect x="232.2" y="223" width="2.5" height="10" fill="#2a6b73"/><text x="170" y="231" text-anchor="end" font-size="10.5" fill="#4a5654">Mining</text><text x="239.7" y="231" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+40</text><rect x="219.8" y="240" width="12.4" height="10" fill="#b3402e"/><text x="170" y="248" text-anchor="end" font-size="10.5" fill="#4a5654">Hotels &amp; restaurants</text><text x="214.8" y="248" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-199</text><rect x="217.9" y="257" width="14.3" height="10" fill="#b3402e"/><text x="170" y="265" text-anchor="end" font-size="10.5" fill="#4a5654">Farming &amp; forestry</text><text x="212.9" y="265" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-230</text><rect x="210.4" y="274" width="21.8" height="10" fill="#b3402e"/><text x="170" y="282" text-anchor="end" font-size="10.5" fill="#4a5654">Manufacturing</text><text x="205.4" y="282" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-350</text><rect x="202.2" y="291" width="30.0" height="10" fill="#b3402e"/><text x="170" y="299" text-anchor="end" font-size="10.5" fill="#4a5654">Information</text><text x="197.2" y="299" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-482</text><rect x="194.8" y="308" width="37.4" height="10" fill="#b3402e"/><text x="170" y="316" text-anchor="end" font-size="10.5" fill="#4a5654">Retail trade</text><text x="189.8" y="316" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-600</text><rect x="189.0" y="325" width="43.2" height="10" fill="#b3402e"/><text x="170" y="333" text-anchor="end" font-size="10.5" fill="#4a5654">Company management</text><text x="184.0" y="333" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-693</text><rect x="176.0" y="342" width="56.2" height="10" fill="#b3402e"/><text x="170" y="350" text-anchor="end" font-size="10.5" fill="#4a5654">Finance &amp; insurance</text><text x="171.0" y="350" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-902</text></svg>
+        <svg viewBox="0 0 680 364" role="img" aria-label="Bar chart of the change in Spokane County jobs by sector, 2019 to 2025. Health care leads at plus 6,159, transportation and warehousing is close behind at plus 5,059, and together they account for about three quarters of all net growth. Manufacturing, finance, information, retail and several others shrank." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="364" fill="#ffffff"/><line x1="232.2" y1="12" x2="232.2" y2="356" stroke="#ccc2ac" stroke-width="1"/><rect x="232.2" y="19" width="383.8" height="10" fill="#2a6b73"/><text x="170" y="27" text-anchor="end" font-size="10.5" fill="#4a5654">Health care &amp; social assistance</text><text x="621.0" y="27" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+6,159</text><rect x="232.2" y="36" width="315.2" height="10" fill="#2a6b73"/><text x="170" y="44" text-anchor="end" font-size="10.5" fill="#4a5654">Transportation &amp; warehousing</text><text x="552.5" y="44" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+5,059</text><rect x="232.2" y="53" width="91.0" height="10" fill="#2a6b73"/><text x="170" y="61" text-anchor="end" font-size="10.5" fill="#4a5654">Government (all levels)</text><text x="328.2" y="61" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+1,460</text><rect x="232.2" y="70" width="90.9" height="10" fill="#2a6b73"/><text x="170" y="78" text-anchor="end" font-size="10.5" fill="#4a5654">Admin &amp; support services</text><text x="328.1" y="78" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+1,459</text><rect x="232.2" y="87" width="77.3" height="10" fill="#2a6b73"/><text x="170" y="95" text-anchor="end" font-size="10.5" fill="#4a5654">Professional &amp; technical services</text><text x="314.5" y="95" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+1,240</text><rect x="232.2" y="104" width="55.0" height="10" fill="#2a6b73"/><text x="170" y="112" text-anchor="end" font-size="10.5" fill="#4a5654">Arts &amp; recreation</text><text x="292.2" y="112" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+882</text><rect x="232.2" y="121" width="48.9" height="10" fill="#2a6b73"/><text x="170" y="129" text-anchor="end" font-size="10.5" fill="#4a5654">Construction</text><text x="286.1" y="129" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+784</text><rect x="232.2" y="138" width="43.9" height="10" fill="#2a6b73"/><text x="170" y="146" text-anchor="end" font-size="10.5" fill="#4a5654">Private education</text><text x="281.1" y="146" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+705</text><rect x="232.2" y="155" width="36.2" height="10" fill="#2a6b73"/><text x="170" y="163" text-anchor="end" font-size="10.5" fill="#4a5654">Other services</text><text x="273.4" y="163" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+581</text><rect x="232.2" y="172" width="11.2" height="10" fill="#2a6b73"/><text x="170" y="180" text-anchor="end" font-size="10.5" fill="#4a5654">Wholesale trade</text><text x="248.4" y="180" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+179</text><rect x="232.2" y="189" width="4.0" height="10" fill="#2a6b73"/><text x="170" y="197" text-anchor="end" font-size="10.5" fill="#4a5654">Utilities</text><text x="241.2" y="197" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+64</text><rect x="232.2" y="206" width="3.1" height="10" fill="#2a6b73"/><text x="170" y="214" text-anchor="end" font-size="10.5" fill="#4a5654">Real estate</text><text x="240.3" y="214" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+49</text><rect x="232.2" y="223" width="2.5" height="10" fill="#2a6b73"/><text x="170" y="231" text-anchor="end" font-size="10.5" fill="#4a5654">Mining</text><text x="239.7" y="231" text-anchor="start" font-size="10.5" font-weight="700" fill="#211d18">+40</text><rect x="219.8" y="240" width="12.4" height="10" fill="#b3402e"/><text x="170" y="248" text-anchor="end" font-size="10.5" fill="#4a5654">Hotels &amp; restaurants</text><text x="214.8" y="248" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-199</text><rect x="217.9" y="257" width="14.3" height="10" fill="#b3402e"/><text x="170" y="265" text-anchor="end" font-size="10.5" fill="#4a5654">Farming &amp; forestry</text><text x="212.9" y="265" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-230</text><rect x="210.4" y="274" width="21.8" height="10" fill="#b3402e"/><text x="170" y="282" text-anchor="end" font-size="10.5" fill="#4a5654">Manufacturing</text><text x="205.4" y="282" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-350</text><rect x="202.2" y="291" width="30.0" height="10" fill="#b3402e"/><text x="170" y="299" text-anchor="end" font-size="10.5" fill="#4a5654">Information</text><text x="197.2" y="299" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-482</text><rect x="194.8" y="308" width="37.4" height="10" fill="#b3402e"/><text x="170" y="316" text-anchor="end" font-size="10.5" fill="#4a5654">Retail trade</text><text x="189.8" y="316" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-600</text><rect x="189.0" y="325" width="43.2" height="10" fill="#b3402e"/><text x="170" y="333" text-anchor="end" font-size="10.5" fill="#4a5654">Company management</text><text x="184.0" y="333" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-693</text><rect x="176.0" y="342" width="56.2" height="10" fill="#b3402e"/><text x="170" y="350" text-anchor="end" font-size="10.5" fill="#4a5654">Finance &amp; insurance</text><text x="171.0" y="350" text-anchor="end" font-size="10.5" font-weight="700" fill="#211d18">-902</text></svg>
         <figcaption><b>Two sectors carried the growth. Most of the rest shrank.</b> Jobs added and lost by sector, Spokane County, 2019 to 2025. Absolute jobs, from before the pandemic to the newest complete year, sorted by change. Two sectors carried about three in four of the net new jobs: health care and logistics. Manufacturing, finance, information and retail all shrank. Private sectors; government is all levels combined.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Change in average annual employment by sector, Spokane County (QCEW)</caption><thead><tr><th scope="col">Sector</th><th scope="col">Change</th><th scope="col">2019 &rarr; 2025</th></tr></thead><tbody><tr><th scope="row">Health care &amp; social assistance</th><td>+6,159</td><td>42,667 &rarr; 48,826</td></tr><tr><th scope="row">Transportation &amp; warehousing</th><td>+5,059</td><td>6,085 &rarr; 11,144</td></tr><tr><th scope="row">Government (all levels)</th><td>+1,460</td><td>35,860 &rarr; 37,320</td></tr><tr><th scope="row">Admin &amp; support services</th><td>+1,459</td><td>11,531 &rarr; 12,990</td></tr><tr><th scope="row">Professional &amp; technical services</th><td>+1,240</td><td>10,534 &rarr; 11,774</td></tr><tr><th scope="row">Arts &amp; recreation</th><td>+882</td><td>2,962 &rarr; 3,844</td></tr><tr><th scope="row">Construction</th><td>+784</td><td>12,751 &rarr; 13,535</td></tr><tr><th scope="row">Private education</th><td>+705</td><td>4,052 &rarr; 4,757</td></tr><tr><th scope="row">Other services</th><td>+581</td><td>6,195 &rarr; 6,776</td></tr><tr><th scope="row">Wholesale trade</th><td>+179</td><td>10,303 &rarr; 10,482</td></tr><tr><th scope="row">Utilities</th><td>+64</td><td>327 &rarr; 391</td></tr><tr><th scope="row">Real estate</th><td>+49</td><td>3,790 &rarr; 3,839</td></tr><tr><th scope="row">Mining</th><td>+40</td><td>234 &rarr; 274</td></tr><tr><th scope="row">Hotels &amp; restaurants</th><td>-199</td><td>20,008 &rarr; 19,809</td></tr><tr><th scope="row">Farming &amp; forestry</th><td>-230</td><td>1,772 &rarr; 1,542</td></tr><tr><th scope="row">Manufacturing</th><td>-350</td><td>16,338 &rarr; 15,988</td></tr><tr><th scope="row">Information</th><td>-482</td><td>3,095 &rarr; 2,613</td></tr><tr><th scope="row">Retail trade</th><td>-600</td><td>26,832 &rarr; 26,232</td></tr><tr><th scope="row">Company management</th><td>-693</td><td>3,348 &rarr; 2,655</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>-902</td><td>9,817 &rarr; 8,915</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/sector_change_2019_2025.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
       <figure class="trend">
-        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of health care's share of all Spokane County jobs, 2014 to 2025. The share stays above 20 percent for the whole period and reaches 21.3 percent in 2025, its highest point." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="606" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">19%</text><line x1="56" y1="153.7" x2="606" y2="153.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="157.7" text-anchor="end" font-size="11" fill="#4a5654">20%</text><line x1="56" y1="99.4" x2="606" y2="99.4" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="103.4" text-anchor="end" font-size="11" fill="#4a5654">21%</text><line x1="56" y1="45.1" x2="606" y2="45.1" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="49.1" text-anchor="end" font-size="11" fill="#4a5654">22%</text><polyline points="56.0,132.0 106.0,153.7 156.0,148.3 206.0,137.4 256.0,148.3 306.0,137.4 356.0,61.4 406.0,110.3 456.0,148.3 506.0,132.0 556.0,99.4 606.0,83.1" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="83.1" r="3.5" fill="#2a6b73"/><text x="613.0" y="87.1" font-size="11.5" font-weight="700" fill="#171d1c">21.3%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
+        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of health care's share of all Spokane County jobs, 2014 to 2025. The share stays above 20 percent for the whole period and reaches 21.3 percent in 2025, its highest point." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="606" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">19%</text><line x1="56" y1="153.7" x2="606" y2="153.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="157.7" text-anchor="end" font-size="11" fill="#4a5654">20%</text><line x1="56" y1="99.4" x2="606" y2="99.4" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="103.4" text-anchor="end" font-size="11" fill="#4a5654">21%</text><line x1="56" y1="45.1" x2="606" y2="45.1" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="49.1" text-anchor="end" font-size="11" fill="#4a5654">22%</text><polyline points="56.0,132.0 106.0,153.7 156.0,148.3 206.0,137.4 256.0,148.3 306.0,137.4 356.0,61.4 406.0,110.3 456.0,148.3 506.0,132.0 556.0,99.4 606.0,83.1" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="83.1" r="3.5" fill="#2a6b73"/><text x="613.0" y="87.1" font-size="11.5" font-weight="700" fill="#211d18">21.3%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
         <figcaption><b>One sector keeps taking a bigger share.</b> Health care&rsquo;s share of all Spokane County jobs, 2014 to 2025. More than one in five jobs in Spokane County has been in health care and social assistance for over a decade, and the share is at its highest point now, 21.3%. This is not a new lean. It is a long one that is deepening. The share is health care jobs across all ownerships divided by all covered jobs, both from the same source.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Health care share of all jobs, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>20.4%</td></tr><tr><th scope="row">2015</th><td>20.0%</td></tr><tr><th scope="row">2016</th><td>20.1%</td></tr><tr><th scope="row">2017</th><td>20.3%</td></tr><tr><th scope="row">2018</th><td>20.1%</td></tr><tr><th scope="row">2019</th><td>20.3%</td></tr><tr><th scope="row">2020</th><td>21.7%</td></tr><tr><th scope="row">2021</th><td>20.8%</td></tr><tr><th scope="row">2022</th><td>20.1%</td></tr><tr><th scope="row">2023</th><td>20.4%</td></tr><tr><th scope="row">2024</th><td>21.0%</td></tr><tr><th scope="row">2025</th><td>21.3%</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/healthcare_share.csv">Download this data (CSV)</a>.</span></figcaption>
@@ -961,7 +962,7 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Unemployment rate, June 2026. Shorter bar is better.</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>3.8%</td></tr><tr><th scope="row">U.S.</th><td>4.4%</td></tr><tr><th scope="row">Washington</th><td>4.7%</td></tr></tbody></table></details>
 
       <figure class="trend">
-        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of the June unemployment rate in Spokane County, 2015 to 2026. It falls from 6.4 percent to under 3 percent, spikes to 10.1 percent in 2020, and sits at 3.8 percent in 2026." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="186.9" x2="606" y2="186.9" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="190.9" text-anchor="end" font-size="11" fill="#4a5654">3%</text><line x1="56" y1="123.6" x2="606" y2="123.6" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="127.6" text-anchor="end" font-size="11" fill="#4a5654">6%</text><line x1="56" y1="60.2" x2="606" y2="60.2" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="64.2" text-anchor="end" font-size="11" fill="#4a5654">9%</text><line x1="306.0" y1="18" x2="306.0" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="311.0" y="29" font-size="10.5" fill="#a06e0a">10.1% in the pandemic</text><polyline points="56.0,115.1 106.0,125.7 156.0,155.2 206.0,144.7 256.0,138.3 306.0,37.0 356.0,155.2 406.0,174.2 456.0,193.2 506.0,174.2 556.0,178.4 606.0,170.0" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="170.0" r="3.5" fill="#2a6b73"/><text x="613.0" y="174.0" font-size="11.5" font-weight="700" fill="#171d1c">3.8%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2015</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2018</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2021</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2024</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2026</text></svg>
+        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of the June unemployment rate in Spokane County, 2015 to 2026. It falls from 6.4 percent to under 3 percent, spikes to 10.1 percent in 2020, and sits at 3.8 percent in 2026." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="186.9" x2="606" y2="186.9" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="190.9" text-anchor="end" font-size="11" fill="#4a5654">3%</text><line x1="56" y1="123.6" x2="606" y2="123.6" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="127.6" text-anchor="end" font-size="11" fill="#4a5654">6%</text><line x1="56" y1="60.2" x2="606" y2="60.2" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="64.2" text-anchor="end" font-size="11" fill="#4a5654">9%</text><line x1="306.0" y1="18" x2="306.0" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="311.0" y="29" font-size="10.5" fill="#a06e0a">10.1% in the pandemic</text><polyline points="56.0,115.1 106.0,125.7 156.0,155.2 206.0,144.7 256.0,138.3 306.0,37.0 356.0,155.2 406.0,174.2 456.0,193.2 506.0,174.2 556.0,178.4 606.0,170.0" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="170.0" r="3.5" fill="#2a6b73"/><text x="613.0" y="174.0" font-size="11.5" font-weight="700" fill="#211d18">3.8%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2015</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2018</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2021</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2024</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2026</text></svg>
         <figcaption><b>Low, but it flatters.</b> June unemployment, Spokane County, 2015 to 2026. Each point is the published June figure, the same month the headline uses. Not seasonally adjusted. Lower is better here.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>June unemployment rate, Spokane County (BLS LAUS)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2015</th><td>6.4%</td></tr><tr><th scope="row">2016</th><td>5.9%</td></tr><tr><th scope="row">2017</th><td>4.5%</td></tr><tr><th scope="row">2018</th><td>5.0%</td></tr><tr><th scope="row">2019</th><td>5.3%</td></tr><tr><th scope="row">2020</th><td>10.1%</td></tr><tr><th scope="row">2021</th><td>4.5%</td></tr><tr><th scope="row">2022</th><td>3.6%</td></tr><tr><th scope="row">2023</th><td>2.7%</td></tr><tr><th scope="row">2024</th><td>3.6%</td></tr><tr><th scope="row">2025</th><td>3.4%</td></tr><tr><th scope="row">2026</th><td>3.8%</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/lau/">BLS Local Area Unemployment Statistics</a>, series LAUCN530630000000003. <a href="data/laus/june_unemployment.csv">Download this data (CSV)</a>.</span></figcaption>
@@ -991,7 +992,7 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average hourly wage, May 2025</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$32.96</td></tr><tr><th scope="row">U.S.</th><td>$33.54</td></tr></tbody></table></details>
 
       <figure class="trend">
-        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average annual pay per worker in Spokane County, 2014 to 2025, rising from about 43 thousand dollars to about 69 thousand dollars. Not adjusted for inflation." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">$40k</text><line x1="56" y1="144.7" x2="610" y2="144.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="148.7" text-anchor="end" font-size="11" fill="#4a5654">$50k</text><line x1="56" y1="81.3" x2="610" y2="81.3" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="85.3" text-anchor="end" font-size="11" fill="#4a5654">$60k</text><line x1="56" y1="18.0" x2="610" y2="18.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="22.0" text-anchor="end" font-size="11" fill="#4a5654">$70k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,191.1 106.4,182.2 156.7,177.9 207.1,166.3 257.5,155.4 307.8,143.2 358.2,121.4 408.5,99.0 458.9,83.8 509.3,66.1 559.6,46.6 610.0,24.7" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="24.7" r="3.5" fill="#2a6b73"/><text x="617.0" y="28.7" font-size="11.5" font-weight="700" fill="#171d1c">$68,949</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
+        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average annual pay per worker in Spokane County, 2014 to 2025, rising from about 43 thousand dollars to about 69 thousand dollars. Not adjusted for inflation." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">$40k</text><line x1="56" y1="144.7" x2="610" y2="144.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="148.7" text-anchor="end" font-size="11" fill="#4a5654">$50k</text><line x1="56" y1="81.3" x2="610" y2="81.3" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="85.3" text-anchor="end" font-size="11" fill="#4a5654">$60k</text><line x1="56" y1="18.0" x2="610" y2="18.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="22.0" text-anchor="end" font-size="11" fill="#4a5654">$70k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,191.1 106.4,182.2 156.7,177.9 207.1,166.3 257.5,155.4 307.8,143.2 358.2,121.4 408.5,99.0 458.9,83.8 509.3,66.1 559.6,46.6 610.0,24.7" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="24.7" r="3.5" fill="#2a6b73"/><text x="617.0" y="28.7" font-size="11.5" font-weight="700" fill="#211d18">$68,949</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
         <figcaption><b>Pay has climbed for a decade.</b> Average annual pay per worker, Spokane County, 2014 to 2025. Dollars are not adjusted for inflation, so part of this climb is rising prices everywhere, not raises.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average annual pay per worker, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>$42,666</td></tr><tr><th scope="row">2015</th><td>$44,066</td></tr><tr><th scope="row">2016</th><td>$44,751</td></tr><tr><th scope="row">2017</th><td>$46,588</td></tr><tr><th scope="row">2018</th><td>$48,298</td></tr><tr><th scope="row">2019</th><td>$50,234</td></tr><tr><th scope="row">2020</th><td>$53,678</td></tr><tr><th scope="row">2021</th><td>$57,217</td></tr><tr><th scope="row">2022</th><td>$59,604</td></tr><tr><th scope="row">2023</th><td>$62,403</td></tr><tr><th scope="row">2024</th><td>$65,488</td></tr><tr><th scope="row">2025</th><td>$68,949</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
@@ -1166,7 +1167,7 @@
     <p class="warnbadge">Illustrative multiplier range, not a Spokane forecast</p>
     <div id="guessbox"></div>
     <figure class="trend" id="ripplefig" style="margin-top:14px;">
-      <svg viewBox="0 0 680 168" role="img" aria-label="Two bars comparing 500 software jobs with 500 retail jobs. Both start with the same solid block of 500 direct jobs. The software bar extends with a wide uncertain range of 900 to 1,900 additional local jobs, for a total of 1,400 to 2,400. The retail bar barely extends, 0 to 100 additional, for a total of 500 to 600." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><defs><pattern id="hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#93a8a6" stroke-width="2"/></pattern></defs><rect width="680" height="168" fill="#ffffff"/><text x="8" y="26" font-size="11" font-weight="700" fill="#171d1c">500 SOFTWARE JOBS</text><rect x="8.0" y="34" width="108.8" height="20" fill="#2a6b73"/><text x="62.4" y="48" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="34" width="195.8" height="20" fill="#2a6b73" opacity="0.45"/><rect x="312.5" y="34" width="217.5" height="20" fill="url(#hatch)" stroke="#2a6b73" stroke-width="1"/><text x="323.4" y="68" text-anchor="middle" font-size="10" fill="#4a5654">+900 to 1,900 more local jobs</text><text x="538.0" y="48" font-size="10.5" font-weight="700" fill="#171d1c">= 1,400 to 2,400</text><text x="8" y="102" font-size="11" font-weight="700" fill="#171d1c">500 RETAIL JOBS</text><rect x="8.0" y="110" width="108.8" height="20" fill="#2b3134"/><text x="62.4" y="124" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="110" width="21.8" height="20" fill="url(#hatch)" stroke="#2b3134" stroke-width="1"/><text x="127.6" y="144" text-anchor="middle" font-size="10" fill="#4a5654">+0 to 100 more</text><text x="146.5" y="124" font-size="10.5" font-weight="700" fill="#171d1c">= 500 to 600</text></svg>
+      <svg viewBox="0 0 680 168" role="img" aria-label="Two bars comparing 500 software jobs with 500 retail jobs. Both start with the same solid block of 500 direct jobs. The software bar extends with a wide uncertain range of 900 to 1,900 additional local jobs, for a total of 1,400 to 2,400. The retail bar barely extends, 0 to 100 additional, for a total of 500 to 600." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><defs><pattern id="hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#93a8a6" stroke-width="2"/></pattern></defs><rect width="680" height="168" fill="#ffffff"/><text x="8" y="26" font-size="11" font-weight="700" fill="#211d18">500 SOFTWARE JOBS</text><rect x="8.0" y="34" width="108.8" height="20" fill="#2a6b73"/><text x="62.4" y="48" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="34" width="195.8" height="20" fill="#2a6b73" opacity="0.45"/><rect x="312.5" y="34" width="217.5" height="20" fill="url(#hatch)" stroke="#2a6b73" stroke-width="1"/><text x="323.4" y="68" text-anchor="middle" font-size="10" fill="#4a5654">+900 to 1,900 more local jobs</text><text x="538.0" y="48" font-size="10.5" font-weight="700" fill="#211d18">= 1,400 to 2,400</text><text x="8" y="102" font-size="11" font-weight="700" fill="#211d18">500 RETAIL JOBS</text><rect x="8.0" y="110" width="108.8" height="20" fill="#2b3134"/><text x="62.4" y="124" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="110" width="21.8" height="20" fill="url(#hatch)" stroke="#2b3134" stroke-width="1"/><text x="127.6" y="144" text-anchor="middle" font-size="10" fill="#4a5654">+0 to 100 more</text><text x="146.5" y="124" font-size="10.5" font-weight="700" fill="#211d18">= 500 to 600</text></svg>
       <figcaption><b>Same 500 hires. Very different ripple.</b> The solid block is the direct jobs. The hatched stretch is the range of extra local jobs those paychecks could support, drawn as a range on purpose: it is an estimate from published research, not a forecast.
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>The same 500 jobs in two industries</caption><thead><tr><th scope="col">Employer</th><th scope="col">Extra local jobs</th><th scope="col">Total effect</th></tr></thead><tbody><tr><th scope="row">Software &amp; tech</th><td>900 to 1,900</td><td>1,400 to 2,400</td></tr><tr><th scope="row">Retail &amp; food service</th><td>0 to 100</td><td>500 to 600</td></tr></tbody></table></details></figcaption>
     </figure>
@@ -1212,7 +1213,7 @@
         <line id="mcw-mark" x1="116.8" y1="210" x2="116.8" y2="191.8" stroke="#2b3134" stroke-width="1.5" stroke-dasharray="3,3"/>
         <circle id="mcw-dlo" cx="116.8" cy="201.4" r="3.5" fill="#2b3134"/>
         <circle id="mcw-dhi" cx="116.8" cy="191.8" r="3.5" fill="#2b3134"/>
-        <text id="mcw-lab" x="116.8" y="182.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="#171d1c">900 to 1,900 extra jobs</text>
+        <text id="mcw-lab" x="116.8" y="182.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="#211d18">900 to 1,900 extra jobs</text>
       </svg>
     </div>
     <p class="rulenote" style="margin-top:12px;">How to read the chart: the bottom axis counts jobs hired. The height shows the extra local jobs those hires could support, from the low estimate to the high one. The dashed line is your pick. One scale for every sector, so a flat wedge really is flat. One more marker: the top of this slider, 5,000 jobs, equals Believe Spokane&rsquo;s whole five-year goal for the region. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
@@ -1358,18 +1359,18 @@
     <svg viewBox="0 0 680 320" role="img" aria-label="Diagram of money flowing into and around Spokane. Arrows enter from outside: software sold nationally, goods shipped out, work for outside clients, and patients from Idaho and Montana. Inside Spokane, a loop circulates the money that is already here: paychecks to shops and restaurants to local services and clinics to trades and rent, and back to paychecks." font-family="Public Sans, sans-serif">
   <rect width="680" height="320" fill="#ffffff"/>
   <text x="340" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="2" fill="#4a5654">OUTSIDE SPOKANE</text>
-  <text x="120" y="44" text-anchor="middle" font-size="10.5" fill="#171d1c">Software sold nationally</text>
-  <text x="320" y="44" text-anchor="middle" font-size="10.5" fill="#171d1c">Goods shipped out</text>
-  <text x="530" y="44" text-anchor="middle" font-size="10.5" fill="#171d1c">Work for outside clients</text>
+  <text x="120" y="44" text-anchor="middle" font-size="10.5" fill="#211d18">Software sold nationally</text>
+  <text x="320" y="44" text-anchor="middle" font-size="10.5" fill="#211d18">Goods shipped out</text>
+  <text x="530" y="44" text-anchor="middle" font-size="10.5" fill="#211d18">Work for outside clients</text>
   <g stroke="#2a6b73" stroke-width="2.5" fill="none">
     <path d="M120 52 L120 92"/><path d="M320 52 L320 92"/><path d="M530 52 L530 92"/>
   </g>
   <g fill="#2a6b73"><path d="M114 90 L120 100 L126 90 Z"/><path d="M314 90 L320 100 L326 90 Z"/><path d="M524 90 L530 100 L536 90 Z"/></g>
   <text x="36" y="80" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#2a6b73">BRINGS</text>
   <text x="36" y="92" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#2a6b73">MONEY IN</text>
-  <rect x="60" y="104" width="560" height="196" rx="6" fill="#e2ecea" stroke="#8fa9a7" stroke-width="1.5"/>
-  <text x="340" y="126" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="2" fill="#171d1c">SPOKANE</text>
-  <g font-size="10.5" fill="#171d1c" text-anchor="middle">
+  <rect x="60" y="104" width="560" height="196" rx="6" fill="#f3ecdc" stroke="#b3a78e" stroke-width="1.5"/>
+  <text x="340" y="126" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="2" fill="#211d18">SPOKANE</text>
+  <g font-size="10.5" fill="#211d18" text-anchor="middle">
     <text x="200" y="168">Paychecks</text>
     <text x="480" y="168">Shops &amp; restaurants</text>
     <text x="480" y="252">Local services &amp; clinics</text>
@@ -1383,8 +1384,8 @@
     <path d="M270 242 L260 248 L270 254 Z"/><path d="M194 180 L200 170 L206 180 Z"/>
   </g>
   <text x="340" y="212" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="1.2" fill="#4a5654">CIRCULATES WHAT IS ALREADY HERE</text>
-  <text x="648" y="180" text-anchor="end" font-size="10.5" fill="#171d1c" transform="rotate(0)">Patients from</text>
-  <text x="648" y="192" text-anchor="end" font-size="10.5" fill="#171d1c">Idaho &amp; Montana</text>
+  <text x="648" y="180" text-anchor="end" font-size="10.5" fill="#211d18" transform="rotate(0)">Patients from</text>
+  <text x="648" y="192" text-anchor="end" font-size="10.5" fill="#211d18">Idaho &amp; Montana</text>
   <path d="M645 200 L600 214" stroke="#2a6b73" stroke-width="2.5" fill="none"/>
   <path d="M606 206 L596 216 L610 218 Z" fill="#2a6b73"/>
 </svg>
@@ -1435,10 +1436,10 @@
   <div class="ecosys wide">
     <svg viewBox="0 0 640 330" role="img" aria-label="Diagram: six actors surround the regional economy. The city holds permits, land and fees. Regional recruiters sell Spokane and ready sites. Colleges supply talent and research. Employers hire, expand and buy locally. The state sets tax, infrastructure and funding. Residents work, vote, build and spend.">
       <defs><style>
-        .en { fill:#fff; stroke:#b9c6c4; }
-        .et { font-family:"Public Sans",sans-serif; font-weight:700; font-size:12px; fill:#171d1c; }
+        .en { fill:#fff; stroke:#ccc2ac; }
+        .et { font-family:"Public Sans",sans-serif; font-weight:700; font-size:12px; fill:#211d18; }
         .es { font-family:"Public Sans",sans-serif; font-size:9.5px; fill:#4a5654; }
-        .el { stroke:#b9c6c4; stroke-width:1.5; }
+        .el { stroke:#ccc2ac; stroke-width:1.5; }
       </style></defs>
       <line class="el" x1="320" y1="165" x2="110" y2="52"/>
       <line class="el" x1="320" y1="165" x2="530" y2="52"/>
