@@ -374,6 +374,8 @@
   }
   .handoff a:hover { text-decoration: underline; }
   .band-dark .handoff { border-top-color: rgba(255,255,255,.2); color: #e8edec; }
+  .band-dark .expophoto figcaption { color: #c7d4d2; }
+  .band-dark .expophoto figcaption a { color: #9ed4d8; }
   .band-dark .handoff a { color: #9ed4d8; }
 
   /* The story in three numbers */
@@ -397,6 +399,7 @@
   .flow {
     display: flex; align-items: stretch; gap: 8px; margin-top: 30px; margin-bottom: 14px;
   }
+  .nico { width: 24px; height: 24px; display: block; margin: 2px auto 7px; color: var(--ink-soft); fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
   .node {
     flex: 1 1 0; background: #fff; border: 1px solid var(--rule);
     border-top: 4px solid var(--rule-strong); border-radius: 3px; padding: 12px 10px;
@@ -1110,15 +1113,15 @@
   </div>
 
   <div class="flow wide">
-    <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
+    <div class="node g"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.4-3.3 2.7-5.3 5.5-5.3s5.1 2 5.5 5.3"/><circle cx="16.8" cy="9.2" r="2.4"/><path d="M15.5 14.6c2.6.1 4.4 1.8 4.9 4.4"/></svg><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node r break"><span class="nbreak" aria-label="the break in the chain">the break</span><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
+    <div class="node r break"><span class="nbreak" aria-label="the break in the chain">the break</span><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20h17"/><path d="M6 20V8.5L11 5v15"/><path d="M14 20V10.5h4.5V20"/><path d="M8.5 9.5v.01M8.5 12.5v.01M8.5 15.5v.01"/></svg><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node y"><span class="nlab">Paychecks</span><span class="nval">$32.96</span><span class="nstate">near U.S.</span></div>
+    <div class="node y"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7.5" width="17" height="10" rx="1.6"/><circle cx="12" cy="12.5" r="2.4"/><path d="M6.5 10.5v.01M17.5 14.5v.01"/></svg><span class="nlab">Paychecks</span><span class="nval">$32.96</span><span class="nstate">near U.S.</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node r"><span class="nlab">Spending</span><span class="nval">+1.2%</span><span class="nstate">below normal</span></div>
+    <div class="node r"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9h11l-1.1 10.5h-8.8L6.5 9z"/><path d="M9.5 9V7.2a2.5 2.5 0 0 1 5 0V9"/></svg><span class="nlab">Spending</span><span class="nval">+1.2%</span><span class="nstate">below normal</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node y"><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
+    <div class="node y"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5 6.4 5h11.2L19 9.5"/><path d="M5.5 9.5V19h13V9.5"/><path d="M10.5 19v-5h3v5"/><path d="M4.5 9.5h15"/></svg><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
   </div>
 
   
@@ -1657,6 +1660,11 @@
     <h4>You do not have to run anything to help.</h4>
     <p>Share this page with one person who cares about Spokane. Check the numbers when a new edition posts. And when a good employer wants to build here, show up and say so. Public support is a lever too, and it is the one everyone holds.</p>
   </div>
+
+  <figure class="expophoto" style="max-width:none;margin-top:22px;">
+    <img src="img/riverfront-fanzone-2026.jpg" alt="A large crowd on the hillside by the Pavilion in Riverfront Park, its net structure overhead, with the Great Northern clock tower in the distance under a summer sky." loading="lazy">
+    <figcaption>Spokane shows up. The watch party crowd at the Pavilion in Riverfront Park for a 2026 World Cup match, June 2026. Photo: <a href="https://commons.wikimedia.org/wiki/File:FWC26FanZone-GesaPavilionSpokane.jpg">T85cr1ft19m1n</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via Wikimedia Commons.</figcaption>
+  </figure>
 
   <div class="signup">
     <div class="stext">
