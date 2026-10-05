@@ -6,9 +6,9 @@
 <link rel="icon" href="/mark.svg" type="image/svg+xml">
 <link rel="mask-icon" href="/mark.svg" color="#2a6b73">
 <title>The Spokane Prosperity Scorecard</title>
-<meta name="description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Eight measures, graded quarterly from public data. Every number links to its source.">
+<meta name="description" content="A resident-run report card on one question: is Spokane on track to attract employers that raise wages? Eight measures, graded quarterly from public data. Every number links to its source.">
 <meta property="og:title" content="The Spokane Prosperity Scorecard">
-<meta property="og:description" content="A resident-run report card on one question: is Spokane attracting employers that raise wages? Built entirely from public data.">
+<meta property="og:description" content="A resident-run report card on one question: is Spokane on track to attract employers that raise wages? Built entirely from public data.">
 <meta property="og:image" content="https://spokanescorecard.com/press/social-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -139,11 +139,12 @@
     font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); max-width: 40em;
   }
   .notewho b { color: var(--ink); }
+  .answerlab { margin-top: 26px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
   .status {
     display: inline-block;
     font-family: "Fraunces", Georgia, serif;
     font-variation-settings: "SOFT" 0, "WONK" 1;
-    margin-top: 14px;
+    margin-top: 6px;
     font-size: clamp(1.6rem, 4.0vw, 2.35rem);
     font-weight: 900;
     line-height: 1;
@@ -216,6 +217,10 @@
     flex-wrap: wrap;
     gap: 0;
   }
+  nav.jump a { display: block; padding: 14px 13px; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+  nav.jump a:hover { color: var(--teal); }
+  nav.jump a b { color: var(--teal); font-weight: 800; margin-right: 5px; }
+  @media (max-width: 860px) { nav.jump { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; } }
   .menu { position: relative; }
   .menulink {
     display: block; padding: 14px 16px; font-size: 0.88rem; font-weight: 600;
@@ -766,10 +771,11 @@
       <svg viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true"><polygon points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4 1600,520 0,520" fill="#2a6b73" opacity="0.07"/><polyline points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4" fill="none" stroke="#2a6b73" stroke-width="3" opacity="0.18" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       <!-- hero-chart:end -->
   </div>
-  <p class="hook">Can Spokane attract the employers that let more people build a good life here?</p>
+  <p class="hook">Is Spokane on track to attract the employers that let more people build a good life here?</p>
   <p class="hooksub">This resident-run scorecard checks the numbers four times a year: jobs, wages, income, spending, storefronts and the employers behind them. Every grade links to its source. Most of the data comes straight from public agencies, and privately sourced figures are labeled.</p>
   <p class="edition">Updated August 2026 &middot; Next update November 2026</p>
 
+  <p class="answerlab">The answer, this quarter:</p>
   <p class="status">Off track</p>
   <p class="because">The region keeps adding people. It is not adding jobs.</p>
 
@@ -796,40 +802,23 @@
   <p class="notewho">Independently maintained by one Spokane resident. No sponsors, no institutional funding, no political affiliation. <a href="who.html">Who made this</a>.</p>
 </div>
 
-<nav class="jump" aria-label="Sections">
-  <details class="menu" name="jumpnav">
-    <summary>The Score</summary>
-    <div class="menupanel">
-      <a href="#scorecard">Eight Measures</a>
-      <a href="#story">The Story</a>
-    </div>
-  </details>
-  <details class="menu" name="jumpnav">
-    <summary>The Fix</summary>
-    <div class="menupanel">
-      <a href="#effect">One Employer&rsquo;s Effect</a>
-      <a href="#plan">The Plan</a>
-      <a href="#done">The Playbook</a>
-    </div>
-  </details>
-  <a class="menulink" href="#asks">The Asks</a>
-  <details class="menu" name="jumpnav">
-    <summary>Check the Work</summary>
-    <div class="menupanel">
-      <a href="#objections">Questions &amp; Objections</a>
-      <a href="#nerd">How Grades Work</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="archive/">Past Editions</a>
-    </div>
-  </details>
+<nav class="jump" aria-label="Contents">
+  <a href="#scorecard"><b>1</b> The grades</a>
+  <a href="#story"><b>2</b> Where it breaks</a>
+  <a href="#effect"><b>3</b> What one employer does</a>
+  <a href="#plan"><b>4</b> Who moves what</a>
+  <a href="#done"><b>5</b> Proof it&rsquo;s possible</a>
+  <a href="#asks"><b>6</b> The asks</a>
+  <a href="#objections"><b>7</b> Objections, answered</a>
+  <a href="#nerd"><b>8</b> Check the work</a>
 </nav>
 
 <!-- ============ 01 THE VERDICT ============ -->
 
 <!-- ============ 02 THE EIGHT MEASURES ============ -->
 <section id="scorecard">
-  <p class="eyebrow">Regional results</p>
-  <h2 class="sect">Eight measures, graded every quarter</h2>
+  <p class="eyebrow">Part 1 &middot; The grades</p>
+  <h2 class="sect">Where Spokane stands, graded every quarter</h2>
   <p class="tklab">The story in three numbers. If you read nothing else, read these.</p>
   <ol class="three">
     <li class="tnum"><span class="tn" aria-hidden="true">1</span>
@@ -1086,7 +1075,7 @@
 
 <!-- ============ THE SCORECARD ============ -->
 <section id="story" class="band">
-  <p class="eyebrow">The story in 30 seconds</p>
+  <p class="eyebrow">Part 2 &middot; Where it breaks</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
   <div class="beats wide">
@@ -1138,7 +1127,7 @@
 
 <!-- ============ 05 WHAT ONE EMPLOYER DOES ============ -->
 <section id="effect" class="band-deep">
-  <p class="eyebrow">What One Employer Does</p>
+  <p class="eyebrow">Part 3 &middot; What one employer does</p>
   <h2 class="sect">Same headcount. Different city.</h2>
   <p class="lede">Spokane has people. It needs more employers selling beyond Spokane, because that is what brings new money in.</p>
 
@@ -1323,7 +1312,7 @@
 <!-- ============ 06 THE TARGETS ============ -->
 <section id="plan">
   <span id="goals"></span>
-  <p class="eyebrow">The plan</p>
+  <p class="eyebrow">Part 4 &middot; Who moves what</p>
   <h2 class="sect">Spokane already set targets. Who moves them?</h2>
   <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign published five-year goals for the region, and posts updates against them.</p>
 
@@ -1436,7 +1425,7 @@
 
 <!-- ============ 08 IT'S BEEN DONE ============ -->
 <section id="done" class="band">
-  <p class="eyebrow">It&rsquo;s Been Done</p>
+  <p class="eyebrow">Part 5 &middot; Proof it&rsquo;s possible</p>
   <h2 class="sect">What has worked elsewhere</h2>
   <p class="lede">Different sizes and different advantages. None of them is Spokane&rsquo;s twin. The pattern is what carries over. Each city picked an asset it already had, organized around it, and stuck with it for a decade.</p>
 
@@ -1543,7 +1532,7 @@
 
 <!-- ============ 09 WHAT WE'RE ASKING ============ -->
 <section id="asks" class="band-dark">
-  <p class="eyebrow">The Asks</p>
+  <p class="eyebrow">Part 6 &middot; The asks</p>
   <h2 class="sect">What this page asks</h2>
   <p class="lede">Grouped by who can act on each one.</p>
 
@@ -1592,7 +1581,7 @@
 
 <!-- ============ OBJECTIONS ============ -->
 <section id="objections">
-  <p class="eyebrow">Questions and objections</p>
+  <p class="eyebrow">Part 7 &middot; Objections, answered</p>
   <h2 class="sect">The strongest cases against this page</h2>
   <p class="lede">Skepticism is the right response to a scorecard. These are the best objections, taken in their strongest form.</p>
 
@@ -1662,7 +1651,7 @@
 
 <!-- ============ 10 THE RECEIPTS ============ -->
 <section id="nerd" class="band">
-  <p class="eyebrow">Check the work</p>
+  <p class="eyebrow">Part 8 &middot; Check the work</p>
   <h2 class="sect">Argue with the grades</h2>
   <p class="lede">Every number above links to its source. The <a href="methodology.html">full methodology</a> covers the grading rules, the limits of the data, and what it can and cannot tell you. Corrections are welcome, and they get posted.</p>
 
