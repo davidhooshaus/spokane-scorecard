@@ -331,13 +331,15 @@
 
   /* Hand-off lines: the seam between one section and the next */
   .handoff {
-    margin-top: 56px;
-    padding-top: 18px;
+    margin-top: 72px;
+    padding-top: 30px;
     border-top: 1px solid var(--rule);
-    font-size: 1.02rem;
-    line-height: 1.5;
-    color: var(--ink-soft);
-    max-width: 40em;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 26em;
   }
   .handoff a {
     font-weight: 700;
@@ -346,41 +348,26 @@
     white-space: nowrap;
   }
   .handoff a:hover { text-decoration: underline; }
-  .band-dark .handoff { border-top-color: rgba(255,255,255,.2); color: #c7d4d2; }
+  .band-dark .handoff { border-top-color: rgba(255,255,255,.2); color: #e8edec; }
   .band-dark .handoff a { color: #9ed4d8; }
 
-  /* Three numbers */
-  .three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 4px 0 20px;
-  }
-  .num {
-    border-top: 4px solid var(--red);
-    background: #ffffff;
-    border-right: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    border-left: 1px solid var(--rule);
-    border-radius: 0 0 4px 4px;
-    padding: 14px 15px 16px;
-  }
-  .num.flat { border-top-color: var(--amber); }
-  .num .n {
-    font-size: clamp(1.5rem, 5vw, 2.1rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-  }
-  .num .l { margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.35; }
-  @media (max-width: 620px) { .three { grid-template-columns: 1fr; gap: 14px; } }
+  /* The story in three numbers */
+  .tklab { font-weight: 700; font-size: 0.95rem; margin-top: 26px; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 14px 0 10px; padding: 0; list-style: none; }
+  .tnum { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 16px 18px 18px; }
+  .tnum .tn { font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 2.4rem; line-height: 1; color: var(--teal); display: block; margin-bottom: 8px; }
+  .tnum p { font-size: 0.95rem; line-height: 1.5; }
+  @media (max-width: 760px) { .three { grid-template-columns: 1fr; gap: 12px; } }
 
-  /* Street illustration */
-  .street { margin-top: 18px; margin-bottom: 4px; }
-  .street img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
-  .street figcaption { margin-top: 10px; font-size: 0.88rem; line-height: 1.5; color: var(--ink-soft); max-width: 44em; }
-  .street figcaption b { color: var(--ink); }
-
+  /* Old story / new story beats */
+  .beats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0 28px; }
+  .beat { border-radius: 4px; padding: 16px 18px 18px; }
+  .beat.was { background: var(--basalt); color: #e8edec; }
+  .beat.now { background: #ffffff; border: 1px solid var(--rule); }
+  .blab { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; color: var(--teal); }
+  .beat.was .blab { color: #9ed4d8; }
+  .beat p { font-size: 0.98rem; line-height: 1.5; max-width: none; }
+  @media (max-width: 620px) { .beats { grid-template-columns: 1fr; } }
   /* Flow diagram */
   .flow {
     display: flex; align-items: stretch; gap: 8px; margin-top: 4px; margin-bottom: 14px;
@@ -844,7 +831,17 @@
   <p class="eyebrow">Regional results</p>
   <h2 class="sect">Eight measures, graded every quarter</h2>
   <p class="lede" style="font-weight:600;">The question, stated exactly: is Spokane attracting the kind of employers that raise wages?</p>
-  <p class="scope"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is its own section below.</p>
+  <p class="tklab">The story in three numbers. If you read nothing else, read these.</p>
+  <ol class="three">
+    <li class="tnum"><span class="tn" aria-hidden="true">1</span>
+      <p><b>The county lost 2,900 jobs</b> over the past year, while the people kept coming. <a href="#jobgrowth">The job growth card</a>.</p></li>
+    <li class="tnum"><span class="tn" aria-hidden="true">2</span>
+      <p><b>Two sectors carry 3 in 4 new jobs</b> since 2019. Most of the rest shrank. <a href="#hiring">The hiring card</a>.</p></li>
+    <li class="tnum"><span class="tn" aria-hidden="true">3</span>
+      <p><b>Pay sits near the U.S. average.</b> Incomes run at 80 cents on Washington&rsquo;s dollar. <a href="#incomes">The incomes card</a>.</p></li>
+  </ol>
+
+  <p class="scope" style="margin-top:22px;"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is its own section below.</p>
   
   
   <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
@@ -888,7 +885,7 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+410/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026</th><td>+58/mo</td></tr></tbody></table></details>
       <figure class="trend" id="longview">
     <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#171d1c">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
-    <figcaption><b>The long view: jobs in Spokane County.</b> Average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
+    <figcaption><b>The climb stopped in 2024.</b> Jobs in Spokane County, 2014 to 2025: average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
     <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
     <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
   </figure>
@@ -898,7 +895,7 @@
     </div>
   </details>
 
-  <details class="row r">
+  <details class="row r" id="hiring">
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">Who&rsquo;s hiring</span>
@@ -918,13 +915,13 @@
 
       <figure class="trend">
         <svg viewBox="0 0 680 364" role="img" aria-label="Bar chart of the change in Spokane County jobs by sector, 2019 to 2025. Health care leads at plus 6,159, transportation and warehousing is close behind at plus 5,059, and together they account for about three quarters of all net growth. Manufacturing, finance, information, retail and several others shrank." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="364" fill="#ffffff"/><line x1="232.2" y1="12" x2="232.2" y2="356" stroke="#b9c6c4" stroke-width="1"/><rect x="232.2" y="19" width="383.8" height="10" fill="#2a6b73"/><text x="170" y="27" text-anchor="end" font-size="10.5" fill="#4a5654">Health care &amp; social assistance</text><text x="621.0" y="27" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+6,159</text><rect x="232.2" y="36" width="315.2" height="10" fill="#2a6b73"/><text x="170" y="44" text-anchor="end" font-size="10.5" fill="#4a5654">Transportation &amp; warehousing</text><text x="552.5" y="44" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+5,059</text><rect x="232.2" y="53" width="91.0" height="10" fill="#2a6b73"/><text x="170" y="61" text-anchor="end" font-size="10.5" fill="#4a5654">Government (all levels)</text><text x="328.2" y="61" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,460</text><rect x="232.2" y="70" width="90.9" height="10" fill="#2a6b73"/><text x="170" y="78" text-anchor="end" font-size="10.5" fill="#4a5654">Admin &amp; support services</text><text x="328.1" y="78" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,459</text><rect x="232.2" y="87" width="77.3" height="10" fill="#2a6b73"/><text x="170" y="95" text-anchor="end" font-size="10.5" fill="#4a5654">Professional &amp; technical services</text><text x="314.5" y="95" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+1,240</text><rect x="232.2" y="104" width="55.0" height="10" fill="#2a6b73"/><text x="170" y="112" text-anchor="end" font-size="10.5" fill="#4a5654">Arts &amp; recreation</text><text x="292.2" y="112" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+882</text><rect x="232.2" y="121" width="48.9" height="10" fill="#2a6b73"/><text x="170" y="129" text-anchor="end" font-size="10.5" fill="#4a5654">Construction</text><text x="286.1" y="129" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+784</text><rect x="232.2" y="138" width="43.9" height="10" fill="#2a6b73"/><text x="170" y="146" text-anchor="end" font-size="10.5" fill="#4a5654">Private education</text><text x="281.1" y="146" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+705</text><rect x="232.2" y="155" width="36.2" height="10" fill="#2a6b73"/><text x="170" y="163" text-anchor="end" font-size="10.5" fill="#4a5654">Other services</text><text x="273.4" y="163" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+581</text><rect x="232.2" y="172" width="11.2" height="10" fill="#2a6b73"/><text x="170" y="180" text-anchor="end" font-size="10.5" fill="#4a5654">Wholesale trade</text><text x="248.4" y="180" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+179</text><rect x="232.2" y="189" width="4.0" height="10" fill="#2a6b73"/><text x="170" y="197" text-anchor="end" font-size="10.5" fill="#4a5654">Utilities</text><text x="241.2" y="197" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+64</text><rect x="232.2" y="206" width="3.1" height="10" fill="#2a6b73"/><text x="170" y="214" text-anchor="end" font-size="10.5" fill="#4a5654">Real estate</text><text x="240.3" y="214" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+49</text><rect x="232.2" y="223" width="2.5" height="10" fill="#2a6b73"/><text x="170" y="231" text-anchor="end" font-size="10.5" fill="#4a5654">Mining</text><text x="239.7" y="231" text-anchor="start" font-size="10.5" font-weight="700" fill="#171d1c">+40</text><rect x="219.8" y="240" width="12.4" height="10" fill="#b3402e"/><text x="170" y="248" text-anchor="end" font-size="10.5" fill="#4a5654">Hotels &amp; restaurants</text><text x="214.8" y="248" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-199</text><rect x="217.9" y="257" width="14.3" height="10" fill="#b3402e"/><text x="170" y="265" text-anchor="end" font-size="10.5" fill="#4a5654">Farming &amp; forestry</text><text x="212.9" y="265" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-230</text><rect x="210.4" y="274" width="21.8" height="10" fill="#b3402e"/><text x="170" y="282" text-anchor="end" font-size="10.5" fill="#4a5654">Manufacturing</text><text x="205.4" y="282" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-350</text><rect x="202.2" y="291" width="30.0" height="10" fill="#b3402e"/><text x="170" y="299" text-anchor="end" font-size="10.5" fill="#4a5654">Information</text><text x="197.2" y="299" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-482</text><rect x="194.8" y="308" width="37.4" height="10" fill="#b3402e"/><text x="170" y="316" text-anchor="end" font-size="10.5" fill="#4a5654">Retail trade</text><text x="189.8" y="316" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-600</text><rect x="189.0" y="325" width="43.2" height="10" fill="#b3402e"/><text x="170" y="333" text-anchor="end" font-size="10.5" fill="#4a5654">Company management</text><text x="184.0" y="333" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-693</text><rect x="176.0" y="342" width="56.2" height="10" fill="#b3402e"/><text x="170" y="350" text-anchor="end" font-size="10.5" fill="#4a5654">Finance &amp; insurance</text><text x="171.0" y="350" text-anchor="end" font-size="10.5" font-weight="700" fill="#171d1c">-902</text></svg>
-        <figcaption><b>Jobs added and lost by sector, Spokane County, 2019 to 2025.</b> Absolute jobs, from before the pandemic to the newest complete year, sorted by change. Two sectors carried about three in four of the net new jobs: health care and logistics. Manufacturing, finance, information and retail all shrank. Private sectors; government is all levels combined.
+        <figcaption><b>Two sectors carried the growth. Most of the rest shrank.</b> Jobs added and lost by sector, Spokane County, 2019 to 2025. Absolute jobs, from before the pandemic to the newest complete year, sorted by change. Two sectors carried about three in four of the net new jobs: health care and logistics. Manufacturing, finance, information and retail all shrank. Private sectors; government is all levels combined.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Change in average annual employment by sector, Spokane County (QCEW)</caption><thead><tr><th scope="col">Sector</th><th scope="col">Change</th><th scope="col">2019 &rarr; 2025</th></tr></thead><tbody><tr><th scope="row">Health care &amp; social assistance</th><td>+6,159</td><td>42,667 &rarr; 48,826</td></tr><tr><th scope="row">Transportation &amp; warehousing</th><td>+5,059</td><td>6,085 &rarr; 11,144</td></tr><tr><th scope="row">Government (all levels)</th><td>+1,460</td><td>35,860 &rarr; 37,320</td></tr><tr><th scope="row">Admin &amp; support services</th><td>+1,459</td><td>11,531 &rarr; 12,990</td></tr><tr><th scope="row">Professional &amp; technical services</th><td>+1,240</td><td>10,534 &rarr; 11,774</td></tr><tr><th scope="row">Arts &amp; recreation</th><td>+882</td><td>2,962 &rarr; 3,844</td></tr><tr><th scope="row">Construction</th><td>+784</td><td>12,751 &rarr; 13,535</td></tr><tr><th scope="row">Private education</th><td>+705</td><td>4,052 &rarr; 4,757</td></tr><tr><th scope="row">Other services</th><td>+581</td><td>6,195 &rarr; 6,776</td></tr><tr><th scope="row">Wholesale trade</th><td>+179</td><td>10,303 &rarr; 10,482</td></tr><tr><th scope="row">Utilities</th><td>+64</td><td>327 &rarr; 391</td></tr><tr><th scope="row">Real estate</th><td>+49</td><td>3,790 &rarr; 3,839</td></tr><tr><th scope="row">Mining</th><td>+40</td><td>234 &rarr; 274</td></tr><tr><th scope="row">Hotels &amp; restaurants</th><td>-199</td><td>20,008 &rarr; 19,809</td></tr><tr><th scope="row">Farming &amp; forestry</th><td>-230</td><td>1,772 &rarr; 1,542</td></tr><tr><th scope="row">Manufacturing</th><td>-350</td><td>16,338 &rarr; 15,988</td></tr><tr><th scope="row">Information</th><td>-482</td><td>3,095 &rarr; 2,613</td></tr><tr><th scope="row">Retail trade</th><td>-600</td><td>26,832 &rarr; 26,232</td></tr><tr><th scope="row">Company management</th><td>-693</td><td>3,348 &rarr; 2,655</td></tr><tr><th scope="row">Finance &amp; insurance</th><td>-902</td><td>9,817 &rarr; 8,915</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/sector_change_2019_2025.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
       <figure class="trend">
         <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of health care's share of all Spokane County jobs, 2014 to 2025. The share stays above 20 percent for the whole period and reaches 21.3 percent in 2025, its highest point." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="606" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">19%</text><line x1="56" y1="153.7" x2="606" y2="153.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="157.7" text-anchor="end" font-size="11" fill="#4a5654">20%</text><line x1="56" y1="99.4" x2="606" y2="99.4" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="103.4" text-anchor="end" font-size="11" fill="#4a5654">21%</text><line x1="56" y1="45.1" x2="606" y2="45.1" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="49.1" text-anchor="end" font-size="11" fill="#4a5654">22%</text><polyline points="56.0,132.0 106.0,153.7 156.0,148.3 206.0,137.4 256.0,148.3 306.0,137.4 356.0,61.4 406.0,110.3 456.0,148.3 506.0,132.0 556.0,99.4 606.0,83.1" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="83.1" r="3.5" fill="#2a6b73"/><text x="613.0" y="87.1" font-size="11.5" font-weight="700" fill="#171d1c">21.3%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
-        <figcaption><b>Health care&rsquo;s share of all county jobs, 2014 to 2025.</b> More than one in five jobs in Spokane County has been in health care and social assistance for over a decade, and the share is at its highest point now, 21.3%. This is not a new lean. It is a long one that is deepening. The share is health care jobs across all ownerships divided by all covered jobs, both from the same source.
+        <figcaption><b>One sector keeps taking a bigger share.</b> Health care&rsquo;s share of all Spokane County jobs, 2014 to 2025. More than one in five jobs in Spokane County has been in health care and social assistance for over a decade, and the share is at its highest point now, 21.3%. This is not a new lean. It is a long one that is deepening. The share is health care jobs across all ownerships divided by all covered jobs, both from the same source.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Health care share of all jobs, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>20.4%</td></tr><tr><th scope="row">2015</th><td>20.0%</td></tr><tr><th scope="row">2016</th><td>20.1%</td></tr><tr><th scope="row">2017</th><td>20.3%</td></tr><tr><th scope="row">2018</th><td>20.1%</td></tr><tr><th scope="row">2019</th><td>20.3%</td></tr><tr><th scope="row">2020</th><td>21.7%</td></tr><tr><th scope="row">2021</th><td>20.8%</td></tr><tr><th scope="row">2022</th><td>20.1%</td></tr><tr><th scope="row">2023</th><td>20.4%</td></tr><tr><th scope="row">2024</th><td>21.0%</td></tr><tr><th scope="row">2025</th><td>21.3%</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/healthcare_share.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
@@ -955,7 +952,7 @@
 
       <figure class="trend">
         <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of the June unemployment rate in Spokane County, 2015 to 2026. It falls from 6.4 percent to under 3 percent, spikes to 10.1 percent in 2020, and sits at 3.8 percent in 2026." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="186.9" x2="606" y2="186.9" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="190.9" text-anchor="end" font-size="11" fill="#4a5654">3%</text><line x1="56" y1="123.6" x2="606" y2="123.6" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="127.6" text-anchor="end" font-size="11" fill="#4a5654">6%</text><line x1="56" y1="60.2" x2="606" y2="60.2" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="64.2" text-anchor="end" font-size="11" fill="#4a5654">9%</text><line x1="306.0" y1="18" x2="306.0" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="311.0" y="29" font-size="10.5" fill="#a06e0a">10.1% in the pandemic</text><polyline points="56.0,115.1 106.0,125.7 156.0,155.2 206.0,144.7 256.0,138.3 306.0,37.0 356.0,155.2 406.0,174.2 456.0,193.2 506.0,174.2 556.0,178.4 606.0,170.0" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="170.0" r="3.5" fill="#2a6b73"/><text x="613.0" y="174.0" font-size="11.5" font-weight="700" fill="#171d1c">3.8%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2015</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2018</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2021</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2024</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2026</text></svg>
-        <figcaption><b>June unemployment, Spokane County, 2015 to 2026.</b> Each point is the published June figure, the same month the headline uses. Not seasonally adjusted. Lower is better here.
+        <figcaption><b>Low, but it flatters.</b> June unemployment, Spokane County, 2015 to 2026. Each point is the published June figure, the same month the headline uses. Not seasonally adjusted. Lower is better here.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>June unemployment rate, Spokane County (BLS LAUS)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2015</th><td>6.4%</td></tr><tr><th scope="row">2016</th><td>5.9%</td></tr><tr><th scope="row">2017</th><td>4.5%</td></tr><tr><th scope="row">2018</th><td>5.0%</td></tr><tr><th scope="row">2019</th><td>5.3%</td></tr><tr><th scope="row">2020</th><td>10.1%</td></tr><tr><th scope="row">2021</th><td>4.5%</td></tr><tr><th scope="row">2022</th><td>3.6%</td></tr><tr><th scope="row">2023</th><td>2.7%</td></tr><tr><th scope="row">2024</th><td>3.6%</td></tr><tr><th scope="row">2025</th><td>3.4%</td></tr><tr><th scope="row">2026</th><td>3.8%</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/lau/">BLS Local Area Unemployment Statistics</a>, series LAUCN530630000000003. <a href="data/laus/june_unemployment.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
@@ -965,7 +962,7 @@
     </div>
   </details>
 
-  <details class="row y">
+  <details class="row y" id="paychecks">
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County plus Stevens County">Metro</span><span class="grade">Mixed</span></span>
       <span class="measure">Paychecks</span>
@@ -985,7 +982,7 @@
 
       <figure class="trend">
         <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average annual pay per worker in Spokane County, 2014 to 2025, rising from about 43 thousand dollars to about 69 thousand dollars. Not adjusted for inflation." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">$40k</text><line x1="56" y1="144.7" x2="610" y2="144.7" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="148.7" text-anchor="end" font-size="11" fill="#4a5654">$50k</text><line x1="56" y1="81.3" x2="610" y2="81.3" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="85.3" text-anchor="end" font-size="11" fill="#4a5654">$60k</text><line x1="56" y1="18.0" x2="610" y2="18.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="22.0" text-anchor="end" font-size="11" fill="#4a5654">$70k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,191.1 106.4,182.2 156.7,177.9 207.1,166.3 257.5,155.4 307.8,143.2 358.2,121.4 408.5,99.0 458.9,83.8 509.3,66.1 559.6,46.6 610.0,24.7" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="24.7" r="3.5" fill="#2a6b73"/><text x="617.0" y="28.7" font-size="11.5" font-weight="700" fill="#171d1c">$68,949</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
-        <figcaption><b>Average annual pay per worker, Spokane County, 2014 to 2025.</b> Dollars are not adjusted for inflation, so part of this climb is rising prices everywhere, not raises.
+        <figcaption><b>Pay has climbed for a decade.</b> Average annual pay per worker, Spokane County, 2014 to 2025. Dollars are not adjusted for inflation, so part of this climb is rising prices everywhere, not raises.
         <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average annual pay per worker, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>$42,666</td></tr><tr><th scope="row">2015</th><td>$44,066</td></tr><tr><th scope="row">2016</th><td>$44,751</td></tr><tr><th scope="row">2017</th><td>$46,588</td></tr><tr><th scope="row">2018</th><td>$48,298</td></tr><tr><th scope="row">2019</th><td>$50,234</td></tr><tr><th scope="row">2020</th><td>$53,678</td></tr><tr><th scope="row">2021</th><td>$57,217</td></tr><tr><th scope="row">2022</th><td>$59,604</td></tr><tr><th scope="row">2023</th><td>$62,403</td></tr><tr><th scope="row">2024</th><td>$65,488</td></tr><tr><th scope="row">2025</th><td>$68,949</td></tr></tbody></table></details>
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
@@ -995,7 +992,7 @@
     </div>
   </details>
 
-  <details class="row y">
+  <details class="row y" id="incomes">
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Mixed</span></span>
       <span class="measure">Incomes</span>
@@ -1103,7 +1100,10 @@
   <p class="eyebrow">The story in 30 seconds</p>
   <h2 class="sect">People keep arriving. Employer growth isn&rsquo;t keeping up.</h2>
 
-  
+  <div class="beats wide">
+    <div class="beat was"><span class="blab">The old story</span><p>Growth would take care of itself. People move here, employers follow, and a bigger Spokane becomes a better one.</p></div>
+    <div class="beat now"><span class="blab">What the numbers say now</span><p>People still come. The employers are not following. The chain below shows exactly where it breaks.</p></div>
+  </div>
 
   <div class="flow wide">
     <div class="node g"><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
@@ -1702,6 +1702,18 @@
       <p style="margin-top:12px;">One more arrives only when schools publish it: where graduates go, by school and program.</p>
     </div>
   </details>
+</section>
+
+<!-- ============ 11 THE NEXT TEST ============ -->
+<section id="november">
+  <p class="eyebrow">The next test</p>
+  <h2 class="sect">November is the next test</h2>
+  <p class="lede">All eight measures get re-graded in November 2026, from the fall releases: fresh jobs and unemployment numbers, new retail spending and vacancy figures, and the Census Bureau&rsquo;s new income estimates.</p>
+  <p class="prose" style="max-width:42em;">The bar is already set, in public. One weak measure turning strong, or two turning mixed, moves the region to the middle. <a href="methodology.html#overall">How the call works</a>. And when a grade improves, it gets said at the top of this page, in green, with credit to whoever moved it.</p>
+  <div class="ctas">
+    <a class="btn solid" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
+    <a class="btn" href="archive/">See past editions</a>
+  </div>
 </section>
 
 <footer>
