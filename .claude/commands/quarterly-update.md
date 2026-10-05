@@ -65,7 +65,9 @@ largest-employer claims. After the cards update, update the same figures there
 and refresh each page's "last updated" line. In the first quarter of the year,
 recheck the minimum wage (new rate effective Jan 1) and the local-rates page.
 Once a year, recheck the Book of Lists claims against the current GSI pages.
-Update sitemap.xml lastmod for any page that changed. They freeze with the
+Recompute the Believe Spokane elapsed-time sentence in Part 4 (launched
+March 2023, five years, so state how far in the campaign is as of the new
+edition). Update sitemap.xml lastmod for any page that changed. They freeze with the
 other pages in step 0.
 
 ## 3. Update each card
