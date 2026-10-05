@@ -218,9 +218,15 @@
     gap: 0;
   }
   nav.jump a.on { color: var(--teal); box-shadow: inset 0 -3px 0 var(--teal); }
-  .tocverdict { display: none; margin-left: auto; padding: 14px 13px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); white-space: nowrap; text-decoration: none; opacity: 0; transition: opacity .25s; }
+  .tocverdict { display: none; padding: 8px 13px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); white-space: nowrap; text-decoration: none; opacity: 0; transition: opacity .25s; }
   .tocverdict.show { opacity: 1; }
-  @media (min-width: 861px) { .tocverdict { display: block; } }
+  @media (min-width: 861px) {
+    nav.jump { display: grid; grid-template-columns: repeat(4, minmax(0, max-content)) 1fr; column-gap: 10px; }
+    nav.jump > a:nth-child(-n+4) { grid-row: 1; }
+    nav.jump > a:nth-child(n+5):nth-child(-n+8) { grid-row: 2; }
+    nav.jump > a { padding: 11px 13px 10px; }
+    .tocverdict { display: block; grid-column: 5; grid-row: 1 / span 2; justify-self: end; align-self: center; }
+  }
   .flow.anim .node { opacity: 0; transform: translateY(6px); }
   .flow .node { transition: opacity .35s ease, transform .35s ease; }
   .flow.anim .node.lit { opacity: 1; transform: none; }
