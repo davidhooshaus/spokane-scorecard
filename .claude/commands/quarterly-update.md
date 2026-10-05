@@ -67,7 +67,10 @@ recheck the minimum wage (new rate effective Jan 1) and the local-rates page.
 Once a year, recheck the Book of Lists claims against the current GSI pages.
 Recompute the Believe Spokane elapsed-time sentence in Part 4 (launched
 March 2023, five years, so state how far in the campaign is as of the new
-edition). Update sitemap.xml lastmod for any page that changed. They freeze with the
+edition). Check greaterspokane.org/partnership/believe-spokane/ for a newer
+campaign update, and whether any update now publishes running totals against
+the four goals. If one does, replace Part 4's not-yet-checkable paragraph
+with the reported figures, labeled as GSI's own count with the update linked. Update sitemap.xml lastmod for any page that changed. They freeze with the
 other pages in step 0.
 
 ## 3. Update each card
