@@ -90,6 +90,7 @@
   .band-dark .signup .ssub { color: #c7d4d2; }
   .band-dark .signup .btn { border-color: #9ed4d8; color: #fff; }
   .band-dark .signup .btn:hover { background: #9ed4d8; color: var(--basalt); border-color: #9ed4d8; }
+  .flowsum { font-weight: 600; font-size: 1.02rem; max-width: 42em; }
   @media (max-width: 560px) {
     .headrow { gap: 10px; }
     .bname { font-size: 0.95rem; }
@@ -353,7 +354,7 @@
 
   /* The story in three numbers */
   .tklab { font-weight: 700; font-size: 0.95rem; margin-top: 26px; }
-  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 14px 0 10px; padding: 0; list-style: none; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 14px 0 6px; padding: 0; list-style: none; }
   .tnum { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 16px 18px 18px; }
   .tnum .tn { font-family: "Fraunces", Georgia, serif; font-weight: 900; font-size: 2.4rem; line-height: 1; color: var(--teal); display: block; margin-bottom: 8px; }
   .tnum p { font-size: 0.95rem; line-height: 1.5; }
@@ -370,7 +371,7 @@
   @media (max-width: 620px) { .beats { grid-template-columns: 1fr; } }
   /* Flow diagram */
   .flow {
-    display: flex; align-items: stretch; gap: 8px; margin-top: 4px; margin-bottom: 14px;
+    display: flex; align-items: stretch; gap: 8px; margin-top: 30px; margin-bottom: 14px;
   }
   .node {
     flex: 1 1 0; background: #fff; border: 1px solid var(--rule);
@@ -393,7 +394,6 @@
   }
   @media (max-width: 700px) { .nbreak { left: auto; right: 8px; transform: none; top: 50%; margin-top: -0.7em; } .node.break { border-top-width: 1px; border-left-width: 6px; } }
   .farrow { align-self: center; color: var(--ink-soft); font-size: 1.1rem; flex: 0 0 auto; }
-  .flowsum { font-weight: 600; font-size: 1.02rem; max-width: 42em; }
   @media (max-width: 700px) {
     .flow { flex-direction: column; gap: 4px; }
     .farrow { transform: rotate(90deg); font-size: 1rem; }
@@ -414,7 +414,7 @@
 
   /* Ledger rows: a 4-across tile grid that opens to full width in place */
   .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; max-width: 46em; }
-  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 30px; }
   @media (max-width: 900px) { .grid8 { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .grid8 { grid-template-columns: 1fr; } }
 
@@ -472,7 +472,7 @@
   .row.y .mfill { background: var(--amber); }
   .row.g .mfill { background: var(--green); }
   .mmark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .55; }
-  .mcap { display: block; margin-top: 5px; font-size: 0.7rem; color: var(--ink-soft); line-height: 1.3; }
+  .mcap { display: block; margin-top: 5px; font-size: 0.68rem; color: var(--ink-soft); opacity: 0.85; line-height: 1.3; }
 
   .viewd { display: block; margin-top: 10px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal); }
   .vdc { display: none; }
@@ -771,7 +771,7 @@
   <p class="edition">Updated August 2026 &middot; Next update November 2026</p>
 
   <p class="status">Off track</p>
-  <p class="because">Spokane County lost 2,900 jobs over the past year. The region is still adding people, but employer growth isn&rsquo;t keeping up.</p>
+  <p class="because">The region keeps adding people. It is not adding jobs.</p>
 
   <div class="spectrum" role="img" aria-label="Scale of three possible verdicts: off track, mixed, and on track. Spokane is currently at off track, the first of the three.">
     <div class="spseg here">
@@ -830,7 +830,6 @@
 <section id="scorecard">
   <p class="eyebrow">Regional results</p>
   <h2 class="sect">Eight measures, graded every quarter</h2>
-  <p class="lede" style="font-weight:600;">The question, stated exactly: is Spokane attracting the kind of employers that raise wages?</p>
   <p class="tklab">The story in three numbers. If you read nothing else, read these.</p>
   <ol class="three">
     <li class="tnum"><span class="tn" aria-hidden="true">1</span>
@@ -841,10 +840,7 @@
       <p><b>Pay sits near the U.S. average.</b> Incomes run at 80 cents on Washington&rsquo;s dollar. <a href="#incomes">The incomes card</a>.</p></li>
   </ol>
 
-  <p class="scope" style="margin-top:22px;"><b>These eight grades measure results across Spokane County and the metro.</b> They do not grade any one institution. No mayor, council, university or employer controls them alone. <a href="#levers">Who controls which levers</a> is its own section below.</p>
-  
-  
-  <p class="legend">Tap any measure to see how it compares, why it matters, and where the number came from. Figures cover Spokane County or the Spokane metro, which includes Stevens County. If a measure covers only the City of Spokane, it says so.</p>
+  <p class="legend" style="margin-top:26px;">These grades measure the county and the metro, not any one institution. <a href="#levers">Who controls which levers</a> is below. Tap a card for the comparison, the why, and the source.</p>
 
   <details class="more" style="margin-top:0;margin-bottom:16px;">
     <summary>What the County, Metro and City labels mean</summary>
@@ -1084,13 +1080,6 @@
 
   
 
-  <div class="signup">
-    <div class="stext">
-      <p class="shead">These numbers change four times a year.</p>
-      <p class="ssub">First edition, August 2026. Quarter-to-quarter changes begin in November, and each update lands in your inbox the day it posts. One message a quarter, nothing else.</p>
-    </div>
-    <a class="btn solid" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
-  </div>
 
   <p class="handoff">Eight separate problems, or one? <a href="#story">Here is how they connect <span aria-hidden="true">&darr;</span></a></p>
 </section>
@@ -1102,7 +1091,7 @@
 
   <div class="beats wide">
     <div class="beat was"><span class="blab">The old story</span><p>Growth would take care of itself. People move here, employers follow, and a bigger Spokane becomes a better one.</p></div>
-    <div class="beat now"><span class="blab">What the numbers say now</span><p>People still come. The employers are not following. The chain below shows exactly where it breaks.</p></div>
+    <div class="beat now"><span class="blab">What the numbers say now</span><p>The engine that turns new people into new paychecks is skipping. The chain below shows where.</p></div>
   </div>
 
   <div class="flow wide">
@@ -1116,7 +1105,6 @@
     <span class="farrow" aria-hidden="true">&rarr;</span>
     <div class="node y"><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
   </div>
-  <p class="flowsum">Spokane&rsquo;s population engine is working. The employer engine is not keeping up, and the weakness shows up downstream.</p>
 
   
   
@@ -1165,7 +1153,7 @@
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>The same 500 jobs in two industries</caption><thead><tr><th scope="col">Employer</th><th scope="col">Extra local jobs</th><th scope="col">Total effect</th></tr></thead><tbody><tr><th scope="row">Software &amp; tech</th><td>900 to 1,900</td><td>1,400 to 2,400</td></tr><tr><th scope="row">Retail &amp; food service</th><td>0 to 100</td><td>500 to 600</td></tr></tbody></table></details></figcaption>
     </figure>
     
-    <p class="rulenote">Ranges, never single numbers. They come from published research on local multipliers (Moretti, capped downward per Bartik and the Upjohn Institute), and the ranges are widened on purpose. This shows how the effect works, never a forecast.</p>
+    <p class="rulenote">The ranges come from published research on local multipliers (Moretti, capped downward per Bartik and the Upjohn Institute), and they are widened on purpose.</p>
     
   </div>
 
