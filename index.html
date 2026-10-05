@@ -217,6 +217,19 @@
     flex-wrap: wrap;
     gap: 0;
   }
+  nav.jump a.on { color: var(--teal); box-shadow: inset 0 -3px 0 var(--teal); }
+  .tocverdict { display: none; margin-left: auto; padding: 14px 13px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); white-space: nowrap; text-decoration: none; opacity: 0; transition: opacity .25s; }
+  .tocverdict.show { opacity: 1; }
+  @media (min-width: 861px) { .tocverdict { display: block; } }
+  .flow.anim .node { opacity: 0; transform: translateY(6px); }
+  .flow .node { transition: opacity .35s ease, transform .35s ease; }
+  .flow.anim .node.lit { opacity: 1; transform: none; }
+  .guess { background: #fff; border: 1px solid var(--rule); border-radius: 4px; padding: 18px 20px; margin-top: 14px; }
+  .guess p { font-weight: 600; max-width: none; }
+  .gbtns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .gbtn { font: inherit; font-size: 0.9rem; font-weight: 600; padding: 9px 14px; border: 1.5px solid var(--teal); border-radius: 3px; background: #fff; color: var(--teal); cursor: pointer; }
+  .gbtn:hover { background: var(--teal); color: #fff; }
+  .gans { margin-top: 12px; font-weight: 600; }
   nav.jump a { display: block; padding: 14px 13px; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
   nav.jump a:hover { color: var(--teal); }
   nav.jump a b { color: var(--teal); font-weight: 800; margin-right: 5px; }
@@ -811,6 +824,7 @@
   <a href="#asks"><b>6</b> The asks</a>
   <a href="#objections"><b>7</b> Objections, answered</a>
   <a href="#nerd"><b>8</b> Check the work</a>
+  <a class="tocverdict" id="tocverdict" href="#" aria-label="Back to the verdict at the top">Aug 2026: Off track</a>
 </nav>
 
 <!-- ============ 01 THE VERDICT ============ -->
@@ -1137,7 +1151,8 @@
 
   <div class="teaser">
     <p class="warnbadge">Illustrative multiplier range, not a Spokane forecast</p>
-    <figure class="trend" style="margin-top:14px;">
+    <div id="guessbox"></div>
+    <figure class="trend" id="ripplefig" style="margin-top:14px;">
       <svg viewBox="0 0 680 168" role="img" aria-label="Two bars comparing 500 software jobs with 500 retail jobs. Both start with the same solid block of 500 direct jobs. The software bar extends with a wide uncertain range of 900 to 1,900 additional local jobs, for a total of 1,400 to 2,400. The retail bar barely extends, 0 to 100 additional, for a total of 500 to 600." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><defs><pattern id="hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="6" stroke="#93a8a6" stroke-width="2"/></pattern></defs><rect width="680" height="168" fill="#ffffff"/><text x="8" y="26" font-size="11" font-weight="700" fill="#171d1c">500 SOFTWARE JOBS</text><rect x="8.0" y="34" width="108.8" height="20" fill="#2a6b73"/><text x="62.4" y="48" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="34" width="195.8" height="20" fill="#2a6b73" opacity="0.45"/><rect x="312.5" y="34" width="217.5" height="20" fill="url(#hatch)" stroke="#2a6b73" stroke-width="1"/><text x="323.4" y="68" text-anchor="middle" font-size="10" fill="#4a5654">+900 to 1,900 more local jobs</text><text x="538.0" y="48" font-size="10.5" font-weight="700" fill="#171d1c">= 1,400 to 2,400</text><text x="8" y="102" font-size="11" font-weight="700" fill="#171d1c">500 RETAIL JOBS</text><rect x="8.0" y="110" width="108.8" height="20" fill="#2b3134"/><text x="62.4" y="124" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">500 direct</text><rect x="116.8" y="110" width="21.8" height="20" fill="url(#hatch)" stroke="#2b3134" stroke-width="1"/><text x="127.6" y="144" text-anchor="middle" font-size="10" fill="#4a5654">+0 to 100 more</text><text x="146.5" y="124" font-size="10.5" font-weight="700" fill="#171d1c">= 500 to 600</text></svg>
       <figcaption><b>Same 500 hires. Very different ripple.</b> The solid block is the direct jobs. The hatched stretch is the range of extra local jobs those paychecks could support, drawn as a range on purpose: it is an estimate from published research, not a forecast.
       <details class="astable"><summary>Show these numbers as a table</summary><table><caption>The same 500 jobs in two industries</caption><thead><tr><th scope="col">Employer</th><th scope="col">Extra local jobs</th><th scope="col">Total effect</th></tr></thead><tbody><tr><th scope="row">Software &amp; tech</th><td>900 to 1,900</td><td>1,400 to 2,400</td></tr><tr><th scope="row">Retail &amp; food service</th><td>0 to 100</td><td>500 to 600</td></tr></tbody></table></details></figcaption>
@@ -1187,7 +1202,7 @@
         <text id="mcw-lab" x="116.8" y="182.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="#171d1c">900 to 1,900 extra jobs</text>
       </svg>
     </div>
-    <p class="rulenote" style="margin-top:12px;">How to read the chart: the bottom axis counts jobs hired. The height shows the extra local jobs those hires could support, from the low estimate to the high one. The dashed line is your pick. One scale for every sector, so a flat wedge really is flat. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
+    <p class="rulenote" style="margin-top:12px;">How to read the chart: the bottom axis counts jobs hired. The height shows the extra local jobs those hires could support, from the low estimate to the high one. The dashed line is your pick. One scale for every sector, so a flat wedge really is flat. One more marker: the top of this slider, 5,000 jobs, equals Believe Spokane&rsquo;s whole five-year goal for the region. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
   </div>
   <script>
   (function () {
@@ -1262,6 +1277,65 @@
       if (el && el.tagName === "DETAILS") el.open = true;
     }
     window.addEventListener("hashchange", openTarget); openTarget();
+
+    var noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Contents bar: track the part you are reading, carry the verdict after the hero
+    var toc = document.querySelectorAll('nav.jump a[href^="#"]');
+    var chip = document.getElementById("tocverdict");
+    if ("IntersectionObserver" in window && toc.length) {
+      var map = {};
+      toc.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+      var spy = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          var a = map[e.target.id];
+          if (a && e.isIntersecting) {
+            toc.forEach(function (x) { x.classList.remove("on"); });
+            a.classList.add("on");
+          }
+        });
+      }, { rootMargin: "-20% 0px -70% 0px" });
+      Object.keys(map).forEach(function (id) {
+        var el = document.getElementById(id); if (el) spy.observe(el);
+      });
+      var hero = document.querySelector(".hero");
+      if (chip && hero) {
+        new IntersectionObserver(function (es) {
+          chip.classList.toggle("show", !es[0].isIntersecting);
+        }, { threshold: 0 }).observe(hero);
+      }
+    }
+
+    // The chain draws itself, once, unless motion is reduced
+    var flow = document.querySelector(".flow");
+    if (flow && !noMotion && "IntersectionObserver" in window) {
+      flow.classList.add("anim");
+      var lit = false;
+      new IntersectionObserver(function (es, o) {
+        if (lit || !es[0].isIntersecting) return;
+        lit = true; o.disconnect();
+        var nodes = flow.querySelectorAll(".node");
+        nodes.forEach(function (n, i) { setTimeout(function () { n.classList.add("lit"); }, 160 * i); });
+      }, { threshold: 0.4 }).observe(flow);
+    }
+
+    // Guess before the reveal
+    var gb = document.getElementById("guessbox"), fig = document.getElementById("ripplefig");
+    if (gb && fig) {
+      fig.style.display = "none";
+      gb.innerHTML = '<div class="guess"><p>Before the chart: 500 software jobs or 500 retail jobs. Which creates more extra local jobs?</p>' +
+        '<div class="gbtns"><button class="gbtn" data-g="sw">Software</button><button class="gbtn" data-g="rt">Retail</button><button class="gbtn" data-g="same">About the same</button></div>' +
+        '<p class="gans" aria-live="polite"></p></div>';
+      gb.addEventListener("click", function (ev) {
+        var b = ev.target.closest(".gbtn"); if (!b) return;
+        var ans = gb.querySelector(".gans");
+        ans.textContent = b.dataset.g === "sw"
+          ? "Right. And the size of the gap is the real surprise:"
+          : "The research says software, by a lot. The gap is the point:";
+        gb.querySelectorAll(".gbtn").forEach(function (x) { x.disabled = true; x.style.opacity = .45; });
+        fig.style.display = "";
+      });
+    }
   })();
   </script>
     <details class="more">
