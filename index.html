@@ -678,10 +678,6 @@
   .mnote { margin-top: 14px; font-size: 0.9rem; font-weight: 600; max-width: 42em; }
 
   /* Ecosystem diagram */
-  .ecosys { margin-top: 4px; margin-bottom: 22px; }
-  .ecosys svg { width: 100%; height: auto; display: block; }
-  .ecap { margin-top: 10px; font-size: 0.9rem; color: var(--ink-soft); max-width: 42em; }
-  @media (max-width: 620px) { .ecosys svg { display: none; } .ecap { margin-top: 0; } }
 
   /* Lever map */
   .levers { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 6px; }
@@ -778,6 +774,9 @@
   details.more[open] > summary::before { content: "\2212 "; }
   details.more .inner { margin-top: 12px; }
   details.more .inner p { max-width: 42em; }
+  .band-dark details.more > summary { color: #9ed4d8; }
+  .ask details.more { margin-top: 10px; }
+  .ask details.more > summary { font-size: 0.88rem; }
 
   footer { padding: 44px 0 72px; font-size: 0.9rem; color: var(--ink-soft); }
   footer p { margin-bottom: 8px; max-width: 42em; }
@@ -851,7 +850,7 @@
     </div>
   </div>
   <p class="spwhere"><b>Eight measures: 1 strong &middot; 4 mixed &middot; 3 weak.</b> One weak measure turning strong, or two turning mixed, would move the region to the middle. <a href="methodology.html#overall">How the call works</a>.</p>
-  <p class="hooksub">More people are moving here than jobs are being created. You can feel it around town: paychecks that keep pace but do not pull ahead, and storefronts that sit empty. This resident-run page checks the numbers four times a year, and every grade links to its source.</p>
+  <p class="hooksub">You can feel it around town: paychecks that keep pace but do not pull ahead, and storefronts that sit empty. This page checks the numbers four times a year. Every grade links to its source.</p>
 
   <div class="ctas">
     <a class="btn solid" href="#scorecard">See the eight measures</a>
@@ -883,13 +882,13 @@
   <ol class="three">
     <li class="tnum"><span class="tn">&minus;2,900</span>
       <span class="tcap">Jobs, Spokane County, year over year</span>
-      <p>The county lost jobs over the past year, while the people kept coming. <a href="#jobgrowth">See the card</a>.</p></li>
+      <p><a href="#jobgrowth">See the card</a></p></li>
     <li class="tnum"><span class="tn">3 in 4</span>
-      <span class="tcap">New jobs since 2019 sit in just two sectors</span>
-      <p>Two sectors carried the growth. Most of the rest shrank. <a href="#hiring">See the card</a>.</p></li>
+      <span class="tcap">New county jobs since 2019 sit in just two sectors</span>
+      <p><a href="#hiring">See the card</a></p></li>
     <li class="tnum"><span class="tn">80&cent;</span>
-      <span class="tcap">Income here, per person, on Washington&rsquo;s dollar</span>
-      <p>Pay sits near the U.S. average. Incomes run far behind the state. <a href="#incomes">See the card</a>.</p></li>
+      <span class="tcap">Income per person, Spokane County 2024, for each $1 statewide</span>
+      <p><a href="#incomes">See the card</a></p></li>
   </ol>
   </div>
 
@@ -1195,8 +1194,8 @@
 <section id="effect" class="band-deep">
   <p class="eyebrow">Part 3 &middot; What one employer does</p>
   <h2 class="sect">It matters who does the hiring.</h2>
-  <p class="lede">Here is the idea this whole page turns on. Some employers sell to people outside the region: software sold nationally, goods shipped out, patients driving in from Idaho. Their sales pull new money into Spokane. Other employers, like shops and restaurants, mostly pass around money that is already here. A city needs both. But only the first kind makes the pot bigger.</p>
-  <p class="prose" style="max-width:42em;">And each new paycheck does not stop with the person who earns it. They spend it at local shops, clinics and restaurants, and that spending pays other people&rsquo;s wages. Economists call this the local multiplier. This page calls it the ripple, and it is bigger for some employers than others:</p>
+  <p class="lede">Here is the idea this whole page turns on. Some employers sell to people outside the region, and their sales pull new money into Spokane. Shops and restaurants mostly pass around money that is already here. A city needs both. But only the first kind makes the pot bigger.</p>
+  <p class="prose" style="max-width:42em;">And each new paycheck gets spent again at local shops and clinics, paying other people&rsquo;s wages. Economists call this the local multiplier. This page calls it the ripple, and it is bigger for some employers than others:</p>
 
   
   
@@ -1254,7 +1253,13 @@
         <text id="mcw-lab" x="116.8" y="182.8" text-anchor="middle" font-size="10.5" font-weight="700" fill="#211d18">900 to 1,900 extra jobs</text>
       </svg>
     </div>
-    <p class="rulenote" style="margin-top:12px;">How to read the chart: the bottom axis counts jobs hired. The height shows the extra local jobs those hires could support, from the low estimate to the high one. The dashed line is your pick. One scale for every sector, so a flat wedge really is flat. One more marker: the top of this slider, 5,000 jobs, equals Believe Spokane&rsquo;s whole five-year goal for the region. Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
+    <p class="rulenote" style="margin-top:12px;">Same math and sources as the <a href="calculator.html">full calculator</a>, which compares two employers side by side.</p>
+    <details class="more">
+      <summary>How to read the chart</summary>
+      <div class="inner prose">
+        <p>The bottom axis counts jobs hired. The height shows the extra local jobs those hires could support, from the low estimate to the high one. The dashed line is your pick. One scale for every sector, so a flat wedge really is flat. One more marker: the top of this slider, 5,000 jobs, equals Believe Spokane&rsquo;s whole five-year goal for the region.</p>
+      </div>
+    </details>
   </div>
   <script>
   (function () {
@@ -1441,7 +1446,7 @@
   <span id="goals"></span>
   <p class="eyebrow">Part 4 &middot; Who moves what</p>
   <h2 class="sect">Spokane already set targets. Who moves them?</h2>
-  <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign set these five-year goals when it <a href="https://greaterspokane.org/economic-development/believe-spokane-campaign-launches/">launched in March 2023</a>. The clock runs through 2028. As of this edition, the campaign is about three and a half years in, with about a year and a half to go. GSI posts updates against the goals.</p>
+  <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign set these five-year goals when it <a href="https://greaterspokane.org/economic-development/believe-spokane-campaign-launches/">launched in March 2023</a>. The clock runs through 2028, with about a year and a half left.</p>
 
   <div class="goals wide">
     <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span></div>
@@ -1451,8 +1456,14 @@
   </div>
 
   <p class="flowsum" style="margin-top:18px;">So how is the region doing?</p>
-  <p class="prose" style="max-width:42em;">The money side is public. Partners pledged just over $3 million to fund the campaign, ahead of schedule (<a href="https://www.spokanejournal.com/articles/86-gsi-partners-launch-believe-spokane-initiative">Journal of Business, 2023</a>). The results side is harder to check. GSI&rsquo;s <a href="https://issuu.com/greaterspokaneinc/docs/believe_spokane_2024_update">2024</a> and <a href="https://indd.adobe.com/view/d253c16a-6bec-4c23-b55a-b181905f2b0a">2025</a> updates describe the work, but they do not publish running totals for the four numbers above. So this page cannot verify progress toward them, and it will not guess. The day a running tally is published, it gets linked here.</p>
-  <p class="lede" style="margin-top:18px;margin-bottom:0;">What can be checked is the region itself. That is the whole job of this page. The eight measures above track whether the region is getting there. Greater Spokane Inc. runs the plays. This is the scoreboard, kept by somebody who is not running them.</p>
+  <p class="prose" style="max-width:42em;">Nobody can say from the outside. GSI&rsquo;s updates describe the work, but they do not publish running totals for the four numbers above. So this page cannot verify progress toward them, and it will not guess. The day a running tally is published, it gets linked here.</p>
+  <details class="more">
+    <summary>The funding detail, and GSI&rsquo;s own updates</summary>
+    <div class="inner prose">
+      <p>The money side is public. Partners pledged just over $3 million to fund the campaign, ahead of schedule (<a href="https://www.spokanejournal.com/articles/86-gsi-partners-launch-believe-spokane-initiative">Journal of Business, 2023</a>). The campaign&rsquo;s <a href="https://issuu.com/greaterspokaneinc/docs/believe_spokane_2024_update">2024</a> and <a href="https://indd.adobe.com/view/d253c16a-6bec-4c23-b55a-b181905f2b0a">2025</a> updates are linked so you can check this page&rsquo;s reading of them.</p>
+    </div>
+  </details>
+  <p class="lede" style="margin-top:18px;margin-bottom:0;">What can be checked is the region itself. The eight measures above track whether it is getting there. Greater Spokane Inc. runs the plays. This page keeps the scoreboard.</p>
 
 
   <div class="ownmx">
@@ -1466,37 +1477,10 @@
         <tr><th scope="row">5,000 career experiences</th><td></td><td></td><td><span class="mdot"></span></td><td><span class="mdot"></span></td><td></td></tr>
       </tbody>
     </table>
-    <p class="mxnote">A dot means that actor holds a lever on that target. Tap an actor to open its detail below. Nobody owns the whole economy; different institutions own different levers.</p>
+    <p class="mxnote">A dot means that actor holds a lever on that target. Tap an actor to open its detail below.</p>
   </div>
   <span id="levers"></span>
-  <p class="lede" style="margin-top:34px;">No single office controls those eight numbers. So here is the machine with name tags: each actor, the levers only it holds, and where things stand. Open any row for the detail. Every status line is tied to a measure, tied to a source, or stated as an open question, and open questions are invitations: send the data and it gets linked.</p>
-
-  <div class="ecosys wide">
-    <svg viewBox="0 0 640 330" role="img" aria-label="Diagram: six actors surround the regional economy. The city holds permits, land and fees. Regional recruiters sell Spokane and ready sites. Colleges supply talent and research. Employers hire, expand and buy locally. The state sets tax, infrastructure and funding. Residents work, vote, build and spend.">
-      <defs><style>
-        .en { fill:#fff; stroke:#ccc2ac; }
-        .et { font-family:"Public Sans",sans-serif; font-weight:700; font-size:12px; fill:#211d18; }
-        .es { font-family:"Public Sans",sans-serif; font-size:9.5px; fill:#4a5654; }
-        .el { stroke:#ccc2ac; stroke-width:1.5; }
-      </style></defs>
-      <line class="el" x1="320" y1="165" x2="110" y2="52"/>
-      <line class="el" x1="320" y1="165" x2="530" y2="52"/>
-      <line class="el" x1="320" y1="165" x2="72"  y2="165"/>
-      <line class="el" x1="320" y1="165" x2="568" y2="165"/>
-      <line class="el" x1="320" y1="165" x2="110" y2="278"/>
-      <line class="el" x1="320" y1="165" x2="530" y2="278"/>
-      <circle cx="320" cy="165" r="62" fill="#2a6b73"/>
-      <text x="320" y="159" text-anchor="middle" class="et" fill="#fff" font-size="12.5">REGIONAL</text>
-      <text x="320" y="175" text-anchor="middle" class="et" fill="#fff" font-size="12.5">ECONOMY</text>
-      <g><rect class="en" x="16" y="14" width="188" height="46" rx="3"/><text x="26" y="33" class="et">City of Spokane</text><text x="26" y="49" class="es">Permits, land, fees, attention</text></g>
-      <g><rect class="en" x="436" y="14" width="188" height="46" rx="3"/><text x="446" y="33" class="et">Regional recruiters</text><text x="446" y="49" class="es">Sell Spokane, ready sites</text></g>
-      <g><rect class="en" x="16" y="142" width="188" height="46" rx="3"/><text x="26" y="161" class="et">Colleges</text><text x="26" y="177" class="es">Talent, research, internships</text></g>
-      <g><rect class="en" x="436" y="142" width="188" height="46" rx="3"/><text x="446" y="161" class="et">Employers</text><text x="446" y="177" class="es">Hire, expand, buy locally</text></g>
-      <g><rect class="en" x="16" y="270" width="188" height="46" rx="3"/><text x="26" y="289" class="et">The state</text><text x="26" y="305" class="es">Tax, infrastructure, funding</text></g>
-      <g><rect class="en" x="436" y="270" width="188" height="46" rx="3"/><text x="446" y="289" class="et">Residents</text><text x="446" y="305" class="es">Work, vote, build, spend</text></g>
-    </svg>
-    <p class="ecap">Six actors, one economy. None of them moves those eight numbers alone. Open any one below for the levers it actually holds and where things stand.</p>
-  </div>
+  <p class="lede" style="margin-top:34px;">No single office controls those eight numbers. Each actor below holds different levers. Open a row for where things stand: every status line is tied to a measure, tied to a source, or stated as an open question. Open questions are invitations. Send the data and it gets linked.</p>
 
   <div class="levers wide">
     <details class="lever" id="lever-city">
@@ -1668,26 +1652,36 @@
   </div>
   <div class="ask">
     <span class="asknum">2</span><h4>Publish progress against the plan.</h4>
-    <p>The plans exist. GSI has published five-year goals. The city has an economic development chapter in its comprehensive plan. What is missing is a short public scoreboard showing progress against them, updated on a schedule, in one place a resident can find.</p>
+    <p>The plans exist (<a href="#plan">part 4 names them</a>). What is missing is a short public scoreboard of progress against them, updated on a schedule, in one place a resident can find.</p>
   </div>
   <div class="ask">
     <span class="asknum">3</span><h4>Explain the tradeoffs.</h4>
-    <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say out loud what each choice does for the numbers on this page. Name what is being traded away, not just what is being bought.</p>
+    <p>Most city business has nothing to do with attracting employers, and shouldn&rsquo;t. But when major money and attention get allocated, say what each choice does for these numbers, and name what is traded away.</p>
   </div>
   <p class="askgroup" style="margin-top:30px;">Colleges</p>
   <div class="ask collegeask">
     <h4>Publish one comparable number.</h4>
-    <p>Some of you already do a version of this. Gonzaga has a public dashboard you can filter by major and by location, and Whitworth publishes outcomes too. Credit where it is due.</p>
-    <p>What the region still lacks is one number that means the same thing at every school: the share of graduates in a given field working in the Spokane area a year out. Right now the reports are not comparable, so nobody can add them up.</p>
-    <p><b>And to be clear about what this measures.</b> If a school produces 200 engineers and 150 leave, that is not the school failing. It is evidence the region does not have jobs for them. Graduate retention is a diagnostic for the employer ecosystem, not a grade on any university.</p>
+    <p>The share of graduates in a given field working in the Spokane area a year out, defined the same way at every school. Right now the reports are not comparable, so nobody can add them up.</p>
+    <details class="more">
+      <summary>To be clear, this measures the region, not the schools</summary>
+      <div class="inner prose">
+        <p>Some schools already do a version of this. Gonzaga has a public dashboard you can filter by major and by location, and Whitworth publishes outcomes too. Credit where it is due.</p>
+        <p>And if a school produces 200 engineers and 150 leave, that is not the school failing. It is evidence the region does not have jobs for them. Graduate retention is a diagnostic for the employer ecosystem, not a grade on any university.</p>
+      </div>
+    </details>
   </div>
 
   <p class="askgroup" style="margin-top:30px;">Washington State</p>
   <div class="ask stateask">
     <h4>Publish which county graduates work in.</h4>
-    <p>Washington already links school records to paycheck records. The state&rsquo;s <a href="https://erdc.wa.gov/data-dashboards/earnings-graduates-dashboard">Earnings for Graduates dashboard</a> shows what graduates earn, broken out by school and by major, using unemployment insurance wage records. What it does not show is where those graduates work. It only says &ldquo;somewhere in Washington.&rdquo;</p>
-    <p>The employer&rsquo;s location is already sitting in those records. Adding county of employment is a different cut of a report that already exists. It is not a new survey. It would answer this for every school in the state at once, in weeks rather than years.</p>
-    <p>It would also have a known blind spot, and that is worth saying out loud. It would catch graduates who leave Spokane for Seattle, because Seattle is in Washington. It would miss the ones who leave for Boise or Denver. That is still far more than anyone can see today.</p>
+    <p>Washington already links school records to paycheck records. The state&rsquo;s <a href="https://erdc.wa.gov/data-dashboards/earnings-graduates-dashboard">Earnings for Graduates dashboard</a> shows what graduates earn, by school and by major. It does not show where they work. Adding county of employment is a different cut of a report that already exists.</p>
+    <details class="more">
+      <summary>Why this is small to build, and the blind spot it would have</summary>
+      <div class="inner prose">
+        <p>The employer&rsquo;s location is already sitting in those unemployment insurance wage records. It is not a new survey. It would answer this for every school in the state at once, in weeks rather than years.</p>
+        <p>The known blind spot: it would catch graduates who leave Spokane for Seattle, because Seattle is in Washington. It would miss the ones who leave for Boise or Denver. That is still far more than anyone can see today.</p>
+      </div>
+    </details>
   </div>
 
   <p class="askgroup" style="margin-top:30px;">Spokane residents</p>
