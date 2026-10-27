@@ -476,8 +476,7 @@
 
   /* Ledger rows: a 4-across tile grid that opens to full width in place */
   .legend { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; max-width: 46em; }
-  .grid8 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 30px; }
-  @media (max-width: 900px) { .grid8 { grid-template-columns: repeat(2, 1fr); } }
+  .grid8 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 30px; }
   @media (max-width: 560px) { .grid8 { grid-template-columns: 1fr; } }
 
   .row {
@@ -492,14 +491,14 @@
   .row.y { border-top-color: var(--amber); }
   .row.r { border-top-color: var(--red); }
   .row[open] { grid-column: 1 / -1; }
-  .row > summary { list-style: none; cursor: pointer; padding: 13px 14px 15px; }
+  .row > summary { list-style: none; cursor: pointer; padding: 20px 22px 22px; }
   .row > summary::-webkit-details-marker { display: none; }
   .row > summary:hover { background: #faf6ec; }
 
-  .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
+  .tiletop { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 14px; }
   .geo {
-    font-family: var(--mono); font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--ink-soft); background: #efe9db; border-radius: 999px; padding: 2px 9px; white-space: nowrap;
+    font-family: var(--mono); font-size: 0.64rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-soft); background: #efe9db; border-radius: 999px; padding: 3px 10px; white-space: nowrap;
   }
   .geo { position: relative; cursor: help; }
   .geo:hover::after, .geo:focus::after {
@@ -510,38 +509,29 @@
     white-space: nowrap; z-index: 50;
   }
   .grade {
-    font-family: var(--mono); font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em;
-    padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 3px 10px; border-radius: 999px; white-space: nowrap;
   }
   .row.g .grade { color: var(--green); background: var(--green-bg); }
   .row.y .grade { color: var(--amber); background: var(--amber-bg); }
   .row.r .grade { color: var(--red); background: var(--red-bg); }
   .measure {
     display: block; font-family: "Fraunces", Georgia, serif; font-weight: 600;
-    font-size: 0.98rem; line-height: 1.2; color: var(--ink-soft);
+    font-size: 1.28rem; line-height: 1.2; color: var(--ink);
   }
   .figure {
-    display: block; margin-top: 4px; font-size: 1.45rem; font-weight: 700;
-    letter-spacing: -0.015em; line-height: 1.12;
+    display: block; margin-top: 12px; font-family: "Fraunces", Georgia, serif;
+    font-size: 2.3rem; font-weight: 800;
+    letter-spacing: -0.02em; line-height: 1;
   }
-  .figure small { display: block; font-size: 0.5em; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; margin-top: 2px; }
-  .result { display: block; margin-top: 8px; font-size: 0.82rem; line-height: 1.35; color: var(--ink-soft); }
+  .figure small { display: block; font-family: "Public Sans", -apple-system, sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; margin-top: 6px; }
+  .result { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.4; color: var(--ink-soft); }
 
-  /* microbar: Spokane as a share of its benchmark, tick at the benchmark */
-  .micro { display: block; margin-top: 10px; }
-  .mtrack { display: block; position: relative; height: 6px; background: #e7dfcd; border-radius: 3px; }
-  .mfill { display: block; height: 100%; border-radius: 3px; background: var(--teal); }
-  .row.r .mfill { background: var(--red); }
-  .row.y .mfill { background: var(--amber); }
-  .row.g .mfill { background: var(--green); }
-  .mmark { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: .55; }
-  .mcap { display: block; margin-top: 5px; font-size: 0.68rem; color: var(--ink-soft); opacity: 0.85; line-height: 1.3; }
-
-  .viewd { display: block; margin-top: 10px; font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal); }
+  .viewd { display: block; margin-top: 16px; font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal); }
   .vdc { display: none; }
   .row[open] .vdo { display: none; }
   .row[open] .vdc { display: inline; }
-  .row .body { padding: 0 14px 18px; border-top: 1px solid var(--rule); margin-top: 4px; padding-top: 14px; }
+  .row .body { padding: 0 22px 22px; border-top: 1px solid var(--rule); margin-top: 0; padding-top: 16px; }
   .bench { font-weight: 600; font-size: 0.95rem; max-width: 42em; }
   .why { margin-top: 12px; color: var(--ink-soft); max-width: 42em; }
   .src { margin-top: 12px; font-size: 0.85rem; color: var(--ink-soft); max-width: 42em; }
@@ -919,7 +909,6 @@
       <span class="measure">Are we adding jobs?</span>
       <span class="figure">&minus;2,900<small>jobs, year over year</small></span>
       <span class="result">No. Jobs are shrinking.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:14%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">2026 pace is 14% of the 5-year average. Tick marks the average.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -949,7 +938,6 @@
       <span class="measure">Who is doing the hiring?</span>
       <span class="figure">2 sectors<small>carry 3 in 4 new jobs</small></span>
       <span class="result">Mostly just two industries.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:74%"></span><span class="mmark" style="left:50%"></span></span><span class="mcap">Health care and logistics: 74% of net job growth since 2019. Tick marks half.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -985,7 +973,6 @@
       <span class="measure">How many are out of work?</span>
       <span class="figure">3.8%<small>June 2026</small></span>
       <span class="result">Few. But fewer are looking, too.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:86%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">86% of the U.S. rate of 4.4%. Shorter is better here.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -1016,7 +1003,6 @@
       <span class="measure">Does an hour pay enough?</span>
       <span class="figure">$32.96<small>average hourly wage</small></span>
       <span class="result">It keeps pace. It does not pull ahead.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:98%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">98% of the U.S. average of $33.54.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -1046,7 +1032,6 @@
       <span class="measure">What do we take home?</span>
       <span class="figure">$44,107<small>per person, 2024</small></span>
       <span class="result">Just under the U.S. Far under Washington.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:97%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">97% of the U.S. figure, and 80% of Washington's.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -1070,7 +1055,6 @@
       <span class="measure">Are we spending locally?</span>
       <span class="figure">+1.2%<small>taxable retail sales, Q4 2024</small></span>
       <span class="result">Barely more than last year.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:27%"></span><span class="mmark" style="left:100%"></span></span><span class="mcap">27% of the long-run normal of 4 to 5%.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -1095,7 +1079,6 @@
       <span class="measure">Are shops full or empty?</span>
       <span class="figure">5.3%<small>retail vacancy, Q2 2026</small></span>
       <span class="result">Too many sit empty. Not improving.</span>
-      <span class="micro"><span class="mtrack"><span class="mfill" style="width:100%"></span><span class="mmark" style="left:85%"></span></span><span class="mcap">Spokane Valley sits at a healthier 4 to 5%, the tick. Shorter is better here.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -1118,7 +1101,6 @@
       <span class="measure">Are people moving here?</span>
       <span class="figure">~556,000<small>county residents</small></span>
       <span class="result">Yes. The one strong grade.</span>
-      <span class="micro"><span class="mcap" style="margin-top:0;">Grew faster than Washington and the country last year. The sources report the direction, not a rate, so there is no bar to draw.</span></span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
