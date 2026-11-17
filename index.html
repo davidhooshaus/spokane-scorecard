@@ -192,6 +192,14 @@
   .sprule { display: block; margin-top: 3px; font-size: 0.75rem; color: var(--cream-soft); line-height: 1.3; }
   .spwhere { margin-top: 18px; font-size: 0.92rem; color: var(--cream-soft); max-width: 40em; }
   .spwhere b { color: #fff; }
+  .since { margin-top: 30px; max-width: 42em; border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px; }
+  .since .slab { font-family: var(--mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-soft); margin: 0 0 10px; }
+  .since ul { list-style: none; margin: 0; padding: 0; }
+  .since li { font-size: 0.92rem; color: var(--cream-soft); padding: 5px 0; line-height: 1.45; }
+  .since li b { color: #fff; font-weight: 600; }
+  .since .chlab { font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-lt); margin-left: 6px; white-space: nowrap; }
+  .since .snote { font-size: 0.85rem; color: var(--cream-soft); margin: 10px 0 0; }
+  .since .snote a { color: var(--teal-br); }
   @media (max-width: 560px) {
     .spectrum { grid-template-columns: 1fr; gap: 3px; }
     .spseg { border-top-width: 1px; border-top-color: rgba(255,255,255,.14); border-left: 5px solid rgba(255,255,255,.25); border-radius: 0 3px 3px 0; padding: 7px 10px 8px; }
@@ -526,6 +534,7 @@
   }
   .figure small { display: block; font-family: "Public Sans", -apple-system, sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; margin-top: 6px; }
   .result { display: block; margin-top: 10px; font-size: 1rem; line-height: 1.4; color: var(--ink-soft); }
+  .tdelta { display: block; margin-top: 7px; font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); opacity: 0.85; }
 
   .viewd { display: block; margin-top: 16px; font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal); }
   .vdc { display: none; }
@@ -818,7 +827,7 @@
       <svg viewBox="0 0 1600 520" preserveAspectRatio="none" aria-hidden="true"><polygon points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4 1600,520 0,520" fill="#2a6b73" opacity="0.07"/><polyline points="0.0,414.6 145.5,384.8 290.9,339.8 436.4,312.1 581.8,270.4 727.3,232.0 872.7,313.4 1018.2,220.9 1163.6,157.3 1309.1,127.6 1454.5,114.7 1600.0,110.4" fill="none" stroke="#2a6b73" stroke-width="3" opacity="0.18" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
       <!-- hero-chart:end -->
   </div>
-  <p class="edition">Updated August 2026 &middot; Next update November 2026</p>
+  <p class="edition">Updated November 2026 &middot; Next update February 2027</p>
   <p class="hook">Is Spokane on track to attract the employers that let more people build a good life here?</p>
 
   <p class="answerlab">The answer, this quarter:</p>
@@ -839,8 +848,22 @@
       <span class="sprule">more strong than weak</span>
     </div>
   </div>
-  <p class="spwhere"><b>Eight measures: 1 strong &middot; 4 mixed &middot; 3 weak.</b> One weak measure turning strong, or two turning mixed, would move the region to the middle. <a href="methodology.html#overall">How the call works</a>.</p>
-  <p class="hooksub">You can feel it around town: paychecks that keep pace but do not pull ahead, and storefronts that sit empty. This page checks the numbers four times a year. Every grade links to its source.</p>
+  <p class="spwhere"><b>Eight measures: 1 strong &middot; 3 mixed &middot; 4 weak.</b> It takes three weak measures turning mixed, or one turning strong and another turning mixed, to reach the middle. <a href="methodology.html#overall">How the call works</a>.</p>
+
+  <div class="since" id="changed">
+    <p class="slab">Since August</p>
+    <ul>
+      <li><b>Jobs:</b> shrinking more slowly. Down 1,400 over the year, from down 2,900. <span class="chlab">Data change</span></li>
+      <li><b>Out of work</b> became <b>working-age adults with jobs</b>: 75.9%, right at the national rate. <span class="chlab">Measure updated</span></li>
+      <li><b>Incomes:</b> $44,107 to $44,117 per person, flat while the U.S. grew 4%. Grade moved mixed to weak. <span class="chlab">Data change</span></li>
+      <li><b>Spending:</b> city growth +1.2% to +4.1%, still behind the county and the state. <span class="chlab">Data change</span></li>
+      <li><b>Storefronts:</b> vacancy 5.3% to 4.7%, the best quarter in years. <span class="chlab">Data change</span></li>
+      <li><b>People:</b> 570,600 county residents, growth slowing but still ahead of the state. <span class="chlab">Data change</span></li>
+    </ul>
+    <p class="snote">Paychecks and the hiring mix run on annual data and next update in spring. Every move is logged in the <a href="methodology.html#changelog">change log</a>, and <a href="archive/">past editions</a> stay frozen as published.</p>
+  </div>
+
+  <p class="hooksub">You can feel it around town: paychecks that keep pace but do not pull ahead, and storefronts that are finally starting to fill. This page checks the numbers four times a year. Every grade links to its source.</p>
 
   <div class="ctas">
     <a class="btn solid" href="#scorecard">See the eight measures</a>
@@ -858,7 +881,7 @@
   <a href="#asks"><b>6</b> The asks</a>
   <a href="#objections"><b>7</b> Objections, answered</a>
   <a href="#nerd"><b>8</b> Check the work</a>
-  <a class="tocverdict" id="tocverdict" href="#" aria-label="Back to the verdict at the top">Aug 2026: Off track</a>
+  <a class="tocverdict" id="tocverdict" href="#" aria-label="Back to the verdict at the top">Nov 2026: Off track</a>
 </nav>
 
 <!-- ============ 01 THE VERDICT ============ -->
@@ -870,14 +893,14 @@
   <div class="statband">
   <p class="tklab">The story in three numbers. If you read nothing else, read these.</p>
   <ol class="three">
-    <li class="tnum"><span class="tn">&minus;2,900</span>
+    <li class="tnum"><span class="tn">&minus;1,400</span>
       <span class="tcap">Jobs, Spokane County, year over year</span>
       <p><a href="#jobgrowth">See the card</a></p></li>
     <li class="tnum"><span class="tn">3 in 4</span>
       <span class="tcap">New county jobs since 2019 sit in just two sectors</span>
       <p><a href="#hiring">See the card</a></p></li>
-    <li class="tnum"><span class="tn">80&cent;</span>
-      <span class="tcap">Income per person, Spokane County 2024, for each $1 statewide</span>
+    <li class="tnum"><span class="tn">78&cent;</span>
+      <span class="tcap">Income per person, Spokane County 2025, for each $1 statewide</span>
       <p><a href="#incomes">See the card</a></p></li>
   </ol>
   </div>
@@ -907,27 +930,28 @@
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">Are we adding jobs?</span>
-      <span class="figure">&minus;2,900<small>jobs, year over year</small></span>
-      <span class="result">No. Jobs are shrinking.</span>
+      <span class="figure">&minus;1,400<small>jobs, year over year</small></span>
+      <span class="result">No. Still shrinking, more slowly.</span>
+      <span class="tdelta">Since Aug: &minus;2,900 &rarr; &minus;1,400</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Spokane County payrolls fell 1.1% from June 2025 to June 2026. In 2026 the metro has added an average of 58 jobs a month, the weakest pace since 2020.</p>
+      <p class="bench">Spokane County payrolls fell 0.5% from September 2025 to September 2026. Private employers cut 2,400 jobs over that year; government added 1,000. In 2026 the metro has lost an average of 133 jobs a month, the first losing year since 2020.</p>
       <div class="chart">
-        <p class="bar"><span class="lab">5-yr average</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+410/mo</span></p>
-        <p class="bar"><span class="lab">2025</span><span class="track"><span class="fill" style="width:32%"></span></span><span class="val">+133/mo</span></p>
-        <p class="bar spk"><span class="lab">2026</span><span class="track"><span class="fill" style="width:14%"></span></span><span class="val">+58/mo</span></p>
-        <p class="note">Average jobs added per month, Spokane metro</p>
+        <p class="bar"><span class="lab">5-yr average</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+190/mo</span></p>
+        <p class="bar"><span class="lab">2025</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="val">+133/mo</span></p>
+        <p class="bar neg"><span class="lab">2026</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="val">&minus;133/mo</span></p>
+        <p class="note">Average jobs added or lost per month, Spokane metro. 2026 covers January through September.</p>
       </div>
-      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+410/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026</th><td>+58/mo</td></tr></tbody></table></details>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average jobs added or lost per month, Spokane metro</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">5-yr average</th><td>+190/mo</td></tr><tr><th scope="row">2025</th><td>+133/mo</td></tr><tr><th scope="row">2026 (Jan&ndash;Sep)</th><td>&minus;133/mo</td></tr></tbody></table></details>
       <figure class="trend" id="longview">
     <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of average yearly employment in Spokane County, 2014 to 2025. Jobs climb from about 206 thousand to about 244 thousand, dip in 2020, recover, then flatten in 2024 and 2025." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="208.0" x2="610" y2="208.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="212.0" text-anchor="end" font-size="11" fill="#4a5654">200k</text><line x1="56" y1="132.0" x2="610" y2="132.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="136.0" text-anchor="end" font-size="11" fill="#4a5654">220k</text><line x1="56" y1="56.0" x2="610" y2="56.0" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="60.0" text-anchor="end" font-size="11" fill="#4a5654">240k</text><line x1="358.2" y1="18" x2="358.2" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="363.2" y="29" font-size="10.5" fill="#a06e0a">pandemic</text><polyline points="56.0,186.5 106.4,172.3 156.7,150.9 207.1,137.8 257.5,117.9 307.8,99.7 358.2,138.4 408.5,94.4 458.9,64.2 509.3,50.1 559.6,44.0 610.0,41.9" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="610.0" cy="41.9" r="3.5" fill="#2a6b73"/><text x="617.0" y="45.9" font-size="11.5" font-weight="700" fill="#211d18">243,704</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2014</text><text x="207.1" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2017</text><text x="358.2" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2020</text><text x="509.3" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2023</text><text x="610.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2025</text></svg>
-    <figcaption><b>The climb stopped in 2024.</b> Jobs in Spokane County, 2014 to 2025: average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 2,900 job drop at the top of this page is mid 2025 to mid 2026, from monthly data, and is too recent to appear here.
+    <figcaption><b>The climb stopped in 2024.</b> Jobs in Spokane County, 2014 to 2025: average yearly employment, counted from unemployment insurance records. A decade of climbing, a dip in 2020, then the climb stops in 2024. These annual averages run through 2025. The 1,400 job drop at the top of this page is September 2025 to September 2026, from monthly data, and is too recent to appear here.
     <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Average yearly employment, Spokane County (QCEW)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2014</th><td>205,671</td></tr><tr><th scope="row">2015</th><td>209,396</td></tr><tr><th scope="row">2016</th><td>215,023</td></tr><tr><th scope="row">2017</th><td>218,486</td></tr><tr><th scope="row">2018</th><td>223,698</td></tr><tr><th scope="row">2019</th><td>228,502</td></tr><tr><th scope="row">2020</th><td>218,321</td></tr><tr><th scope="row">2021</th><td>229,882</td></tr><tr><th scope="row">2022</th><td>237,838</td></tr><tr><th scope="row">2023</th><td>241,548</td></tr><tr><th scope="row">2024</th><td>243,161</td></tr><tr><th scope="row">2025</th><td>243,704</td></tr></tbody></table></details>
     <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS Quarterly Census of Employment and Wages</a>, annual averages, Spokane County. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
   </figure>
-      <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Right now Spokane is going backwards.</p>
-      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (June 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a></p>
+      <p class="why">Why it matters: this is the bottom line. A region attracting employers adds jobs faster than it loses them. Spokane is still going backwards, just less steeply than in the spring.</p>
+      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept., Spokane County profile</a> (September 2026); <a href="https://usafacts.org/answers/how-many-jobs-were-added-in-the-us-last-month/metro-area/spokane-wa/">USAFacts / BLS</a> (through September 2026)</p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
@@ -938,6 +962,7 @@
       <span class="measure">Who is doing the hiring?</span>
       <span class="figure">2 sectors<small>carry 3 in 4 new jobs</small></span>
       <span class="result">Mostly just two industries.</span>
+      <span class="tdelta">Since Aug: no change, annual data</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
@@ -962,37 +987,32 @@
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/healthcare_share.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
       <p class="why">Why it matters, and this is about the shape of an economy, not the worth of a job. Most health care serves people who already live here. Spokane is also a regional hospital hub, treating patients from Idaho and Montana, and that does bring outside money in. But the employers that lift a region&rsquo;s pay are usually the ones selling to the outside world. Think manufacturing, software, professional services. Those are the ones not showing up. Local-serving work is essential and always will be; a region with no clinics or shops is not a region. The point is that something has to bring the outside money in first. Leaning on one sector is also a risk by itself. The test behind this grade is simple. Does the work bring money into the region, or just move money that is already here?</p>
-      <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
+      <p class="src">Source: <a href="https://spokaneworkforce.org/targeted-industries/">Spokane Workforce Council, Targeted Industries</a> (Lightcast 2026.3); <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">Spokane Journal of Business</a></p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
 
-  <details class="row y">
+  <details class="row y" id="workingage">
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Mixed</span></span>
-      <span class="measure">How many are out of work?</span>
-      <span class="figure">3.8%<small>June 2026</small></span>
-      <span class="result">Few. But fewer are looking, too.</span>
+      <span class="measure">Are working-age adults working?</span>
+      <span class="figure">75.9%<small>of adults 20 to 64 hold a job, 2025</small></span>
+      <span class="result">Right at the U.S. rate. New measure.</span>
+      <span class="tdelta">Since Aug: new measure, replaces the unemployment rate</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Beats Washington (4.7%) and the U.S. (4.4%). But this number flatters us: it counts only people actively looking, and Spokane&rsquo;s labor force participation lags the national rate, with retirements shrinking the pool faster than new workers replace it. A low rate over a shrinking base is not strength.</p>
+      <p class="bench">This counts every person ages 20 to 64 who holds any job. Spokane County sits at 75.9%, level with the U.S. (76.0%) and Washington (76.0%), and up from 74.3% in 2024. County survey figures carry a margin of error near 2 points, so read the one-year rise as direction, not fact.</p>
       <div class="chart">
-        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:81%"></span></span><span class="val">3.8%</span></p>
-        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:94%"></span></span><span class="val">4.4%</span></p>
-        <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4.7%</span></p>
-        <p class="note">Unemployment rate, June 2026. Shorter bar is better.</p>
+        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:99.9%"></span></span><span class="val">75.9%</span></p>
+        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">76.0%</span></p>
+        <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">76.0%</span></p>
+        <p class="note">Share of adults 20 to 64 with a job, 2025</p>
       </div>
-      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Unemployment rate, June 2026. Shorter bar is better.</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>3.8%</td></tr><tr><th scope="row">U.S.</th><td>4.4%</td></tr><tr><th scope="row">Washington</th><td>4.7%</td></tr></tbody></table></details>
-
-      <figure class="trend">
-        <svg viewBox="0 0 680 240" role="img" aria-label="Line chart of the June unemployment rate in Spokane County, 2015 to 2026. It falls from 6.4 percent to under 3 percent, spikes to 10.1 percent in 2020, and sits at 3.8 percent in 2026." font-family="Public Sans, sans-serif" style="font-variant-numeric:tabular-nums"><rect width="680" height="240" fill="#ffffff"/><line x1="56" y1="186.9" x2="606" y2="186.9" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="190.9" text-anchor="end" font-size="11" fill="#4a5654">3%</text><line x1="56" y1="123.6" x2="606" y2="123.6" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="127.6" text-anchor="end" font-size="11" fill="#4a5654">6%</text><line x1="56" y1="60.2" x2="606" y2="60.2" stroke="#e3ebe9" stroke-width="1"/><text x="48" y="64.2" text-anchor="end" font-size="11" fill="#4a5654">9%</text><line x1="306.0" y1="18" x2="306.0" y2="208" stroke="#a06e0a" stroke-width="1" stroke-dasharray="3 3"/><text x="311.0" y="29" font-size="10.5" fill="#a06e0a">10.1% in the pandemic</text><polyline points="56.0,115.1 106.0,125.7 156.0,155.2 206.0,144.7 256.0,138.3 306.0,37.0 356.0,155.2 406.0,174.2 456.0,193.2 506.0,174.2 556.0,178.4 606.0,170.0" fill="none" stroke="#2a6b73" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="606.0" cy="170.0" r="3.5" fill="#2a6b73"/><text x="613.0" y="174.0" font-size="11.5" font-weight="700" fill="#211d18">3.8%</text><text x="56.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2015</text><text x="206.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2018</text><text x="356.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2021</text><text x="506.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2024</text><text x="606.0" y="230" text-anchor="middle" font-size="11" fill="#4a5654">2026</text></svg>
-        <figcaption><b>Low, but it flatters.</b> June unemployment, Spokane County, 2015 to 2026. Each point is the published June figure, the same month the headline uses. Not seasonally adjusted. Lower is better here.
-        <details class="astable"><summary>Show these numbers as a table</summary><table><caption>June unemployment rate, Spokane County (BLS LAUS)</caption><thead><tr><th scope="col">Year</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">2015</th><td>6.4%</td></tr><tr><th scope="row">2016</th><td>5.9%</td></tr><tr><th scope="row">2017</th><td>4.5%</td></tr><tr><th scope="row">2018</th><td>5.0%</td></tr><tr><th scope="row">2019</th><td>5.3%</td></tr><tr><th scope="row">2020</th><td>10.1%</td></tr><tr><th scope="row">2021</th><td>4.5%</td></tr><tr><th scope="row">2022</th><td>3.6%</td></tr><tr><th scope="row">2023</th><td>2.7%</td></tr><tr><th scope="row">2024</th><td>3.6%</td></tr><tr><th scope="row">2025</th><td>3.4%</td></tr><tr><th scope="row">2026</th><td>3.8%</td></tr></tbody></table></details>
-        <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/lau/">BLS Local Area Unemployment Statistics</a>, series LAUCN530630000000003. <a href="data/laus/june_unemployment.csv">Download this data (CSV)</a>.</span></figcaption>
-      </figure>
-      <p class="why">Why it matters: this is the most quoted jobs number, so it stays on the board. The truer measure is the share of working-age adults actually holding jobs, which Spokane&rsquo;s own data project tracks. That becomes this card in November.</p>
-      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a> (June 2026); <a href="https://www.spokanejournal.com/articles/159-spokane-s-labor-force-participation-lags-the-us-rate">EWU Institute for Public Policy via Spokane Journal of Business</a>; replacement metric: <a href="https://www.spokanetrends.org/graph.cfm?cat_id=2&amp;sub_cat_id=4&amp;ind_id=3">Spokane Trends 2.4.2</a></p>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Share of adults 20 to 64 with a job, 2025</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>75.9%</td></tr><tr><th scope="row">U.S.</th><td>76.0%</td></tr><tr><th scope="row">Washington</th><td>76.0%</td></tr></tbody></table></details>
+      <p class="bench">This measure replaced the unemployment rate beginning November 2026. August&rsquo;s grade is preserved in the archive and is not directly comparable. The old number stays visible here: unemployment was 3.2% in September 2026, better than Washington (4.3%) and the U.S. (4.0%). It is low partly because the pool is shrinking. The county&rsquo;s labor force had 3,151 fewer people than a year earlier.</p>
+      <p class="why">Why it matters: the unemployment rate counts only people actively looking, so retirements and dropouts flatter it. This measure counts everyone of working age. If employers here were creating more good jobs, this number would climb past the nation&rsquo;s instead of sitting level with it.</p>
+      <p class="src">Source: <a href="https://data.census.gov/table/ACSST1Y2025.S2301?g=050XX00US53063">Census ACS 2025 1-year, table S2301</a> (<a href="data/acs/2025/acs_2025_1yr_spokane_wa_us.csv">download the pulled figures, CSV</a>); <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a> (September 2026); <a href="https://www.spokanetrends.org/graph.cfm?cat_id=2&amp;sub_cat_id=4&amp;ind_id=2">Spokane Trends 2.4.2, labor force participation</a></p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
@@ -1003,10 +1023,11 @@
       <span class="measure">Does an hour pay enough?</span>
       <span class="figure">$32.96<small>average hourly wage</small></span>
       <span class="result">It keeps pace. It does not pull ahead.</span>
+      <span class="tdelta">Since Aug: no change, annual data</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Spokane wages have nearly reached the national average. But per-person income grew 4.9% in 2024 while the U.S. grew 6.6%, so the gap with the rest of the country widened again.</p>
+      <p class="bench">Spokane wages have nearly reached the national average. But income per person barely moved in 2025 while the nation&rsquo;s grew about 4%, so the gap with the rest of the country widened for a second straight year.</p>
       <div class="chart">
         <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">$32.96</span></p>
         <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$33.54</span></p>
@@ -1021,30 +1042,32 @@
         <span class="src" style="display:block;margin-top:8px;">Source: <a href="https://www.bls.gov/cew/">BLS QCEW</a>, annual averages. <a href="data/qcew/spokane_county_annual.csv">Download this data (CSV)</a>.</span></figcaption>
       </figure>
       <p class="why">Why it matters: wage level is the clearest test of employer quality. Parity with the U.S. average is real progress. Losing ground on income growth says the progress isn&rsquo;t compounding.</p>
-      <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025); <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">Spokesman-Review / EWU Institute for Public Policy</a></p>
+      <p class="src">Source: <a href="https://www.bls.gov/regions/west/news-release/occupationalemploymentandwages_spokane.htm">BLS Occupational Employment and Wages, Spokane MSA</a> (May 2025, the newest release; the next arrives in spring 2027); <a href="https://data.census.gov/table/ACSDT1Y2025.B19301?g=050XX00US53063">Census ACS 2025 1-year, per-person income</a></p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
 
-  <details class="row y" id="incomes">
+  <details class="row r" id="incomes">
     <summary>
-      <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Mixed</span></span>
+      <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Weak</span></span>
       <span class="measure">What do we take home?</span>
-      <span class="figure">$44,107<small>per person, 2024</small></span>
-      <span class="result">Just under the U.S. Far under Washington.</span>
+      <span class="figure">$44,117<small>per person, 2025</small></span>
+      <span class="result">Flat, while the U.S. pulled ahead.</span>
+      <span class="tdelta">Since Aug: grade mixed &rarr; weak</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Below the U.S. ($45,256) and just 80% of Washington ($55,177), and it grew 4.9% in 2024 while the nation grew 6.6%, so the gap widened. Household income did top the U.S. median for the first time ($86,206 vs. about $81,400), but economists can&rsquo;t fully explain that one-year jump and suspect federal transfer payments, so it doesn&rsquo;t carry a grade on its own.</p>
+      <p class="bench">Spokane&rsquo;s income per person rose $10 in 2025. The nation&rsquo;s rose 4.2%, to $47,171. That leaves Spokane at 94% of the U.S. figure, down from 97% a year ago, and at 78 cents per Washington dollar ($56,777). Last year&rsquo;s household-income surprise also reversed: the county median fell from $86,205 back to $81,175, below the U.S. again. This page called that one-year jump provisional in August. It did not hold.</p>
       <div class="chart">
-        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="val">$44.1k</span></p>
-        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="val">$45.3k</span></p>
-        <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$55.2k</span></p>
-        <p class="note">Per-person income, 2024</p>
+        <p class="bar spk"><span class="lab">Spokane</span><span class="track"><span class="fill" style="width:78%"></span></span><span class="val">$44.1k</span></p>
+        <p class="bar"><span class="lab">U.S.</span><span class="track"><span class="fill" style="width:83%"></span></span><span class="val">$47.2k</span></p>
+        <p class="bar"><span class="lab">Washington</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">$56.8k</span></p>
+        <p class="note">Per-person income, 2025</p>
       </div>
-      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Per-person income, 2024</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$44.1k</td></tr><tr><th scope="row">U.S.</th><td>$45.3k</td></tr><tr><th scope="row">Washington</th><td>$55.2k</td></tr></tbody></table></details>
-      <p class="why">Why it matters: income per person is the harder test. Household size and government payments cannot inflate it. In November this card adds the cleanest read on employer quality: the middle wage for people working full time, all year (Census table S2001).</p>
-      <p class="src">Source: <a href="http://censusreporter.org/profiles/05000US53063-spokane-county-wa/">Census ACS 2024 via Census Reporter</a>; <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a>; <a href="https://www.spokanepublicradio.org/regional-news/2025-12-11/spokanes-median-household-income-higher-than-nations-first-time">Spokane Public Radio</a></p>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Per-person income, 2025</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Spokane</th><td>$44,117</td></tr><tr><th scope="row">U.S.</th><td>$47,171</td></tr><tr><th scope="row">Washington</th><td>$56,777</td></tr></tbody></table></details>
+      <p class="bench">One new line, promised in August: the middle wage for people working full time, all year. Spokane&rsquo;s is $63,545, level with the U.S. ($63,454). Full-time work here pays national rates. The gap above comes from how many people get full-time paychecks at all.</p>
+      <p class="why">Why it matters: income per person is the harder test. Household size cannot inflate it. Two straight years of standing still while the nation moves is what a missing employer base looks like in a bank account, and it is why this grade moved from mixed to weak.</p>
+      <p class="src">Source: <a href="https://data.census.gov/table/ACSDT1Y2025.B19301?g=050XX00US53063">Census ACS 2025 1-year, tables B19301 and B19013</a>; <a href="https://data.census.gov/table/ACSST1Y2025.S2001?g=050XX00US53063">table S2001, full-time earnings</a> (<a href="data/acs/2025/acs_2025_1yr_spokane_wa_us.csv">download the pulled figures, CSV</a>); the 2024 jump: <a href="https://www.spokesman.com/stories/2026/mar/08/spokanes-median-household-income-tops-us-for-first/">EWU Institute for Public Policy via Spokesman-Review</a></p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
@@ -1053,22 +1076,24 @@
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="City of Spokane only">City</span><span class="grade">Weak</span></span>
       <span class="measure">Are we spending locally?</span>
-      <span class="figure">+1.2%<small>taxable retail sales, Q4 2024</small></span>
-      <span class="result">Barely more than last year.</span>
+      <span class="figure">+4.1%<small>taxable retail sales, Q1 2026</small></span>
+      <span class="result">Growing again. Still trails the state.</span>
+      <span class="tdelta">Since Aug: +1.2% &rarr; +4.1%</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Taxable retail sales are what people spend in local stores and restaurants, as reported for sales tax. The newest county reading (Q2 2025) grew 2.8% against the state&rsquo;s 3.4%, and the long-run normal is 4&ndash;5%. In the latest city-level release, Spokane grew just 1.2% while its own county grew 3.1%. County sales tax receipts have grown about 1% against a two-decade average of 4%.</p>
+      <p class="bench">Taxable retail sales are what people spend in local stores and restaurants, as reported for sales tax. In the newest quarter, the city of Spokane grew 4.1% over a year earlier, its county grew 5.4%, and the state grew 5.5%. The city&rsquo;s pace is back near the long-run normal of 4&ndash;5%, but it still trails its own county. For the full year 2025, city sales grew just 0.1%.</p>
       <div class="chart">
-        <p class="bar spk"><span class="lab">City (Q4 &rsquo;24)</span><span class="track"><span class="fill" style="width:27%"></span></span><span class="val">+1.2%</span></p>
-        <p class="bar"><span class="lab">County (Q2 &rsquo;25)</span><span class="track"><span class="fill" style="width:62%"></span></span><span class="val">+2.8%</span></p>
-        <p class="bar"><span class="lab">State (Q2 &rsquo;25)</span><span class="track"><span class="fill" style="width:76%"></span></span><span class="val">+3.4%</span></p>
-        <p class="bar"><span class="lab">Long-run norm</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">4&ndash;5%</span></p>
-        <p class="note">Taxable retail sales growth, year over year, latest reading per geography</p>
+        <p class="bar spk"><span class="lab">City (Q1 &rsquo;26)</span><span class="track"><span class="fill" style="width:75%"></span></span><span class="val">+4.1%</span></p>
+        <p class="bar"><span class="lab">County (Q1 &rsquo;26)</span><span class="track"><span class="fill" style="width:98%"></span></span><span class="val">+5.4%</span></p>
+        <p class="bar"><span class="lab">State (Q1 &rsquo;26)</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">+5.5%</span></p>
+        <p class="bar"><span class="lab">Long-run norm</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="val">4&ndash;5%</span></p>
+        <p class="note">Taxable retail sales growth, Q1 2025 to Q1 2026</p>
       </div>
-      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Taxable retail sales growth, year over year, latest reading per geography</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">City (Q4 &rsquo;24)</th><td>+1.2%</td></tr><tr><th scope="row">County (Q2 &rsquo;25)</th><td>+2.8%</td></tr><tr><th scope="row">State (Q2 &rsquo;25)</th><td>+3.4%</td></tr><tr><th scope="row">Long-run norm</th><td>4&ndash;5%</td></tr></tbody></table></details>
-      <p class="why">Why it matters: this is where jobs and wages become street life. When spending growth in the city runs at a quarter of its historical pace, storefronts stay dark no matter what gets built.</p>
-      <p class="src">Source: <a href="https://www.spokanejournal.com/articles/17363-taxable-retail-sales-increase-in-spokane-county">WA Dept. of Revenue via Spokane Journal of Business</a> (Q4 2024); <a href="https://www.spokanejournal.com/articles/17796-retail-growth-off-to-slow-start-in-q2-of-2025">Q2 2025 county update</a>; <a href="https://www.thecentersquare.com/washington/article_c1ee84f2-cc88-11ef-b0d9-73220b141f39.html">The Center Square</a></p>
+      <details class="astable"><summary>Show these numbers as a table</summary><table><caption>Taxable retail sales growth, Q1 2025 to Q1 2026</caption><thead><tr><th scope="col">Series</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">City (Q1 &rsquo;26)</th><td>+4.1%</td></tr><tr><th scope="row">County (Q1 &rsquo;26)</th><td>+5.4%</td></tr><tr><th scope="row">State (Q1 &rsquo;26)</th><td>+5.5%</td></tr><tr><th scope="row">Long-run norm</th><td>4&ndash;5%</td></tr></tbody></table></details>
+      <p class="bench">One caution before celebrating. Starting October 2025, <a href="https://dor.wa.gov/taxes-rates/retail-sales-tax/services-newly-subject-retail-sales-tax">Washington extended its sales tax to more services</a>, so this year&rsquo;s growth rates are inflated a little for everyone. City, county, and state share the same tax base, so comparing them to each other stays fair. Comparing them to past years does not, until the change washes out.</p>
+      <p class="why">Why it matters: this is where jobs and wages become street life. The city&rsquo;s spending growth finally looks normal again. The test is whether it can keep pace with its own county once the tax change stops flattering the numbers.</p>
+      <p class="src">Source: <a href="https://apps.dor.wa.gov/ResearchStats/Content/QuarterlyBusinessReview/Results3.aspx?Period=2026Q1&amp;Type=naics&amp;Format=HTML">WA Dept. of Revenue, county comparison table, Q1 2026</a>; <a href="https://apps.dor.wa.gov/ResearchStats/Content/TaxableRetailSalesLocal/Report.aspx">DOR city-level query tool</a> (<a href="data/dor/2026-Q1/spokane_city_taxable_retail_sales.csv">download the city series, CSV</a>); <a href="https://www.spokanejournal.com/articles/17796-retail-growth-off-to-slow-start-in-q2-of-2025">Spokane Journal of Business on the K-shaped pattern</a></p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
@@ -1077,19 +1102,20 @@
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County plus Stevens County">Metro</span><span class="grade">Mixed</span></span>
       <span class="measure">Are shops full or empty?</span>
-      <span class="figure">5.3%<small>retail vacancy, Q2 2026</small></span>
-      <span class="result">Too many sit empty. Not improving.</span>
+      <span class="figure">4.7%<small>retail vacancy, Q3 2026</small></span>
+      <span class="result">Filling again. Best quarter in years.</span>
+      <span class="tdelta">Since Aug: 5.3% &rarr; 4.7%</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Vacancy is the share of store space sitting empty. It is flat compared to a year ago. Only about 49,000 square feet of retail is being built, far below the ten-year average. Downtown lags because daytime office workers never fully came back. Spokane Valley sits at a healthy 4 to 5%.</p>
-      <p class="why">Why it matters: developers read the same demand numbers on this page. Fill the jobs and the wages, and the storefronts follow.</p>
+      <p class="bench">Vacancy is the share of store space sitting empty. It fell to 4.7%, the biggest one-quarter drop since 2021, after the strongest quarter of space-filling in at least two years. It now sits below a year ago (5.1%) and close to the U.S. rate (4.3%). Big empty boxes found tenants: Nordstrom Rack, World Market, and Trader Joe&rsquo;s all took spaces dead chains left behind. Two cautions. Asking rents slipped, so landlords are winning on occupancy, not price. And almost nothing new is being built, about 89,000 square feet, 0.2% of the market. Downtown is the one major area still going backward. Spokane Valley is tight at 2.9%.</p>
+      <p class="why">Why it matters: developers read the same demand numbers on this page. Three straight quarters of filling is the first clear storefront improvement this page has had to report. If it holds through the holidays, the commitment at the top of this page applies.</p>
       
       <figure class="street">
     <img src="img/garland-900-block-2016.jpg" alt="The Garland Theater marquee on a sunny day, with storefronts beside it displaying large For Lease signs in their windows. The 900 block of West Garland Avenue, Spokane, photographed in 2016." loading="lazy">
-    <figcaption><b>A real block: the 900 block of West Garland Avenue, 2016.</b> The marquee Spokane loves, and For Lease signs in the windows beside it. This photo is from 2016, so it is not evidence about today&rsquo;s vacancy. The 5.3% figure above is. What the picture shows is the stake: these are the storefronts the whole chain ends at. Photo: Charles Burns, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:The_Garland_Theatre_in_Spokane,_WA.jpg">Wikimedia Commons</a>.</figcaption>
+    <figcaption><b>A real block: the 900 block of West Garland Avenue, 2016.</b> The marquee Spokane loves, and For Lease signs in the windows beside it. This photo is from 2016, so it is not evidence about today&rsquo;s vacancy. The 4.7% figure above is. What the picture shows is the stake: these are the storefronts the whole chain ends at. Photo: Charles Burns, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:The_Garland_Theatre_in_Spokane,_WA.jpg">Wikimedia Commons</a>.</figcaption>
   </figure>
-      <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q2-2026/">CoStar via ACTIV8 Real Estate, Q2 2026</a>; <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
+      <p class="src">Source: <a href="https://www.activ8re.com/spokane-retail-market-report-q3-2026/">CoStar via ACTIV8 Real Estate, Q3 2026</a> (CoStar revised Q2 to 5.0% after the August edition cited 5.3%); <a href="https://www.calibrecbi.com/cre-inspector-insights/spokane-and-spokane-valley-cre-the-productive-paradox-holds">Calibre CBI</a></p>
       
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
@@ -1099,14 +1125,15 @@
     <summary>
       <span class="tiletop"><span class="geo" tabindex="0" data-tip="Spokane County">County</span><span class="grade">Strong</span></span>
       <span class="measure">Are people moving here?</span>
-      <span class="figure">~556,000<small>county residents</small></span>
+      <span class="figure">570,600<small>county residents, April 2026</small></span>
       <span class="result">Yes. The one strong grade.</span>
+      <span class="tdelta">Since Aug: now the official state count</span>
       <span class="viewd" aria-hidden="true"><span class="vdo">View details &darr;</span><span class="vdc">Close &uarr;</span></span>
     </summary>
     <div class="body">
-      <p class="bench">Spokane grew slightly faster than both the state and the country last year, and the largest age group is 25 to 34.</p>
+      <p class="bench">Spokane County added 4,600 people in the year to April 2026, growth of 0.8% against the state&rsquo;s 0.75%. Nine in ten of the newcomers were net migration, people choosing to move here. Growth is slowing, from 6,600 added the year before. The largest age group is 25 to 34. This figure is the state&rsquo;s official April 1 estimate; the August edition used a smaller survey-based count (~556,000), so the two are not a growth story on their own.</p>
       <p class="why">Why it matters: workers are choosing Spokane before the employers do. That&rsquo;s the region&rsquo;s strongest card, and it&rsquo;s perishable. Working-age people who can&rsquo;t find higher-wage work here eventually leave to find it.</p>
-      <p class="src">Source: <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
+      <p class="src">Source: <a href="https://ofm.wa.gov/data-research/population-demographics/estimates/april-1-official/">WA Office of Financial Management, April 1, 2026 estimates</a> (<a href="data/ofm/2026/april1_population.csv">download the pulled figures, CSV</a>); <a href="https://esd.wa.gov/jobs-and-training/labor-market-information/reports-and-research/labor-market-county-profiles/spokane-county-profile">WA Employment Security Dept.</a>; <a href="https://www.spokanejournal.com/articles/17797-spokane-faces-flat-labor-growth-in-2026">ESD regional economist via Spokane Journal of Business</a></p>
       <p class="fixit"><a href="methodology.html">Method</a> &middot; <a href="https://tally.so/r/PdqAYe">Challenge this grade</a></p>
     </div>
   </details>
@@ -1129,15 +1156,15 @@
   </div>
 
   <div class="flow wide">
-    <div class="node g"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.4-3.3 2.7-5.3 5.5-5.3s5.1 2 5.5 5.3"/><circle cx="16.8" cy="9.2" r="2.4"/><path d="M15.5 14.6c2.6.1 4.4 1.8 4.9 4.4"/></svg><span class="nlab">People</span><span class="nval">556k</span><span class="nstate">growing</span></div>
+    <div class="node g"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5c.4-3.3 2.7-5.3 5.5-5.3s5.1 2 5.5 5.3"/><circle cx="16.8" cy="9.2" r="2.4"/><path d="M15.5 14.6c2.6.1 4.4 1.8 4.9 4.4"/></svg><span class="nlab">People</span><span class="nval">571k</span><span class="nstate">growing</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node r break"><span class="nbreak" aria-label="the break in the chain">the break</span><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20h17"/><path d="M6 20V8.5L11 5v15"/><path d="M14 20V10.5h4.5V20"/><path d="M8.5 9.5v.01M8.5 12.5v.01M8.5 15.5v.01"/></svg><span class="nlab">Employers</span><span class="nval">&minus;2,900</span><span class="nstate">jobs lost</span></div>
+    <div class="node r break"><span class="nbreak" aria-label="the break in the chain">the break</span><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20h17"/><path d="M6 20V8.5L11 5v15"/><path d="M14 20V10.5h4.5V20"/><path d="M8.5 9.5v.01M8.5 12.5v.01M8.5 15.5v.01"/></svg><span class="nlab">Employers</span><span class="nval">&minus;1,400</span><span class="nstate">jobs lost</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
     <div class="node y"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7.5" width="17" height="10" rx="1.6"/><circle cx="12" cy="12.5" r="2.4"/><path d="M6.5 10.5v.01M17.5 14.5v.01"/></svg><span class="nlab">Paychecks</span><span class="nval">$32.96</span><span class="nstate">near U.S.</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node r"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9h11l-1.1 10.5h-8.8L6.5 9z"/><path d="M9.5 9V7.2a2.5 2.5 0 0 1 5 0V9"/></svg><span class="nlab">Spending</span><span class="nval">+1.2%</span><span class="nstate">below normal</span></div>
+    <div class="node r"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9h11l-1.1 10.5h-8.8L6.5 9z"/><path d="M9.5 9V7.2a2.5 2.5 0 0 1 5 0V9"/></svg><span class="nlab">Spending</span><span class="nval">+4.1%</span><span class="nstate">trails the state</span></div>
     <span class="farrow" aria-hidden="true">&rarr;</span>
-    <div class="node y"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5 6.4 5h11.2L19 9.5"/><path d="M5.5 9.5V19h13V9.5"/><path d="M10.5 19v-5h3v5"/><path d="M4.5 9.5h15"/></svg><span class="nlab">Storefronts</span><span class="nval">5.3%</span><span class="nstate">vacant, flat</span></div>
+    <div class="node y"><svg class="nico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9.5 6.4 5h11.2L19 9.5"/><path d="M5.5 9.5V19h13V9.5"/><path d="M10.5 19v-5h3v5"/><path d="M4.5 9.5h15"/></svg><span class="nlab">Storefronts</span><span class="nval">4.7%</span><span class="nstate">vacant, filling</span></div>
   </div>
 
   
@@ -1159,7 +1186,7 @@
     
 
       <p>If you live here, you&rsquo;ve seen the puzzle pieces without the box top. Ground-floor spaces sit empty on Monroe while apartments rise around them. New commercial construction has slowed to a trickle. Help-wanted signs everywhere, yet the higher-wage jobs always seem to be somewhere else.</p>
-      <p>None of it is random. Storefronts stay dark because spending in the city is growing at a quarter of its normal pace. Spending lags because the region shed jobs this year, and the jobs it is creating cluster in one sector. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight measures above are that story, counted. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
+      <p>None of it is random. City spending trails the county&rsquo;s because the region shed jobs this year, and the jobs it is creating cluster in one sector. Storefronts are finally filling, but into cheap rents, which is what recovery looks like before it pays. And when wage-raising employers are scarce, talented people commute, take remote jobs with out-of-town firms, or leave for cities that have them. The eight measures above are that story, counted. The <a href="calculator.html">employer calculator</a> lets you test the way out for yourself.</p>
     
     </div>
   </details>
@@ -1428,7 +1455,7 @@
   <span id="goals"></span>
   <p class="eyebrow">Part 4 &middot; Who moves what</p>
   <h2 class="sect">Spokane already set targets. Who moves them?</h2>
-  <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign set these five-year goals when it <a href="https://greaterspokane.org/economic-development/believe-spokane-campaign-launches/">launched in March 2023</a>. The clock runs through 2028, with about a year and a half left.</p>
+  <p class="lede">Greater Spokane Inc.&rsquo;s <a href="https://greaterspokane.org/partnership/believe-spokane/">Believe Spokane</a> campaign set these five-year goals when it <a href="https://greaterspokane.org/economic-development/believe-spokane-campaign-launches/">launched in March 2023</a>. The clock runs through March 2028, about 16 months from now.</p>
 
   <div class="goals wide">
     <div class="goal"><span class="gnum">5,000</span><span class="glab">new jobs</span></div>
@@ -1724,7 +1751,7 @@
     <div class="tp hi"><span class="tpn">4.1%</span><span class="tpl">paid by the wealthiest 1%, households earning over $848,400</span></div>
   </div>
 
-  <p class="prose" style="max-width:42em;margin-top:20px;">Now set that next to the Incomes measure above. Spokane earns about <b>80 cents for every dollar of income in Washington</b>. The tax structure here is the same one they have in Bellevue. The paychecks are not.</p>
+  <p class="prose" style="max-width:42em;margin-top:20px;">Now set that next to the Incomes measure above. Spokane earns about <b>78 cents for every dollar of income in Washington</b>. The tax structure here is the same one they have in Bellevue. The paychecks are not.</p>
   <p class="flowsum" style="margin-top:16px;">So when a Spokane voter says taxes and this page says wages, both are pointing at the same squeeze from opposite ends. You can loosen it by lowering what people pay, or by raising what they earn. This page is about the second one, because it is the one that compounds.</p>
 
   <details class="more">
@@ -1742,7 +1769,7 @@
 
   <details class="more">
     <summary>Isn&rsquo;t unemployment low? That sounds like good news.</summary>
-    <div class="inner prose"><p>It is low, 3.8% in June 2026, and it stays on the board. But the rate only counts people actively looking, and Spokane&rsquo;s labor force participation lags the national rate. A low rate over a shrinking pool is a mixed signal, not a green one. The full picture is in <a href="#scorecard">the unemployment measure</a>.</p></div>
+    <div class="inner prose"><p>It is low, 3.2% in September 2026. But the rate only counts people actively looking, and Spokane&rsquo;s labor force shrank by about 3,200 people over the year. A low rate over a shrinking pool is a mixed signal, not a green one. That is why this edition replaced the unemployment card with a harder question: what share of working-age adults actually hold a job. The full picture is in <a href="#workingage">that measure</a>.</p></div>
   </details>
   <details class="more">
     <summary>Isn&rsquo;t health care growth good?</summary>
@@ -1795,9 +1822,9 @@
 <!-- ============ 11 THE NEXT TEST ============ -->
 <section id="november" class="band-dark">
   <p class="eyebrow">The next test</p>
-  <h2 class="sect">November is the next test</h2>
-  <p class="lede">All eight measures get re-graded in November 2026, from the fall releases: fresh jobs and unemployment numbers, new retail spending and vacancy figures, and the Census Bureau&rsquo;s new income estimates.</p>
-  <p class="prose" style="max-width:42em;">The bar is already set, in public. One weak measure turning strong, or two turning mixed, moves the region to the middle. <a href="methodology.html#overall">How the call works</a>. And when a grade improves, it gets said at the top of this page, in green, with credit to whoever moved it.</p>
+  <h2 class="sect">February is the next test</h2>
+  <p class="lede">All eight measures get re-graded in February 2027. That edition reads the winter releases: December jobs, holiday-season storefront vacancy, and a new spending quarter. It also gets the first federal county income figures for 2025.</p>
+  <p class="prose" style="max-width:42em;">The bar is already set, in public, and this edition pinned it to numbers: the grading thresholds are now <a href="methodology.html#thresholds">written down in the methodology</a> before the next reading. Three weak measures turning mixed, or one turning strong and another turning mixed, moves the region to the middle. And when a grade improves, it gets said at the top of this page, in green, with credit to whoever moved it. Storefronts are the one to watch.</p>
   <div class="ctas">
     <a class="btn solid" href="https://tally.so/r/2E6e8g">Get the quarterly update</a>
     <a class="btn" href="archive/">See past editions</a>
@@ -1806,7 +1833,7 @@
 
 <footer>
   <p><a href="https://tally.so/r/2E6e8g">Get the quarterly update</a>, or offer help through the same form: intros to employers, data, corrections. Takes 30 seconds, never shared.</p>
-  <p>Maintained by one private citizen in central Spokane, on personal time and at their own expense, published without a byline. <a href="who.html">Who made this, why there is no name on it, what might bias it, and how to correct it</a>. Not affiliated with, funded by, or run past the City of Spokane, and not connected to any advocacy group. All figures are from public sources linked above and reflect the most recent releases as of August 2026.</p>
+  <p>Maintained by one private citizen in central Spokane, on personal time and at their own expense, published without a byline. <a href="who.html">Who made this, why there is no name on it, what might bias it, and how to correct it</a>. Not affiliated with, funded by, or run past the City of Spokane, and not connected to any advocacy group. All figures are from public sources linked above and reflect the most recent releases as of November 2026.</p>
   <p>Spotted an error, a stale source, or a grade that doesn&rsquo;t follow the rubric? <a href="https://tally.so/r/PdqAYe">Send a correction</a>. No name or email required, and every correction gets posted in the change log.</p>
   <p>Plain answers, every number sourced: <a href="living-in-spokane.html">Is Spokane a good place to live</a> &middot; <a href="wages-in-spokane.html">The minimum wage and what jobs pay</a> &middot; <a href="employers-in-spokane.html">Who employs Spokane</a>.</p>
 </footer>

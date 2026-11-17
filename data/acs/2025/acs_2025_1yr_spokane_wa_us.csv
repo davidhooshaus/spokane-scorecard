@@ -1,0 +1,9 @@
+measure,acs_variable,spokane_county,washington,united_states
+per_capita_income_usd,B19301_001E,44117,56777,47171
+median_household_income_usd,B19013_001E,81175,101946,84780
+median_home_value_usd,B25077_001E,444200,605600,371100
+poverty_rate_pct,S1701_C03_001E,12.5,10.3,11.8
+median_earnings_all_workers_usd,S2001_C01_002E,48121,58392,49040
+median_earnings_fulltime_yearround_usd,S2001_C01_013E,63545,77911,63454
+employment_population_ratio_20_64_pct,S2301_C03_021E,75.9,76.0,76.0
+labor_force_participation_20_64_pct,S2301_C02_021E,80.4,81.2,80.2
