@@ -57,6 +57,16 @@ QCEW jobs line with no axes or numbers; the sourced version lives in the Job
 growth card. If the script exits saying the data left its fixed range, widen
 VMIN/VMAX in the script and rerun.
 
+Then refresh the six per-card trend figures (added v5.2): extend the series
+CSVs first, each README documents its pull (data/acs/series from the new ACS
+year, data/qcew/us_annual.csv from the QCEW US000 file, data/dor/series from
+the DOR tool's Annual rows, data/ofm/history when OFM publishes, and the
+storefronts five-quarter table from the newest ACTIV8 report, one vintage
+only). Run `python3 tools/make_card_charts.py` and replace each card's
+figure block in index.html with the regenerated one. Keep each chart's
+y-range sensible if a value walks out of it, and keep the no-2020-survey
+gap in the ACS charts.
+
 ## 2b. Sync the answer pages
 living-in-spokane.html, wages-in-spokane.html and employers-in-spokane.html
 repeat card figures (wages, incomes, jobs, unemployment, sector mix) plus ACS
